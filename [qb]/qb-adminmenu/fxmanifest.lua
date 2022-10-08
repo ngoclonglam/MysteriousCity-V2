@@ -12,6 +12,8 @@ shared_scripts {
     'locales/*.lua'
 }
 
+-- test shit
+
 client_scripts {
     '@menuv/menuv.lua',
     'client/noclip.lua',

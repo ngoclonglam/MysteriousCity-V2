@@ -1,2 +1,2 @@
 # MysteriousV2
- FiveM Server Mysterious City
+FiveM Server Mysterious City
