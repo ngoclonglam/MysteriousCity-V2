@@ -9,11 +9,11 @@ local POIOffsets = nil
 local usingAdvanced = false
 local requiredItemsShowed = false
 local requiredItems = {}
-local CurrentCops = 0
 local openingDoor = false
 local SucceededAttempts = 0
 local NeededAttempts = 4
 
+CurrentCops = 0
 -- Functions
 
 local function DrawText3Ds(x, y, z, text)
@@ -87,15 +87,16 @@ local function PoliceCall()
         chance = 25
     end
     if math.random(1, 100) <= chance then
-        TriggerServerEvent('police:server:policeAlert', 'Attempted House Robbery')
+        SendAlert('Attempted House Robbery')
     end
 end
 
 local function lockpickFinish(success)
     if success then
         TriggerServerEvent('qb-houserobbery:server:enterHouse', closestHouse)
-        QBCore.Functions.Notify(Lang:t("success.worked"), "success", 2500)
+        SendNotification(Lang:t("success.worked"), "success", 2500)
     else
+        -- MystRPCity: remove screwdriverkit if success
         if usingAdvanced then
             if math.random(1, 100) < 20 then
                 TriggerServerEvent("qb-houserobbery:server:removeAdvancedLockpick")
@@ -106,9 +107,14 @@ local function lockpickFinish(success)
                 TriggerServerEvent("qb-houserobbery:server:removeLockpick")
                 TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items["lockpick"], "remove")
             end
+            if math.random(1, 100) < 30 then
+                TriggerServerEvent("QBCore:Server:RemoveItem", "screwdriverset", 1)
+                TriggerEvent('inventory:client:ItemBox', QBCore.Shared.Items["screwdriverset"], "remove")
+            end
         end
 
-        QBCore.Functions.Notify(Lang:t("error.didnt_work"), "error", 2500)
+
+        SendNotification(Lang:t("error.didnt_work"), "error", 2500)
     end
 end
 
@@ -182,7 +188,7 @@ local function searchCabin(cabin)
         openingDoor = false
         ClearPedTasks(PlayerPedId())
         TriggerServerEvent('qb-houserobbery:server:SetBusyState', cabin, currentHouse, false)
-        QBCore.Functions.Notify(Lang:t("error.process_cancelled"), "error", 3500)
+        SendNotification(Lang:t("error.process_cancelled"), "error", 3500)
         SucceededAttempts = 0
         FreezeEntityPosition(ped, false)
         SetTimeout(500, function()
@@ -197,10 +203,13 @@ RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
     QBCore.Functions.TriggerCallback('qb-houserobbery:server:GetHouseConfig', function(HouseConfig)
         Config.Houses = HouseConfig
     end)
+    -- addon feautre: Update house robbery job points of player
+    UpdateJobPoints()
 end)
 
 RegisterNetEvent('qb-houserobbery:client:ResetHouseState', function(house)
     Config.Houses[house]["opened"] = false
+    Config.Houses[house]["assigned"] = false
     for _, v in pairs(Config.Houses[house]["furniture"]) do
         v["searched"] = false
     end
@@ -211,6 +220,7 @@ RegisterNetEvent('police:SetCopCount', function(amount)
 end)
 
 RegisterNetEvent('qb-houserobbery:client:enterHouse', function(house)
+    RemoveLocation()
     enterRobberyHouse(house)
 end)
 
@@ -228,12 +238,13 @@ end)
 
 RegisterNetEvent('lockpicks:UseLockpick', function(isAdvanced)
     local hours = GetClockHours()
-    if hours >= Config.MinimumTime or hours <= Config.MaximumTime then
+    if hours <= Config.MinimumTime or hours >= Config.MaximumTime then
         usingAdvanced = isAdvanced
         if usingAdvanced then
             if closestHouse ~= nil then
                 if CurrentCops >= Config.MinimumHouseRobberyPolice then
                     if not Config.Houses[closestHouse]["opened"] then
+                        if not IsHouseAssigned(closestHouse) then return end
                         PoliceCall()
                         TriggerEvent('qb-lockpick:client:openLockpick', lockpickFinish)
                         if math.random(1, 100) <= 85 and not IsWearingHandshoes() then
@@ -241,10 +252,10 @@ RegisterNetEvent('lockpicks:UseLockpick', function(isAdvanced)
                             TriggerServerEvent("evidence:server:CreateFingerDrop", pos)
                         end
                     else
-                        QBCore.Functions.Notify(Lang:t("error.door_open"), "error", 3500)
+                        SendNotification(Lang:t("error.door_open"), "error", 3500)
                     end
                 else
-                    QBCore.Functions.Notify(Lang:t("error.not_enough_police"), "error", 3500)
+                    SendNotification(Lang:t("error.not_enough_police"), "error", 3500)
                 end
             end
         else
@@ -253,6 +264,7 @@ RegisterNetEvent('lockpicks:UseLockpick', function(isAdvanced)
                     if result then
                         if CurrentCops >= Config.MinimumHouseRobberyPolice then
                             if not Config.Houses[closestHouse]["opened"] then
+                                if not IsHouseAssigned(closestHouse) then return end
                                 PoliceCall()
                                 TriggerEvent('qb-lockpick:client:openLockpick', lockpickFinish)
                                 if math.random(1, 100) <= 85 and not IsWearingHandshoes() then
@@ -260,13 +272,13 @@ RegisterNetEvent('lockpicks:UseLockpick', function(isAdvanced)
                                     TriggerServerEvent("evidence:server:CreateFingerDrop", pos)
                                 end
                             else
-                                QBCore.Functions.Notify(Lang:t("error.door_open"), "error", 3500)
+                                SendNotification(Lang:t("error.door_open"), "error", 3500)
                             end
                         else
-                            QBCore.Functions.Notify(Lang:t("error.not_enough_police"), "error", 3500)
+                            SendNotification(Lang:t("error.not_enough_police"), "error", 3500)
                         end
                     else
-                        QBCore.Functions.Notify(Lang:t("error.missing_something"), "error", 3500)
+                        SendNotification(Lang:t("error.missing_something"), "error", 3500)
                     end
                 end
             end, "screwdriverset")
@@ -289,7 +301,7 @@ CreateThread(function()
         closestHouse = nil
         if QBCore ~= nil then
             local hours = GetClockHours()
-            if hours >= Config.MinimumTime or hours <= Config.MaximumTime then
+            if hours <= Config.MinimumTime or hours >= Config.MaximumTime then
                 if not inside then
                     for k, _ in pairs(Config.Houses) do
                         local dist = #(PlayerPos - vector3(Config.Houses[k]["coords"]["x"], Config.Houses[k]["coords"]["y"], Config.Houses[k]["coords"]["z"]))

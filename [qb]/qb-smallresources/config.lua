@@ -3,8 +3,8 @@ Config.MaxWidth = 5.0
 Config.MaxHeight = 5.0
 Config.MaxLength = 5.0
 Config.DamageNeeded = 100.0
-Config.IdleCamera = true
-Config.EnableProne = true
+Config.IdleCamera = false
+Config.EnableProne = false
 Config.JointEffectTime = 60
 Config.RemoveWeaponDrops = true
 Config.RemoveWeaponDropsTimer = 25
@@ -13,17 +13,17 @@ Config.DirtLevel = 0.1 -- Threshold for the dirt level to be counted as dirty
 Config.DisableAmbience = false -- Disabled distance sirens, distance car alarms, etc
 
 Config.Disable = {
-    disableHudComponents = {1, 2, 3, 4, 7, 9, 13, 14, 19, 20, 21, 22}, -- Hud Components: https://docs.fivem.net/natives/?_0x6806C51AD12B83B8
+    disableHudComponents = {1, 2, 3, 4, 7, 9, 13, 19, 20, 21, 22}, -- Hud Components: https://docs.fivem.net/natives/?_0x6806C51AD12B83B8
     disableControls = {37}, -- Controls: https://docs.fivem.net/docs/game-references/controls/
     displayAmmo = true -- false disables ammo display
 }
 
 Config.Density = {
-    ['parked'] = 0.8,
-    ['vehicle'] = 0.8,
-    ['multiplier'] = 0.8,
-    ['peds'] = 0.8,
-    ['scenario'] = 0.8,
+    ['parked'] = 0,
+    ['vehicle'] = 0.01,
+    ['multiplier'] = 0.01,
+    ['peds'] = 0.01,
+    ['scenario'] = 0.01,
 }
 
 ConsumablesEat = {
@@ -115,15 +115,19 @@ Config.BlacklistedVehs = {
     [`rrocket`] = true,
     [`ruiner2`] = true,
     [`deluxo`] = true,
+    [`policeb`] = true,
+    [`frogger`] = true,
 }
 
 Config.BlacklistedPeds = {
     [`s_m_y_ranger_01`] = true,
     [`s_m_y_sheriff_01`] = true,
-    [`s_m_y_cop_01`] = true,
+    -- [`s_m_y_cop_01`] = true,
     [`s_f_y_sheriff_01`] = true,
-    [`s_f_y_cop_01`] = true,
+    -- [`s_f_y_cop_01`] = true,
     [`s_m_y_hwaycop_01`] = true,
+    [`s_m_y_blackops_01`] = true,
+    [`s_m_y_blackops_02`] = true,
 }
 
 Config.Teleports = {
@@ -132,7 +136,7 @@ Config.Teleports = {
         [1] = {
             coords = vector4(3540.74, 3675.59, 20.99, 167.5),
             ["AllowVehicle"] = false,
-            drawText = '[E] Take Elevator Up'
+            drawText = '[E] Lên thang máy'
         },
         [2] = {
             coords = vector4(3540.74, 3675.59, 28.11, 172.5),

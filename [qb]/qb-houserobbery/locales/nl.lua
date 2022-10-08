@@ -11,11 +11,6 @@ local Translations = {
         ["worked"] = "Het is gelukt!",
     }
 }
-
-if GetConvar('qb_locale', 'en') == 'nl' then
-    Lang = Locale:new({
-        phrases = Translations,
-        warnOnMissing = true,
-        fallbackLang = Lang,
-    })
-end
+Lang = Locale:new({
+phrases = Translations,
+warnOnMissing = true})

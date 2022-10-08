@@ -186,14 +186,20 @@ RegisterNetEvent('consumables:client:DrinkAlcohol', function(itemName)
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
         TriggerServerEvent("consumables:server:drinkAlcohol", itemName)
         TriggerServerEvent("consumables:server:addThirst", QBCore.Functions.GetPlayerData().metadata["thirst"] + ConsumablesAlcohol[itemName])
-        TriggerServerEvent('hud:server:RelieveStress', math.random(2, 4))
+        TriggerServerEvent('hud:server:RelieveStress', math.random(50, 70))
         alcoholCount += 1
+
         if alcoholCount > 1 and alcoholCount < 4 then
             TriggerEvent("evidence:client:SetStatus", "alcohol", 200)
         elseif alcoholCount >= 4 then
             TriggerEvent("evidence:client:SetStatus", "heavyalcohol", 200)
         end
 
+        if itemName == "whiskey" then
+            HeavyDrunkEffect()
+        elseif itemName == "beer" then
+            LightDrunkEffect()
+        end
     end, function() -- Cancel
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
         QBCore.Functions.Notify("Cancelled..", "error")
@@ -326,7 +332,10 @@ RegisterNetEvent('consumables:client:UseJoint', function()
             TriggerEvent('animations:client:EmoteCommandStart', {"smokeweed"})
         end
         TriggerEvent("evidence:client:SetStatus", "weedsmell", 300)
+        TriggerServerEvent('hud:server:RelieveStress', 100)
         TriggerEvent('animations:client:SmokeWeed')
+        Wait(3000)
+        CrackBaggyEffect()
     end)
 end)
 
@@ -440,6 +449,102 @@ RegisterNetEvent('consumables:client:ResetArmor', function()
         QBCore.Functions.Notify("You\'re not wearing a vest..", "error")
     end
 end)
+
+-- Drunk Effects
+local function RequestWalking(set)
+    RequestAnimSet(set)
+    while not HasAnimSetLoaded(set) do
+       Wait(1)
+    end
+end
+
+local function WalkMenuStart(name)
+    RequestWalking(name)
+    SetPedMovementClipset(PlayerPedId(), name, 0.5)
+    RemoveAnimSet(name)
+end
+
+function LightDrunkEffect()
+    local player = PlayerPedId()
+    Wait(3000)
+    DoScreenFadeOut(1000)
+    Wait(1000)
+    SetTimecycleModifier('spectator5')
+    SetPedMotionBlur(player, true)
+    WalkMenuStart("move_m@drunk@slightlydrunk")
+    -- SetPedMovementClipset(player, 'move_m@drunk@slightlydrunk', 1)
+    SetPedIsDrunk(player, true)
+    SetPedAccuracy(player, 0)
+    DoScreenFadeIn(1000)
+    if IsPedRunning(player) then
+        SetPedToRagdoll(player, math.random(1000, 2000), math.random(1000, 2000), 3, 0, 0, 0)
+    end
+    Wait(2000)
+    if (60 >= math.random(1,100)) and IsPedRunning(player) then
+        SetPedToRagdollWithFall(player, 2500, 4000, 1, GetEntityForwardVector(player), 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+    end
+    Wait(60000 * 10) -- 5 mins
+    if IsPedRunning(player) then
+        SetPedToRagdoll(player, math.random(1000, 2000), math.random(1000, 2000), 3, 0, 0, 0)
+    end
+    Wait(2000)
+    if (30 >= math.random(1,100)) and IsPedRunning(player) then
+        SetPedToRagdollWithFall(player, 1500, 3000, 1, GetEntityForwardVector(player), 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+    end
+    DoScreenFadeOut(1000)
+    Wait(1000)
+    DoScreenFadeIn(1000)
+    ClearTimecycleModifier()
+    ResetScenarioTypesEnabled()
+    ResetPedMovementClipset(player, 0)
+    SetPedIsDrunk(player, false)
+    SetPedMotionBlur(player, false)
+end
+
+function HeavyDrunkEffect()
+    local ped = PlayerPedId()
+    if IsPedWalking(ped) or IsPedRunning(ped) then
+        SetPedToRagdollWithFall(ped, 2500, 4000, 1, GetEntityForwardVector(ped), 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+    end
+    Wait(5000)
+    DoScreenFadeOut(1500)
+    SetFlash(0, 0, 500, 7000, 500)
+    ShakeGameplayCam('LARGE_EXPLOSION_SHAKE', 1.00)
+    Wait(2000)
+    SetTimecycleModifier('spectator5')
+    SetPedMotionBlur(ped, true)
+    WalkMenuStart("move_m@drunk@verydrunk")
+    -- SetPedMovementClipset(ped, 'move_m@drunk@verydrunk', 1)
+    SetPedIsDrunk(ped, true)
+    SetPedAccuracy(ped, 0)
+    SetFlash(0, 0, 500, 7000, 500)
+    ShakeGameplayCam('DRUNK_SHAKE', 1.10)
+    Wait(2000)
+    DoScreenFadeIn(1800)
+    if IsPedWalking(ped) or IsPedRunning(ped) then
+        SetPedToRagdollWithFall(ped, 2500, 4000, 1, GetEntityForwardVector(ped), 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+    end
+    SetFlash(0, 0, 500, 7000, 500)
+    ShakeGameplayCam('SMALL_EXPLOSION_SHAKE', 1.20)
+    Wait(2000)
+    Wait(60000 * 15) -- 10 mins
+    DoScreenFadeOut(1400)
+    SetFlash(0, 0, 500, 7000, 500)
+    ShakeGameplayCam('DRUNK_SHAKE', 1.10)
+    Wait(2000)
+    DoScreenFadeIn(1200)
+    if IsPedWalking(ped) or IsPedRunning(ped) then
+        SetPedToRagdollWithFall(ped, 2500, 4000, 1, GetEntityForwardVector(ped), 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+    end
+    SetFlash(0, 0, 500, 7000, 500)
+    ShakeGameplayCam('SMALL_EXPLOSION_SHAKE', 1.05)
+    Wait(1000)
+    ClearTimecycleModifier()
+    ResetScenarioTypesEnabled()
+    ResetPedMovementClipset(ped, 0)
+    SetPedIsDrunk(ped, false)
+    SetPedMotionBlur(ped, false)
+end
 
 -- RegisterNetEvent('consumables:client:UseRedSmoke', function()
 --     if ParachuteEquiped then

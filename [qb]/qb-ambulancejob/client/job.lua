@@ -407,6 +407,46 @@ RegisterNetEvent('qb-ambulancejob:elevator_main', function()
     end
 end)
 
+RegisterNetEvent('qb-ambulancejob:elevator_garage', function()
+    local ped = PlayerPedId()
+    for k, _ in pairs(Config.Locations["garage"])do
+        DoScreenFadeOut(500)
+        while not IsScreenFadedOut() do
+            Wait(10)
+        end
+
+        currentHospital = k
+
+        local coords = Config.Locations["down"][currentHospital]
+        SetEntityCoords(ped, coords.x, coords.y, coords.z, 0, 0, 0, false)
+        SetEntityHeading(ped, coords.w)
+
+        Wait(100)
+
+        DoScreenFadeIn(1000)
+    end
+end)
+
+RegisterNetEvent('qb-ambulancejob:elevator_down', function()
+    local ped = PlayerPedId()
+    for k, _ in pairs(Config.Locations["down"])do
+        DoScreenFadeOut(500)
+        while not IsScreenFadedOut() do
+            Wait(10)
+        end
+
+        currentHospital = k
+
+        local coords = Config.Locations["garage"][currentHospital]
+        SetEntityCoords(ped, coords.x, coords.y, coords.z, 0, 0, 0, false)
+        SetEntityHeading(ped, coords.w)
+
+        Wait(100)
+
+        DoScreenFadeIn(1000)
+    end
+end)
+
 RegisterNetEvent('EMSToggle:Duty', function()
     onDuty = not onDuty
     TriggerServerEvent("QBCore:ToggleDuty")
@@ -529,7 +569,7 @@ if Config.UseTarget then
                         type = "client",
                         event = "qb-ambulancejob:elevator_roof",
                         icon = "fas fa-hand-point-up",
-                        label = "Take Elevator",
+                        label = "Vào Thang Máy",
                         job = "ambulance"
                     },
                 },
@@ -549,7 +589,47 @@ if Config.UseTarget then
                         type = "client",
                         event = "qb-ambulancejob:elevator_main",
                         icon = "fas fa-hand-point-up",
-                        label = "Take Elevator",
+                        label = "Vào Thang Máy",
+                        job = "ambulance"
+                    },
+                },
+                distance = 8
+            })
+        end
+        for k, v in pairs(Config.Locations["garage"]) do
+            exports['qb-target']:AddBoxZone("garage"..k, vector3(v.x, v.y, v.z), 2, 2, {
+                name = "garage"..k,
+                debugPoly = false,
+                heading = -20,
+                minZ = v.z - 2,
+                maxZ = v.z + 2,
+            }, {
+                options = {
+                    {
+                        type = "client",
+                        event = "qb-ambulancejob:elevator_garage",
+                        icon = "fas fa-hand-point-up",
+                        label = "Vào Thang Máy",
+                        job = "ambulance"
+                    },
+                },
+                distance = 8
+            })
+        end
+        for k, v in pairs(Config.Locations["down"]) do
+            exports['qb-target']:AddBoxZone("down"..k, vector3(v.x, v.y, v.z), 2, 2, {
+                name = "down"..k,
+                debugPoly = false,
+                heading = -20,
+                minZ = v.z - 2,
+                maxZ = v.z + 2,
+            }, {
+                options = {
+                    {
+                        type = "client",
+                        event = "qb-ambulancejob:elevator_down",
+                        icon = "fas fa-hand-point-up",
+                        label = "Vào Thang Máy",
                         job = "ambulance"
                     },
                 },

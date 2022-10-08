@@ -7,6 +7,7 @@ local function ResetHouseStateTimer(house)
     local time = tonumber(num)
     SetTimeout(time, function()
         Config.Houses[house]["opened"] = false
+        Config.Houses[house]["assigned"] = false
         for _, v in pairs(Config.Houses[house]["furniture"]) do
             v["searched"] = false
         end
@@ -103,6 +104,9 @@ RegisterNetEvent('qb-houserobbery:server:searchCabin', function(cabin, house)
 
     Config.Houses[house]["furniture"][cabin]["searched"] = true
     TriggerClientEvent('qb-houserobbery:client:setCabinState', -1, house, cabin, true)
+    -- addon feature: set points for house robbery job that determin skill level/title of player
+    SetJobPoints(src, 1, "add")
+    TriggerClientEvent('qb-houserobbery:client:JobPointsUpdated', src)
 end)
 
 RegisterNetEvent('qb-houserobbery:server:removeAdvancedLockpick', function()

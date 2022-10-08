@@ -156,7 +156,7 @@ end)
 
 RegisterNetEvent('police:client:deleteObject', function()
     local objectId, dist = GetClosestPoliceObject()
-    if dist < 5.0 then
+    if dist and objectId and dist < 5.0 then
         QBCore.Functions.Progressbar("remove_object", Lang:t('progressbar.remove_object'), 2500, false, true, {
             disableMovement = true,
             disableCarMovement = true,
@@ -176,7 +176,14 @@ RegisterNetEvent('police:client:deleteObject', function()
     end
 end)
 
+RegisterCommand('xoa', function()
+    TriggerEvent('police:client:deleteObject')
+end)
+
+RegisterKeyMapping('xoa', 'Xóa object cho cảnh sát', 'keyboard', 'E')
+
 RegisterNetEvent('police:client:removeObject', function(objectId)
+    if not objectId then return end
     NetworkRequestControlOfEntity(ObjectList[objectId].object)
     DeleteObject(ObjectList[objectId].object)
     ObjectList[objectId] = nil

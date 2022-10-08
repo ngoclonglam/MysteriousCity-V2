@@ -1,23 +1,59 @@
 Config = {}
 
+Config.Debug = false
+
+Config.EnableAddOnNotifer = true
+Config.EnableAddOnAlert = true
 Config.MinZOffset = 45
 
 Config.MinimumHouseRobberyPolice = 2
 
 Config.MinimumTime = 5
-Config.MaximumTime = 22
+Config.MaximumTime = 20
+
+Config.MaxAvailableJobs = 2
+
+Config.SkillMetadata = "houserobberypoints"
+
+Config.JobState = {
+    Ready = 0,
+    Queued = 1,
+    Assigned = 2,
+    InProgress = 3,
+    Success = 4,
+    Failed = 5,
+}
+
+Config.Boss = {
+    ["request"] = {
+        ["model"] = `csb_ballasog`, -- Model name as a hash.
+        ["coords"] = vector4(412.57, 2965.25, 41.89, 41.51), -- Hawick Ave (X, Y, Z, Heading)
+        ["gender"] = 'male', -- The gender of the ped, used for the CreatePed native.
+        ["animDict"] = "anim@amb@nightclub@peds@",
+        ["animName"] = "rcmme_amanda1_stand_loop_cop"
+    }
+}
+
+Config.SkillLevels = {
+    { title = "Nghiệp dư", pts = 700 },
+    { title = "Bán chuyên", pts = 1400 },
+    { title = "Bờ rào", pts = 2100 },
+    { title = "Đụng là mất", pts = 2800 },
+    { title = "Lau sạch banh", pts = 3500 }
+}
 
 Config.Rewards = {
     [1] = {
-        ["cabin"] = {"plastic", "diamond_ring", "goldchain", "weed_skunk", "thermite", "cryptostick", "weapon_golfclub"},
-        ["kitchen"] = {"tosti", "sandwich", "goldchain"},
-        ["chest"] = {"plastic", "rolex", "diamond_ring", "goldchain", "weed_skunk", "thermite", "cryptostick", "weapon_combatpistol"},
-        ["livingroom"] = {"plastic", "rolex", "diamond_ring", "goldchain", "thermite", "cryptostick", "tablet", "pistol_ammo"}
+        ["cabin"] = {"plastic", "diamond", "emerald", "diamond_ring", "goldchain", "weed_skunk", "thermite", "cryptostick", --[[ "weapon_golfclub" ]]},
+        ["kitchen"] = {"tosti", "diamond", "emerald", "sandwich", "goldchain"},
+        ["chest"] = {"plastic", "diamond","emerald", "rolex", "diamond_ring", "goldchain", "weed_skunk", "thermite", "cryptostick", --[[ "weapon_combatpistol" ]]},
+        ["livingroom"] = {"plastic", "diamond","emerald", "rolex", "diamond_ring", "goldchain", "thermite", "cryptostick", "tablet", --[[ "pistol_ammo" ]]}
     }
 }
 
 Config.Houses = {
-    ["perfectdrive1"] = {
+    -- Tier 3
+--[[    ["perfectdrive1"] = {
         ["coords"] = {
             ["x"] = -784.72,
             ["y"] = 459.77,
@@ -2066,7 +2102,9 @@ Config.Houses = {
                 ["text"] = "Search through shelves"
             },
         }
-    },
+    }, ]]
+
+    -- Tier 1
     ["jamestown1"] = {
         ["coords"] = {
             ["x"] = 385.18,
@@ -3215,7 +3253,9 @@ Config.Houses = {
             },
         }
     },
-    ["prosperity1"] = {
+
+    -- Tier 2
+--[[    ["prosperity1"] = {
         ["coords"] = {
             ["x"] = -1076.33,
             ["y"] = -1026.96,
@@ -4034,13 +4074,15 @@ Config.Houses = {
                 ["text"] = "Search through shelves"
             },
         }
-    },
+    }, ]]
+
+    -- Tier 1
     ["grapeseed1"] = {
         ["coords"] = {
-            ["x"] = 1662.07,
-            ["y"] = 4776.19,
-            ["z"] = 42.07,
-            ["h"] = 92.92
+            ["x"] = -715.16,
+            ["y"] = -996.59,
+            ["z"] = 18.33,
+            ["h"] = 298.82
         },
         ["opened"] = false,
         ["tier"] = 1,
@@ -4119,10 +4161,10 @@ Config.Houses = {
     },
     ["grapeseed2"] = {
         ["coords"] = {
-            ["x"] = 1664.04,
-            ["y"] = 4739.68,
-            ["z"] = 42.01,
-            ["h"] = 111.19
+            ["x"] = -741.65,
+            ["y"] = -982.33,
+            ["z"] = 17.44,
+            ["h"] = 202.78
         },
         ["opened"] = false,
         ["tier"] = 1,
@@ -4201,10 +4243,10 @@ Config.Houses = {
     },
     ["paleto1"] = {
         ["coords"] = {
-            ["x"] = -360.24,
-            ["y"] = 6260.61,
-            ["z"] = 31.9,
-            ["h"] = 136.27
+            ["x"] = -809.53,
+            ["y"] = -978.36,
+            ["z"] = 14.22,
+            ["h"] = 307.28
         },
         ["opened"] = false,
         ["tier"] = 1,
@@ -4283,10 +4325,10 @@ Config.Houses = {
     },
     ["paleto2"] = {
         ["coords"] = {
-            ["x"] = -366.57,
-            ["y"] = 6214.12,
-            ["z"] = 31.84,
-            ["h"] = 317.03
+            ["x"] = -805.86,
+            ["y"] = -959.27,
+            ["z"] = 18.22,
+            ["h"] = 66.95
         },
         ["opened"] = false,
         ["tier"] = 1,
@@ -4365,10 +4407,10 @@ Config.Houses = {
     },
     ["paleto3"] = {
         ["coords"] = {
-            ["x"] = -447.87,
-            ["y"] = 6260.25,
-            ["z"] = 30.05,
-            ["h"] = 338.35
+            ["x"] = -775.23,
+            ["y"] = -891.55,
+            ["z"] = 21.6,
+            ["h"] = 179.1
         },
         ["opened"] = false,
         ["tier"] = 1,
@@ -4447,10 +4489,10 @@ Config.Houses = {
     },
     ["paleto4"] = {
         ["coords"] = {
-            ["x"] = -245.99,
-            ["y"] = 6414.45,
-            ["z"] = 31.46,
-            ["h"] = 305.54
+            ["x"] = -984.14,
+            ["y"] = -889.56,
+            ["z"] = 2.15,
+            ["h"] = 39.45
         },
         ["opened"] = false,
         ["tier"] = 1,
@@ -4529,10 +4571,10 @@ Config.Houses = {
     },
     ["paleto5"] = {
         ["coords"] = {
-            ["x"] = -9.59,
-            ["y"] = 6654.23,
-            ["z"] = 31.7,
-            ["h"] = 31.66
+            ["x"] = -987.42,
+            ["y"] = -891.48,
+            ["z"] = 2.15,
+            ["h"] = 30.85
         },
         ["opened"] = false,
         ["tier"] = 1,
@@ -4611,10 +4653,10 @@ Config.Houses = {
     },
     ["paleto6"] = {
         ["coords"] = {
-            ["x"] = 25.1,
-            ["y"] = 6601.76,
-            ["z"] = 32.47,
-            ["h"] = 133.36
+            ["x"] = -975.31,
+            ["y"] = -909.48,
+            ["z"] = 2.16,
+            ["h"] = 219.64
         },
         ["opened"] = false,
         ["tier"] = 1,
@@ -4693,10 +4735,10 @@ Config.Houses = {
     },
     ["paletoHotels1"] = {
         ["coords"] = {
-            ["x"] = -159.84,
-            ["y"] = 6432.65,
-            ["z"] = 31.93,
-            ["h"] = 310.91
+            ["x"] = 5.97,
+            ["y"] = 108.91,
+            ["z"] = 79.02,
+            ["h"] = 254.45
         },
         ["opened"] = false,
         ["tier"] = 1,
@@ -4775,10 +4817,10 @@ Config.Houses = {
     },
     ["paletoHotels2"] = {
         ["coords"] = {
-            ["x"] = -149.98,
-            ["y"] = 6416.07,
-            ["z"] = 31.92,
-            ["h"] = 225.27
+            ["x"] = 92.64,
+            ["y"] = 49.34,
+            ["z"] = 73.52,
+            ["h"] = 250.32
         },
         ["opened"] = false,
         ["tier"] = 1,

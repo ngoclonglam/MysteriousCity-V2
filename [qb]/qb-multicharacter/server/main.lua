@@ -188,12 +188,11 @@ end)
 QBCore.Functions.CreateCallback("qb-multicharacter:server:getSkin", function(_, cb, cid)
     local result = MySQL.query.await('SELECT * FROM playerskins WHERE citizenid = ? AND active = ?', {cid, 1})
     if result[1] ~= nil then
-        cb(result[1].model, result[1].skin)
+        cb(json.decode(result[1].skin))
     else
         cb(nil)
     end
 end)
-
 QBCore.Commands.Add("deletechar", Lang:t("commands.deletechar_description"), {{name = Lang:t("commands.citizenid"), help = Lang:t("commands.citizenid_help")}}, false, function(source,args)
     if args and args[1] then
         QBCore.Player.ForceDeleteCharacter(tostring(args[1]))

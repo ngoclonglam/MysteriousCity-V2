@@ -1,33 +1,33 @@
 {
   "modal": {
     "save": {
-      "title": "Save customization",
-      "description": "You will remain ugly"
+      "title": "Lưu thay đổi",
+      "description": "Bạn sẽ giữ hình tượng này"
     },
     "exit": {
-      "title": "Exit customization",
-      "description": "No changes will be saved"
+      "title": "Thoát thay đổi",
+      "description": "Không có gì sẽ thay đổi"
     },
-    "accept": "Yes",
-    "decline": "No"
+    "accept": "Đồng ý",
+    "decline": "Từ chối"
   },
   "ped": {
-    "title": "Ped",
+    "title": "Nhân vật",
     "model": "Model"
   },
   "headBlend": {
-    "title": "Inheritance",
+    "title": "Huyết thống",
     "shape": {
-      "title": "Face",
-      "firstOption": "Father",
-      "secondOption": "Mother",
-      "mix": "Mix"
+      "title": "Khuôn mặt",
+      "firstOption": "Cha",
+      "secondOption": "Mẹ",
+      "mix": "Tổng hợp"
     },
     "skin": {
-      "title": "Skin",
-      "firstOption": "Father",
-      "secondOption": "Mother",
-      "mix": "Mix"
+      "title": "Màu da",
+      "firstOption": "Cha",
+      "secondOption": "Mẹ",
+      "mix": "Tổng hợp"
     },
     "race": {
       "title": "Race",
@@ -37,91 +37,88 @@
     }
   },
   "faceFeatures": {
-    "title": "Face Features",
+    "title": "Ngũ quan",
     "nose": {
-      "title": "Nose",
-      "width": "Width",
-      "height": "Height",
-      "size": "Size",
-      "boneHeight": "Bone height",
-      "boneTwist": "Bone twist",
-      "peakHeight": "Peak height"
+      "title": "Mũi",
+      "width": "Chiều rộng",
+      "height": "Chiều cao",
+      "size": "Kích cỡ",
+      "boneHeight": "Chiều cao xương",
+      "boneTwist": "Xương xoắn",
+      "peakHeight": "Đỉnh"
     },
     "eyebrows": {
-      "title": "Eyebrows",
-      "height": "Height",
-      "depth": "Depth"
+      "title": "Lông mày",
+      "height": "Chiều cao",
+      "depth": "Chiều sâu"
     },
     "cheeks": {
-      "title": "Cheeks",
-      "boneHeight": "Bone height",
-      "boneWidth": "Bone width",
-      "width": "Width"
+      "title": "Gò má.",
+      "boneHeight": "Chiều cao xương",
+      "boneWidth": "Chiều rộng xương.",
+      "width": "Chiều rộng"
     },
     "eyesAndMouth": {
-      "title": "Eyes and Mouth",
-      "eyesOpening": "Eyes opening",
-      "lipsThickness": "Lip thickness"
+      "title": "Mắt và miệng",
+      "eyesOpening": "Mắt mở",
+      "lipsThickness": "Độ dày môi"
     },
     "jaw": {
-      "title": "Jaw",
-      "width": "Width",
-      "size": "Size"
+      "title": "Hàm",
+      "width": "Chiều rộng",
+      "size": "Kích cỡ"
     },
     "chin": {
-      "title": "Chin",
-      "lowering": "Lowering",
-      "length": "Length",
-      "size": "Size",
-      "hole": "Hole size"
+      "title": "Cằm",
+      "lowering": "Cằm dưới",
+      "length": "Chiều dài",
+      "size": "Kích cỡ",
+      "hole": "Kích thước lỗ"
     },
     "neck": {
-      "title": "Neck",
-      "thickness": "Thickness"
+      "title": "Cổ",
+      "thickness": "Độ dày"
     }
   },
   "headOverlays": {
-    "title": "Appearance",
+    "title": "Ngoại hình",
     "hair": {
-      "title": "Hair",
-      "style": "Style",
-      "color": "Color",
-      "highlight": "Highlight",
-      "texture": "Texture",
-      "fade": "Fade"
+      "title": "Tóc",
+      "style": "Kiểu",
+      "color": "Màu",
+      "highlight": "Highlight"
     },
-    "opacity": "Opacity",
-    "style": "Style",
-    "color": "Color",
-    "secondColor": "Secondary Color",
-    "blemishes": "Blemishes",
-    "beard": "Beard",
-    "eyebrows": "Eyebrows",
-    "ageing": "Ageing",
-    "makeUp": "Make up",
-    "blush": "Blush",
-    "complexion": "Complexion",
-    "sunDamage": "Sun damage",
-    "lipstick": "Lipstick",
-    "moleAndFreckles": "Mole and Freckles",
-    "chestHair": "Chest hair",
-    "bodyBlemishes": "Body blemishes",
-    "eyeColor": "Eye color"
+    "opacity": "Độ trong suốt",
+    "style": "Kiểu",
+    "color": "Màu",
+    "blemishes": "Nhược điểm",
+    "beard": "Râu",
+    "eyebrows": "Lông mày",
+    "ageing": "Sự lão hóa",
+    "makeUp": "Trang điểm",
+    "blush": "Đỏ mặt",
+    "complexion": "Nước da",
+    "sunDamage": "Cháy nắng",
+    "lipstick": "Son môi",
+    "moleAndFreckles": "Mụt ruồi và tàn nhang",
+    "chestHair": "Lông ngực",
+    "bodyBlemishes": "Nhược điểm cơ thể",
+    "eyeColor": "Màu mắt"
   },
   "components": {
-    "title": "Clothes",
-    "drawable": "Drawable",
-    "texture": "Texture",
-    "mask": "Mask",
-    "upperBody": "Hands",
-    "lowerBody": "Legs",
-    "bags": "Bags and parachute",
-    "shoes": "Shoes",
-    "scarfAndChains": "Scarf and chains",
-    "shirt": "Shirt",
-    "bodyArmor": "Body armor",
-    "decals": "Decals",
-    "jackets": "Jackets"
+    "title": "Quần áo",
+    "drawable": "Mẫu",
+    "texture": "Loại",
+    "mask": "Mặt nạ",
+    "upperBody": "Cánh tay",
+    "lowerBody": "Chân",
+    "bags": "Túi và dù",
+    "shoes": "Giày",
+    "scarfAndChains": "Vòng cổ",
+    "shirt": "Áo",
+    "bodyArmor": "Áo giáp",
+    "decals": "Decal",
+    "jackets": "Áo khoác"
   },
   "props": {
     "title": "Props",
