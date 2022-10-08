@@ -1,6 +1,6 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
-local Webhook = 'https://discord.com/api/webhooks/1012038233183494254/BNHGiYw81tqsGQtKMg3X_20YH3kAMHKA9fFo1_9ZfuWpQaJ1HJ28cuV_fRAV9mUe3C0L'
+local Webhook = 'https://discord.com/api/webhooks/1028280192667492462/TQDelGj9oLvkvFZMClKZx_UPpDP9VFnLni2LiFTn6x-s5XPmf5FV9CpcaLZK3jeV6I7K'
 
 RegisterServerEvent('okokContract:changeVehicleOwner')
 AddEventHandler('okokContract:changeVehicleOwner', function(data)
