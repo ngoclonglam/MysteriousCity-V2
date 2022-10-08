@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+#chung {
+  display: none;
+}
+
+.dichvu {
+	z-index: 2;
+	display: none;
+	width: 420px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: auto;
+	background: rgba(0, 0, 0, .5);
+	overflow: hidden;
+	border-radius: 8px;
+	font-family: "Roboto";
+}
+
+.status {
+	z-index: 2;
+	display: none;
+	width: 300px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	border-radius:10px;
+	height: auto;
+	background: rgba(0, 0, 0, .5);
+	overflow: hidden;
+	border-radius: 8px;
+	font-family: "Roboto";
+}
+
+.status button {
+	background-color: #ff5562;
+	color: white;
+	border: none;
+	border-radius: 4px;
+}
+
+.status2 {
+	display: block;
+	position: relative;
+	padding: 16px;
+	width: 100%;
+}
+
+.status2 .title {
+	display: block;
+	width: 268px;
+	text-align: center;
+	font-size: 16px;
+	color: white;
+	margin-bottom: 16px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.status2 .dichvu {
+	display: block;
+}
+.status2 button {
+	display: block;
+	height: 32px;
+	width: 268px;
+}
+
+
+.ping {
+	display: flex;
+	flex-direction: row;
+	margin: 10px;
+	position: relative;
+	background-color: #191d25;
+	height: 40px;
+	border-radius: 4px;
+}
+
+.ping .wrapper {
+	height: 40px;
+	padding: 4px;
+}
+
+.ping .job {
+	margin: auto;
+	width: 96px;
+	color: white;
+	background-color: #272c37;
+	color: #F2F2F2;
+	margin: 4px;
+	border-radius: 2px;
+	display: flex;
+	font-size: 14px;
+}
+
+.ping button {
+	color: #F2F2F2;
+	background-color: #009cff;
+	border: 0;
+	border-radius: 2px;
+	height: 32px;
+	width: 64px;
+}
+
+.ping .job span {
+	margin: auto 16px;
+}
+
+
+input[type=text]{
+	color: white;
+	background-color: transparent;
+    outline:none;
+	border: 0;
+	height: 40px;
+	flex: 1;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+
+::-webkit-scrollbar-track {
+  background: #181818; 
+}
+ 
+
+::-webkit-scrollbar-thumb {
+  background: rgb(255, 255, 255); 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}

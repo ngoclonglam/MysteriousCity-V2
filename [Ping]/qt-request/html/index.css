@@ -1,0 +1,243 @@
+body{
+    overflow: hidden;
+}
+.select{
+    display: none;
+}
+.animate {
+    transition: all 0.2s;
+    transform: scale(1.8);
+}
+.flex {
+    position: fixed;
+    max-width: 100vw;
+    background-size: cover;
+}
+.slot{
+    width: 7vw;
+    height: 7vw;
+    position: absolute;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin: 25%;
+}
+.grayScaled{
+    filter: grayscale(90%);
+
+}
+.slot1{
+    background-image: url(assets/casecrafting.png);
+    margin-top: 6.5%;
+    margin-left: 51%;
+}
+.slot2{
+    background-image: url(assets/caseitem.png);
+    margin-top: 12%;
+    margin-left: 60%;
+}
+.slot3{
+    background-image: url(assets/caseRgame.png);
+    margin-top: 20%;
+    margin-left: 64%;
+}
+.slot4{
+    background-image: url(assets/caseweapon.png);
+    margin-top: 29%;
+    margin-left: 64%;
+}
+.slot5{
+    background-image: url(assets/casecrafting.png);
+    margin-top: 38%;
+    margin-left: 59%;
+}
+.slot6{
+    background-image: url(assets/caseitem.png);
+    margin-top: 43%;
+    margin-left: 51%;
+}
+.slot7{
+    background-image: url(assets/caseRgame.png);
+    margin-top: 43%;
+    margin-left: 41%;
+}
+.slot8{
+    background-image: url(assets/caseweapon.png);
+    margin-top: 38%;
+    margin-left: 33%;
+}
+.slot9{
+    background-image: url(assets/casecrafting.png);
+    margin-top: 29%;
+    margin-left: 27.5%;
+}
+.slot10{
+    background-image: url(assets/caseitem.png);
+    margin-top: 20%;
+    margin-left: 27.5%;
+}
+.slot11{
+    background-image: url(assets/caseweapon.png);
+    margin-top: 12%;
+    margin-left: 32%;
+}
+.slot12{
+    background-image: url(assets/casecrafting.png);
+    margin-top: 6.5%;
+    margin-left: 41%;
+}
+#prog {
+    /* margin: auto;
+    width: 22%;
+    height: 1080px;
+    margin-top: 29.45vh; */
+    position: absolute;
+    width: 22%;
+    margin: 17%;
+    margin-left: 38.5% 
+}
+
+.button {
+    position: absolute;
+    margin: 20%;
+    margin-left: 42% ;
+    width: 15vw;
+    height: 15vw;
+    background-image: url(assets/button.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 0100vw;
+    border: none;
+    outline:none;
+}
+.btnleft{
+    position: absolute;
+    background-image: url(assets/left.png);
+    background-size: 100%;
+    width: 15vw;
+    height: 15vw;
+    margin: 20%;
+    margin-top: 28%;
+    margin-left: 5.5%;
+    cursor: pointer;
+    background-repeat: no-repeat;
+}
+.btnright{
+    position: absolute;
+    background-image: url(assets/right.png);
+    background-size: 100%;
+    width: 15vw;
+    height: 15vw;
+    margin: 20%;
+    margin-top: 28.3%;
+    margin-left: 34.8%;
+    cursor: pointer;
+    background-repeat: no-repeat;
+}
+button:focus {
+    border: none;
+    outline: none;
+}
+  
+  .button1 {border-radius: 2px;}
+  .button2 {border-radius: 4px;}
+  .button3 {border-radius: 8px;}
+  .button4 {border-radius: 12px;}
+  .button5 {border-radius: 50%;}
+.weapon_wheel{
+    display: none;
+}
+
+#request_menu{
+    margin-top: 10vh;
+    display: none;
+}
+
+#slider{
+    margin-top: 58vh;
+    -webkit-mask-image: radial-gradient(circle closest-side, #fff0 165px,#000 166px);
+    display: none;
+}
+    
+
+#zoom{
+    position: absolute;
+    left: 20.3%;
+    top: 7vh;
+    /* transform: scale(1.3); */
+    height: 100%;
+    width: 100%;
+   
+}
+#slider-zoom{
+    backdrop-filter: blur(6px);
+    width: 100%;
+    height: 100%;
+    position: absolute; 
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+    top: 0;
+    transform: scale(1.2);
+    z-index: 1000;
+    display: none;
+}
+.zoom{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top :55vh;
+    background-color: rgba(22, 22, 22, 0.39) !important;
+    backdrop-filter: blur(6px);
+    clip-path: circle(13.7% at 50% 63%);
+    fill: none;
+}
+
+.splide__slide{
+    background-color: rgb(42, 44, 43);
+    border-radius: 0.5rem
+}
+.item{
+    height: 150px;
+    width: 200px;
+    background-color: rgba(0, 0, 0, 0.596);
+    border-bottom: 5px solid rgb(255, 255, 4);
+}
+.owl-carousel img {
+	max-width: 150px;
+    max-height: 200px;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+}
+#case-anim{
+    display: none;
+    position: absolute;
+}
+#case-anim img{
+    width: 100%;
+    height: 100%;
+}
+.case_items_middle {
+    top: 55vh;
+    height: 14vh;
+    left: 50%;
+    position: absolute;
+    border-right: 1px solid #aa3;
+    border-left: 1px solid #aa3;
+    margin: auto;
+    opacity: 60%;
+    z-index: 3;
+    box-shadow: 0px 0px 1px 0px #000;
+}
