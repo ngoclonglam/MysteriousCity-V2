@@ -992,3 +992,142 @@ function QBCore.Functions.GetGroundZCoord(coords)
         return coords
     end
 end
+
+QBCore.Functions.SpawnObject = function(model, coords, cb)
+    model = (type(model) == 'number' and model or GetHashKey(model))
+
+    CreateThread(function()
+        RequestModel(model)
+        local obj = CreateObject(model, coords.x, coords.y, coords.z, true, false, true)
+        SetModelAsNoLongerNeeded(model)
+
+        if cb then
+            cb(obj)
+        end
+    end)
+end
+
+QBCore.Functions.SpawnLocalObject = function(model, coords, cb)
+    model = (type(model) == 'number' and model or GetHashKey(model))
+
+    CreateThread(function()
+        RequestModel(model)
+        local obj = CreateObject(model, coords.x, coords.y, coords.z, false, false, true)
+        SetModelAsNoLongerNeeded(model)
+
+        if cb then
+            cb(obj)
+        end
+    end)
+end
+
+QBCore.Functions.SetTimer = function(hours1, hours2)
+    local hour = GetClockHours()
+    if not hours1 then hours1 = 8 end
+    if not hours2 then hours2 = 17 end
+    if hour >= hours1 and hour <= hours2 then
+        return true
+    else
+        return false
+    end
+end
+
+QBCore.Functions.DeleteObject = function(object)
+    SetEntityAsMissionEntity(object, false, true)
+    DeleteObject(object)
+end
+
+QBCore.Functions.DumpTable = function(node)
+    local cache, stack, output = {},{},{}
+    local depth = 1
+    local output_str = "{\n"
+
+    while true do
+        local size = 0
+        for _, _ in pairs(node) do
+            size = size + 1
+        end
+
+        local cur_index = 1
+        for k,v in pairs(node) do
+            if (cache[node] == nil) or (cur_index >= cache[node]) then
+
+                if (string.find(output_str,"}",output_str:len())) then
+                    output_str = output_str .. ",\n"
+                elseif not (string.find(output_str,"\n",output_str:len())) then
+                    output_str = output_str .. "\n"
+                end
+
+                -- This is necessary for working with HUGE tables otherwise we run out of memory using concat on huge strings
+                table.insert(output,output_str)
+                output_str = ""
+
+                local key
+                if (type(k) == "number" or type(k) == "boolean") then
+                    key = "["..tostring(k).."]"
+                else
+                    key = "['"..tostring(k).."']"
+                end
+
+                if (type(v) == "number" or type(v) == "boolean") then
+                    output_str = output_str .. string.rep('\t',depth) .. key .. " = "..tostring(v)
+                elseif (type(v) == "table") then
+                    output_str = output_str .. string.rep('\t',depth) .. key .. " = {\n"
+                    table.insert(stack,node)
+                    table.insert(stack,v)
+                    cache[node] = cur_index+1
+                    break
+                else
+                    output_str = output_str .. string.rep('\t',depth) .. key .. " = '"..tostring(v).."'"
+                end
+
+                if (cur_index == size) then
+                    output_str = output_str .. "\n" .. string.rep('\t',depth-1) .. "}"
+                else
+                    output_str = output_str .. ","
+                end
+            else
+                -- close the table
+                if (cur_index == size) then
+                    output_str = output_str .. "\n" .. string.rep('\t',depth-1) .. "}"
+                end
+            end
+
+            cur_index = cur_index + 1
+        end
+
+        if (size == 0) then
+            output_str = output_str .. "\n" .. string.rep('\t',depth-1) .. "}"
+        end
+
+        if (#stack > 0) then
+            node = stack[#stack]
+            stack[#stack] = nil
+            depth = cache[node] == nil and depth + 1 or depth - 1
+        else
+            break
+        end
+    end
+
+    -- This is necessary for working with HUGE tables otherwise we run out of memory using concat on huge strings
+    table.insert(output,output_str)
+    output_str = table.concat(output)
+
+    print(output_str)
+end
+
+function DrawLogout(coords, str)
+    local _, worldX, worldY = World3dToScreen2d(coords.x, coords.y, coords.z)
+    local camCoords = GetGameplayCamCoord()
+    local scale = 800 / (GetGameplayCamFov() * #(camCoords - coords))
+        SetTextScale(1.0, 0.5 * scale)
+        SetTextFont(80)
+        SetTextColour(255, 0, 0, 255)
+        SetTextEdge(2, 0, 0, 0, 150)
+        SetTextProportional(1)
+        SetTextOutline()
+        SetTextCentre(1)
+        SetTextEntry("STRING")
+        AddTextComponentString(str)
+        DrawText(worldX, worldY)
+end

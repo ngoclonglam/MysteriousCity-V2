@@ -1,0 +1,258 @@
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+.container {
+    display: none;
+    position: relative;
+    margin: auto;
+    width: 750px;
+    height: 425px;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 10px 10px 10px 10px;
+}
+
+.head {
+    position: relative;
+    width: 100%;
+    height: 175px;
+    background-color: royalblue;
+    border-radius: 10px 10px 0 0;
+}
+
+.head-img {
+    position: relative;
+    width: 150px;
+    top: 25px;   
+    left: 325px;
+}
+
+.one-bar {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    height: 55px;
+    width: 80%;
+    border-radius: 10px;
+    font-size: 30px;
+    text-align: center;
+    line-height: 55px;
+}
+
+.container-x {
+    position: relative;
+    width: 90%;
+    height: 200px;
+    top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.x-row {
+    position: relative;
+    background-color: white;
+    width: 105px;
+    height: 105px;
+    background-size: 75px;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    top: 20px;
+    margin-left: 25px;
+    left: 55px;
+    border-radius: 50px;
+}
+
+.selected {
+    outline: 3px solid royalblue;
+    outline-offset: -3px;
+}
+
+.container2 {
+    display: none;
+    position: relative;
+    margin: auto;
+    top: 35px;
+    width: 750px;
+    height: 225px;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 10px 10px 10px 10px;
+}
+
+.head2 {
+    position: relative;
+    width: 100%;
+    height: 75px;
+    border-radius: 25px 25px 0 0;
+}
+
+.subhead2 {
+    position: relative;
+    width: 100%;
+    height: 25px;
+    background-color: royalblue;
+    border-radius: 10px 10px 0 0;
+}
+
+.subhead3 {
+    position: relative;
+    width: 100%;
+    height: 5px;
+    background-color: royalblue;
+}
+
+.head2 p {
+    position: relative;
+    color: white;
+    left: 15px;
+    font-size: 25px;
+    margin: 10px;
+    letter-spacing: 3px;
+}
+
+.container2-x {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row2-x {
+    position: relative;
+    height: 100%;
+    width: 30%;
+    background-color: green;
+    margin-left: 17px;
+    display: inline-block;
+    color: white;
+    font-size: 25px;
+    
+}
+
+.container2-x-p-a {
+    position: relative;
+    color: white;
+    font-size: 13px;
+    left: 15px;
+    bottom: 15px;
+}
+
+.container2-x-y {
+    position: relative;
+    width: 100%;
+    height: 90px;
+    bottom: 15px;
+    display: inline-block;
+}
+
+.container2-btns {
+    position: relative;
+    height: 90%;
+    width: 120px;
+    left: 17px;
+    display: inline-block;
+    bottom: 35px;
+}
+
+.container2-btns i {
+    position: relative;
+    color: white;
+    font-size: 35px;
+    margin-right: 10px;
+    top: 25px;
+    text-align: center;
+}
+
+.divider-2 {
+    position: relative;
+    width: 1px;
+    height: 90%;
+    background-color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+    display: inline-block;
+}
+
+.container2-btns i:hover, .container2-btns span i:hover {
+    color: rgb(189, 189, 189);
+    transition: 200ms;
+}
+
+.container2-btns span i {
+    position: relative;
+    color: white;
+    font-size: 35px;
+    margin-right: 10px;
+    top: 35px;
+    left: 25px;
+}
+
+.container2-btns2 {
+    position: relative;
+    height: 90%;
+    width: 150px;
+    left: 17px;
+    display: inline-block;
+    color: white;
+    font-size: 22px;
+    bottom: 55px;
+}
+
+.container2-btns3 {
+    position: relative;
+    height: 90%;
+    width: 150px;
+    left: 17px;
+    display: inline-block;
+    color: white;
+    font-size: 22px;
+    bottom: 55px;
+}
+
+.container2-btns4 {
+    position: relative;
+    height: 90%;
+    width: 150px;
+    left: 17px;
+    display: inline-block;
+    color: white;
+    font-size: 22px;
+    bottom: 55px;
+}
+
+.container2-btns1 p {
+    position: relative;
+    top: 15px;
+}
+
+.container2-btns2 p {
+    position: relative;
+    top: 7px;
+}
+
+.container2-btns3 p {
+    position: relative;
+    top: 15px;
+}
+
+.container2-btns4 p {
+    position: relative;
+    top: 7px;
+}
+
+.bold {
+    font-weight: 800;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+  }

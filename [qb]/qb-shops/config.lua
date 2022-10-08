@@ -1,6 +1,6 @@
 Config = {}
 Config.UseTarget = GetConvar('UseTarget', 'false') == 'true' -- Use qb-target interactions (don't change this, go to your server.cfg and add `setr UseTarget true` to use this and just that from true to false or the other way around)
-Config.FirearmsLicenseCheck = false -- Whether a arms dealer checks for a firearms license
+Config.FirearmsLicenseCheck = true -- Whether a arms dealer checks for a firearms license
 Config.SellCasinoChips = {
     coords = vector4(950.37, 34.72, 71.87, 33.82),
     radius = 1.5,
@@ -1007,6 +1007,70 @@ Config.Locations = {
         ["targetLabel"] = "Open Leisure Shop",
         ["products"] = Config.Products["leisureshop"],
         ["showblip"] = true,
+        ["blipsprite"] = 52,
+        ["blipscale"] = 0.8,
+        ["blipcolor"] = 0
+    },
+
+    -- Secret Shop
+    ["locksmithshop"] = {
+        ["label"] = "Locksmith Shop",
+        ["coords"] = vector4(169.91, -1799.47, 29.32, 327.37),
+        ["ped"] = 'a_m_y_beach_01',
+        ["scenario"] = "WORLD_HUMAN_STAND_MOBILE_CLUBHOUSE",
+        ["radius"] = 1.5,
+        ["targetIcon"] = "fas fa-leaf",
+        ["targetLabel"] = "Cửa Hàng sửa khóa",
+        ["products"] = Config.Products["locksmithshop"],
+        ["showblip"] = false,
+        ["blipsprite"] = 52,
+        ["blipscale"] = 0.8,
+        ["blipcolor"] = 0
+    },
+
+    -- Bar & Garage
+    ["garage204"] = {
+        ["label"] = "Shop Trung Tâm",
+        ["coords"] = vector4(250.8, -800.41, 31.25, 110.94),
+        ["ped"] = 'mp_m_shopkeep_01',
+        ["scenario"] = "WORLD_HUMAN_STAND_MOBILE",
+        ["radius"] = 1.5,
+        ["targetIcon"] = "fas fa-shopping-basket",
+        ["targetLabel"] = "Open Shop",
+        ["products"] = Config.Products["normal"],
+        ["showblip"] = false,
+        ["blipsprite"] = 52,
+        ["blipscale"] = 0.8,
+        ["blipcolor"] = 0
+    },
+
+    ["bar"] = {
+        ["label"] = "Shop Sky Bar",
+        ["coords"] =  vector4(8.87, -673.82, 243.39, 106.86),
+        ["ped"] = 'Tifa',
+        ["scenario"] = "PROP_HUMAN_BUM_SHOPPING_CART",
+        -- ["animName"] = "anim@amb@nightclub@lazlow@ig1_vip@",
+        -- ["animDict"] = "clubvip_base_laz",
+        ["radius"] = 1.5,
+        ["targetIcon"] = "fas fa-shopping-basket",
+        ["targetLabel"] = "Open Shop",
+        ["products"] = Config.Products["bar"],
+        ["showblip"] = false,
+        ["blipsprite"] = 52,
+        ["blipscale"] = 0.8,
+        ["blipcolor"] = 0
+    },
+
+    ["shopbar"] = {
+        ["label"] = "Shop Sky Bar",
+        ["coords"] =  vector4(-15.25, -688.38, 244.26, 111.17),
+        ["ped"] = 'mp_m_shopkeep_01',
+        ["scenario"] = "WORLD_HUMAN_STAND_MOBILE",
+        ["radius"] = 1.5,
+        ["targetIcon"] = "fas fa-shopping-basket",
+        ["targetLabel"] = "Open Shop",
+        ["products"] = Config.Products["normal"],
+        ["showblip"] = false,
         ["blipsprite"] = 52,
         ["blipscale"] = 0.8,
         ["blipcolor"] = 0

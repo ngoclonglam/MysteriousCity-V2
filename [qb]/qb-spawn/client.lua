@@ -45,7 +45,7 @@ RegisterNetEvent('qb-spawn:client:setupSpawns', function(cData, new, apps)
     if not new then
         QBCore.Functions.TriggerCallback('qb-spawn:server:getOwnedHouses', function(houses)
             local myHouses = {}
-            if houses ~= nil then
+            if houses then
                 for i = 1, (#houses), 1 do
                     myHouses[#myHouses+1] = {
                         house = houses[i].house,
@@ -172,10 +172,10 @@ RegisterNUICallback('spawnplayer', function(data, cb)
             FreezeEntityPosition(ped, false)
         end)
 
-        if insideMeta.house ~= nil then
+        if insideMeta.house then
             local houseId = insideMeta.house
             TriggerEvent('qb-houses:client:LastLocationHouse', houseId)
-        elseif insideMeta.apartment.apartmentType ~= nil or insideMeta.apartment.apartmentId ~= nil then
+        elseif insideMeta.apartment.apartmentType or insideMeta.apartment.apartmentId then
             local apartmentType = insideMeta.apartment.apartmentType
             local apartmentId = insideMeta.apartment.apartmentId
             TriggerEvent('qb-apartments:client:LastLocationHouse', apartmentType, apartmentId)

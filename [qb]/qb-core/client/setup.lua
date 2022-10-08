@@ -1,0 +1,6 @@
+CreateThread(function()
+    RegisterFontFile('out')
+    QBCore.FontId = RegisterFontId('Baloo Paaji 2 SemiBold')
+    AddTextEntry('STRING', "<FONT FACE='Baloo Paaji 2 SemiBold'>~a~</FONT>")
+    AddTextEntry('CUSTOM_STRING', "<FONT FACE='Baloo Paaji 2 SemiBold'>~a~</FONT>")
+end)

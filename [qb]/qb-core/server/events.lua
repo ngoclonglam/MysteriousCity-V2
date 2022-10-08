@@ -9,9 +9,35 @@ end)
 
 AddEventHandler('playerDropped', function(reason)
     local src = source
+    local msg = ''
+    local playerCoords = GetEntityCoords(GetPlayerPed(src))
+
     if not QBCore.Players[src] then return end
     local Player = QBCore.Players[src]
-    TriggerEvent('qb-log:server:CreateLog', 'joinleave', 'Dropped', 'red', '**' .. GetPlayerName(src) .. '** (' .. Player.PlayerData.license .. ') left..' ..'\n **Reason:** ' .. reason)
+
+    for _,v in pairs(GetPlayerIdentifiers(src))do
+        if string.sub(v, 1, string.len("discord:")) == "discord:" then
+            discord = v.gsub(v,"discord:", "")
+        end
+    end
+    if reason == 'Exiting' or reason=='Disconnected.' then
+        TriggerEvent('qb-log:server:CreateLog', 'joinleave', 'Dropped', 'red',  'Username Steam: '.. GetPlayerName(src) .. '\nLicense gta: '.. Player.PlayerData.license .. '\nID citizen: ' .. Player.PlayerData.citizenid .. '\nID Discord: <@' .. discord .. '>\n**Quit**'.. '\n(Reason: ' .. reason .. ')')
+        msg = 'Player left \n' .. Player.PlayerData.license
+    elseif string.find(reason, "GTA5.exe") then
+        TriggerEvent('qb-log:server:CreateLog', 'joinleave', 'Dropped', 'red',  'Username Steam: '.. GetPlayerName(src) .. '\nLicense gta: '.. Player.PlayerData.license .. '\nID citizen: ' .. Player.PlayerData.citizenid .. '\nID Discord: <@' .. discord .. '>\n**Crash**'.. '\n(Reason: ' .. reason .. ')')
+        msg = 'Player Crash \n' .. Player.PlayerData.license
+    else
+        TriggerEvent('qb-log:server:CreateLog', 'joinleave', 'Dropped', 'red',  'Username Steam: '.. GetPlayerName(src) .. '\nLicense gta: '.. Player.PlayerData.license .. '\nID citizen: ' .. Player.PlayerData.citizenid .. '\nID Discord: <@' .. discord .. '>\n**Unknown message**'.. '\n(Reason: ' .. reason .. ')')
+        msg = 'Player Left/Crash \n' .. Player.PlayerData.license
+    end
+    for _,v in pairs(QBCore.Functions.GetPlayers()) do
+        local target = GetPlayerPed(v)
+        local tCoords = GetEntityCoords(target)
+        if #(playerCoords - tCoords) < 60 then
+            TriggerClientEvent('QBCore:Client:Draw3dTextLogout', v, playerCoords, msg)
+        end
+    end
+    -- TriggerEvent('qb-log:server:CreateLog', 'joinleave', 'Dropped', 'red', '**' .. GetPlayerName(src) .. '** (' .. Player.PlayerData.license .. ') left..' ..'\n **Reason:** ' .. reason)
     Player.Functions.Save()
     QBCore.Player_Buckets[Player.PlayerData.license] = nil
     QBCore.Players[src] = nil

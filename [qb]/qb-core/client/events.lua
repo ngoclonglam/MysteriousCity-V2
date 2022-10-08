@@ -240,3 +240,13 @@ RegisterNetEvent('QBCore:Client:OnSharedUpdateMultiple', function(tableName, val
     end
     TriggerEvent('QBCore:Client:UpdateObject')
 end)
+
+RegisterNetEvent('QBCore:Client:Draw3dTextLogout', function(coords, text)
+    CreateThread(function()
+        local displayTime = 5000 + GetGameTimer()
+        while displayTime > GetGameTimer() do
+            DrawLogout(coords, text)
+            Wait(0)
+        end
+    end)
+end)
