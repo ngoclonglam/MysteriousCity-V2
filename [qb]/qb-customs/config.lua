@@ -30,6 +30,7 @@ Config.DisabledCategoriesMechanics = {
 
 Config.PayWithSocietyWhenJobRestricted = true -- Whether to have job societies pay for employees if the location is restricted to the job
 Config.PaidBySociety = {
+    'tunner'
     -- 'mechanic',
 } -- List of job societies that pay for employees, regardless of the customs location
 

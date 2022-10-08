@@ -21,7 +21,7 @@ CreateThread(function() -- all these should only need to be called once
 		StartAudioScene("CHARACTER_CHANGE_IN_SKY_SCENE")
 	end
 	SetAudioFlag("PoliceScannerDisabled", true)
-	SetGarbageTrucks(false)
+	SetGarbageTrucks(false)	
 	SetCreateRandomCops(false)
 	SetCreateRandomCopsNotOnScenarios(false)
 	SetCreateRandomCopsOnScenarios(false)
@@ -63,28 +63,26 @@ if Config.IdleCamera then --Disable Idle Cinamatic Cam
 end
 
 CreateThread(function()
-	local sleep
-	while true do
-		sleep = 500
-		local ped = PlayerPedId()
-		local weapon = GetSelectedPedWeapon(ped)
-		if weapon ~= `WEAPON_UNARMED` then
+    while true do
+        local ped = PlayerPedId()
+        local weapon = GetSelectedPedWeapon(ped)
+		if weapon ~= GetHashKey("WEAPON_UNARMED") then
 			if IsPedArmed(ped, 6) then
-				sleep = 0
 				DisableControlAction(1, 140, true)
 				DisableControlAction(1, 141, true)
 				DisableControlAction(1, 142, true)
 			end
 
-			if weapon == `WEAPON_FIREEXTINGUISHER` or weapon == `WEAPON_PETROLCAN` then
+			if weapon == GetHashKey("WEAPON_FIREEXTINGUISHER")then
 				if IsPedShooting(ped) then
-					SetPedInfiniteAmmo(ped, true, `WEAPON_FIREEXTINGUISHER`)
-					SetPedInfiniteAmmo(ped, true, `WEAPON_PETROLCAN`)
+					SetPedInfiniteAmmo(ped, true, GetHashKey("WEAPON_FIREEXTINGUISHER"))
 				end
 			end
+		else
+			Wait(500)
 		end
-		Wait(sleep)
-	end
+        Wait(7)
+    end
 end)
 
 CreateThread(function()

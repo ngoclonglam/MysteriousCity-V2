@@ -1,0 +1,12 @@
+{
+    "Lua.diagnostics.globals": [
+        "TriggerEvent",
+        "TriggerClientEvent",
+        "exports",
+        "joaat",
+        "TriggerServerEvent",
+        "GiveWeaponToPed",
+        "SetPedAmmo",
+        "SetCurrentPedWeapon"
+    ]
+}

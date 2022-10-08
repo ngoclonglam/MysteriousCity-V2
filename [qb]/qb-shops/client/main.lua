@@ -196,6 +196,32 @@ local function deletePeds()
     end
 end
 
+if exports['nearbylocation'] then
+    RegisterNetEvent("qb-shops:client:ShowNearestLocation", function(data)
+        local locations = {}
+        local store = nil
+        for k, shop in pairs(Config.Locations) do
+            if data and shop["label"] == data.label then
+                locations[#locations+1] = shop["coords"]
+                store = k
+            end
+        end
+
+        if not store then return end
+
+        local blipOptions = {
+            blipscale = Config.Locations[store]["blipscale"] or 0.6,
+            blipsprite = Config.Locations[store]["blipsprite"],
+            blipdisplay = Config.Locations[store]["blipdisplay"] or 4,
+            blipcolor = Config.Locations[store]["blipcolor"],
+            blipshortrange = true,
+            label = Config.Locations[store]["label"]
+        }
+        exports['nearbylocation']:ShowNearestLocation(locations, blipOptions)
+    end)
+end
+
+
 -- Events
 RegisterNetEvent("qb-shops:client:UpdateShop", function(shop, itemData, amount)
     TriggerServerEvent("qb-shops:server:UpdateShopItems", shop, itemData, amount)

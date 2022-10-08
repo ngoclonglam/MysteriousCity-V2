@@ -354,7 +354,7 @@ RegisterNetEvent('qb-garages:client:takeOutGarage', function(data)
             QBCore.Functions.TriggerCallback('qb-garage:server:spawnvehicle', function(netId, properties)
                 local veh = NetToVeh(netId)
                 QBCore.Functions.SetVehicleProperties(veh, properties)
-                exports['LegacyFuel']:SetFuel(veh, vehicle.fuel)
+                exports['ps-fuel']:SetFuel(veh, vehicle.fuel)
                 doCarDamage(veh, vehicle)
                 TriggerServerEvent('qb-garage:server:updateVehicleState', 0, vehicle.plate, index)
                 closeMenuFull()
@@ -379,7 +379,7 @@ local function enterVehicle(veh, indexgarage, type, garage)
             if owned then
                 local bodyDamage = math.ceil(GetVehicleBodyHealth(veh))
                 local engineDamage = math.ceil(GetVehicleEngineHealth(veh))
-                local totalFuel = exports['LegacyFuel']:GetFuel(veh)
+                local totalFuel = exports['ps-fuel']:GetFuel(veh)
                 TriggerServerEvent('qb-garage:server:updateVehicle', 1, totalFuel, engineDamage, bodyDamage, plate, indexgarage, type, PlayerGang.name)
                 CheckPlayers(veh, garage)
                 if type == "house" then
@@ -482,6 +482,32 @@ RegisterNetEvent('qb-garages:client:TakeOutDepot', function(data)
         TriggerEvent("qb-garages:client:takeOutGarage", data)
     end
 end)
+
+if exports['nearbylocation'] then
+    RegisterNetEvent("qb-garages:client:ShowNearestLocation", function(data)
+        local locations = {}
+        local name = nil
+        for k, location in pairs(Garages) do
+            if data and location["blipName"] == data.label then
+                locations[#locations+1] = location["putVehicle"]
+                name = k
+            end
+        end
+
+        if not name then return end
+
+        local blipOptions = {
+            blipscale = Garages[name]["blipscale"] or 0.6,
+            blipsprite = Garages[name]["blipNumber"],
+            blipdisplay = Garages[name]["blipdisplay"] or 4,
+            blipcolor = Garages[name]["blipColor"] or 3,
+            blipRadius = 20,
+            blipshortrange = true,
+            label = Garages[name]["blipName"]
+        }
+        exports['nearbylocation']:ShowNearestLocation(locations, blipOptions)
+    end)
+end
 
 -- Threads
 CreateThread(function()

@@ -166,134 +166,175 @@ Config.MenuItems = {
                         }
                     }
                 }
-            }, {
-                id = 'clothesmenu',
-                title = 'Clothing',
-                icon = 'shirt',
-                items = {
-                    {
-                        id = 'Hair',
-                        title = 'Hair',
-                        icon = 'user',
-                        type = 'client',
-                        event = 'qb-radialmenu:ToggleClothing',
-                        shouldClose = true
-                    }, {
-                        id = 'Ear',
-                        title = 'Ear Piece',
-                        icon = 'ear-deaf',
-                        type = 'client',
-                        event = 'qb-radialmenu:ToggleProps',
-                        shouldClose = true
-                    }, {
-                        id = 'Neck',
-                        title = 'Neck',
-                        icon = 'user-tie',
-                        type = 'client',
-                        event = 'qb-radialmenu:ToggleClothing',
-                        shouldClose = true
-                    }, {
-                        id = 'Top',
-                        title = 'Top',
-                        icon = 'shirt',
-                        type = 'client',
-                        event = 'qb-radialmenu:ToggleClothing',
-                        shouldClose = true
-                    }, {
-                        id = 'Shirt',
-                        title = 'Shirt',
-                        icon = 'shirt',
-                        type = 'client',
-                        event = 'qb-radialmenu:ToggleClothing',
-                        shouldClose = true
-                    }, {
-                        id = 'Pants',
-                        title = 'Pants',
-                        icon = 'user',
-                        type = 'client',
-                        event = 'qb-radialmenu:ToggleClothing',
-                        shouldClose = true
-                    }, {
-                        id = 'Shoes',
-                        title = 'Shoes',
-                        icon = 'shoe-prints',
-                        type = 'client',
-                        event = 'qb-radialmenu:ToggleClothing',
-                        shouldClose = true
-                    }, {
-                        id = 'meer',
-                        title = 'Extras',
-                        icon = 'plus',
-                        items = {
-                            {
-                                id = 'Hat',
-                                title = 'Hat',
-                                icon = 'hat-cowboy-side',
-                                type = 'client',
-                                event = 'qb-radialmenu:ToggleProps',
-                                shouldClose = true
-                            }, {
-                                id = 'Glasses',
-                                title = 'Glasses',
-                                icon = 'glasses',
-                                type = 'client',
-                                event = 'qb-radialmenu:ToggleProps',
-                                shouldClose = true
-                            }, {
-                                id = 'Visor',
-                                title = 'Visor',
-                                icon = 'hat-cowboy-side',
-                                type = 'client',
-                                event = 'qb-radialmenu:ToggleProps',
-                                shouldClose = true
-                            }, {
-                                id = 'Mask',
-                                title = 'Mask',
-                                icon = 'masks-theater',
-                                type = 'client',
-                                event = 'qb-radialmenu:ToggleClothing',
-                                shouldClose = true
-                            }, {
-                                id = 'Vest',
-                                title = 'Vest',
-                                icon = 'vest',
-                                type = 'client',
-                                event = 'qb-radialmenu:ToggleClothing',
-                                shouldClose = true
-                            }, {
-                                id = 'Bag',
-                                title = 'Bag',
-                                icon = 'bag-shopping',
-                                type = 'client',
-                                event = 'qb-radialmenu:ToggleClothing',
-                                shouldClose = true
-                            }, {
-                                id = 'Bracelet',
-                                title = 'Bracelet',
-                                icon = 'user',
-                                type = 'client',
-                                event = 'qb-radialmenu:ToggleProps',
-                                shouldClose = true
-                            }, {
-                                id = 'Watch',
-                                title = 'Watch',
-                                icon = 'stopwatch',
-                                type = 'client',
-                                event = 'qb-radialmenu:ToggleProps',
-                                shouldClose = true
-                            }, {
-                                id = 'Gloves',
-                                title = 'Gloves',
-                                icon = 'mitten',
-                                type = 'client',
-                                event = 'qb-radialmenu:ToggleClothing',
-                                shouldClose = true
-                            }
-                        }
-                    }
-                }
+            },
+            -- {
+            --     id = 'clothesmenu',
+            --     title = 'Clothing',
+            --     icon = 'shirt',
+            --     items = {
+            --         {
+            --             id = 'Hair',
+            --             title = 'Hair',
+            --             icon = 'user',
+            --             type = 'client',
+            --             event = 'qb-radialmenu:ToggleClothing',
+            --             shouldClose = true
+            --         }, {
+            --             id = 'Ear',
+            --             title = 'Ear Piece',
+            --             icon = 'ear-deaf',
+            --             type = 'client',
+            --             event = 'qb-radialmenu:ToggleProps',
+            --             shouldClose = true
+            --         }, {
+            --             id = 'Neck',
+            --             title = 'Neck',
+            --             icon = 'user-tie',
+            --             type = 'client',
+            --             event = 'qb-radialmenu:ToggleClothing',
+            --             shouldClose = true
+            --         }, {
+            --             id = 'Top',
+            --             title = 'Top',
+            --             icon = 'shirt',
+            --             type = 'client',
+            --             event = 'qb-radialmenu:ToggleClothing',
+            --             shouldClose = true
+            --         }, {
+            --             id = 'Shirt',
+            --             title = 'Shirt',
+            --             icon = 'shirt',
+            --             type = 'client',
+            --             event = 'qb-radialmenu:ToggleClothing',
+            --             shouldClose = true
+            --         }, {
+            --             id = 'Pants',
+            --             title = 'Pants',
+            --             icon = 'user',
+            --             type = 'client',
+            --             event = 'qb-radialmenu:ToggleClothing',
+            --             shouldClose = true
+            --         }, {
+            --             id = 'Shoes',
+            --             title = 'Shoes',
+            --             icon = 'shoe-prints',
+            --             type = 'client',
+            --             event = 'qb-radialmenu:ToggleClothing',
+            --             shouldClose = true
+            --         }, {
+            --             id = 'meer',
+            --             title = 'Extras',
+            --             icon = 'plus',
+            --             items = {
+            --                 {
+            --                     id = 'Hat',
+            --                     title = 'Hat',
+            --                     icon = 'hat-cowboy-side',
+            --                     type = 'client',
+            --                     event = 'qb-radialmenu:ToggleProps',
+            --                     shouldClose = true
+            --                 }, {
+            --                     id = 'Glasses',
+            --                     title = 'Glasses',
+            --                     icon = 'glasses',
+            --                     type = 'client',
+            --                     event = 'qb-radialmenu:ToggleProps',
+            --                     shouldClose = true
+            --                 }, {
+            --                     id = 'Visor',
+            --                     title = 'Visor',
+            --                     icon = 'hat-cowboy-side',
+            --                     type = 'client',
+            --                     event = 'qb-radialmenu:ToggleProps',
+            --                     shouldClose = true
+            --                 }, {
+            --                     id = 'Mask',
+            --                     title = 'Mask',
+            --                     icon = 'masks-theater',
+            --                     type = 'client',
+            --                     event = 'qb-radialmenu:ToggleClothing',
+            --                     shouldClose = true
+            --                 }, {
+            --                     id = 'Vest',
+            --                     title = 'Vest',
+            --                     icon = 'vest',
+            --                     type = 'client',
+            --                     event = 'qb-radialmenu:ToggleClothing',
+            --                     shouldClose = true
+            --                 }, {
+            --                     id = 'Bag',
+            --                     title = 'Bag',
+            --                     icon = 'bag-shopping',
+            --                     type = 'client',
+            --                     event = 'qb-radialmenu:ToggleClothing',
+            --                     shouldClose = true
+            --                 }, {
+            --                     id = 'Bracelet',
+            --                     title = 'Bracelet',
+            --                     icon = 'user',
+            --                     type = 'client',
+            --                     event = 'qb-radialmenu:ToggleProps',
+            --                     shouldClose = true
+            --                 }, {
+            --                     id = 'Watch',
+            --                     title = 'Watch',
+            --                     icon = 'stopwatch',
+            --                     type = 'client',
+            --                     event = 'qb-radialmenu:ToggleProps',
+            --                     shouldClose = true
+            --                 }, {
+            --                     id = 'Gloves',
+            --                     title = 'Gloves',
+            --                     icon = 'mitten',
+            --                     type = 'client',
+            --                     event = 'qb-radialmenu:ToggleClothing',
+            --                     shouldClose = true
+            --                 }
+            --             }
+            --         }
+            --     }
+            -- }
+        },
+        [3] = {
+            id = 'location',
+            title = 'Địa Điểm',
+            icon = 'map',
+            items = {
+                {
+                    id = 'store',
+                    title = 'Cửa hàng tạp hóa',
+                    icon = 'store',
+                    type = 'client',
+                    label = '24/7 Supermarket',
+                    event = 'qb-shops:client:ShowNearestLocation',
+                    shouldClose = true,
+                }, {
+                    id = 'garage',
+                    title = 'Garage',
+                    icon = 'square-parking',
+                    type = 'client',
+                    label = 'Public Parking',
+                    event = 'qb-garages:client:ShowNearestLocation',
+                    shouldClose = true,
+                }, {
+                    id = 'clothingshop',
+                    title = 'Cửa hàng thời trang',
+                    icon = 'shirt',
+                    type = 'client',
+                    label = 'Tiệm Quần Áo',
+                    event = 'fivem-appearance:client:ShowNearestLocation',
+                    shouldClose = true
+                }, {
+                    id = 'gasstation',
+                    title = 'Trạm xăng',
+                    icon = 'gas-pump',
+                    type = 'client',
+                    label = 'Tiệm Quần Áo',
+                    event = 'fuel:client:ShowNearestLocation',
+                    shouldClose = true
+                },
             }
-        }
+        },
     },
 }
 

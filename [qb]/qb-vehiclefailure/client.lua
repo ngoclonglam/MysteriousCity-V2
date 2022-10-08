@@ -39,6 +39,105 @@ local DamageComponents = {
 }
 
 -- Functions
+local function AutoFix()
+	local isInside = false
+	local autoFix = false
+	local price = 5000
+	local zone = PolyZone:Create({
+		vector2(-378.58840942382, -107.47940063476),
+		vector2(-363.91064453125, -112.91069030762),
+		vector2(-362.08026123046, -107.9088973999),
+		vector2(-376.66088867188, -102.72183990478)
+	},{
+		name = "AutoFixCar",
+		minZ = 37,
+		maxZ = 40,
+		debugPoly = false
+	})
+
+	zone:onPlayerInOut(function(isPointInside)
+		isInside = isPointInside
+		if isInside then
+			CreateThread(function()
+				while isInside do
+					exports['qb-core']:DrawText('Bấm E để sửa xe tự động', 'left')
+					if IsControlJustReleased(0,38) and not autoFix then
+						if PlayerData.money.cash >= price or PlayerData.money.bank >= price then
+							QBCore.Functions.TriggerCallback('qb-vehicletuning:server:IsMechanicAvailable', function(mechanic)
+								if mechanic == 0 then
+									local hasitem = false
+									local indx = {}
+									local countitem = 0
+									local partItem, partCost
+									QBCore.Functions.TriggerCallback('qb-inventory:server:GetStashItems', function(StashItems)
+										for h, j in pairs(Config.Parts) do
+											partItem = h
+											partCost = j
+											for _, v in pairs(StashItems) do
+												if v.name == partItem then
+													hasitem = true
+													if v.amount >= partCost then
+														countitem = v.amount
+														indx[#indx + 1] = {
+															name = v.name,
+															count = v.amount
+														}
+													else
+														goto next
+													end
+												end
+											end
+										end
+										::next::
+										if hasitem and countitem >= partCost then
+											if IsPedInAnyVehicle(PlayerPedId(), false) then
+													autoFix = true
+													QBCore.Functions.Progressbar("auto_fix", "Sửa Xe Tự Động", 5000, false, false, {
+														disableMovement = true,
+														disableCarMovement = true,
+														disableMouse = false,
+														disableCombat = false,
+													}, {}, {}, {}, function() -- Done
+														TriggerEvent('iens:repaira')
+														TriggerEvent('vehiclemod:client:fixEverything')
+														for slot, part in pairs(indx) do
+															if (part.count - partCost) <= 0 then
+																StashItems[part.name] = nil
+															else
+																part.count = (part.count - partCost)
+																StashItems[slot].amount = part.count
+															end
+														end
+														TriggerServerEvent('qb-inventory:server:SaveStashItems', "mechanicstash", StashItems)
+														TriggerServerEvent('qb-vehiclefailure:server:addMoney', price)
+														autoFix = false
+													end, function()
+														QBCore.Functions.Notify("Thất bại", "error")
+														autoFix = false
+													end)
+											else
+												QBCore.Functions.Notify('Bạn phải ngồi trong xe để sửa xe', 'error')
+											end
+										else
+											QBCore.Functions.Notify('Sửa xe không có đủ nguyên vật liệu để sửa cho bạn', 'error')
+										end
+									end, "mechanicstash")
+								else
+									QBCore.Functions.Notify('Có nhân viên mechanic đang làm việc', 'error')
+								end
+							end)
+						else
+							QBCore.Functions.Notify('Bạn không có đủ ' .. price .. '$ để sửa xe', 'error')
+						end
+					end
+					Wait(1)
+				end
+			end)
+        else
+            exports['qb-core']:HideText()
+		end
+	end)
+end
 
 local function DamageRandomComponent()
 	local dmgFctr = math.random() + math.random(0, 2)
@@ -405,6 +504,7 @@ CreateThread(function()
 			EndTextCommandSetBlipName(item.blip)
 		end
 	end
+	AutoFix()
 end)
 
 if cfg.torqueMultiplierEnabled or cfg.preventVehicleFlip or cfg.limpMode then

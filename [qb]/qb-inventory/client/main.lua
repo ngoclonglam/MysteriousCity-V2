@@ -119,9 +119,9 @@ end
 local function FormatWeaponAttachments(itemdata)
     local attachments = {}
     itemdata.name = itemdata.name:upper()
-    if itemdata.info.attachments ~= nil and next(itemdata.info.attachments) ~= nil then
+    if itemdata.info.attachments and next(itemdata.info.attachments) then
         for _, v in pairs(itemdata.info.attachments) do
-            if WeaponAttachments[itemdata.name] ~= nil then
+            if WeaponAttachments[itemdata.name] then
                 for key, value in pairs(WeaponAttachments[itemdata.name]) do
                     if value.component == v.component then
                         local item = value.item
@@ -559,6 +559,32 @@ RegisterNetEvent('inventory:client:UseWeapon', function(weaponData, shootbool)
         SetCurrentPedWeapon(ped, weaponHash, true)
         TriggerEvent('weapons:client:SetCurrentWeapon', weaponData, shootbool)
         currentWeapon = weaponName
+    elseif weaponName == "weapon_stungun" or weaponName == "weapon_pumpshotgun" or weaponName == "weapon_smg" or weaponName == "weapon_carbinerifle" or weaponName == "weapon_nightstick" then
+        if PlayerData.job and (PlayerData.job.name ~= "police" and PlayerData.job.name ~= "prison") then
+            TriggerServerEvent('QBCore:Server:RemoveItem', weaponName, 1)
+            QBCore.Functions.Notify('Bạn không phải người ban ngành', 'error')
+        elseif not PlayerData.job.onduty then
+            QBCore.Functions.Notify('Bạn không có on-duty', 'error')
+        else
+            TriggerEvent('weapons:client:SetCurrentWeapon', weaponData, shootbool)
+            local ammo = tonumber(weaponData.info.ammo) or 0
+
+            if weaponName == "weapon_fireextinguisher" then
+                ammo = 4000
+            end
+
+            GiveWeaponToPed(ped, weaponHash, ammo, false, false)
+            SetPedAmmo(ped, weaponHash, ammo)
+            SetCurrentPedWeapon(ped, weaponHash, true)
+
+            if weaponData.info.attachments then
+                for _, attachment in pairs(weaponData.info.attachments) do
+                    GiveWeaponComponentToPed(ped, weaponHash, joaat(attachment.component))
+                end
+            end
+
+            currentWeapon = weaponName
+        end
     elseif weaponName == "weapon_snowball" then
         GiveWeaponToPed(ped, weaponHash, 10, false, false)
         SetPedAmmo(ped, weaponHash, 10)
@@ -570,7 +596,7 @@ RegisterNetEvent('inventory:client:UseWeapon', function(weaponData, shootbool)
         TriggerEvent('weapons:client:SetCurrentWeapon', weaponData, shootbool)
         local ammo = tonumber(weaponData.info.ammo) or 0
 
-        if weaponName == "weapon_petrolcan" then
+        if weaponName == "weapon_fireextinguisher" then
             ammo = 4000
         end
 
@@ -674,7 +700,7 @@ RegisterCommand('inventory', function()
                 CurrentVehicle = nil
             else
                 local vehicle = QBCore.Functions.GetClosestVehicle()
-                if vehicle ~= 0 and vehicle ~= nil then
+                if vehicle ~= 0 and vehicle then
                     local pos = GetEntityCoords(ped)
                     local dimensionMin, dimensionMax = GetModelDimensions(GetEntityModel(vehicle))
 		    local trunkpos = GetOffsetFromEntityInWorldCoords(vehicle, 0.0, (dimensionMin.y), 0.0)
@@ -699,9 +725,49 @@ RegisterCommand('inventory', function()
             end
 
             if CurrentVehicle then -- Trunk
+                local model = GetEntityModel(curVeh)
                 local vehicleClass = GetVehicleClass(curVeh)
                 local maxweight
                 local slots
+
+                if model == 65402552 then
+                    maxweight = 150000
+                    slots = 50
+                    goto next
+                elseif model == GetHashKey('everon') then
+                    maxweight = 250000
+                    slots = 50
+                    goto next
+                elseif model == GetHashKey('dubsta3') then
+                    maxweight = 300000
+                    slots = 50
+                    goto next
+                elseif model == GetHashKey('mule5') then
+                    maxweight = 500000
+                    slots = 100
+                    goto next
+                elseif model == GetHashKey('caracara2') then
+                    maxweight = 180000
+                    slots = 50
+                    goto next
+                elseif model == GetHashKey('bmws19') then
+                    maxweight = 60000
+                    slots = 50
+                    goto next
+                elseif model == GetHashKey('gxrx7') then
+                    maxweight = 90000
+                    slots = 50
+                    goto next
+                elseif model == GetHashKey('dinghy') then
+                    maxweight = 120000
+                    slots = 50
+                    goto next
+                elseif model == GetHashKey('mazdaanime') then
+                    maxweight = 90000
+                    slots = 50
+                    goto next
+                end
+
                 if vehicleClass == 0 then
                     maxweight = 38000
                     slots = 30
@@ -751,6 +817,9 @@ RegisterCommand('inventory', function()
                     maxweight = 60000
                     slots = 35
                 end
+
+                ::next::
+
                 local other = {
                     maxweight = maxweight,
                     slots = slots,
@@ -866,14 +935,14 @@ RegisterNUICallback("CloseInventory", function(_, cb)
         ClearPedTasks(PlayerPedId())
         return
     end
-    if CurrentVehicle ~= nil then
+    if CurrentVehicle then
         CloseTrunk()
         TriggerServerEvent("inventory:server:SaveInventory", "trunk", CurrentVehicle)
         CurrentVehicle = nil
-    elseif CurrentGlovebox ~= nil then
+    elseif CurrentGlovebox then
         TriggerServerEvent("inventory:server:SaveInventory", "glovebox", CurrentGlovebox)
         CurrentGlovebox = nil
-    elseif CurrentStash ~= nil then
+    elseif CurrentStash then
         TriggerServerEvent("inventory:server:SaveInventory", "stash", CurrentStash)
         CurrentStash = nil
     else
@@ -960,13 +1029,13 @@ end)
 CreateThread(function()
     while true do
         local sleep = 100
-        if DropsNear ~= nil then
+        if DropsNear then
 			local ped = PlayerPedId()
 			local closestDrop = nil
 			local closestDistance = nil
             for k, v in pairs(DropsNear) do
 
-                if DropsNear[k] ~= nil then
+                if DropsNear[k] then
                     if Config.UseItemDrop then
                         if not v.isDropShowing then
                             CreateItemDrop(k)
@@ -976,7 +1045,7 @@ CreateThread(function()
                         DrawMarker(20, v.coords.x, v.coords.y, v.coords.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.3, 0.15, 120, 10, 20, 155, false, false, false, 1, false, false, false)
                     end
 
-					local coords = (v.object ~= nil and GetEntityCoords(v.object)) or vector3(v.coords.x, v.coords.y, v.coords.z)
+					local coords = (v.object and GetEntityCoords(v.object)) or vector3(v.coords.x, v.coords.y, v.coords.z)
 					local distance = #(GetEntityCoords(ped) - coords)
 					if distance < 2 and (not closestDistance or distance < closestDistance) then
 						closestDrop = k
@@ -998,10 +1067,10 @@ end)
 
 CreateThread(function()
     while true do
-        if Drops ~= nil and next(Drops) ~= nil then
+        if Drops and next(Drops) then
             local pos = GetEntityCoords(PlayerPedId(), true)
             for k, v in pairs(Drops) do
-                if Drops[k] ~= nil then
+                if Drops[k] then
                     local dist = #(pos - vector3(v.coords.x, v.coords.y, v.coords.z))
                     if dist < Config.MaxDropViewDistance then
                         DropsNear[k] = v

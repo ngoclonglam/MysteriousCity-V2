@@ -1888,7 +1888,21 @@ RegisterNetEvent('inventory:server:SetInventoryData', function(fromInventory, to
 					QBCore.Functions.Notify(src, "You don't have enough cash..", "error")
 				end
 			end
+		elseif QBCore.Shared.SplitStr(shopType, "_")[1] == "hospital" then
+			local balance = exports['qb-management']:GetAccount('ambulance')
+			if balance > 0 then
+				exports['qb-management']:RemoveMoney('ambulance', price)
+				TriggerClientEvent('QBCore:Notify', src, 'Tiền đã được trừ vào quỹ bệnh viện', 'success')
+				-- TriggerEvent("qb-bossmenu:server:removeAccountMoney", 'ambulance', price)
+				Player.Functions.AddItem(itemData.name, fromAmount, toSlot, itemData.info)
+			else
+				TriggerClientEvent('QBCore:Notify', src, 'Qũy bệnh viên đã hết', 'error')
+                TriggerClientEvent("inventory:client:CloseInventory", src)
+			end
 		elseif QBCore.Shared.SplitStr(shopType, "_")[1] == "Itemshop" then
+			if QBCore.Shared.SplitStr(shopType, "_")[2] == "bar" then
+				exports['qb-management']:AddMoney('vu', price)
+			end
 			if Player.Functions.RemoveMoney("cash", price, "itemshop-bought-item") then
                 if QBCore.Shared.SplitStr(itemData.name, "_")[1] == "weapon" then
                     itemData.info.serie = tostring(QBCore.Shared.RandomInt(2) .. QBCore.Shared.RandomStr(3) .. QBCore.Shared.RandomInt(1) .. QBCore.Shared.RandomStr(2) .. QBCore.Shared.RandomInt(3) .. QBCore.Shared.RandomStr(4))
