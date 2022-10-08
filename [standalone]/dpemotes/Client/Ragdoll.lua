@@ -1,25 +1,27 @@
-local isInRagdoll = false
+if Config.RagdollEnabled then
+    RegisterCommand('+ragdoll', function(source, args, raw) Ragdoll() end)
+    RegisterCommand('-ragdoll', function(source, args, raw) StopRagdoll() end)
+    RegisterKeyMapping("+ragdoll", "Ragdoll your character", "keyboard", Config.RagdollKeybind)
 
-Citizen.CreateThread(function()
- while true do
-    Citizen.Wait(10)
-    if isInRagdoll then
-      SetPedToRagdoll(PlayerPedId(), 1000, 1000, 0, 0, 0, 0)
-    end
-  end
-end)
-
-Citizen.CreateThread(function()
-    while true do
-    Citizen.Wait(0)
-    if IsControlJustPressed(2, Config.RagdollKeybind) and Config.RagdollEnabled and IsPedOnFoot(PlayerPedId()) then
-        if isInRagdoll then
-            isInRagdoll = false
+    local stop = true
+    function Ragdoll()
+        if Config.RagdollAsToggle then
+            stop = not stop
         else
-            isInRagdoll = true
-            Wait(500)
+            stop = false
+        end
+
+        while not stop do
+            local ped = PlayerPedId()
+            if IsPedOnFoot(ped) then
+                SetPedToRagdoll(ped, 1000, 1000, 0, 0, 0, 0)
+            end
+            Wait(10)
         end
     end
-  end
-end)
 
+    function StopRagdoll()
+        if Config.RagdollAsToggle then return end
+        stop = true
+    end
+end
