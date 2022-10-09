@@ -56,7 +56,8 @@ local function onPlayerConnecting(name, _, deferrals)
 
     if QBCore.Config.Server.Closed then
         -- if not IsPlayerAceAllowed(src, 'qbadmin.join') then
-        if not IsPlayerAceAllowed(src, 'qbcore.admin') then
+        -- if not IsPlayerAceAllowed(src, 'qbcore.admin') then
+        if not IsPlayerAceAllowed(src, 'god') or not IsPlayerAceAllowed(src, 'admin') then
             deferrals.done(QBCore.Config.Server.ClosedReason)
         end
     end
