@@ -19,8 +19,8 @@ end)
 RegisterNetEvent('gift4event:client:SpawnVehicle', function(car)
     TriggerEvent('QBCore:Command:SpawnVehicle', car)
     QBCore.Functions.Progressbar("receive_car", Config.Lang.process.register_vehicle, 3000, false, false, {
-        disableMovement = false,
-        disableCarMovement = false,
+        disableMovement = true,
+        disableCarMovement = true,
 		disableMouse = false,
 		disableCombat = true,
     }, {
@@ -28,11 +28,11 @@ RegisterNetEvent('gift4event:client:SpawnVehicle', function(car)
         local ped = PlayerPedId()
         local veh = GetVehiclePedIsIn(ped)
 
-        if veh ~= nil and veh ~= 0 then
+        if veh and veh ~= 0 then
             local plate = QBCore.Functions.GetPlate(veh)
             local props = QBCore.Functions.GetVehicleProperties(veh)
 
-            if QBCore.Shared.Vehicles[car] ~= nil and next(QBCore.Shared.Vehicles[car]) ~= nil then
+            if QBCore.Shared.Vehicles[car] and next(QBCore.Shared.Vehicles[car]) then
                 TriggerServerEvent('qb-admin:server:SaveCar', props, QBCore.Shared.Vehicles[car], GetHashKey(veh), plate)
             else
                 QBCore.Functions.Notify(Config.Lang.error.cannot_register_vehicle, 'error')

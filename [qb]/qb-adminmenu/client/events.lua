@@ -72,12 +72,13 @@ RegisterNetEvent('qb-admin:client:SaveCar', function()
     local ped = PlayerPedId()
     local veh = GetVehiclePedIsIn(ped)
 
-    if veh ~= nil and veh ~= 0 then
+    if veh and veh ~= 0 then
         local plate = QBCore.Functions.GetPlate(veh)
         local props = QBCore.Functions.GetVehicleProperties(veh)
         local hash = props.model
         local vehname = getVehicleFromVehList(hash)
-        if QBCore.Shared.Vehicles[vehname] ~= nil and next(QBCore.Shared.Vehicles[vehname]) ~= nil then
+        if QBCore.Shared.Vehicles[vehname] and next(QBCore.Shared.Vehicles[vehname]) then
+            print('yes mottherfuck im save this car')
             TriggerServerEvent('qb-admin:server:SaveCar', props, QBCore.Shared.Vehicles[vehname], GetHashKey(veh), plate)
         else
             QBCore.Functions.Notify(Lang:t("error.no_store_vehicle_garage"), 'error')
@@ -141,7 +142,7 @@ RegisterNetEvent('qb-weapons:client:SetWeaponAmmoManual', function(weapon, ammo)
         QBCore.Functions.Notify(Lang:t("info.ammoforthe", {value = ammo, weapon = QBCore.Shared.Weapons[weapon]["label"]}), 'success')
     else
         weapon = GetSelectedPedWeapon(ped)
-        if weapon ~= nil then
+        if weapon then
             SetPedAmmo(ped, weapon, ammo)
             QBCore.Functions.Notify(Lang:t("info.ammoforthe", {value = ammo, weapon = QBCore.Shared.Weapons[weapon]["label"]}), 'success')
         else
