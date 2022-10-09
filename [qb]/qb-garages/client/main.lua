@@ -343,8 +343,19 @@ RegisterNetEvent('qb-garages:client:takeOutGarage', function(data)
     local vehicle = data.vehicle
     local garage = data.garage
     local index = data.index
+    local price = 3000
+    PlayerData = QBCore.Functions.GetPlayerData()
+    local bank = PlayerData.money.bank
+    local cash = PlayerData.money.cash
     QBCore.Functions.TriggerCallback('qb-garage:server:IsSpawnOk', function(spawn)
         if spawn then
+            if cash >= price then
+                TriggerServerEvent('qb-garage:server:payGarage', 'cash', price)
+            elseif bank >= price then
+                TriggerServerEvent('qb-garage:server:payGarage', 'bank', price)
+            else
+                return QBCore.Functions.Notify('Bạn không có đủ $' .. price .. ' để lấy xe', 'error')
+            end
             local location
             if type == "house" then
                 location = garage.takeVehicle

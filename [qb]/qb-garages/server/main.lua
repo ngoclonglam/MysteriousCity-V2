@@ -170,17 +170,13 @@ QBCore.Functions.CreateCallback("qb-garage:server:IsSpawnOk", function(_, cb, pl
             cb(true)
         end
     else
-        local price = 3000
-        local Player = QBCore.Functions.GetPlayer(source)
-        if Player.Functions.RemoveMoney('cash', price) then
-            cb(true)
-        elseif Player.Functions.RemoveMoney('bank', price) then
-            cb(true)
-        else
-            cb(false)
-        end
         cb(true)
     end
+end)
+
+RegisterNetEvent('qb-garage:server:payGarage', function(Type, amount)
+    local xPlayer = QBCore.Functions.GetPlayer(source)
+    xPlayer.Functions.RemoveMoney(Type, amount, 'garage-paid')
 end)
 
 RegisterNetEvent('qb-garage:server:updateVehicle', function(state, fuel, engine, body, plate, garage, type, gang)
