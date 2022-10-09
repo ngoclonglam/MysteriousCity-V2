@@ -2818,7 +2818,7 @@ var requiredItemOpen = false;
             $("#dialog").dialog("close");
             player = $(this).data("player");
             $.post(
-            "https://lj-inventory/GiveItem", JSON.stringify({
+            "https://qb-inventory/GiveItem", JSON.stringify({
                 player: player,
                 inventory: data.fromInventory,
                 item: data.item,
@@ -2960,7 +2960,7 @@ $("#item-give").droppable({
         }
 
         $.post(
-            "https://lj-inventory/GetNearPlayers",
+            "https://qb-inventory/GetNearPlayers",
             JSON.stringify({
                 inventory: fromInventory,
                 item: fromData,
