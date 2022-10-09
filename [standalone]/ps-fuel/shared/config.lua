@@ -1,5 +1,5 @@
 Config = {}
-Config.ShowNearestGasStationOnly = true -- show nearest gas stations when close enough. If set to false, will show all blips for all gas stations.
+Config.ShowNearestGasStationOnly = false -- show nearest gas stations when close enough. If set to false, will show all blips for all gas stations.
 Config.LeaveEngineRunning = true -- when set to true vehicle engine will run upon exiting vehicle
 Config.VehicleBlowUp = true -- when set to true vehicle has a chance to blow up if engine is left running
 Config.BlowUpChance = 5 -- percentage for chance of engine explosion
