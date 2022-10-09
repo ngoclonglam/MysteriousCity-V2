@@ -86,36 +86,35 @@ if Config.LeaveEngineRunning then
 	end)
 end
 
-if Config.ShowNearestGasStationOnly then
-	CreateThread(function()
-		local currentGasBlip = 0
-		while true do
-			local coords = GetEntityCoords(PlayerPedId())
-			local closest = 1000
-			local closestCoords
+-- if Config.ShowNearestGasStationOnly then
+-- 	CreateThread(function()
+-- 		local currentGasBlip = 0
+-- 		while true do
+-- 			local coords = GetEntityCoords(PlayerPedId())
+-- 			local closest = 1000
+-- 			local closestCoords
 			
-			for _, gasStationCoords in pairs(Config.GasStationsBlips) do
-				local dstcheck = #(coords - gasStationCoords)
-				if dstcheck < closest then
-					closest = dstcheck
-					closestCoords = gasStationCoords
-				end
-			end
-			if DoesBlipExist(currentGasBlip) then
-				RemoveBlip(currentGasBlip)
-			end
-			currentGasBlip = CreateBlip(closestCoords)
-			Wait(10000)
-		end
-	end)
-	
-else
-	CreateThread(function()
-		for _, gasStationCoords in pairs(Config.GasStationsBlips) do
-			CreateBlip(gasStationCoords)
-		end
-	end)
-end
+-- 			for _, gasStationCoords in pairs(Config.GasStationsBlips) do
+-- 				local dstcheck = #(coords - gasStationCoords)
+-- 				if dstcheck < closest then
+-- 					closest = dstcheck
+-- 					closestCoords = gasStationCoords
+-- 				end
+-- 			end
+-- 			if DoesBlipExist(currentGasBlip) then
+-- 				RemoveBlip(currentGasBlip)
+-- 			end
+-- 			currentGasBlip = CreateBlip(closestCoords)
+-- 			Wait(10000)
+-- 		end
+-- 	end)
+-- else
+-- 	CreateThread(function()
+-- 		for _, gasStationCoords in pairs(Config.GasStationsBlips) do
+-- 			CreateBlip(gasStationCoords)
+-- 		end
+-- 	end)
+-- end
 
 CreateThread(function()
 	for k=1, #Config.GasStations do
