@@ -82,26 +82,25 @@ end
 lang = Config.MenuLanguage
 
 function AddEmoteMenu(menu)
-    local submenu = _menuPool:AddSubMenu(menu, Config.Languages[lang]['emotes'], "", "", Menuthing, Menuthing)
+    local submenu = _menuPool:AddSubMenu(menu, Config.Languages[lang]['emotes'], "", "", Menuthing)
     if Config.Search then
         submenu:AddItem(NativeUI.CreateItem(Config.Languages[lang]['searchemotes'], ""))
         table.insert(EmoteTable, Config.Languages[lang]['searchemotes'])
     end
-    local dancemenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['danceemotes'], "", "", Menuthing, Menuthing)
+    local dancemenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['danceemotes'], "", "", Menuthing)
     local animalmenu
     if Config.AnimalEmotesEnabled then
-        animalmenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['animalemotes'], "", "", Menuthing, Menuthing)
+        animalmenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['animalemotes'], "", "", Menuthing)
         table.insert(EmoteTable, Config.Languages[lang]['animalemotes'])
     end
-    local propmenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['propemotes'], "", "", Menuthing, Menuthing)
+    local propmenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['propemotes'], "", "", Menuthing)
     table.insert(EmoteTable, Config.Languages[lang]['danceemotes'])
     table.insert(EmoteTable, Config.Languages[lang]['danceemotes'])
 
     if Config.SharedEmotesEnabled then
         sharemenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['shareemotes'],
-            Config.Languages[lang]['shareemotesinfo'], "", Menuthing, Menuthing)
-        shareddancemenu = _menuPool:AddSubMenu(sharemenu, Config.Languages[lang]['sharedanceemotes'], "", "", Menuthing,
-            Menuthing)
+        Config.Languages[lang]['shareemotesinfo'], "", Menuthing, Menuthing)
+        shareddancemenu = _menuPool:AddSubMenu(sharemenu, Config.Languages[lang]['sharedanceemotes'], "", "", Menuthing)
         table.insert(ShareTable, 'none')
         table.insert(EmoteTable, Config.Languages[lang]['shareemotes'])
     end
@@ -216,6 +215,14 @@ function AddEmoteMenu(menu)
 
     if Config.AnimalEmotesEnabled then
         animalmenu.OnItemSelect = function(sender, item, index)
+            local hashSkinMale = GetHashKey("mp_m_freemode_01")
+            local hashSkinFemale = GetHashKey("mp_f_freemode_01")
+
+            if GetEntityModel(PlayerPedId()) == hashSkinMale then
+                return
+            elseif GetEntityModel(PlayerPedId()) == hashSkinFemale then
+                return
+            end
             EmoteMenuStart(AnimalTable[index], "animals")
         end
     end
@@ -332,7 +339,7 @@ if Config.Search then
                     if data == Config.Languages[lang]['rfavorite'] then 
                         FavoriteEmote = ""
                         ShowNotification(Config.Languages[lang]['rfavorite'], 2000)
-                        return 
+                        return
                     end
 
                     if favEnabled and IsControlPressed(0, 21) then
@@ -356,7 +363,7 @@ if Config.Search then
                             SimpleNotify(Config.Languages[lang]['sentrequestto'] .. GetPlayerName(target))
                         else
                             SimpleNotify(Config.Languages[lang]['nobodyclose'])
-                        end   
+                        end
                     end
                 end
 
