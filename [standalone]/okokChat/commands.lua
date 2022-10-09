@@ -66,11 +66,11 @@ if Config.EnableAdvertisementCommand then
 		local message = rawCommand:sub(length + 1)
 		local time = os.date(Config.DateFormat)
 		local playerName = xPlayer.PlayerData.charinfo.firstname..' '..xPlayer.PlayerData.charinfo.lastname
-		local bankMoney = xPlayer.getAccount('bank').money
+		local bankMoney = xPlayer.PlayerData.money.bank
 
 		if canAdvertise then
 			if bankMoney >= Config.AdvertisementPrice then
-				xPlayer.removeAccountMoney('bank', Config.AdvertisementPrice)
+				xPlayer.Functions.RemoveMoney('bank', Config.AdvertisementPrice)
 				TriggerClientEvent('chat:addMessage', -1, {
 					template = '<div class="chat-message advertisement"><i class="fas fa-ad"></i> <b><span style="color: #81db44">{0}</span>&nbsp;<span style="font-size: 14px; color: #e1e1e1;">{2}</span></b><div style="margin-top: 5px; font-weight: 300;">{1}</div></div>',
 					args = { playerName, message, time }
@@ -78,14 +78,14 @@ if Config.EnableAdvertisementCommand then
 
 				TriggerClientEvent('okokNotify:Alert', source, "ADVERTISEMENT", "Advertisement successfully made for "..Config.AdvertisementPrice..'€', 10000, 'success')
 
-				local time = Config.AdvertisementCooldown * 60
+				local timeAD = Config.AdvertisementCooldown * 60
 				local pastTime = 0
 				canAdvertise = false
 
-				while (time > pastTime) do
-					Citizen.Wait(1000)
+				while (timeAD > pastTime) do
+					Wait(1000)
 					pastTime = pastTime + 1
-					timeLeft = time - pastTime
+					-- timeLeft = time - pastTime
 				end
 				canAdvertise = true
 			else

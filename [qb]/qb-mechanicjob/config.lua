@@ -43,15 +43,15 @@ Config.RepairCost = {
 Config.RepairCostAmount = {
     ["engine"] = {
         item = "metalscrap",
-        costs = 2,
+        costs = 7,
     },
     ["body"] = {
         item = "plastic",
-        costs = 3,
+        costs = 7,
     },
     ["radiator"] = {
         item = "steel",
-        costs = 5,
+        costs = 7,
     },
     ["axle"] = {
         item = "aluminum",
@@ -59,11 +59,11 @@ Config.RepairCostAmount = {
     },
     ["brakes"] = {
         item = "copper",
-        costs = 5,
+        costs = 7,
     },
     ["clutch"] = {
         item = "copper",
-        costs = 6,
+        costs = 5,
     },
     ["fuel"] = {
         item = "plastic",
@@ -77,9 +77,9 @@ Config.Businesses = {
 
 Config.Plates = {
     [1] = {
-        coords = vector4(-340.95, -128.24, 39, 160.0),
+        coords = vector4(-323.28, -132.05, 38.35, 70.11),
         boxData = {
-            heading = 340,
+            heading = 70,
             length = 5,
             width = 2.5,
             debugPoly = false
@@ -87,11 +87,21 @@ Config.Plates = {
         AttachedVehicle = nil,
     },
     [2] = {
-        coords = vector4(-327.91, -144.34, 38.86, 70.34),
+        coords = vector4(-321.05, -126.05, 38.38, 71.9),
         boxData = {
-            heading = 249,
-            length = 6.5,
-            width = 5,
+            heading = 72,
+            length = 5,
+            width = 2.5,
+            debugPoly = false
+        },
+        AttachedVehicle = nil,
+    },
+    [3] = {
+        coords = vector4(-319.13, -119.86, 38.4, 69.9),
+        boxData = {
+            heading = 70,
+            length = 5,
+            width = 2.5,
             debugPoly = false
         },
         AttachedVehicle = nil,
@@ -100,9 +110,10 @@ Config.Plates = {
 
 Config.Locations = {
     ["exit"] = vector3(-339.04, -135.53, 39),
-    ["duty"] = vector3(-323.39, -129.6, 39.01),
-    ["stash"] = vector3(-319.49, -131.9, 38.98),
-    ["vehicle"] = vector4(-370.51, -107.88, 38.35, 72.56),
+    -- ["duty"] = vector3(-348.77, -130.04, 38.98),
+    ["duty"] = vector3(-348.96, -129.44, 39.01),
+    ["stash"] = vector3(-341.69, -142.05, 39.05),
+    ["vehicle"] = vector4(-364.05, -144.61, 38.38, 71.86),
 }
 
 Config.Vehicles = {
