@@ -405,3 +405,25 @@ exports['qb-target']:AddTargetModel(props, {
 	},
 	distance = 2.0
 })
+
+if exports['nearbylocation'] then
+    RegisterNetEvent("fuel:client:ShowNearestLocation", function()
+        local locations = {}
+        for _, location in pairs(Config.GasStationsBlips) do
+            if location then
+                locations[#locations+1] = location
+            end
+        end
+
+        local blipOptions = {
+            blipscale = 0.75,
+            blipsprite = 361,
+            blipdisplay = 4,
+            blipcolor = 4,
+            blipRadius = 10,
+            blipshortrange = true,
+            label = "Trạm Xăng",
+        }
+        exports['nearbylocation']:ShowNearestLocation(locations, blipOptions)
+    end)
+end

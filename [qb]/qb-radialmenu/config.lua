@@ -294,7 +294,8 @@ Config.MenuItems = {
             --         }
             --     }
             -- }
-        },
+        }
+    },
         [3] = {
             id = 'location',
             title = 'Địa Điểm',
