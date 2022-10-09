@@ -321,17 +321,15 @@ Config.Items = {
             slot = 10,
             authorizedJobGrades = {0, 1, 2, 3, 4, 5, 6}
         },
-        -- [2] = {
-        --     name = "weapon_stungun",
-        --     price = 0,
-        --     amount = 1,
-        --     info = {
-        --         serie = "",
-        --     },
-        --     type = "weapon",
-        --     slot = 2,
-        --     authorizedJobGrades = {0, 1, 2, 3, 4}
-        -- },
+        [11] = {
+            name = "empty_evidence_bag",
+            price = 50,
+            amount = 10,
+            info = {},
+            type = "item",
+            slot = 11,
+            authorizedJobGrades = {0, 1, 2, 3, 4}
+        },
         -- [3] = {
         --     name = "weapon_pumpshotgun",
         --     price = 0,
