@@ -1325,3 +1325,25 @@ CreateThread(function()
         end
     end
 end)
+
+if exports['nearbylocation'] then
+    RegisterNetEvent("fivem-appearance:client:ShowNearestLocation", function(data)
+        local locations = {}
+        for k, location in pairs(Config.ClothingShops) do
+            if location then
+                locations[#locations+1] = location["coords"]
+            end
+        end
+
+        local blipOptions = {
+            blipscale = 0.75,
+            blipsprite = 73,
+            blipdisplay = 4,
+            blipcolor = 47,
+            blipRadius = 5,
+            blipshortrange = true,
+            label = "Tiệm Quần Áo",
+        }
+        exports['nearbylocation']:ShowNearestLocation(locations, blipOptions)
+    end)
+end
