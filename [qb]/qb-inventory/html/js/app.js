@@ -2805,6 +2805,29 @@ var requiredItemOpen = false;
         }, 2000);
     };
 
+    Inventory.GiveItem = function(data){
+        $("#nearPlayers").html("");
+
+        $.each(data.players, function (index, player) {
+            $("#nearPlayers").append('<button class="nearbyPlayerButton" data-player="' + player.player + '">' + player.label + ' (' + player.player + ')</button>');
+        });
+
+        $("#dialog").dialog("open");
+
+        $(".nearbyPlayerButton").click(function () {
+            $("#dialog").dialog("close");
+            player = $(this).data("player");
+            $.post(
+            "https://lj-inventory/GiveItem", JSON.stringify({
+                player: player,
+                inventory: data.fromInventory,
+                item: data.item,
+                amount: parseInt(data.amount),
+            })
+        );
+        });
+    };
+
     var itemBoxtimer = null;
     var requiredTimeout = null;
 
@@ -2893,6 +2916,9 @@ var requiredItemOpen = false;
                 case "toggleHotbar":
                     Inventory.ToggleHotbar(event.data);
                     break;
+                case "nearPlayers":
+                    Inventory.GiveItem(event.data);
+                    break;
                 case "RobMoney":
                     $(".inv-options-list").append(
                         '<div class="inv-option-item" id="rob-money"><p>TAKE MONEY</p></div>'
@@ -2916,6 +2942,8 @@ $(document).on("click", "#rob-money", function(e) {
     $("#rob-money").remove();
 });
 
+// Give
+
 $("#item-give").droppable({
     hoverClass: "button-hover",
     drop: function(event, ui) {
@@ -2923,13 +2951,16 @@ $("#item-give").droppable({
             IsDragging = false;
         }, 300);
         fromData = ui.draggable.data("item");
+        // Don't allow to give bound item
+        if (fromData !== undefined && fromData.isBound && fromData.info.quality !== 0) return false;
         fromInventory = ui.draggable.parent().attr("data-inventory");
         amount = $("#item-amount").val();
         if (amount == 0) {
             amount = fromData.amount;
         }
+
         $.post(
-            "https://qb-inventory/GiveItem",
+            "https://lj-inventory/GetNearPlayers",
             JSON.stringify({
                 inventory: fromInventory,
                 item: fromData,

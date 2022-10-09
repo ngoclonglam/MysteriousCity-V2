@@ -1006,6 +1006,47 @@ RegisterNUICallback("PlayDropFail", function(_, cb)
     cb('ok')
 end)
 
+RegisterNUICallback(
+    "GetNearPlayers",
+    function(data, cb)
+        local playerPed = PlayerPedId()
+        local players = QBCore.Functions.GetPlayersFromCoords(GetEntityCoords(playerPed), 3.0)
+        local foundPlayers = false
+        local elements = {}
+
+        for i = 1, #players, 1 do
+            if players[i] ~= PlayerId() then
+                foundPlayers = true
+
+                table.insert(
+                    elements,
+                    {
+                        label = GetPlayerName(players[i]),
+                        player = GetPlayerServerId(players[i])
+                    }
+                )
+            end
+        end
+
+        if not foundPlayers then
+            QBCore.Functions.Notify("Không có ai gần đó!", "error")
+        else
+            SendNUIMessage(
+                {
+                    action = "nearPlayers",
+                    foundAny = foundPlayers,
+                    players = elements,
+                    item = data.item,
+                    fromInventory = data.inventory,
+                    amount = data.amount
+                }
+            )
+        end
+
+        cb("ok")
+    end
+)
+
 RegisterNUICallback("GiveItem", function(data, cb)
     local player, distance = QBCore.Functions.GetClosestPlayer(GetEntityCoords(PlayerPedId()))
     if player ~= -1 and distance < 3 then
