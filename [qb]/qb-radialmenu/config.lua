@@ -296,46 +296,45 @@ Config.MenuItems = {
             -- }
         }
     },
-        [3] = {
-            id = 'location',
-            title = 'Địa Điểm',
-            icon = 'map',
-            items = {
-                {
-                    id = 'store',
-                    title = 'Cửa hàng tạp hóa',
-                    icon = 'store',
-                    type = 'client',
-                    label = '24/7 Supermarket',
-                    event = 'qb-shops:client:ShowNearestLocation',
-                    shouldClose = true,
-                }, {
-                    id = 'garage',
-                    title = 'Garage',
-                    icon = 'square-parking',
-                    type = 'client',
-                    label = 'Public Parking',
-                    event = 'qb-garages:client:ShowNearestLocation',
-                    shouldClose = true,
-                }, {
-                    id = 'clothingshop',
-                    title = 'Cửa hàng thời trang',
-                    icon = 'shirt',
-                    type = 'client',
-                    label = 'Tiệm Quần Áo',
-                    event = 'fivem-appearance:client:ShowNearestLocation',
-                    shouldClose = true
-                }, {
-                    id = 'gasstation',
-                    title = 'Trạm xăng',
-                    icon = 'gas-pump',
-                    type = 'client',
-                    label = 'Tiệm Quần Áo',
-                    event = 'fuel:client:ShowNearestLocation',
-                    shouldClose = true
-                },
-            }
-        },
+    [3] = {
+        id = 'location',
+        title = 'Địa Điểm',
+        icon = 'map',
+        items = {
+            {
+                id = 'store',
+                title = 'Cửa hàng tạp hóa',
+                icon = 'store',
+                type = 'client',
+                label = '24/7 Supermarket',
+                event = 'qb-shops:client:ShowNearestLocation',
+                shouldClose = true,
+            }, {
+                id = 'garage',
+                title = 'Garage',
+                icon = 'square-parking',
+                type = 'client',
+                label = 'Public Parking',
+                event = 'qb-garages:client:ShowNearestLocation',
+                shouldClose = true,
+            }, {
+                id = 'clothingshop',
+                title = 'Cửa hàng thời trang',
+                icon = 'shirt',
+                type = 'client',
+                label = 'Tiệm Quần Áo',
+                event = 'fivem-appearance:client:ShowNearestLocation',
+                shouldClose = true
+            }, {
+                id = 'gasstation',
+                title = 'Trạm xăng',
+                icon = 'gas-pump',
+                type = 'client',
+                label = 'Tiệm Quần Áo',
+                event = 'fuel:client:ShowNearestLocation',
+                shouldClose = true
+            },
+        }
     },
 }
 
