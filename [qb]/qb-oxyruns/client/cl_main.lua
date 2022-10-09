@@ -122,7 +122,7 @@ local StartOxyrun = function()
 	started = true
 	TriggerEvent('qb-phone:client:CustomNotification', 'CURRENT', "Wait for a new location..", 'fas fa-capsules', '#3480eb', 8000)
 
-	local coords = vector4(227.64, -39.86, 69.48, 162.03)
+	local coords = vector4(-902.1, -2387.94, 13.94, 147.15)
 
 	QBCore.Functions.TriggerCallback('QBCore:Server:SpawnVehicle', function(netId)
 		veh = NetToVeh(netId)

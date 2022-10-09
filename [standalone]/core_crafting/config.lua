@@ -22,7 +22,7 @@ Categories = {
 ['medical'] = {
 	Label = 'MEDICAL',
 	Image = 'bandage',
-	Jobs = {doctor, ambulance}
+	Jobs = {}
 }
 },
 
@@ -74,7 +74,7 @@ Recipes = { -- Enter Item name and then the speed value! The higher the value th
 		['clothe'] = 2, -- item name and count, adding items that dont exist in database will crash the script
 		['wood'] = 1,
 	}
-}, 
+},
 
 ['fishingrod'] = {
 	ItemName = 'fishingrod',
@@ -940,6 +940,7 @@ FakeWorkbenches = {
 	{coords = vector3(-21.94, -690.72, 244.25)},
 	{coords = vector3(-305.52, -911.04, 40.04)},
 	{coords = vector3(31.75, 3669.9, 40.44)},
+	{coords = vector3(3290.1, 5196.75, 18.42)},
 },
 
 Text = {

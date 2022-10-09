@@ -198,7 +198,7 @@ Config.Shells = {
 Config.DrugLabs = {
     -- [1] = { pos = vector3(0, 0, 0), h = 267.81, type = 'coke', shell = 'coke1', blip = false, cache = {} },   -- set pos, heading, type, shell, blip (enable/disable) for drug labs (don't touch 'cache')
     -- [2] = { pos = vector3(0, 0, 0), h = 35.33, type = 'meth', shell = 'meth1', blip = false, cache = {} },  -- set pos, heading, type, shell, blip (enable/disable) for drug labs (don't touch 'cache')
-    [1] = { pos = vector3(1400.75, 2169.9, 97.9), h = 86.16, type = 'weed', shell = 'weed1', blip = false, cache = {} },  -- set pos, heading, type, shell, blip (enable/disable) for drug labs (don't touch 'cache')
+    [1] = { pos = vector3(1218.6, 1848.93, 78.97), h = 38.2, type = 'weed', shell = 'weed1', blip = false, cache = {} },  -- set pos, heading, type, shell, blip (enable/disable) for drug labs (don't touch 'cache')
     -- [4] = { pos = vector3(853.15,-2207.42,30.57), h = 263.88, type = 'coke', shell = 'coke2', blip = false, cache = {} },  -- set pos, heading, type, shell, blip (enable/disable) for drug labs (don't touch 'cache')
     -- [5] = { pos = vector3(-969.52,-266.42,38.55), h = 118.02, type = 'meth', shell = 'meth2', blip = false, cache = {} },  -- set pos, heading, type, shell, blip (enable/disable) for drug labs (don't touch 'cache')
     -- [6] = { pos = vector3(359.68, 356.37, 104.33), h = 342.53, type = 'weed', shell = 'weed2', blip = false, cache = {} },  -- set pos, heading, type, shell, blip (enable/disable) for drug labs (don't touch 'cache')
