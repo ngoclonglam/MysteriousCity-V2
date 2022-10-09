@@ -1,14 +1,13 @@
-resource_manifest_version '77731fab-63ca-442c-a67b-abc70f28dfa5'
- 
-files {
+fx_version 'adamant'
 
+game 'gta5'
+
+files {
     'handling.meta',
 	'vehiclelayouts.meta',
     'vehicles.meta',
     'carvariations.meta',
     'carcols.meta',
-
-    
 }
 
 data_file 'HANDLING_FILE' 'handling.meta'
