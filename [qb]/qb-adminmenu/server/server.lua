@@ -203,9 +203,7 @@ RegisterNetEvent('qb-admin:server:SaveCar', function(mods, vehicle, _, plate)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local result = MySQL.query.await('SELECT plate FROM player_vehicles WHERE plate = ?', { plate })
-    print('test1')
     if result[1] == nil then
-        print('test')
         MySQL.insert('INSERT INTO player_vehicles (license, citizenid, vehicle, hash, mods, plate, state) VALUES (?, ?, ?, ?, ?, ?, ?)', {
             Player.PlayerData.license,
             Player.PlayerData.citizenid,

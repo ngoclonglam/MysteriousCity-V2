@@ -170,6 +170,15 @@ QBCore.Functions.CreateCallback("qb-garage:server:IsSpawnOk", function(_, cb, pl
             cb(true)
         end
     else
+        local price = 3000
+        local Player = QBCore.Functions.GetPlayer(source)
+        if Player.Functions.RemoveMoney('cash', price) then
+            cb(true)
+        elseif Player.Functions.RemoveMoney('bank', price) then
+            cb(true)
+        else
+            cb(false)
+        end
         cb(true)
     end
 end)
