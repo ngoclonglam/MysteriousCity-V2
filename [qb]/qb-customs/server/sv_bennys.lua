@@ -109,7 +109,7 @@ RegisterNetEvent('qb-customs:server:UpdateLocation', function(location, type, ke
 end)
 
 -- name, help, args, argsrequired, cb, perms
-QBCore.Commands.Add('customs', 'Open customs (admin only)', {}, false, function(source)
+QBCore.Commands.Add('customs', 'Open customs (Admin)', {}, false, function(source)
     local ped = GetPlayerPed(source)
     TriggerClientEvent('qb-customs:client:EnterCustoms', source, {
         coords = GetEntityCoords(ped),

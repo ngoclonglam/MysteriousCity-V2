@@ -39,45 +39,45 @@ local Translations = {
     },
     command = {
         tp = {
-            help = 'TP vers un joueur ou des coordonnées (Admin Only)',
+            help = 'TP vers un joueur ou des coordonnées (Admin)',
             params = {
                 x = { name ='id/x', help = 'ID du joueur ou position X',},
                 y = { name = 'y', help = 'Position Y'},
                 z = { name = 'z', help = 'Position Z'},
             },
         },
-        tpm = { help = 'TP au marqueur (Admin Only)'},
-        togglepvp = { help = 'Activer/Désactiver le PVP sur le serveur (Admin Only)'},
+        tpm = { help = 'TP au marqueur (Admin)'},
+        togglepvp = { help = 'Activer/Désactiver le PVP sur le serveur (Admin)'},
         addpermission = {
-            help = 'Donner des permissions à un joueur (God Only)',
+            help = 'Donner des permissions à un joueur (God)',
             params = {
                 id = { name = 'id', help = 'ID du joueur',},
                 permission = { name = 'permission', help = 'Niveau de permission',},
             },
         },
         removepermission = {
-            help = 'Retirer les permissions d\'un joueur (God Only)',
+            help = 'Retirer les permissions d\'un joueur (God)',
             params = {
                 id = { name = 'id', help = 'ID du joueur',},
                 permission = { name = 'permission', help = 'Niveau de permission',},
             },
         },
-        openserver = { help = 'Ouvrir le serveur à tout le monde (Admin Only)'},
+        openserver = { help = 'Ouvrir le serveur à tout le monde (Admin)'},
         closeserver = {
-            help = 'Fermer le serveur au joueurs sans permissions (Admin Only)',
+            help = 'Fermer le serveur au joueurs sans permissions (Admin)',
             params = {
                 reason = { name = 'reason', help = 'Raison de fermeture du serveur (Optionnel)',},
             },
         },
         car = {
-            help = 'Faire apparaître un véhicule (Admin Only)',
+            help = 'Faire apparaître un véhicule (Admin)',
             params = {
                 model = { name = 'model', help = 'Modèle du véhicule',},
             },
         },
-        dv = { help = 'Supprimer un véhicule (Admin Only)'},
+        dv = { help = 'Supprimer un véhicule (Admin)'},
         givemoney = {
-            help = 'Donner de l\'argent à un joueur (Admin Only)',
+            help = 'Donner de l\'argent à un joueur (Admin)',
             params = {
                 id = { name = 'id', help = 'ID du joueur',},
                 moneytype = { name = 'moneytype', help = 'Type d\'argent (cash, bank, crypto)',},
@@ -85,7 +85,7 @@ local Translations = {
             },
         },
         setmoney = {
-            help = 'Définir le solde d\'un joueur (Admin Only)',
+            help = 'Définir le solde d\'un joueur (Admin)',
             params = {
                 id = { name = 'id', help = 'ID du joueur',},
                 moneytype = { name = 'moneytype', help = 'Type d\'argent (cash, bank, crypto)',},
@@ -94,7 +94,7 @@ local Translations = {
         },
         job = { help = 'Voir son travail'},
         setjob = {
-            help = 'Définir le travail d\'un joueur (Admin Only)',
+            help = 'Définir le travail d\'un joueur (Admin)',
             params = {
                 id = { name = 'id', help = 'ID du joueur',},
                 job = { name = 'job', help = 'Nom du Travail',},
@@ -103,7 +103,7 @@ local Translations = {
         },
         gang = { help = 'Voir son gang'},
         setgang = {
-            help = 'Définir le gang d\'un joueur (Admin Only)',
+            help = 'Définir le gang d\'un joueur (Admin)',
             params = {
                 id = { name = 'id', help = 'ID du joueur',},
                 gang = { name = 'gang', help = 'Nom du Gang',},

@@ -47,14 +47,14 @@ local Translations = {
         tpm = { help = 'TP zum Marker (Nur Admins)' },
         togglepvp = { help = 'Schalte PVP ein oder aus (Nur Admins)' },
         addpermission = {
-            help = 'Gebe einem Spieler Rechte (God Only)',
+            help = 'Gebe einem Spieler Rechte (God)',
             params = {
                 id = { name = 'id', help = 'ID des Spielers' },
                 permission = { name = 'permission', help = 'Zugriffsrechte' },
             },
         },
         removepermission = {
-            help = 'Nimm jemand die Rechte (God Only)',
+            help = 'Nimm jemand die Rechte (God)',
             params = {
                 id = { name = 'id', help = 'ID des Spielers' },
                 permission = { name = 'permission', help = 'Zugriffsrechte' },

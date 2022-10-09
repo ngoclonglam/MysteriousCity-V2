@@ -2118,7 +2118,7 @@ end)
 
 --#region Commands
 
-QBCore.Commands.Add("resetinv", "Reset Inventory (Admin Only)", {{name="type", help="stash/trunk/glovebox"},{name="id/plate", help="ID of stash or license plate"}}, true, function(source, args)
+QBCore.Commands.Add("resetinv", "Reset Inventory (Admin)", {{name="type", help="stash/trunk/glovebox"},{name="id/plate", help="ID of stash or license plate"}}, true, function(source, args)
 	local invType = args[1]:lower()
 	table.remove(args, 1)
 	local invId = table.concat(args, " ")
@@ -2147,7 +2147,7 @@ QBCore.Commands.Add("rob", "Rob Player", {}, false, function(source, _)
 	TriggerClientEvent("police:client:RobPlayer", source)
 end)
 
-QBCore.Commands.Add("giveitem", "Give An Item (Admin Only)", {{name="id", help="Player ID"},{name="item", help="Name of the item (not a label)"}, {name="amount", help="Amount of items"}}, false, function(source, args)
+QBCore.Commands.Add("giveitem", "Give An Item (Admin)", {{name="id", help="Player ID"},{name="item", help="Name of the item (not a label)"}, {name="amount", help="Amount of items"}}, false, function(source, args)
 	local id = tonumber(args[1])
 	local Player = QBCore.Functions.GetPlayer(id)
 	local amount = tonumber(args[3]) or 1
@@ -2209,7 +2209,7 @@ QBCore.Commands.Add("giveitem", "Give An Item (Admin Only)", {{name="id", help="
 	end
 end, "admin")
 
-QBCore.Commands.Add("randomitems", "Give Random Items (God Only)", {}, false, function(source, _)
+QBCore.Commands.Add("randomitems", "Give Random Items (God)", {}, false, function(source, _)
 	local filteredItems = {}
 	for k, v in pairs(QBCore.Shared.Items) do
 		if QBCore.Shared.Items[k]["type"] ~= "weapon" then
@@ -2229,7 +2229,7 @@ QBCore.Commands.Add("randomitems", "Give Random Items (God Only)", {}, false, fu
 	end
 end, "god")
 
-QBCore.Commands.Add('clearinv', 'Clear Players Inventory (Admin Only)', { { name = 'id', help = 'Player ID' } }, false, function(source, args)
+QBCore.Commands.Add('clearinv', 'Clear Players Inventory (Admin)', { { name = 'id', help = 'Player ID' } }, false, function(source, args)
     local playerId = args[1] ~= '' and tonumber(args[1]) or source
     local Player = QBCore.Functions.GetPlayer(playerId)
     if Player then

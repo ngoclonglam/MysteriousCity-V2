@@ -1155,7 +1155,7 @@ end)
 
 -- Command
 
-QBCore.Commands.Add("setmetadata", "Set Player Metadata (God Only)", {}, false, function(source, args)
+QBCore.Commands.Add("setmetadata", "Set Player Metadata (God)", {}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     if args[1] then
         if args[1] == "trucker" then

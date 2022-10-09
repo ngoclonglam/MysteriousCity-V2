@@ -12,7 +12,7 @@ local Translations = {
         ["citizenid_help"] = "The Citizen ID of the character you want to delete",
 
         -- /logout
-        ["logout_description"] = "Logout of Character (Admin Only)",
+        ["logout_description"] = "Logout of Character (Admin)",
 
         -- /closeNUI
         ["closeNUI_description"] = "Close Multi NUI"

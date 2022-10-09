@@ -55,7 +55,7 @@ local Translations = {
         player_id = 'Hráčove ID (nepovinné)',
         pain_level = 'Nastaviť svoju úroveň bolesti alebo pre hráča (Len pre Adminov)',
         kill = 'Zabiť seba samého alebo hráča (Len pre Adminov)',
-        heal_player_a = 'Uzdraviť seba samého alebo hráča (Admin Only)',
+        heal_player_a = 'Uzdraviť seba samého alebo hráča (Admin)',
     },
     mail = {
         sender = 'Nemocnica Pillbox',

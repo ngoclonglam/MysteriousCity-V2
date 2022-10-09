@@ -47,14 +47,14 @@ local Translations = {
         tpm = { help = 'TP To Til Marker (Aðeins stjórnandi)' },
         togglepvp = { help = 'Toggle PVP on the server (Aðeins stjórnandi)' },
         addpermission = {
-            help = 'Give Player Permissions (God Only)',
+            help = 'Give Player Permissions (God)',
             params = {
                 id = { name = 'id', help = 'ID of player' },
                 permission = { name = 'permission', help = 'Permission level' },
             },
         },
         removepermission = {
-            help = 'Remove Player Permissions (God Only)',
+            help = 'Remove Player Permissions (God)',
             params = {
                 id = { name = 'id', help = 'ID of player' },
                 permission = { name = 'permission', help = 'Permission level' },

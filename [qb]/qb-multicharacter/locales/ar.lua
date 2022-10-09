@@ -12,7 +12,7 @@ local Translations = {
         ["citizenid_help"] = "ايدي الشخصية للاعب الذي تريد حذف شخصيته",
 
         -- /logout
-        ["logout_description"] = "تسجيل خروج الشخصية (Admin Only)",
+        ["logout_description"] = "تسجيل خروج الشخصية (Admin)",
 
         -- /closeNUI
         ["closeNUI_description"] = "إغلاق النوافذ المتعددة"

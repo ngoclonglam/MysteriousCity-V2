@@ -21,7 +21,7 @@ local Translations = {
         made_luck_hotdog = 'Ai preparat %{value} x %{value2} Hot Dogs',
     },
     info = {
-        command = "Sterge carutul (Admin Only)",
+        command = "Sterge carutul (Admin)",
         blip_name = 'Carut Hotdog',
         start_working = '[E]-Incepe munca',
         start_work = 'Incepe munca',

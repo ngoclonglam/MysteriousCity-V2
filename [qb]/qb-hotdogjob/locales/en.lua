@@ -17,7 +17,7 @@ local Translations = {
         made_luck_hotdog = 'You made %{value} x %{value2} Hot Dogs',
     },
     info = {
-        command = "Delete Stand (Admin Only)",
+        command = "Delete Stand (Admin)",
         blip_name = 'Hotdog Stand',
         start_working = '[E] Start Working',
         start_work = 'Start Working',

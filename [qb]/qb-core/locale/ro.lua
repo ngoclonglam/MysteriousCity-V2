@@ -36,45 +36,45 @@ local Translations = {
     },
     command = {
         tp = {
-            help = 'TP catre un jucator sau catre anumite coordonate (Admin Only)',
+            help = 'TP catre un jucator sau catre anumite coordonate (Admin)',
             params = {
                 x = { name = 'ID/X', help = 'ID-ul jucatorului sau coordonata X'},
                 y = { name = 'Y', help = 'Coordonata Y'},
                 z = { name = 'Z', help = 'Coordonata Z'},
             },
         },
-        tpm = { help = 'TP la punctul de referinta de pe harta (Admin Only)' },
-        togglepvp = { help = 'Activeaza/Dezactiveaza PVP pe server (Admin Only)' },
+        tpm = { help = 'TP la punctul de referinta de pe harta (Admin)' },
+        togglepvp = { help = 'Activeaza/Dezactiveaza PVP pe server (Admin)' },
         addpermission = {
-            help = 'Dai permisiuni speciale unui jucator (God Only)',
+            help = 'Dai permisiuni speciale unui jucator (God)',
             params = {
                 id = { name = 'ID', help = 'ID-ul jucatorului' },
                 permission = { name = 'Permisiuni', help = 'Permisiunile pe care vrei sa le dau (admin/moderator)' },
             },
         },
         removepermission = {
-            help = 'Stergi permisiunile speciale ale unui jucator (God Only)',
+            help = 'Stergi permisiunile speciale ale unui jucator (God)',
             params = {
                 id = { name = 'ID', help = 'ID-ul jucatorului' },
                 permission = { name = 'Permisiuni', help = 'Nivelul de permisiuni pe care vrei sa le stergi' },
             },
         },
-        openserver = { help = 'Deschide serverul pentru publicul larg (Admin Only)' },
+        openserver = { help = 'Deschide serverul pentru publicul larg (Admin)' },
         closeserver = {
-            help = 'Inchide serverul pentru publicul larg (Admin Only)',
+            help = 'Inchide serverul pentru publicul larg (Admin)',
             params = {
                 reason = { name = 'Motivul', help = 'Motivul pentru care serverul este inchis publicului larg (optional)' },
             },
         },
         car = {
-            help = 'Spawneaza un vehicul (Admin Only)',
+            help = 'Spawneaza un vehicul (Admin)',
             params = {
                 model = { name = 'Model', help = 'Modelul vehiculului dorit, Ex: intruder' },
             },
         },
-        dv = { help = 'Stergi un vehicul (Admin Only)' },
+        dv = { help = 'Stergi un vehicul (Admin)' },
         givemoney = {
-            help = 'Dai o suma de bani unui jucator (Admin Only)',
+            help = 'Dai o suma de bani unui jucator (Admin)',
             params = {
                 id = { name = 'ID', help = 'ID-ul jucatorului, Ex: 342' },
                 moneytype = { name = 'Tipul banilor', help = 'Aici avem 3 optiuni (cash, bank, crypto)' },
@@ -82,7 +82,7 @@ local Translations = {
             },
         },
         setmoney = {
-            help = 'Setezi o suma de bani pentru un jucator anume (Admin Only)',
+            help = 'Setezi o suma de bani pentru un jucator anume (Admin)',
             params = {
                 id = { name = 'ID', help = 'ID-ul Jucatorului' },
                 moneytype = { name = 'tipul de bani', help = 'Tipul de bani pe care vrei sa-l setezi jucatorului (cash, bank, crypto)' },
@@ -91,7 +91,7 @@ local Translations = {
         },
         job = { help = 'Iti verifici job-ul, in cazul in care ai uitat :)' },
         setjob = {
-            help = 'Setezi un job pentru un cetatean (Admin Only)',
+            help = 'Setezi un job pentru un cetatean (Admin)',
             params = {
                 id = { name = 'ID', help = 'ID-ul Jucatorului' },
                 job = { name = 'job', help = 'Numele jobului, asa cum este definit in config.' },
@@ -99,7 +99,7 @@ local Translations = {
             },
         },
         setgang = {
-            help = 'Setezi o gasca/mafie pentru un jucator (Admin Only)',
+            help = 'Setezi o gasca/mafie pentru un jucator (Admin)',
             params = {
                 id = { name = 'ID', help = 'ID-ul Jucatorului' },
                 gang = { name = 'gasca/mafie', help = 'Numele mafiei sau a gasti pe care vrei sa o setezi' },
