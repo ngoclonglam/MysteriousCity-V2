@@ -2953,6 +2953,7 @@ $("#item-give").droppable({
         }, 300);
         fromData = ui.draggable.data("item");
         // Don't allow to give bound item
+        console.log('let see')
         if (fromData !== undefined && fromData.isBound && fromData.info.quality !== 0) return false;
         fromInventory = ui.draggable.parent().attr("data-inventory");
         amount = $("#item-amount").val();
