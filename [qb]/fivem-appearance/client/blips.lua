@@ -35,8 +35,6 @@ function ResetBlips(job, gang)
     SetupBlips(job, gang)
 end
 
-
-
 if exports['nearbylocation'] then
     RegisterNetEvent("fivem-appearance:client:ShowNearestLocation", function(data)
         local locations = {}

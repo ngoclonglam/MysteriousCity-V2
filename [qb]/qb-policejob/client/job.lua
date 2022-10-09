@@ -816,52 +816,52 @@ CreateThread(function()
     end)
 
     -- Police Garage
-    local garageZones = {}
-    for _, v in pairs(Config.Locations["vehicle"]) do
-        garageZones[#garageZones+1] = BoxZone:Create(
-            vector3(v.x, v.y, v.z), 3, 3, {
-            name="box_zone",
-            debugPoly = false,
-            minZ = v.z - 1,
-            maxZ = v.z + 1,
-        })
-    end
+    -- local garageZones = {}
+    -- for _, v in pairs(Config.Locations["vehicle"]) do
+    --     garageZones[#garageZones+1] = BoxZone:Create(
+    --         vector3(v.x, v.y, v.z), 3, 3, {
+    --         name="box_zone",
+    --         debugPoly = false,
+    --         minZ = v.z - 1,
+    --         maxZ = v.z + 1,
+    --     })
+    -- end
 
-    local garageCombo = ComboZone:Create(garageZones, {name = "garageCombo", debugPoly = false})
-    garageCombo:onPlayerInOut(function(isPointInside, point)
-        if isPointInside then
-            inGarage = true
-            if onDuty and PlayerJob.name == 'police' then
-                if IsPedInAnyVehicle(PlayerPedId(), false) then
-                    exports['qb-core']:DrawText(Lang:t('info.store_veh'), 'left')
-		    garage()
-                else
-                    local currentSelection = 0
+    -- local garageCombo = ComboZone:Create(garageZones, {name = "garageCombo", debugPoly = false})
+    -- garageCombo:onPlayerInOut(function(isPointInside, point)
+    --     if isPointInside then
+    --         inGarage = true
+    --         if onDuty and PlayerJob.name == 'police' then
+    --             if IsPedInAnyVehicle(PlayerPedId(), false) then
+    --                 exports['qb-core']:DrawText(Lang:t('info.store_veh'), 'left')
+	-- 	    garage()
+    --             else
+    --                 local currentSelection = 0
 
-                    for k, v in pairs(Config.Locations["vehicle"]) do
-                        if #(point - vector3(v.x, v.y, v.z)) < 4 then
-                            currentSelection = k
-                        end
-                    end
-                    exports['qb-menu']:showHeader({
-                        {
-                            header = Lang:t('menu.pol_garage'),
-                            params = {
-                                event = 'police:client:VehicleMenuHeader',
-                                args = {
-                                    currentSelection = currentSelection,
-                                }
-                            }
-                        }
-                    })
-                end
-            end
-        else
-            inGarage = false
-            exports['qb-menu']:closeMenu()
-            exports['qb-core']:HideText()
-        end
-    end)
+    --                 for k, v in pairs(Config.Locations["vehicle"]) do
+    --                     if #(point - vector3(v.x, v.y, v.z)) < 4 then
+    --                         currentSelection = k
+    --                     end
+    --                 end
+    --                 exports['qb-menu']:showHeader({
+    --                     {
+    --                         header = Lang:t('menu.pol_garage'),
+    --                         params = {
+    --                             event = 'police:client:VehicleMenuHeader',
+    --                             args = {
+    --                                 currentSelection = currentSelection,
+    --                             }
+    --                         }
+    --                     }
+    --                 })
+    --             end
+    --         end
+    --     else
+    --         inGarage = false
+    --         exports['qb-menu']:closeMenu()
+    --         exports['qb-core']:HideText()
+    --     end
+    -- end)
 end)
 
 -- Personal Stash Thread

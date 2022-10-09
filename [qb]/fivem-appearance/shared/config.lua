@@ -146,7 +146,7 @@ Config.Stores = {
         coords = vector4(1693.2, 4828.11, 42.07, 188.66),
         width = 4,
         length = 4,
-        showBlip = true, -- showBlip overrides the blip visibilty configured above for the group
+        showBlip = false, -- showBlip overrides the blip visibilty configured above for the group
         zone = {
             shape = {
                 vector2(1686.9018554688, 4829.8330078125),
