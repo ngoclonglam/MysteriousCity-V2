@@ -3,7 +3,7 @@ local QBCore = exports['qb-core']:GetCoreObject()
 local ShowId = function(source, item, nui)
     local src = source
     local found = false
-    local character = QBCore.Functions.GetPlayer(src)
+    -- local character = QBCore.Functions.GetPlayer(src)
     local PlayerPed = GetPlayerPed(src)
     local PlayerCoords = GetEntityCoords(PlayerPed)
     local info = {
@@ -15,11 +15,11 @@ local ShowId = function(source, item, nui)
         ['type'] = item.info.type,
         ['image'] = item.info.image,
     }
-    for k, v in pairs(QBCore.Functions.GetPlayers()) do
+    for _, v in pairs(QBCore.Functions.GetPlayers()) do
         local TargetPed = GetPlayerPed(v)
         local dist = #(PlayerCoords - GetEntityCoords(TargetPed))
         if dist < 3.0 and PlayerPed ~= TargetPed then
-            TriggerClientEvent('QBCore:Notify', src, "You showed your idcard")
+            TriggerClientEvent('QBCore:Notify', src, "Bạn đã cho người khác xem thông tin của bạn")
             TriggerClientEvent('qb-idcard:client:open', v, info, nui)
             found = true
             break

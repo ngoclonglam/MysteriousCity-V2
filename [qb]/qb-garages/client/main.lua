@@ -343,7 +343,7 @@ RegisterNetEvent('qb-garages:client:takeOutGarage', function(data)
     local vehicle = data.vehicle
     local garage = data.garage
     local index = data.index
-    local price = 3000
+    local price = 300
     PlayerData = QBCore.Functions.GetPlayerData()
     local bank = PlayerData.money.bank
     local cash = PlayerData.money.cash

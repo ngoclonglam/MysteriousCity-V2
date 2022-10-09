@@ -235,7 +235,7 @@ RegisterNetEvent('qb-garage:server:PayDepotPrice', function(data)
     local Player = QBCore.Functions.GetPlayer(src)
     local cashBalance = Player.PlayerData.money["cash"]
     local bankBalance = Player.PlayerData.money["bank"]
-    local price = 2000
+    local price = 200
     local vehicle = data.vehicle
 
     MySQL.query('SELECT * FROM player_vehicles WHERE plate = ?', {vehicle.plate}, function(result)
