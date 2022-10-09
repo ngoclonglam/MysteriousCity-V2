@@ -475,6 +475,7 @@ QBShared.Items = {
 	["gaquay"]				= {["name"] = "gaquay",				["label"] = "Gà Quay",			["weight"] = 200,	["type"] = "item",	["image"] = "gaquay.png",		["unique"] = false,	["useable"] = true,		["shouldClose"] = true,		["combinable"] = nil,   ["description"] = "Gà quay sunsee"},
 	["vica"]				= {["name"] = "vica",				["label"] = "Vi Cá",			["weight"] = 1000,	["type"] = "item",	["image"] = "vica.png",			["unique"] = false,	["useable"] = true,		["shouldClose"] = true,		["combinable"] = nil,   ["description"] = "Vi cá từ thịt cá lớn"},
 	["supvica"]				= {["name"] = "supvica",			["label"] = "Súp Vi Cá",		["weight"] = 200,	["type"] = "item",	["image"] = "supvica.png",		["unique"] = false,	["useable"] = true,		["shouldClose"] = true,		["combinable"] = nil,   ["description"] = "Súp vi cá bổ béo tới từng giọt"},
+
 	--Event Gifts
     ['gift-newbie'] 				 		 = {['name'] = 'gift-newbie', 			  	  			['label'] = 'Quà cho newbie', 				['weight'] = 100, 		['type'] = 'item', 		['image'] = 'gift-common.png', 				['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Quà siêu to khổng lồ cho newbie!', ['isBound'] = true},
     ['gift-common'] 				 		 = {['name'] = 'gift-common', 			  	  			['label'] = 'Quà Sơ Cấp', 					['weight'] = 100, 		['type'] = 'item', 		['image'] = 'gift-common.png', 				['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Gói quà sơ cấp từ thương nhân thần bí', ['isBound'] = true},

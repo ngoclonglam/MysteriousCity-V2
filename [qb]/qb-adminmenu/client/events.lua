@@ -18,6 +18,9 @@ local lastSpectateCoord = nil
 local isSpectating = false
 
 -- Events
+RegisterNetEvent('qb-admin:client:effectMoney', function()
+    StartScreenEffect("MP_Celeb_Preload_Fade", 3000, false)
+end)
 
 RegisterNetEvent('qb-admin:client:inventory', function(targetPed)
     TriggerServerEvent("inventory:server:OpenInventory", "otherplayer", targetPed)

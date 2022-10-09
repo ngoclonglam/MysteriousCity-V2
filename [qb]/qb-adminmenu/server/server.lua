@@ -220,6 +220,20 @@ RegisterNetEvent('qb-admin:server:SaveCar', function(mods, vehicle, _, plate)
 end)
 
 -- Commands
+QBCore.Commands.Add('giveallmoney', 'Cho tiền tất cả người chơi', {{name = 'Tiền', help = '$$$'}}, true, function(source, args)
+    local players = QBCore.Functions.GetPlayers()
+    local amount = tonumber(args[1])
+    local tong = 0
+    for k, v in pairs(players) do
+        local Player = QBCore.Functions.GetPlayer(v)
+        TriggerClientEvent('QBCore:Notify', Player.PlayerData.source, 'Bạn vừa nhận được $' .. amount .. ' từ trên trời', 'success', 10000)
+        tong = tong + amount
+        Player.Functions.AddMoney('cash', amount)
+        TriggerClientEvent('qb-admin:client:effectMoney', Player.PlayerData.source)
+    end
+    TriggerClientEvent('QBCore:Notify', source, 'Bạn vừa cho toàn thành phố số tiền là: $' .. tong, 'success', 10000)
+    TriggerClientEvent('qb-admin:client:effectMoney', source)
+end, 'god')
 
 QBCore.Commands.Add('maxmods', Lang:t("desc.max_mod_desc"), {}, false, function(source)
     local src = source
