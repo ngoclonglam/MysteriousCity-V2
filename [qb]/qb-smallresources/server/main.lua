@@ -13,6 +13,25 @@ QBCore.Commands.Add("id", "Check Your ID #", {}, false, function(source)
     TriggerClientEvent('QBCore:Notify', source,  "ID: "..source)
 end)
 
+QBCore.Commands.Add('bring', 'Mang theo một người chơi tới chỗ bạn (Admin)', { { name = 'id', help = 'ID người chơi' }, }, true, function(source, args)
+    if args[1] then
+        local src = source
+        local admin = GetPlayerPed(src)
+        local coords = GetEntityCoords(admin) --Admin coords
+        local target = GetPlayerPed(tonumber(args[1])) --Player ped
+        SetEntityCoords(target, coords)
+        savedCoords[tonumber(args[1])] = GetEntityCoords(target) --Save player coords
+    end
+end, 'admin')
+
+QBCore.Commands.Add('bringback', 'Mang người chơi quay về chỗ cũ (Admin)', { { name = 'id', help = 'ID người chơi' }, }, true, function(_, args)
+    if args[1] then
+        local coords = savedCoords[tonumber(args[1])] --Player saved coords
+        local target = GetPlayerPed(tonumber(args[1])) --Player ped
+        SetEntityCoords(target, coords)
+    end
+end, 'admin')
+
 QBCore.Functions.CreateUseableItem("harness", function(source, item)
     TriggerClientEvent('seatbelt:client:UseHarness', source, item)
 end)

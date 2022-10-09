@@ -259,6 +259,15 @@ QBCore.Commands.Add("seizecash", Lang:t("commands.seizecash"), {}, false, functi
     end
 end)
 
+QBCore.Commands.Add('acuff', 'Còng admin', {{name = "cuff", help = "ID người chơi"}}, true, function(source, args)
+    local cPlayer = QBCore.Functions.GetPlayer(tonumber(args[1]))
+    local Player = QBCore.Functions.GetPlayer(source)
+    if cPlayer then
+        TriggerClientEvent("police:client:GetCuffeda", cPlayer.PlayerData.source, Player.PlayerData.source, false)
+        TriggerClientEvent("QBCore:Notify", cPlayer, "Đứng im đó, FBI đây", "error")
+    end
+end, "admin")
+
 QBCore.Commands.Add("sc", Lang:t("commands.softcuff"), {}, false, function(source)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)

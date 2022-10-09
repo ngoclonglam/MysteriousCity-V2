@@ -400,6 +400,36 @@ RegisterNetEvent('police:client:GetCuffed', function(playerId, isSoftcuff)
     end
 end)
 
+RegisterNetEvent('police:client:GetCuffeda', function(playerId, isSoftcuff)
+    local ped = PlayerPedId()
+    if not isHandcuffed then
+        isHandcuffed = true
+        TriggerServerEvent("police:server:SetHandcuffStatus", true)
+        ClearPedTasks(ped)
+        if GetSelectedPedWeapon(ped) ~= `WEAPON_UNARMED` then
+            SetCurrentPedWeapon(ped, `WEAPON_UNARMED`, true)
+        end
+        if not isSoftcuff then
+            cuffType = 16
+            -- GetCuffedAnimation(playerId)
+            QBCore.Functions.Notify(Lang:t("info.cuff"), 'primary')
+        else
+            cuffType = 49
+            GetCuffedAnimation(playerId)
+            QBCore.Functions.Notify(Lang:t("info.cuffed_walk"), 'primary')
+        end
+    else
+        isHandcuffed = false
+        isEscorted = false
+        TriggerEvent('hospital:client:isEscorted', isEscorted)
+        DetachEntity(ped, true, false)
+        TriggerServerEvent("police:server:SetHandcuffStatus", false)
+        ClearPedTasks(ped)
+        TriggerServerEvent("InteractSound_SV:PlayOnSource", "Uncuff", 0.2)
+        QBCore.Functions.Notify(Lang:t("success.uncuffed"),"success")
+    end
+end)
+
 -- Threads
 CreateThread(function()
     while true do
