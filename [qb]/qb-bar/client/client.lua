@@ -123,7 +123,7 @@ RegisterNetEvent('qb-bar:client:openBar', function()
     barMenu[#barMenu + 1] = {
         header = Lang:t('menu.bar_whiskey'),
         txt = Lang:t('txt.bar_whiskey'),
-        icon = "lj-inventory/html/images/whiskey.png",
+        icon = "qb-inventory/html/images/whiskey.png",
         params = {
             event = "qb-bar:client:makeAlcohol",
             args = {
@@ -135,7 +135,7 @@ RegisterNetEvent('qb-bar:client:openBar', function()
     barMenu[#barMenu + 1] = {
         header = Lang:t('menu.bar_beer'),
         txt = Lang:t('txt.bar_beer'),
-        icon = "lj-inventory/html/images/beer.png",
+        icon = "qb-inventory/html/images/beer.png",
         params = {
             event = "qb-bar:client:makeAlcohol",
             args = {
@@ -166,7 +166,7 @@ RegisterNetEvent('qb-bar:client:openFood', function()
 
     foodMenu[#foodMenu + 1] = {
         header = Lang:t('food.bar_chicken'),
-        icon = "lj-inventory/html/images/gaquay.png",
+        icon = "qb-inventory/html/images/gaquay.png",
         txt = Lang:t('txt.bar_chicken'),
         params = {
             event = "qb-bar:client:makeFood",
@@ -178,7 +178,7 @@ RegisterNetEvent('qb-bar:client:openFood', function()
 
     foodMenu[#foodMenu + 1] = {
         header = Lang:t('food.bar_fruit'),
-        icon = "lj-inventory/html/images/traicay.png",
+        icon = "qb-inventory/html/images/traicay.png",
         txt = Lang:t('txt.bar_fruit'),
         params = {
             event = "qb-bar:client:makeFood",
@@ -190,7 +190,7 @@ RegisterNetEvent('qb-bar:client:openFood', function()
 
     foodMenu[#foodMenu + 1] = {
         header = Lang:t('food.bar_vica'),
-        icon = "lj-inventory/html/images/supvica.png",
+        icon = "qb-inventory/html/images/supvica.png",
         txt = Lang:t('txt.bar_vica'),
         params = {
             event = "qb-bar:client:makeFood",
@@ -230,7 +230,7 @@ RegisterNetEvent('qb-bar:client:sliceFish', function()
 
     sliceMenu[#sliceMenu + 1] = {
         header = Lang:t('food.bar_slice'),
-        icon = "lj-inventory/html/images/vica.png",
+        icon = "qb-inventory/html/images/vica.png",
         txt = Lang:t('txt.bar_slice'),
         params = {
             event = "qb-bar:client:makeSlice",

@@ -102,7 +102,7 @@ function openCategory() {
         '     <div class="clearfix grpelem" id="u225-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
         '      <p>' + value1.Label + '</p>' +
         '     </div>' +
-        '     <div class="museBGSize grpelem" id="u264" style="background: url(nui://lj-inventory/html/images/' + value1.Image + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
+        '     <div class="museBGSize grpelem" id="u264" style="background: url(nui://qb-inventory/html/images/' + value1.Image + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
         '    </div>';
     }
 
@@ -171,7 +171,7 @@ function openCrafting(t) {
             '     <div class="clearfix grpelem" id="u225-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
             '      <p>' + String(value.ItemName).toUpperCase() + '</p>' +
             '     </div>' +
-            '     <div class="museBGSize grpelem" id="u264" style="background: url(nui://lj-inventory/html/images/' + key + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
+            '     <div class="museBGSize grpelem" id="u264" style="background: url(nui://qb-inventory/html/images/' + key + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
             '     <div class="rounded-corners clearfix grpelem" id="u270-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
             '      <p>' + timeString + '</p>' +
             '     </div>' +
@@ -195,7 +195,7 @@ function openCrafting(t) {
               '     <div class="clearfix grpelem" id="u225-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
               '      <p>' + String(value.ItemName).toUpperCase() + '</p>' +
               '     </div>' +
-              '     <div class="museBGSize grpelem" id="u264" style="background: url(nui://lj-inventory/html/images/' + key + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
+              '     <div class="museBGSize grpelem" id="u264" style="background: url(nui://qb-inventory/html/images/' + key + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
               '     <div class="rounded-corners clearfix grpelem" id="u270-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
               '      <p>' + timeString + '</p>' +
               '     </div>' +
@@ -217,7 +217,7 @@ function openCrafting(t) {
                 '     <div class="clearfix grpelem" id="u225-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
                 '      <p>' + String(value.ItemName).toUpperCase() + '</p>' +
                 '     </div>' +
-                '     <div class="museBGSize grpelem" id="u264" style="background: url(nui://lj-inventory/html/images/' + key + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
+                '     <div class="museBGSize grpelem" id="u264" style="background: url(nui://qb-inventory/html/images/' + key + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
                 '     <div class="rounded-corners clearfix grpelem" id="u270-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
                 '      <p>' + timeString + '</p>' +
                 '     </div>' +
@@ -236,7 +236,7 @@ function openCrafting(t) {
                   '     <div class="clearfix grpelem" id="u225-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
                   '      <p>' + String(value.ItemName).toUpperCase() + '</p>' +
                   '     </div>' +
-                  '     <div class="museBGSize grpelem" id="u264" style="background: url(nui://lj-inventory/html/images/' + key + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
+                  '     <div class="museBGSize grpelem" id="u264" style="background: url(nui://qb-inventory/html/images/' + key + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
                   '     <div class="rounded-corners clearfix grpelem" id="u270-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
                   '      <p>' + timeString + '</p>' +
                   '     </div>' +
@@ -257,7 +257,7 @@ function openCrafting(t) {
                 '     <div class="clearfix grpelem" id="u225-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
                 '      <p>' + String(value.ItemName).toUpperCase() + '</p>' +
                 '     </div>' +
-                '     <div class="museBGSize grpelem" id="u264" style="background: url(nui://lj-inventory/html/images/' + key + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
+                '     <div class="museBGSize grpelem" id="u264" style="background: url(nui://qb-inventory/html/images/' + key + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- simple frame --></div>' +
                 '     <div class="rounded-corners clearfix grpelem" id="u270-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu212"><!-- content -->' +
                 '      <p>' + timeString + '</p>' +
                 '     </div>' +
@@ -333,7 +333,7 @@ function addToQueue(item, time, id) {
       '     <div class="clearfix grpelem" id="u545-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu544"><!-- content -->' +
       '      <p>' + String(item).toUpperCase() + '</p>' +
       '     </div>' +
-      '     <div class="museBGSize grpelem" style="background: url(nui://lj-inventory/html/images/' + item + '.png) no-repeat center; background-size: 120%; " id="u546" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu544"><!-- simple frame --></div>' +
+      '     <div class="museBGSize grpelem" style="background: url(nui://qb-inventory/html/images/' + item + '.png) no-repeat center; background-size: 120%; " id="u546" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu544"><!-- simple frame --></div>' +
       '     <div class="rounded-corners clearfix grpelem" id="u547-4" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu544"><!-- content -->' +
       '      <p id="u547-2">' + timeString + '</p>' +
       '     </div>' +
@@ -383,7 +383,7 @@ function inspect(t) {
 
     var base = '   <div class="slide-bottom " id="pu386"><!-- group -->' +
       '    <div class="gradient grpelem" id="u386" data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu386"><!-- simple frame --></div>' +
-      '    <div class="museBGSize grpelem" id="u389" style="background: url(nui://lj-inventory/html/images/' + t.dataset.item + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu386"><!-- simple frame --></div>' +
+      '    <div class="museBGSize grpelem" id="u389" style="background: url(nui://qb-inventory/html/images/' + t.dataset.item + '.png) no-repeat center; background-size: 120%; " data-sizePolicy="fixed" data-pintopage="page_fixedCenter" data-leftAdjustmentDoneBy="pu386"><!-- simple frame --></div>' +
 
       '     <button class="ripple" id="u407-4" data-item="' + t.dataset.item + '" onclick="craft(this)" data-sizePolicy="fixed" data-pintopage="page_fixedCenter"><!-- content -->' +
       '      <p>CRAFT</p>' +
@@ -417,13 +417,13 @@ function inspect(t) {
         first = first + '<div class="ingredient" id="' + key + '">' +
           '<div id="ingredient-text">' + [key]  + '</div>' +
           '<div id="ingredient-x">' + value + 'X</div>' +
-          '<div id="ingredient-logo" style="background: url(nui://lj-inventory/html/images/' + key + '.png) no-repeat center; background-size: 120%; "></div>' +
+          '<div id="ingredient-logo" style="background: url(nui://qb-inventory/html/images/' + key + '.png) no-repeat center; background-size: 120%; "></div>' +
           '</div>';
       } else {
         second = second + '<div class="ingredient" id="' + key + '" style="opacity:0.5;">' +
           '<div id="ingredient-text">' + [key] + '</div>' +
           '<div id="ingredient-x">' + value + 'X</div>' +
-          '<div id="ingredient-logo" style="background: url(nui://lj-inventory/html/images/' + key + '.png) no-repeat center; background-size: 120%; "></div>' +
+          '<div id="ingredient-logo" style="background: url(nui://qb-inventory/html/images/' + key + '.png) no-repeat center; background-size: 120%; "></div>' +
           '</div>';
       }
 
