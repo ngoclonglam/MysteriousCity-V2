@@ -297,12 +297,12 @@ end)
 CreateThread(function()
     initBlips()
     spawnPeds()
-    QBCore.Functions.TriggerCallback('qb-cityhall:server:receiveJobs', function(result)
-        SendNUIMessage({
-            action = 'setJobs',
-            jobs = result
-        })
-    end)
+    -- QBCore.Functions.TriggerCallback('qb-cityhall:server:receiveJobs', function(result)
+    --     SendNUIMessage({
+    --         action = 'setJobs',
+    --         jobs = result
+    --     })
+    -- end)
     if not Config.UseTarget then
         while true do
             local sleep = 1000
