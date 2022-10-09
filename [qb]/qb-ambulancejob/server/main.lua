@@ -121,6 +121,7 @@ end)
 RegisterNetEvent('hospital:server:RestoreWeaponDamage', function()
 	local src = source
 	local Player = QBCore.Functions.GetPlayer(src)
+	if not Player then return end
 	PlayerWeaponWounds[Player.PlayerData.source] = nil
 end)
 

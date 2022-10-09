@@ -2,42 +2,47 @@ QBShared = QBShared or {}
 QBShared.ForceJobDefaultDutyAtLogin = true -- true: Force duty state to jobdefaultDuty | false: set duty state from database last saved
 QBShared.Jobs = {
 	['unemployed'] = {
-		label = 'Civilian',
+		label = 'Dân Thường',
 		defaultDuty = true,
 		offDutyPay = false,
 		grades = {
             ['0'] = {
-                name = 'Freelancer',
+                name = 'Thất Nghiệp',
                 payment = 10
             },
         },
 	},
 	['police'] = {
-		label = 'Law Enforcement',
+		label = 'Cảnh Sát',
         type = "leo",
 		defaultDuty = true,
 		offDutyPay = false,
 		grades = {
-            ['0'] = {
-                name = 'Recruit',
+            ['1'] = {
+                name = 'Tập Sự',
                 payment = 50
             },
-			['1'] = {
-                name = 'Officer',
+			['2'] = {
+                name = 'Hạ Sĩ',
                 payment = 75
             },
-			['2'] = {
-                name = 'Sergeant',
+			['3'] = {
+                name = 'Sĩ Quan',
                 payment = 100
             },
-			['3'] = {
-                name = 'Lieutenant',
+			['4'] = {
+                name = 'Đội Trưởng',
                 payment = 125
             },
-			['4'] = {
-                name = 'Chief',
-				isboss = true,
+			['5'] = {
+                name = 'Phó Giám Đốc',
+                isboss = true,
                 payment = 150
+            },
+            ['6'] = {
+                name = 'Giám Đốc',
+				isboss = true,
+                payment = 200
             },
         },
 	},
@@ -47,23 +52,28 @@ QBShared.Jobs = {
 		offDutyPay = false,
 		grades = {
             ['0'] = {
-                name = 'Recruit',
+                name = 'Học Viên',
                 payment = 50
             },
 			['1'] = {
-                name = 'Paramedic',
+                name = 'Thực Tập',
                 payment = 75
             },
 			['2'] = {
-                name = 'Doctor',
+                name = 'Bác Sĩ',
                 payment = 100
             },
 			['3'] = {
-                name = 'Surgeon',
+                name = 'Quản Lý',
                 payment = 125
             },
 			['4'] = {
-                name = 'Chief',
+                name = 'Viện Phó',
+                isboss = true,
+                payment = 150
+            },
+            ['5'] = {
+                name = 'Viện Trưởng',
 				isboss = true,
                 payment = 150
             },
@@ -75,7 +85,7 @@ QBShared.Jobs = {
 		offDutyPay = false,
 		grades = {
             ['0'] = {
-                name = 'Recruit',
+                name = 'Thực tập',
                 payment = 50
             },
 			['1'] = {
@@ -91,7 +101,7 @@ QBShared.Jobs = {
                 payment = 125
             },
 			['4'] = {
-                name = 'Manager',
+                name = 'Quản lý',
 				isboss = true,
                 payment = 150
             },
@@ -103,7 +113,7 @@ QBShared.Jobs = {
 		offDutyPay = false,
 		grades = {
             ['0'] = {
-                name = 'Recruit',
+                name = 'Thực tập',
                 payment = 50
             },
 			['1'] = {
@@ -119,7 +129,7 @@ QBShared.Jobs = {
                 payment = 125
             },
 			['4'] = {
-                name = 'Manager',
+                name = 'Quản lý',
 				isboss = true,
                 payment = 150
             },
@@ -142,7 +152,7 @@ QBShared.Jobs = {
 		offDutyPay = false,
 		grades = {
             ['0'] = {
-                name = 'Recruit',
+                name = 'Thực tập',
                 payment = 50
             },
 			['1'] = {
@@ -158,38 +168,49 @@ QBShared.Jobs = {
                 payment = 125
             },
 			['4'] = {
-                name = 'Manager',
+                name = 'Quản lý',
 				isboss = true,
                 payment = 150
             },
         },
 	},
-	['mechanic'] = {
-		label = 'Mechanic',
-        type = "mechanic",
+    ['tunner'] = {
+		label = 'Tunner',
 		defaultDuty = true,
-		offDutyPay = false,
 		grades = {
-            ['0'] = {
-                name = 'Recruit',
-                payment = 50
-            },
 			['1'] = {
-                name = 'Novice',
+                name = 'Nhân Viên',
                 payment = 75
             },
 			['2'] = {
-                name = 'Experienced',
-                payment = 100
+                name = 'Giám Đốc',
+                payment = 100,
+                isboss = true
+            },
+			
+        },
+	},
+	['mechanic'] = {
+		label = 'Mechanic',
+        type = 'mechanic',
+		defaultDuty = true,
+		grades = {
+			['1'] = {
+                name = 'Thực Tập',
+                payment = 5
+            },
+			['2'] = {
+                name = 'Nhân Viên',
+                payment = 10
             },
 			['3'] = {
-                name = 'Advanced',
-                payment = 125
+                name = 'Quản Lý',
+                payment = 15
             },
 			['4'] = {
-                name = 'Manager',
+                name = 'Giám Đốc',
 				isboss = true,
-                payment = 150
+                payment = 20
             },
         },
 	},
@@ -281,4 +302,99 @@ QBShared.Jobs = {
             },
         },
 	},
+	['electrical'] = {
+		label = 'Thợ Điện',
+		defaultDuty = true,
+		offDutyPay = false,
+		grades = {
+			['0'] = {
+                name = 'Chuyên Gia',
+                payment = 50
+            },
+		},
+	},
+	['prison'] = {
+		label = 'Quản Giáo',
+		defaultDuty = true,
+		offDutyPay = false,
+		grades = {
+			['1'] = {
+                name = 'Quản Ngục',
+                payment = 50
+            },
+			['2'] = {
+                name = 'Quản Tù',
+                payment = 100
+            },
+			['3'] = {
+                name = 'Quản Lí',
+                payment = 150,
+				isboss = true
+            },
+		},
+	},
+    ['fire'] = {
+		label = 'Cứu Hỏa',
+		defaultDuty = true,
+		offDutyPay = false,
+		grades = {
+			['1'] = {
+                name = 'Thực tập',
+                payment = 50
+            },
+			['2'] = {
+                name = 'Nhân viên',
+                payment = 100
+            },
+			['3'] = {
+                name = 'Quản lý',
+                payment = 150,
+				isboss = true
+            },
+		},
+	},
+    ["burgershot"] = {
+		label = "Burgershot Employee",
+		defaultDuty = true,
+        offDutyPay = false,
+		grades = {
+            ['0'] = {
+                name = "Trainee",
+                payment = 50
+            },
+			['1'] = {
+                name = "Employee",
+                payment = 75
+            },
+			['2'] = {
+                name = "Burger Flipper",
+                payment = 100
+            },
+			['3'] = {
+                name = "Quản lý",
+                payment = 125
+            },
+			['4'] = {
+                name = "CEO",
+				isboss = true,
+                payment = 150
+            },
+        },
+	},
+    ['vu'] = {
+        label = 'Mystery Bar',
+        defaultDuty = true,
+        offDutyPay = false,
+        grades = {
+            ['1'] = {
+                name = 'Phục Vụ',
+                payment = 0
+            },
+            ['2'] = {
+                name = 'Giám Đốc',
+                payment = 0,
+                isboss = true
+            }
+        }
+    },
 }
