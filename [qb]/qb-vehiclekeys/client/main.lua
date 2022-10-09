@@ -144,10 +144,10 @@ RegisterCommand('togglelocks', function()
     ToggleVehicleLocks(GetVehicle())
 end)
 
-RegisterKeyMapping('engine', Lang:t("info.engine"), 'keyboard', 'G')
-RegisterCommand('engine', function()
-    TriggerEvent("qb-vehiclekeys:client:ToggleEngine")
-end)
+-- RegisterKeyMapping('engine', Lang:t("info.engine"), 'keyboard', 'G')
+-- RegisterCommand('engine', function()
+--     TriggerEvent("qb-vehiclekeys:client:ToggleEngine")
+-- end)
 
 AddEventHandler('onResourceStart', function(resourceName)
 	if resourceName == GetCurrentResourceName() and QBCore.Functions.GetPlayerData() ~= {} then
@@ -183,17 +183,17 @@ RegisterNetEvent('qb-vehiclekeys:client:RemoveKeys', function(plate)
     KeysList[plate] = nil
 end)
 
-RegisterNetEvent('qb-vehiclekeys:client:ToggleEngine', function()
-    local EngineOn = GetIsVehicleEngineRunning(GetVehiclePedIsIn(PlayerPedId()))
-    local vehicle = GetVehiclePedIsIn(PlayerPedId(), true)
-    if HasKeys(QBCore.Functions.GetPlate(vehicle)) then
-        if EngineOn then
-            SetVehicleEngineOn(vehicle, false, false, true)
-        else
-            SetVehicleEngineOn(vehicle, true, false, true)
-        end
-    end
-end)
+-- RegisterNetEvent('qb-vehiclekeys:client:ToggleEngine', function()
+--     local EngineOn = GetIsVehicleEngineRunning(GetVehiclePedIsIn(PlayerPedId()))
+--     local vehicle = GetVehiclePedIsIn(PlayerPedId(), true)
+--     if HasKeys(QBCore.Functions.GetPlate(vehicle)) then
+--         if EngineOn then
+--             SetVehicleEngineOn(vehicle, false, false, true)
+--         else
+--             SetVehicleEngineOn(vehicle, true, false, true)
+--         end
+--     end
+-- end)
 
 RegisterNetEvent('qb-vehiclekeys:client:GiveKeys', function(id)
     local targetVehicle = GetVehicle()

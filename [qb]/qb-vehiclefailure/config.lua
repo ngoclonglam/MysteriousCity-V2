@@ -42,6 +42,13 @@ BackEngineVehicles = {
 	Config              = {}
 	Config.Paid = true
 	Config.Price = 750
+	Config.Parts = {
+		plastic = 20,
+		steel = 20,
+		copper = 20,
+		aluminum = 20,
+		metalscrap = 20,
+	}
 
 cfg = {
 	deformationMultiplier = -1,					-- How much should the vehicle visually deform from a collision. Range 0.0 to 10.0 Where 0.0 is no deformation and 10.0 is 10x deformation. -1 = Don't touch. Visual damage does not sync well to other players.

@@ -29,12 +29,12 @@ Config.NewCharacterSections = {
 
 Config.GenderBasedOnPed = true
 
-Config.AlwaysKeepProps = false
+Config.AlwaysKeepProps = true
 
 Config.PersistUniforms = false -- Keeps Job / Gang Outfits on player reconnects / logout
 Config.OnDutyOnlyClothingRooms = false -- Set to `true` to make the clothing rooms accessible only to players who are On Duty
 
-Config.BossManagedOutfits = false -- Allows Job / Gang bosses to manage their own job / gang outfits
+Config.BossManagedOutfits = true -- Allows Job / Gang bosses to manage their own job / gang outfits
 
 Config.ReloadSkinCooldown = 5000
 
@@ -613,7 +613,7 @@ Config.Stores = {
 Config.ClothingRooms = {
     {
         job = "police",
-        coords = vector4(454.91, -990.89, 30.69, 193.4),
+        coords = vector4(459.05, -997.81, 30.92, 82.89),
         width = 3,
         length = 3,
         zone = {

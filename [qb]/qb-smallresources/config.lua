@@ -20,10 +20,10 @@ Config.Disable = {
 
 Config.Density = {
     ['parked'] = 0,
-    ['vehicle'] = 0.01,
-    ['multiplier'] = 0.01,
-    ['peds'] = 0.01,
-    ['scenario'] = 0.01,
+    ['vehicle'] = 0.1,
+    ['multiplier'] = 0.1,
+    ['peds'] = 0.1,
+    ['scenario'] = 0.1,
 }
 
 ConsumablesEat = {
