@@ -19,7 +19,7 @@ local Translations = {
         server_closed = 'Server đã được đóng'
     },
     info = {
-        received_paycheck = 'bạn nhận được sốt tiền thanh toán là $%{value}',
+        received_paycheck = 'Bạn nhận được số tiền thanh toán là $%{value}',
         job_info = 'Công việc: %{value} | Cấp độ: %{value2} | Làm việc: %{value3}',
         gang_info = 'Băng đảng: %{value} | Cấp độ: %{value2}',
         on_duty = 'Bạn đã sẵn sàng làm viêc!',
