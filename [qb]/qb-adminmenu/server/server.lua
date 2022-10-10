@@ -131,9 +131,9 @@ RegisterNetEvent('qb-admin:server:intovehicle', function(player)
         end
         if seat ~= -1 then
             SetPedIntoVehicle(admin,vehicle,seat)
-            TriggerClientEvent('QBCore:Notify', src, Lang:t("sucess.entered_vehicle"), 'success', 5000)
+            QBCore.Functions.Notify(src, Lang:t("sucess.entered_vehicle"), 'success', 5000)
         else
-            TriggerClientEvent('QBCore:Notify', src, Lang:t("error.no_free_seats"), 'danger', 5000)
+            QBCore.Functions.Notify(src, Lang:t("error.no_free_seats"), 'danger', 5000)
         end
     end
 end)
@@ -160,7 +160,7 @@ RegisterNetEvent('qb-admin:server:setPermissions', function(targetId, group)
     local src = source
     if QBCore.Functions.HasPermission(src, 'god') or IsPlayerAceAllowed(src, 'command') then
         QBCore.Functions.AddPermission(targetId, group[1].rank)
-        TriggerClientEvent('QBCore:Notify', targetId, Lang:t("info.rank_level")..group[1].label)
+        QBCore.Functions.Notify(targetId, Lang:t("info.rank_level")..group[1].label)
     end
 end)
 
@@ -213,9 +213,9 @@ RegisterNetEvent('qb-admin:server:SaveCar', function(mods, vehicle, _, plate)
             plate,
             0
         })
-        TriggerClientEvent('QBCore:Notify', src, Lang:t("success.success_vehicle_owner"), 'success', 5000)
+        QBCore.Functions.Notify(src, Lang:t("success.success_vehicle_owner"), 'success', 5000)
     else
-        TriggerClientEvent('QBCore:Notify', src, Lang:t("error.failed_vehicle_owner"), 'error', 3000)
+        QBCore.Functions.Notify(src, Lang:t("error.failed_vehicle_owner"), 'error', 3000)
     end
 end)
 
@@ -226,31 +226,31 @@ QBCore.Commands.Add('transfervehicle', Lang:t('general.command_transfervehicle')
     local src = source
     local buyerId = tonumber(args[1])
     local sellAmount = tonumber(args[2])
-    if buyerId == 0 then print('test2') return TriggerClientEvent('QBCore:Notify', src, Lang:t('error.Invalid_ID'), 'error') end
+    if buyerId == 0 then print('test2') return QBCore.Functions.Notify(src, Lang:t('error.Invalid_ID'), 'error') end
     local ped = GetPlayerPed(src)
     local targetPed = GetPlayerPed(buyerId)
-    if targetPed == 0 then print('test3') return TriggerClientEvent('QBCore:Notify', src, Lang:t('error.buyerinfo'), 'error') end
+    if targetPed == 0 then print('test3') return QBCore.Functions.Notify(src, Lang:t('error.buyerinfo'), 'error') end
     local vehicle = GetVehiclePedIsIn(ped, false)
-    if vehicle == 0 then print('test4') return TriggerClientEvent('QBCore:Notify', src, Lang:t('error.notinveh'), 'error') end
+    if vehicle == 0 then print('test4') return QBCore.Functions.Notify(src, Lang:t('error.notinveh'), 'error') end
     local plate = QBCore.Shared.Trim(GetVehicleNumberPlateText(vehicle))
-    if not plate then print('test5 ')return TriggerClientEvent('QBCore:Notify', src, Lang:t('error.vehinfo'), 'error') end
+    if not plate then print('test5') return QBCore.Functions.Notify(src, Lang:t('error.vehinfo'), 'error') end
     local player = QBCore.Functions.GetPlayer(src)
     local target = QBCore.Functions.GetPlayer(buyerId)
     local row = MySQL.single.await('SELECT * FROM player_vehicles WHERE plate = ?', {plate})
-    if Config.PreventFinanceSelling then
-        if row.balance > 0 then print('test6') return TriggerClientEvent('QBCore:Notify', src, Lang:t('error.financed'), 'error') end
-    end
-    if row.citizenid ~= player.PlayerData.citizenid then print('test7') return TriggerClientEvent('QBCore:Notify', src, Lang:t('error.notown'), 'error') end
-    if #(GetEntityCoords(ped) - GetEntityCoords(targetPed)) > 5.0 then return TriggerClientEvent('QBCore:Notify', src, Lang:t('error.playertoofar'), 'error') end
+    -- if Config.PreventFinanceSelling then
+    --     if row.balance > 0 then print('test6') return QBCore.Functions.Notify(src, Lang:t('error.financed'), 'error') end
+    -- end
+    if row.citizenid ~= player.PlayerData.citizenid then print('test7') return QBCore.Functions.Notify(src, Lang:t('error.notown'), 'error') end
+    if #(GetEntityCoords(ped) - GetEntityCoords(targetPed)) > 5.0 then return QBCore.Functions.Notify(src, Lang:t('error.playertoofar'), 'error') end
     local targetcid = target.PlayerData.citizenid
     local targetlicense = QBCore.Functions.GetIdentifier(target.PlayerData.source, 'license')
-    if not target then return TriggerClientEvent('QBCore:Notify', src, Lang:t('error.buyerinfo'), 'error') end
+    if not target then return QBCore.Functions.Notify(src, Lang:t('error.buyerinfo'), 'error') end
     if not sellAmount then
         MySQL.update('UPDATE player_vehicles SET citizenid = ?, license = ? WHERE plate = ?', {targetcid, targetlicense, plate})
         print('test8')
-        TriggerClientEvent('QBCore:Notify', src, Lang:t('success.gifted'), 'success')
+        QBCore.Functions.Notify(src, Lang:t('success.gifted'), 'success')
         TriggerClientEvent('vehiclekeys:client:SetOwner', buyerId, plate)
-        TriggerClientEvent('QBCore:Notify', buyerId, Lang:t('success.received_gift'), 'success')
+        QBCore.Functions.Notify(buyerId, Lang:t('success.received_gift'), 'success')
         return
     end
     if target.Functions.GetMoney('cash') > sellAmount then
@@ -258,35 +258,35 @@ QBCore.Commands.Add('transfervehicle', Lang:t('general.command_transfervehicle')
         player.Functions.AddMoney('cash', sellAmount)
         target.Functions.RemoveMoney('cash', sellAmount)
         print('test9')
-        TriggerClientEvent('QBCore:Notify', src, Lang:t('success.soldfor') .. comma_value(sellAmount), 'success')
+        QBCore.Functions.Notify(src, Lang:t('success.soldfor') .. comma_value(sellAmount), 'success')
         TriggerClientEvent('vehiclekeys:client:SetOwner', buyerId, plate)
-        TriggerClientEvent('QBCore:Notify', buyerId, Lang:t('success.boughtfor') .. comma_value(sellAmount), 'success')
+        QBCore.Functions.Notify(buyerId, Lang:t('success.boughtfor') .. comma_value(sellAmount), 'success')
     elseif target.Functions.GetMoney('bank') > sellAmount then
         MySQL.update('UPDATE player_vehicles SET citizenid = ?, license = ? WHERE plate = ?', {targetcid, targetlicense, plate})
         player.Functions.AddMoney('bank', sellAmount)
         target.Functions.RemoveMoney('bank', sellAmount)
         print('test10')
-        TriggerClientEvent('QBCore:Notify', src, Lang:t('success.soldfor') .. comma_value(sellAmount), 'success')
+        QBCore.Functions.Notify(src, Lang:t('success.soldfor') .. comma_value(sellAmount), 'success')
         TriggerClientEvent('vehiclekeys:client:SetOwner', buyerId, plate)
-        TriggerClientEvent('QBCore:Notify', buyerId, Lang:t('success.boughtfor') .. comma_value(sellAmount), 'success')
+        QBCore.Functions.Notify(buyerId, Lang:t('success.boughtfor') .. comma_value(sellAmount), 'success')
     else
         print('test11')
-        TriggerClientEvent('QBCore:Notify', src, Lang:t('error.buyertoopoor'), 'error')
+        QBCore.Functions.Notify(src, Lang:t('error.buyertoopoor'), 'error')
     end
-end)
+end, 'admin')
 
 QBCore.Commands.Add('giveallmoney', 'Cho tiền tất cả người chơi', {{name = 'Tiền', help = '$$$'}}, true, function(source, args)
-    local players = QBCore.Functions.GetPlayers()
+    players = QBCore.Functions.GetPlayers()
     local amount = tonumber(args[1])
     local tong = 0
-    for k, v in pairs(players) do
+    for _, v in pairs(players) do
         local Player = QBCore.Functions.GetPlayer(v)
-        TriggerClientEvent('QBCore:Notify', Player.PlayerData.source, 'Bạn vừa nhận được $' .. amount .. ' từ trên trời', 'success', 10000)
+        QBCore.Functions.Notify(Player.PlayerData.source, 'Bạn vừa nhận được $' .. amount .. ' từ trên trời', 'success', 10000)
         tong = tong + amount
         Player.Functions.AddMoney('cash', amount)
         TriggerClientEvent('qb-admin:client:effectMoney', Player.PlayerData.source)
     end
-    TriggerClientEvent('QBCore:Notify', source, 'Bạn vừa cho toàn thành phố số tiền là: $' .. tong, 'success', 10000)
+    QBCore.Functions.Notify(source, 'Bạn vừa cho toàn thành phố số tiền là: $' .. tong, 'success', 10000)
     TriggerClientEvent('qb-admin:client:effectMoney', source)
 end, 'god')
 
@@ -369,7 +369,7 @@ QBCore.Commands.Add('warn', Lang:t("commands.warn_a_player"), {{name='ID', help=
             warnId
         })
     else
-        TriggerClientEvent('QBCore:Notify', source, Lang:t("error.not_online"), 'error')
+        QBCore.Functions.Notify(source, Lang:t("error.not_online"), 'error')
     end
 end, 'admin')
 
@@ -406,7 +406,7 @@ QBCore.Commands.Add('reportr', Lang:t("commands.reply_to_report"), {{name='id', 
     local msg = table.concat(args, ' ')
     local OtherPlayer = QBCore.Functions.GetPlayer(playerId)
     if msg == '' then return end
-    if not OtherPlayer then return TriggerClientEvent('QBCore:Notify', src, 'Player is not online', 'error') end
+    if not OtherPlayer then return QBCore.Functions.Notify(src, 'Player is not online', 'error') end
     if not QBCore.Functions.HasPermission(src, 'admin') or IsPlayerAceAllowed(src, 'command') ~= 1 then return end
     TriggerClientEvent('chat:addMessage', playerId, {
         color = {255, 0, 0},
@@ -418,7 +418,7 @@ QBCore.Commands.Add('reportr', Lang:t("commands.reply_to_report"), {{name='id', 
         multiline = true,
         args = {'Report Response ('..playerId..')', msg}
     })
-    TriggerClientEvent('QBCore:Notify', src, 'Reply Sent')
+    QBCore.Functions.Notify(src, 'Reply Sent')
     TriggerEvent('qb-log:server:CreateLog', 'report', 'Report Reply', 'red', '**'..GetPlayerName(src)..'** replied on: **'..OtherPlayer.PlayerData.name.. ' **(ID: '..OtherPlayer.PlayerData.source..') **Message:** ' ..msg, false)
 end, 'admin')
 
@@ -433,11 +433,11 @@ QBCore.Commands.Add('setmodel', Lang:t("commands.change_ped_model"), {{name='mod
             if Trgt ~= nil then
                 TriggerClientEvent('qb-admin:client:SetModel', target, tostring(model))
             else
-                TriggerClientEvent('QBCore:Notify', source, Lang:t("error.not_online"), 'error')
+                QBCore.Functions.Notify(source, Lang:t("error.not_online"), 'error')
             end
         end
     else
-        TriggerClientEvent('QBCore:Notify', source, Lang:t("error.failed_set_model"), 'error')
+        QBCore.Functions.Notify(source, Lang:t("error.failed_set_model"), 'error')
     end
 end, 'admin')
 
@@ -446,7 +446,7 @@ QBCore.Commands.Add('setspeed', Lang:t("commands.set_player_foot_speed"), {}, fa
     if speed ~= nil then
         TriggerClientEvent('qb-admin:client:SetSpeed', source, tostring(speed))
     else
-        TriggerClientEvent('QBCore:Notify', source, Lang:t("error.failed_set_speed"), 'error')
+        QBCore.Functions.Notify(source, Lang:t("error.failed_set_speed"), 'error')
     end
 end, 'admin')
 
@@ -454,9 +454,9 @@ QBCore.Commands.Add('reporttoggle', Lang:t("commands.report_toggle"), {}, false,
     local src = source
     QBCore.Functions.ToggleOptin(src)
     if QBCore.Functions.IsOptin(src) then
-        TriggerClientEvent('QBCore:Notify', src, Lang:t("success.receive_reports"), 'success')
+        QBCore.Functions.Notify(src, Lang:t("success.receive_reports"), 'success')
     else
-        TriggerClientEvent('QBCore:Notify', src, Lang:t("error.no_receive_report"), 'error')
+        QBCore.Functions.Notify(src, Lang:t("error.no_receive_report"), 'error')
     end
 end, 'admin')
 
@@ -473,7 +473,7 @@ QBCore.Commands.Add('kickall', Lang:t("commands.kick_all"), {}, false, function(
                     end
                 end
             else
-                TriggerClientEvent('QBCore:Notify', src, Lang:t("info.no_reason_specified"), 'error')
+                QBCore.Functions.Notify(src, Lang:t("info.no_reason_specified"), 'error')
             end
         end
     else
