@@ -1,5 +1,6 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 local VehicleNitrous = {}
+local savedCoords = {}
 
 RegisterNetEvent('tackle:server:TacklePlayer', function(playerId)
     TriggerClientEvent("tackle:client:GetTackled", playerId)

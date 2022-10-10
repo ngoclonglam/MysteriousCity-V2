@@ -63,14 +63,14 @@ local Translations = {
         message = 'Kính gửi %{gender} %{lastname}, <br /><br />Hereby Bạn đã nhận được một email với hóa dơn bệnh viện .<br />Hóa đơn bạn phải trả là: <strong>$%{costs}</strong><br /><br />Chúng tôi chúc bạn có sức khỏe dồi dào!'
     },
     states = {
-        irritated = 'Nhức',
-        quite_painful = 'Hơi đau',
-        painful = 'Đau',
-        really_painful = 'Đau nghiêm trọng',
-        little_bleed = 'Mất máu ít...',
-        bleed = 'Đang mất máu...',
-        lot_bleed = 'Mất máu nhiều...',
-        big_bleed = 'Mất máu nghiêm trọng...',
+        irritated = 'nhức',
+        quite_painful = 'jơi đau',
+        painful = 'đau',
+        really_painful = 'đau nghiêm trọng',
+        little_bleed = 'mất máu ít...',
+        bleed = 'đang mất máu...',
+        lot_bleed = 'mất máu nhiều...',
+        big_bleed = 'mất máu nghiêm trọng...',
     },
     menu = {
         amb_vehicles = 'Xe cứu thương',

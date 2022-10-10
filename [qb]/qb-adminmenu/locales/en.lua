@@ -15,6 +15,14 @@ local Translations = {
         ["failed_set_speed"] = "You did not set a speed.. (`fast` for super-run, `normal` for normal)",
         ["failed_set_model"] = "You did not set a model..",
         ["failed_entity_copy"] = "No freeaim entity info to copy to clipboard!",
+        ["Invalid_ID"] = "ID người chơi không hợp lệ",
+        ["buyerinfo"] = "Không thể lấy thông tin người mua",
+        ["notinveh"] = "Bạn phải ở trong chiếc xe bạn muốn chuyển",
+        ["vehinfo"] = "Không thể lấy thông tin xe",
+        ["financed"] = "Xe này đang phải trả góp",
+        ["notown"] = "Bạn không sở hữu chiếc xe này",
+        ["playertoofar"] = "Người chơi này không đủ gần",
+        ["buyertoopoor"] = "Người mua không có đủ tiền",
     },
     success = {
         ["blips_activated"] = "Blips activated",
@@ -30,6 +38,10 @@ local Translations = {
         ["spawn_weapon"] = "You have spawned a Weapon ",
         ["noclip_enabled"] = "No-clip enabled",
         ["noclip_disabled"] = "No-clip disabled",
+        ["gifted"] = "Bạn đã tặng chiếc xe của bạn",
+        ["received_gift"] = "Bạn đã được tặng một chiếc xe",
+        ["soldfor"] = "Bạn đã bán chiếc xe của bạn với giá $",
+        ["boughtfor"] = "Bạn đã mua một chiếc xe với giá $",
     },
     info = {
         ["ped_coords"] = "Ped Coordinates:",
@@ -268,6 +280,11 @@ local Translations = {
         ["report_toggle"] = "Toggle Incoming Reports (Admin)",
         ["kick_all"] = "Kick all players",
         ["ammo_amount_set"] = "Set Your Ammo Amount (Admin)",
+    },
+    general = {
+        ["command_transfervehicle"] = "Gift or sell your vehicle",
+        ["command_transfervehicle_help"] = "ID of buyer",
+        ["command_transfervehicle_amount"] = "Sell amount (optionnal)",
     }
 }
 

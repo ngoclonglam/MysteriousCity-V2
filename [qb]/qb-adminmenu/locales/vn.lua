@@ -28,8 +28,8 @@ local Translations = {
         ["entity_copy"] = "Đã sao chép thông tin vào khay nhớ tạm!",
         -- ["entered_vehicle"] = "success Entered vehicle",
         ["spawn_weapon"] = "Bạn đã tạo ra Vũ khí",
-        ["noclip_Bậtd"] = "No-clip đã bật",
-        ["noclip_Tắtd"] = "No-clip đã tắt",
+        ["noclip_enabled"] = "No-clip đã bật",
+        ["noclip_disabled"] = "No-clip đã tắt",
     },
     info = {
         ["ped_coords"] = "Tọa độ Ped:",
