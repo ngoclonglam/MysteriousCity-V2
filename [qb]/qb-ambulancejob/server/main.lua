@@ -246,6 +246,17 @@ RegisterNetEvent('hospital:server:CanHelp', function(helperId, canHelp)
 	end
 end)
 
+RegisterNetEvent('hospital:fee', function(amount)
+	local Player = QBCore.Functions.GetPlayer(source)
+	if Player.Functions.RemoveMoney('cash', amount) then
+		TriggerClientEvent('hospital:client:Revive', source)
+	elseif Player.Functions.RemoveMoney('bank', amount) then
+		TriggerClientEvent('hospital:client:Revive', source)
+	else
+		TriggerClientEvent('QBCore:Notify', source, 'Bạn không có tiền để sống lại', 'error')
+	end
+end)
+
 RegisterNetEvent('hospital:server:removeBandage', function()
 	local Player = QBCore.Functions.GetPlayer(source)
 
