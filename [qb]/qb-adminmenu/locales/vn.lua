@@ -15,6 +15,14 @@ local Translations = {
         ["failed_set_speed"] = "Bạn đã không đặt tốc độ... (`fast` để chạy siêu nhanh, `normal` để chạy bình thường)",
         ["failed_set_model"] = "Bạn đã không thiết lập được Model...",
         ["failed_entity_copy"] = "Không có thông tin để sao chép vào khay nhớ tạm!",
+        ["Invalid_ID"] = "ID người chơi không hợp lệ",
+        ["buyerinfo"] = "Không thể lấy thông tin người mua",
+        ["notinveh"] = "Bạn phải ở trong chiếc xe bạn muốn chuyển",
+        ["vehinfo"] = "Không thể lấy thông tin xe",
+        ["financed"] = "Xe này đang phải trả góp",
+        ["notown"] = "Bạn không sở hữu chiếc xe này",
+        ["playertoofar"] = "Người chơi này không đủ gần",
+        ["buyertoopoor"] = "Người mua không có đủ tiền",
     },
     success = {
         ["blips_activated"] = "Blips đã bật",
@@ -30,6 +38,10 @@ local Translations = {
         ["spawn_weapon"] = "Bạn đã tạo ra Vũ khí",
         ["noclip_enabled"] = "No-clip đã bật",
         ["noclip_disabled"] = "No-clip đã tắt",
+        ["gifted"] = "Bạn đã tặng chiếc xe của bạn",
+        ["received_gift"] = "Bạn đã được tặng một chiếc xe",
+        ["soldfor"] = "Bạn đã bán chiếc xe của bạn với giá $",
+        ["boughtfor"] = "Bạn đã mua một chiếc xe với giá $",
     },
     info = {
         ["ped_coords"] = "Tọa độ Ped:",
@@ -268,6 +280,11 @@ local Translations = {
         ["report_toggle"] = "Chuyển báo cáo đến (Chỉ dành cho Admin)",
         ["kick_all"] = "Kick tất cả người chơi",
         ["ammo_amount_set"] = "Đặt số lượng đạn của bạn (Chỉ dành cho Admin)",
+    },
+    general = {
+        ["command_transfervehicle"] = "Quà tặng hoặc bán xe của bạn",
+        ["command_transfervehicle_help"] = "ID của người mua",
+        ["command_transfervehicle_amount"] = "Số tiền bán (tùy chọn)",
     }
 }
 
