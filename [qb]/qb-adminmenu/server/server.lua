@@ -222,6 +222,7 @@ end)
 -- Commands
 -- Transfer vehicle to player in passenger seat
 QBCore.Commands.Add('transfervehicle', Lang:t('general.command_transfervehicle'), {{name = 'ID', help = Lang:t('general.command_transfervehicle_help')}, {name = 'amount', help = Lang:t('general.command_transfervehicle_amount')}}, false, function(source, args)
+    print('test')
     local src = source
     local buyerId = tonumber(args[1])
     local sellAmount = tonumber(args[2])
