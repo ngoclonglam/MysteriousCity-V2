@@ -259,29 +259,28 @@ RegisterNetEvent('lockpicks:UseLockpick', function(isAdvanced)
                 end
             end
         else
-            QBCore.Functions.TriggerCallback('QBCore:HasItem', function(result)
-                if closestHouse ~= nil then
-                    if result then
-                        if CurrentCops >= Config.MinimumHouseRobberyPolice then
-                            if not Config.Houses[closestHouse]["opened"] then
-                                if not IsHouseAssigned(closestHouse) then return end
-                                PoliceCall()
-                                TriggerEvent('qb-lockpick:client:openLockpick', lockpickFinish)
-                                if math.random(1, 100) <= 85 and not IsWearingHandshoes() then
-                                    local pos = GetEntityCoords(PlayerPedId())
-                                    TriggerServerEvent("evidence:server:CreateFingerDrop", pos)
-                                end
-                            else
-                                SendNotification(Lang:t("error.door_open"), "error", 3500)
+            local result = QBCore.Functions.HasItem('screwdriverset')
+            if closestHouse then
+                if result then
+                    if CurrentCops >= Config.MinimumHouseRobberyPolice then
+                        if not Config.Houses[closestHouse]["opened"] then
+                            if not IsHouseAssigned(closestHouse) then return end
+                            PoliceCall()
+                            TriggerEvent('qb-lockpick:client:openLockpick', lockpickFinish)
+                            if math.random(1, 100) <= 85 and not IsWearingHandshoes() then
+                                local pos = GetEntityCoords(PlayerPedId())
+                                TriggerServerEvent("evidence:server:CreateFingerDrop", pos)
                             end
                         else
-                            SendNotification(Lang:t("error.not_enough_police"), "error", 3500)
+                            SendNotification(Lang:t("error.door_open"), "error", 3500)
                         end
                     else
-                        SendNotification(Lang:t("error.missing_something"), "error", 3500)
+                        SendNotification(Lang:t("error.not_enough_police"), "error", 3500)
                     end
+                else
+                    SendNotification(Lang:t("error.missing_something"), "error", 3500)
                 end
-            end, "screwdriverset")
+            end
         end
     end
 end)

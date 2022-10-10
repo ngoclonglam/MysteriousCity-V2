@@ -320,35 +320,33 @@ CreateThread(function()
                             resetCherry()
                             reset = true
                         end
-
-                        QBCore.Functions.TriggerCallback('QBCore:HasItem', function(item)
-                            if item then
-                                local lucky = math.random(1, 3)
-                                LoadAnim('amb@prop_human_bum_bin@idle_a')
-                                TaskPlayAnim(ped, 'amb@prop_human_bum_bin@idle_a', 'idle_a', 8.0, 8.0, -1, 81, 0, 0, 0, 0)
-                                Wait(1000)
-                                DoScreenFadeOut(800)
+                        local item = QBCore.Functions.HasItem('w_cherry')  
+                        if item then
+                            local lucky = math.random(1, 3)
+                            LoadAnim('amb@prop_human_bum_bin@idle_a')
+                            TaskPlayAnim(ped, 'amb@prop_human_bum_bin@idle_a', 'idle_a', 8.0, 8.0, -1, 81, 0, 0, 0, 0)
+                            Wait(1000)
+                            DoScreenFadeOut(800)
+                            Wait(800)
+                            QBCore.Functions.Progressbar("wash_cherry", "Rửa Cherry..", 5000, false, true, {
+                                disableMovement = true,
+                                disableCarMovement = true,
+                                disableMouse = false,
+                                disableCombat = true,
+                                disableInventory = true,
+                            }, {}, {}, {}, function() -- Done
+                                ClearPedTasks(ped)
+                                TriggerServerEvent('hell_cherryfarmer:washReward', lucky)
+                                DoScreenFadeIn(800)
                                 Wait(800)
-                                QBCore.Functions.Progressbar("wash_cherry", "Rửa Cherry..", 5000, false, true, {
-                                    disableMovement = true,
-                                    disableCarMovement = true,
-                                    disableMouse = false,
-                                    disableCombat = true,
-                                    disableInventory = true,
-                                }, {}, {}, {}, function() -- Done
-                                    ClearPedTasks(ped)
-                                    TriggerServerEvent('hell_cherryfarmer:washReward', lucky)
-                                    DoScreenFadeIn(800)
-                                    Wait(800)
-                                end, function()
-                                    ClearPedTasks(ped)
-                                    DoScreenFadeIn(800)
-                                    Wait(800)
-                                end) -- Cancel
-                            else
-                                exports['okokNotify']:Alert('Công Việc', 'Bạn không có cherry để rửa', 5000, 'error')
-                            end
-                        end, 'w_cherry')
+                            end, function()
+                                ClearPedTasks(ped)
+                                DoScreenFadeIn(800)
+                                Wait(800)
+                            end) -- Cancel
+                        else
+                            exports['okokNotify']:Alert('Công Việc', 'Bạn không có cherry để rửa', 5000, 'error')
+                        end
                     else
                         exports['okokNotify']:Alert('Phương Tiện', 'Bạn không thể rửa cherry khi ngồi trên xe' , 5000, 'warning')
                     end

@@ -14,13 +14,13 @@ end)
 RegisterNetEvent('tc-pmeter-rob', function()
     local ped = PlayerPedId()
     if CurrentCops < 1 then return exports['okokNotify']:Alert('Đồng Hồ', 'Không đủ cảnh sát để lockpick', 5000, 'error') end
-    QBCore.Functions.TriggerCallback('QBCore:HasItem', function(hasItem)
-        if hasItem then
-            local time = math.random(7,10)
-            local circles = math.random(2,4)
-            local success = exports['qb-lock']:StartLockPickCircle(circles, time, success)
-            if success then
-                QBCore.Functions.Progressbar('rob_meter', 'Robbing Parking Meter', 15000, false, true, { -- Name | Label | Time | useWhileDead | canCancel
+    local hasItem = QBCore.Functions.HasItem('lockpick')
+    if hasItem then
+        local time = math.random(7,10)
+        local circles = math.random(2,4)
+        local success = exports['qb-lock']:StartLockPickCircle(circles, time, success)
+        if success then
+            QBCore.Functions.Progressbar('rob_meter', 'Robbing Parking Meter', 15000, false, true, { -- Name | Label | Time | useWhileDead | canCancel
                 disableMovement = true,
                 disableCarMovement = true,
                 disableMouse = false,
@@ -36,15 +36,12 @@ RegisterNetEvent('tc-pmeter-rob', function()
                 TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["lockpick"], "remove")
                 policeAlert()
                 delPmeter()
-
                 if Config.Cash then
                     TriggerServerEvent("InteractSound_SV:PlayWithinDistance", 10, "coins", 0.5)
                 end
-
                 if Config.BlackMoney then
                     TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["markedbills"], "add")
                 end
-
             end, function()
                 ClearPedTasks(ped)
             end)
@@ -54,10 +51,9 @@ RegisterNetEvent('tc-pmeter-rob', function()
             TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["lockpick"], "remove")
             policeAlert()
         end
-        else
-            QBCore.Functions.Notify('You Need A lockpick', 'error', 7500)
-        end
-    end, 'lockpick')
+    else
+        QBCore.Functions.Notify('You Need A lockpick', 'error', 7500)
+    end
 end)
 
 function policeAlert()
