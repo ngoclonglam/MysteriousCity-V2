@@ -101,8 +101,8 @@ Config = {
         POOL = 'Bida',
         POOL_GAME = 'Game Bida',
         POOL_SUBMENU = 'Chế Độ Chơi',
-        TYPE_8_BALL = '8-Ball',
-        TYPE_STRAIGHT = 'Đi Thẳng',
+        TYPE_8_BALL = '9-Ball',
+        TYPE_STRAIGHT = '8-Ball',
 
         HINT_SETUP = '<FONT FACE="Baloo Paaji 2 SemiBold">Thiết Lập Trò Chơi',
         HINT_TAKE_CUE = '<FONT FACE="Baloo Paaji 2 SemiBold">Lấy cơ',
