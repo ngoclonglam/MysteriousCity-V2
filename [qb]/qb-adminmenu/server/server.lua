@@ -226,27 +226,28 @@ QBCore.Commands.Add('transfervehicle', Lang:t('general.command_transfervehicle')
     local src = source
     local buyerId = tonumber(args[1])
     local sellAmount = tonumber(args[2])
-    if buyerId == 0 then return TriggerClientEvent('QBCore:Notify', src, Lang:t('error.Invalid_ID'), 'error') end
+    if buyerId == 0 then print('test2') return TriggerClientEvent('QBCore:Notify', src, Lang:t('error.Invalid_ID'), 'error') end
     local ped = GetPlayerPed(src)
     local targetPed = GetPlayerPed(buyerId)
-    if targetPed == 0 then return TriggerClientEvent('QBCore:Notify', src, Lang:t('error.buyerinfo'), 'error') end
+    if targetPed == 0 then print('test3') return TriggerClientEvent('QBCore:Notify', src, Lang:t('error.buyerinfo'), 'error') end
     local vehicle = GetVehiclePedIsIn(ped, false)
-    if vehicle == 0 then return TriggerClientEvent('QBCore:Notify', src, Lang:t('error.notinveh'), 'error') end
+    if vehicle == 0 then print('test4') return TriggerClientEvent('QBCore:Notify', src, Lang:t('error.notinveh'), 'error') end
     local plate = QBCore.Shared.Trim(GetVehicleNumberPlateText(vehicle))
-    if not plate then return TriggerClientEvent('QBCore:Notify', src, Lang:t('error.vehinfo'), 'error') end
+    if not plate then print('test5 ')return TriggerClientEvent('QBCore:Notify', src, Lang:t('error.vehinfo'), 'error') end
     local player = QBCore.Functions.GetPlayer(src)
     local target = QBCore.Functions.GetPlayer(buyerId)
     local row = MySQL.single.await('SELECT * FROM player_vehicles WHERE plate = ?', {plate})
     if Config.PreventFinanceSelling then
-        if row.balance > 0 then return TriggerClientEvent('QBCore:Notify', src, Lang:t('error.financed'), 'error') end
+        if row.balance > 0 then print('test6') return TriggerClientEvent('QBCore:Notify', src, Lang:t('error.financed'), 'error') end
     end
-    if row.citizenid ~= player.PlayerData.citizenid then return TriggerClientEvent('QBCore:Notify', src, Lang:t('error.notown'), 'error') end
+    if row.citizenid ~= player.PlayerData.citizenid then print('test7') return TriggerClientEvent('QBCore:Notify', src, Lang:t('error.notown'), 'error') end
     if #(GetEntityCoords(ped) - GetEntityCoords(targetPed)) > 5.0 then return TriggerClientEvent('QBCore:Notify', src, Lang:t('error.playertoofar'), 'error') end
     local targetcid = target.PlayerData.citizenid
     local targetlicense = QBCore.Functions.GetIdentifier(target.PlayerData.source, 'license')
     if not target then return TriggerClientEvent('QBCore:Notify', src, Lang:t('error.buyerinfo'), 'error') end
     if not sellAmount then
         MySQL.update('UPDATE player_vehicles SET citizenid = ?, license = ? WHERE plate = ?', {targetcid, targetlicense, plate})
+        print('test8')
         TriggerClientEvent('QBCore:Notify', src, Lang:t('success.gifted'), 'success')
         TriggerClientEvent('vehiclekeys:client:SetOwner', buyerId, plate)
         TriggerClientEvent('QBCore:Notify', buyerId, Lang:t('success.received_gift'), 'success')
@@ -256,6 +257,7 @@ QBCore.Commands.Add('transfervehicle', Lang:t('general.command_transfervehicle')
         MySQL.update('UPDATE player_vehicles SET citizenid = ?, license = ? WHERE plate = ?', {targetcid, targetlicense, plate})
         player.Functions.AddMoney('cash', sellAmount)
         target.Functions.RemoveMoney('cash', sellAmount)
+        print('test9')
         TriggerClientEvent('QBCore:Notify', src, Lang:t('success.soldfor') .. comma_value(sellAmount), 'success')
         TriggerClientEvent('vehiclekeys:client:SetOwner', buyerId, plate)
         TriggerClientEvent('QBCore:Notify', buyerId, Lang:t('success.boughtfor') .. comma_value(sellAmount), 'success')
@@ -263,10 +265,12 @@ QBCore.Commands.Add('transfervehicle', Lang:t('general.command_transfervehicle')
         MySQL.update('UPDATE player_vehicles SET citizenid = ?, license = ? WHERE plate = ?', {targetcid, targetlicense, plate})
         player.Functions.AddMoney('bank', sellAmount)
         target.Functions.RemoveMoney('bank', sellAmount)
+        print('test10')
         TriggerClientEvent('QBCore:Notify', src, Lang:t('success.soldfor') .. comma_value(sellAmount), 'success')
         TriggerClientEvent('vehiclekeys:client:SetOwner', buyerId, plate)
         TriggerClientEvent('QBCore:Notify', buyerId, Lang:t('success.boughtfor') .. comma_value(sellAmount), 'success')
     else
+        print('test11')
         TriggerClientEvent('QBCore:Notify', src, Lang:t('error.buyertoopoor'), 'error')
     end
 end)
