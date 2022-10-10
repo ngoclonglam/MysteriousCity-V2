@@ -108,6 +108,26 @@ local function DnaHash(s)
 end
 
 -- Commands
+QBCore.Commands.Add("livery", "Livery", {{name="livery", help="Nummer van de livery"}}, true, function(source, args)
+	TriggerClientEvent('lscustoms:SetLivery', source, tonumber(args[1]))
+end, "admin")
+
+QBCore.Commands.Add('mokhoa', 'Mở khóa xe người chơi', {}, false, function(source, args)
+    local Player = QBCore.Functions.GetPlayer(source)
+    if Player then
+        if Player.PlayerData.job.name == "police" then
+            if Player.PlayerData.job.onduty then
+                TriggerClientEvent('police:client:openVehicle', source)
+            else
+                TriggerClientEvent('QBCore:Notify', source, 'Bạn không có on-duty')
+            end
+
+        else
+            TriggerClientEvent('QBCore:Notify', source, 'Bạn không phải là cảnh sát', 'error')
+        end
+    end
+end)
+
 QBCore.Commands.Add("spikestrip", Lang:t("commands.place_spike"), {}, false, function(source)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)

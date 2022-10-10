@@ -206,6 +206,47 @@ RegisterNetEvent('police:client:SendPoliceEmergencyAlert', function()
     TriggerServerEvent('hospital:server:ambulanceAlert', Lang:t('info.officer_down', {lastname = Player.charinfo.lastname, callsign = Player.metadata.callsign}))
 end)
 
+RegisterNetEvent('police:client:openVehicle', function()
+    local ped = PlayerPedId()
+    local vehicle = QBCore.Functions.GetClosestVehicle()
+    if vehicle ~= nil and vehicle ~= 0 then
+        local vehpos = GetEntityCoords(vehicle)
+        local pos = GetEntityCoords(ped)
+
+        if #(pos - vehpos) < 3.0 and not IsPedInAnyVehicle(ped) then
+            QBCore.Functions.Progressbar('open_vehicle', 'Mở khóa xe dân...', 3000, false, true, { -- Name | Label | Time | useWhileDead | canCancel
+                disableMovement = true,
+                disableCarMovement = true,
+                disableMouse = false,
+                disableCombat = true,
+            }, {
+                animDict = 'anim@gangops@facility@servers@',
+                anim = 'hotwire',
+                flags = 16,
+            }, {}, {}, function() -- Play When Done
+                --Stuff goes here
+                QBCore.Functions.Notify('Cửa đã mở!', 'success')
+                SetVehicleDoorsLocked(vehicle, 1)
+                StopAnimTask(ped, "anim@gangops@facility@servers@", "hotwire", 1.0)
+                TriggerServerEvent("qb-vehiclekeys:server:AcquireVehicleKeys", QBCore.Functions.GetPlate(vehicle))
+            end, function() -- Play When Cancel
+                --Stuff goes here
+                StopAnimTask(ped, "anim@gangops@facility@servers@", "hotwire", 1.0)
+                QBCore.Functions.Notify('Hủy bỏ', 'error')
+            end)
+        end
+    end
+end)
+
+RegisterNetEvent('lscustoms:SetLivery')
+AddEventHandler('lscustoms:SetLivery', function(arg)
+	local veh = GetVehiclePedIsIn(GetPlayerPed(-1))
+	arg = tonumber(arg)
+	SetVehicleLivery(veh, arg)
+	SetVehicleMod(veh, 48, arg, false)
+end)
+
+
 -- Threads
 CreateThread(function()
     for _, station in pairs(Config.Locations["stations"]) do
