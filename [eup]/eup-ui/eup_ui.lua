@@ -1,3 +1,4 @@
+local QBCore = exports['qb-core']:GetCoreObject()
 outfits = json.decode(LoadResourceFile(GetCurrentResourceName(), GetResourceMetadata(GetCurrentResourceName(), 'uniform_file')))
 
 local function convertInput(input)
@@ -122,6 +123,8 @@ menuPool:RefreshIndex()
 
 RegisterCommand('eup', function()
 	local ped = PlayerPedId()
+	local PlayerData = QBCore.Functions.GetPlayerData()
+	if not (PlayerData.job.name == "mechanic" or PlayerData.job.name == "police" or PlayerData.job.name == "ems") then return QBCore.Functions.Notify('Bạn không phải là người ban ngành', 'error') end
 	if GetEntityModel(ped) == GetHashKey("mp_m_freemode_01") then
 		mainMenuM:Visible(not mainMenuM:Visible())
 	elseif GetEntityModel(ped) == GetHashKey("mp_f_freemode_01") then
