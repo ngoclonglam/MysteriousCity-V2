@@ -1,21 +1,21 @@
 local Translations = {
     notify = {
-        ["hud_settings_loaded"] = "HUD Settings Loaded!",
-        ["hud_restart"] = "HUD Is Restarting!",
-        ["hud_start"] = "HUD Is Now Started!",
-        ["hud_command_info"] = "This command resets your current HUD settings!",
-        ["load_square_map"] = "Square Map Loading...",
-        ["loaded_square_map"] = "Square Map Has Loaded!",
-        ["load_circle_map"] = "Circle Map Loading...",
-        ["loaded_circle_map"] = "Circle Map Has Loaded!",
-        ["cinematic_on"] = "Cinematic Mode On!",
-        ["cinematic_off"] = "Cinematic Mode Off!",
-        ["engine_on"] = "Engine Started!",
-        ["engine_off"] = "Engine Shut Down!",
-        ["low_fuel"] = "Fuel Level Low!",
-        ["access_denied"] = "You Are Not Authorized!",
-        ["stress_gain"] = "Feeling More Stressed!",
-        ["stress_removed"] = "Feeling More Relaxed!"
+        ["hud_settings_loaded"] = "Cài đặt HUD được tải!",
+        ["hud_restart"] = "HUD đang khởi động lại!",
+        ["hud_start"] = "HUD bây giờ đã bắt đầu!",
+        ["hud_command_info"] = "Lệnh này đặt lại cài đặt HUD hiện tại của bạn!",
+        ["load_square_map"] = "Tải bản đồ vuông ...",
+        ["loaded_square_map"] = "Bản đồ vuông đã tải!",
+        ["load_circle_map"] = "Tải bản đồ vòng tròn ...",
+        ["loaded_circle_map"] = "Bản đồ vòng tròn đã tải!",
+        ["cinematic_on"] = "Chế độ điện ảnh bật!",
+        ["cinematic_off"] = "Chế độ điện ảnh tắt!",
+        ["engine_on"] = "Động cơ bắt đầu!",
+        ["engine_off"] = "Động cơ tắt!",
+        ["low_fuel"] = "Mức nhiên liệu thấp!",
+        ["access_denied"] = "Bạn không được ủy quyền!",
+        ["stress_gain"] = "Cảm thấy căng thẳng hơn!",
+        ["stress_removed"] = "Cảm thấy thư giãn hơn!"
     }
 }
 Lang = Locale:new({phrases = Translations, warnOnMissing = true})

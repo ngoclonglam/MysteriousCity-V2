@@ -930,7 +930,7 @@ Workbenches = { -- Every workbench location, leave {} for jobs if you want every
 		-- {coords = vector3(-196.3735, -1318.485, 32.08951), jobs = 'mechanic', Categories = 'MechCategories', blip = false, recipes = {}, radius = 3.0 },       					--bennys 1 
 		-- {coords = vector3(101.26113891602, 6615.810546875, 33.58126831054), jobs = 'mechanic', Categories = 'MechCategories', blip = false, recipes = {}, radius = 3.0 },      	--North LS customs
 		-- {coords = vector3(93.52, 3754.21, 41.57), jobs = {}, Categories = 'GunCategories', blip = false, recipes = {}, radius = 3.0 }, --Gun crafting 1 
-		{coords = vector3(3290.1, 5196.75, 18.42), jobs = {}, Categories = 'GunCategories', blip = false, recipes = {}, radius = 3.0} --Gun crafting 2 
+		{coords = vector3(2659.99, 3923.66, 42.17), jobs = {}, Categories = 'GunCategories', blip = false, recipes = {}, radius = 3.0} --Gun crafting 2 
 },
 
 FakeWorkbenches = {
