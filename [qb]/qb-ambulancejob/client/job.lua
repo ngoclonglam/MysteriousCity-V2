@@ -73,6 +73,35 @@ function MenuGarage()
     exports['qb-menu']:openMenu(vehicleMenu)
 end
 
+-- Commands
+
+RegisterCommand('hoisinh', function()
+    local PlayerData = QBCore.Functions.GetPlayerData()
+    local fee = 3000
+    if not PlayerData.metadata["isdead"] and not PlayerData.metadata["inlaststand"] then return QBCore.Functions.Notify("Bạn chưa có chết", "error") end
+    if PlayerData.money.cash < fee and PlayerData.money.bank < fee then return QBCore.Functions.Notify("Bạn không có tiền để hồi sinh", 'error') end
+    QBCore.Functions.TriggerCallback('hospital:GetDoctors', function(ambulance)
+        if ambulance > 0 then
+            QBCore.Functions.Notify("Bác sĩ đang online", "error")
+        else
+            local time = 20
+            QBCore.Functions.Notify("Sau " ..time.. " giây sẽ sống lại")
+            -- TriggerServerEvent('hospital:fee', 2500)
+            QBCore.Functions.Progressbar("hoisinh", Lang:t('progress.revive'), time * 1000, false, true, {
+                disableMovement = true,
+                disableCarMovement = true,
+                disableMouse = true,
+                disableCombat = true,
+            }, {}, {}, {}, function() -- Done
+                QBCore.Functions.Notify(Lang:t('success.revived'), 'success')
+                TriggerServerEvent('hospital:fee', fee)
+            end, function() -- Cancel
+                QBCore.Functions.Notify(Lang:t('error.cancled'), "error")
+            end)
+        end
+    end)
+end)
+
 -- Events
 
 RegisterNetEvent('ambulance:client:TakeOutVehicle', function(data)
