@@ -134,12 +134,12 @@ Config.Teleports = {
     --Elevator @ labs
     [1] = {
         [1] = {
-            coords = vector4(3540.74, 3675.59, 20.99, 167.5),
+            coords = vector4(5.96, -707.79, 46.02, 27.14),
             ["AllowVehicle"] = false,
             drawText = '[E] Lên thang máy'
         },
         [2] = {
-            coords = vector4(3540.74, 3675.59, 28.11, 172.5),
+            coords = vector4(-11.86, -686.35, 243.45, 22.33),
             ["AllowVehicle"] = false,
             drawText = '[E] Take Elevator Down'
         },

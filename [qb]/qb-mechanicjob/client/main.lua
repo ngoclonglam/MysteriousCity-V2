@@ -961,7 +961,10 @@ RegisterNetEvent('vehiclemod:client:repairPart', function(part, level, needAmoun
     end
 end)
 
-RegisterNetEvent('qb-mechanicjob:client:target:OpenStash', function ()
+RegisterNetEvent('qb-mechanicjob:client:target:OpenStash', function()
+    if PlayerData.job.grade.level < 2 then
+        return QBCore.Functions.Notify('Bạn không có quyền mở kho đồ')
+    end
     TriggerEvent("inventory:client:SetCurrentStash", "mechanicstash")
     TriggerServerEvent("inventory:server:OpenInventory", "stash", "mechanicstash", {
         maxweight = 4000000,
