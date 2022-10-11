@@ -264,6 +264,7 @@ RegisterNetEvent("qb-garages:client:VehicleList", function(data)
     local indexgarage = data.index
     local header
     local leave
+    local DepotPrice = 300
     if type == "house" then
         header = Lang:t("menu.header." .. type .. "_car", { value = garage.label })
         leave = Lang:t("menu.leave.car")
@@ -296,6 +297,11 @@ RegisterNetEvent("qb-garages:client:VehicleList", function(data)
                     v.state = Lang:t("status.impound")
                 end
                 if type == "depot" then
+                    v.engine = 500
+                    v.body = 500
+                    v.fuel = 650
+                    v.depotPrice = v.depotPrice or DepotPrice
+
                     MenuGarageOptions[#MenuGarageOptions + 1] = {
                         header = Lang:t('menu.header.depot', { value = vname, value2 = v.depotprice }),
                         txt = Lang:t('menu.text.depot', { value = v.plate, value2 = currentFuel, value3 = enginePercent, value4 = bodyPercent }),
