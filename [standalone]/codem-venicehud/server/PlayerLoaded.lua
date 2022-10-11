@@ -17,10 +17,9 @@ AddEventHandler('esx:playerLoaded', function(src)
      TriggerClientEvent('codem-venicehud:SetForceHide', src, false)
      TriggerClientEvent('codem-venicehud:UpdateNitroData', src, nitro)
      TriggerClientEvent('codem-venicehud:Loaded', src)
-     TriggerClientEvent('codem-totalplayers',-1,#players)
-     TriggerClientEvent('codem-venicehud:job',src)
+     TriggerClientEvent('codem-totalplayers',-1, #players)
+     TriggerClientEvent('codem-venicehud:job', src)
 end)
-
 
 RegisterNetEvent('QBCore:Server:OnPlayerLoaded')
 AddEventHandler('QBCore:Server:OnPlayerLoaded', function()
@@ -38,31 +37,23 @@ AddEventHandler('QBCore:Server:OnPlayerLoaded', function()
       TriggerClientEvent('codem-venicehud:SetForceHide', src, false)
       TriggerClientEvent('codem-venicehud:UpdateNitroData', src, nitro)
       TriggerClientEvent('codem-venicehud:Loaded', src)
-      TriggerClientEvent('codem-totalplayers',-1,#players)
-      TriggerClientEvent('codem-venicehud:job',src)
+      TriggerClientEvent('codem-totalplayers',-1, #players)
+      TriggerClientEvent('codem-venicehud:job', src)
 
- end)
-
-
+end)
 
 AddEventHandler('playerDropped', function()
 	local players = GetPlayers()
-    TriggerClientEvent('codem-totalplayers',-1,#players)
+    TriggerClientEvent('codem-totalplayers',-1, #players)
 end)
-
-
-
-
 
 if Config.EnableCashAndBankCommands then
     RegisterCommand(Config.CashCommand, function(source)
         if Config.Framework == "esx" then
             local xPlayer = frameworkObject.GetPlayerFromId(tonumber(source))
             local cashamount = xPlayer.getMoney()
-
             TriggerClientEvent('codem-venicehud:ShowAccounts2', source, 'cash', cashamount)
         else
-
             local Player = frameworkObject.Functions.GetPlayer(tonumber(source))
             local cashamount = Player.PlayerData.money.cash
             TriggerClientEvent('codem-venicehud:ShowAccounts2', source, 'cash', cashamount)
@@ -71,7 +62,6 @@ if Config.EnableCashAndBankCommands then
     RegisterCommand(Config.BankCommand, function(source)
         if Config.Framework == "esx" then
             local xPlayer = frameworkObject.GetPlayerFromId(tonumber(source))
-
             local bankamount = xPlayer.getAccount('bank')
             if bankamount then
                 TriggerClientEvent('codem-venicehud:ShowAccounts2', source, 'bank', bankamount.money)
