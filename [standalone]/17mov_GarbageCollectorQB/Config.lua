@@ -19,7 +19,7 @@ Config.Blips = { -- Here you can configure Company blip.
     },
 }
 
-Config.Price = 2            -- Price per one bag inside trashmaster. 100 is maximum so full trash = 200$ / partyCount
+Config.Price = 600            -- Price per one bag inside trashmaster. 100 is maximum so full trash = 200$ / partyCount
 Config.splitReward = true   -- If it is true, the payout is: (Config.Price * collectedBags) / PartyCount, if false then: (Config.Price * collectedBags)
 
 Config.PropsHashes = {      -- Hashes of bags that we can pick up

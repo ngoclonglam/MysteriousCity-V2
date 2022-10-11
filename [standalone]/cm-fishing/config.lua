@@ -50,19 +50,19 @@ Config.Fish = {
 
 
         --------------------------- BAITS ------------------------                       sell = false  -- do not change
-        {itemname = 'spoonlurebait',    baitLevel = 1,  fishQualityScale = {'common'},   sell = false, name = 'Spoon Lure Bait',  category = "baits", price = 5, stars = 1, baitsuse = true},
-        {itemname = 'threesidedbait',   baitLevel = 2,  fishQualityScale = {'uncommon'}, sell = false, name = 'Three Sided Bait', category = "baits", price = 5, stars = 2, baitsuse = true},
-        {itemname = 'tailfishbait',     baitLevel = 3,  fishQualityScale = {'rare'},     sell = false, name = 'Tail Fish Bait',   category = "baits", price = 5, stars = 3, baitsuse = true},
-        {itemname = 'doublehookbait',   baitLevel = 4,  fishQualityScale = {'legendary'},sell = false, name = 'Double Hook Bait', category = "baits", price = 5, stars = 4, baitsuse = true},
-        {itemname = 'triplehooksbait',  baitLevel = 5,  fishQualityScale = {'epic'},     sell = false, name = 'Triple Hook Bait', category = "baits", price = 5, stars = 5, baitsuse = true},
+        {itemname = 'spoonlurebait',    baitLevel = 1,  fishQualityScale = {'common'},    sell = false, name = 'Spoon Lure Bait',  category = "baits", price = 5, stars = 1, baitsuse = true},
+        {itemname = 'threesidedbait',   baitLevel = 2,  fishQualityScale = {'uncommon'},  sell = false, name = 'Three Sided Bait', category = "baits", price = 5, stars = 2, baitsuse = true},
+        {itemname = 'tailfishbait',     baitLevel = 3,  fishQualityScale = {'rare'},      sell = false, name = 'Tail Fish Bait',   category = "baits", price = 5, stars = 3, baitsuse = true},
+        {itemname = 'doublehookbait',   baitLevel = 4,  fishQualityScale = {'legendary'}, sell = false, name = 'Double Hook Bait', category = "baits", price = 5, stars = 4, baitsuse = true},
+        {itemname = 'triplehooksbait',  baitLevel = 5,  fishQualityScale = {'epic'},      sell = false, name = 'Triple Hook Bait', category = "baits", price = 5, stars = 5, baitsuse = true},
 
 
         --------------------------- RODS ------------------------                          sell = false  -- do not change
-        {itemname = 'woodenrod',       minigameDiff = 'veryHard',  name = 'Wooden Rod',        sell = false, category = "rods", price = 3, stars = 1, minlevel = 10, use = true},
-        {itemname = 'slimmaterialrod', minigameDiff = 'hard',      name = 'Slim Material Rod', sell = false, category = "rods", price = 4, stars = 2, minlevel = 20, use = true},
-        {itemname = 'danishrod',       minigameDiff = 'medium',    name = 'Danish Rod',        sell = false, category = "rods", price = 8, stars = 3, minlevel = 30, use = true},
-        {itemname = 'koidrod',         minigameDiff = 'easy',      name = 'Koi Rod',           sell = false, category = "rods", price = 15,stars = 4, minlevel = 40, use = true},
-        {itemname = 'finewood',        minigameDiff = 'veryEasy',  name = 'Finewood Rod',      sell = false, category = "rods", price = 25,stars = 5, minlevel = 50, use = true},
+        {itemname = 'woodenrod',       minigameDiff = 'veryHard',  name = 'Wooden Rod',        sell = false, category = "rods", price = 3,  stars = 1, minlevel = 10, use = true},
+        {itemname = 'slimmaterialrod', minigameDiff = 'hard',      name = 'Slim Material Rod', sell = false, category = "rods", price = 4,  stars = 2, minlevel = 20, use = true},
+        {itemname = 'danishrod',       minigameDiff = 'medium',    name = 'Danish Rod',        sell = false, category = "rods", price = 8,  stars = 3, minlevel = 30, use = true},
+        {itemname = 'koidrod',         minigameDiff = 'easy',      name = 'Koi Rod',           sell = false, category = "rods", price = 15, stars = 4, minlevel = 40, use = true},
+        {itemname = 'finewood',        minigameDiff = 'veryEasy',  name = 'Finewood Rod',      sell = false, category = "rods", price = 25, stars = 5, minlevel = 50, use = true},
 }
 
 

@@ -31,6 +31,7 @@ RegisterCommand('-fishing', function()
 
     end
 end, false)
+
 RegisterKeyMapping('+fishing', 'Fishing', 'keyboard', 'up')
 RegisterNUICallback('minigamecompleted', function(data, cb)
     success = data.success

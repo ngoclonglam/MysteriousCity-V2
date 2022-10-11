@@ -24,7 +24,7 @@ Config.Blips = {                        -- Here you can configure Company blip.
 }
 
 Config.reward = 3000                    -- Reward for one treasure. If you want to use a item reward then modify Pay() function under /server/functions.lua
-Config.splitReward = false              -- If it is true, the payout is: (Config.Price * foundTreasured) / PartyCount, if false then: (Config.Price * foundTreasured)
+Config.splitReward = true              -- If it is true, the payout is: (Config.Price * foundTreasured) / PartyCount, if false then: (Config.Price * foundTreasured)
 Config.MarkerSettings = {               -- used only when Config.UseTarget = false. Colors of the marker. Active = when player stands inside the marker.
     Active = {
         r = 255,
