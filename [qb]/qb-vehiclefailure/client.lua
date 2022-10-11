@@ -67,7 +67,7 @@ local function AutoFix()
 				while isInside do
 					exports['qb-core']:DrawText('Bấm E để sửa xe tự động', 'left')
 					if IsControlJustReleased(0,38) and not autoFix then
-						if not PlayerData then PlayerData = QBCore.Funcions.GetPlayerData() end
+						PlayerData = QBCore.Functions.GetPlayerData()
 						if PlayerData.money.cash >= price or PlayerData.money.bank >= price then
 							QBCore.Functions.TriggerCallback('qb-vehicletuning:server:IsMechanicAvailable', function(mechanic)
 								if mechanic == 0 then
