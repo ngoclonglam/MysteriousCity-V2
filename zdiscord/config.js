@@ -11,7 +11,7 @@
 const LanguageLocaleCode = "vn";
 
 // PUBLIC VALUES
-const FiveMServerName = "Mysterious City";
+const FiveMServerName = "Mysterious Roleplay City";
 const DiscordInviteLink = "https://discord.gg/mystcity";
 const FiveMServerIP = "https://cfx.re/join/zl9lp5";
 
