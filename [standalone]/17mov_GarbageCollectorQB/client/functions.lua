@@ -5,7 +5,7 @@ function Notify(msg)
 end
 
 function SetVehicle(vehicle)
-    exports['LegacyFuel']:SetFuel(vehicle, 100.0)
+    exports['ps-fuel']:SetFuel(vehicle, 100.0)
     TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(vehicle))
 end
 
