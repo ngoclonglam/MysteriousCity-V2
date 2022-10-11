@@ -121,27 +121,27 @@
     "jackets": "Áo khoác"
   },
   "props": {
-    "title": "Props",
-    "drawable": "Drawable",
-    "texture": "Texture",
-    "hats": "Hats and helmets",
-    "glasses": "Glasses",
-    "ear": "Ear",
-    "watches": "Watches",
-    "bracelets": "Bracelets"
+    "title": "Phụ Kiện",
+    "drawable": "Mẫu",
+    "texture": "Loại",
+    "hats": "Mũ và nón bảo hiểm",
+    "glasses": "Mắt kính",
+    "ear": "Khuyên tai",
+    "watches": "Đồng hồ",
+    "bracelets": "Vòng tay"
   },
   "tattoos": {
-    "title": "Tattoos",
+    "title": "Hình xăm",
     "items": {
-      "ZONE_TORSO": "Torso",
-      "ZONE_HEAD": "Head",
-      "ZONE_LEFT_ARM": "Left arm",
-      "ZONE_RIGHT_ARM": "Right arm",
-      "ZONE_LEFT_LEG": "Left leg",
-      "ZONE_RIGHT_LEG": "Right leg"
+      "ZONE_TORSO": "Thân",
+      "ZONE_HEAD": "Cái đầu",
+      "ZONE_LEFT_ARM": "Cánh tay trái",
+      "ZONE_RIGHT_ARM": "Tay phải",
+      "ZONE_LEFT_LEG": "Chân trái",
+      "ZONE_RIGHT_LEG": "Chân phải"
     },
-    "apply": "Apply",
-    "delete": "Remove",
-    "deleteAll": "Remove all Tattoos"
+    "apply": "Xăm",
+    "delete": "Loại bỏ",
+    "deleteAll": "Xóa tất cả các hình xăm"
   }
 }

@@ -15,8 +15,9 @@ local Translations = {
         server_already_closed = 'Server đã đóng'
     },
     success = {
-         server_opened = 'Server đã được mở lại',
-        server_closed = 'Server đã được đóng'
+        server_opened = 'Server đã được mở lại',
+        server_closed = 'Server đã được đóng',
+        teleported_waypoint = 'Dịch chuyển đến địa điểm chỉ định',
     },
     info = {
         received_paycheck = 'Bạn nhận được số tiền thanh toán là $%{value}',
