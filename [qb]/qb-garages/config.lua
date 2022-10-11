@@ -168,11 +168,11 @@ Garages = {
     --    vehicle = 'car'                 --car, air, sea
     --},
     ["impoundlot"] = {
-        label = "Impound Lot",
+        label = "Chuộc Xe",
         takeVehicle = vector3(409.89, -1623.51, 29.29),
         spawnPoint = vector4(407.92, -1646.29, 29.29, 226.39),
-        showBlip = false,
-        blipName = "Impound Lot",
+        showBlip = true,
+        blipName = "Chuộc Xe",
         blipNumber = 68,
         type = 'depot',                --public, job, gang, depot
         vehicle = 'car'                 --car, air, sea
@@ -333,7 +333,8 @@ Garages = {
         blipName = "Mechanic",
         blipNumber = 356,
         type = 'job',                --public, job, gang, depot
-        vehicle = 'car'                 --car, air, sea
+        vehicle = 'car',                --car, air, sea
+        job = 'mechanic'
     },
 }
 HouseGarages = {}
