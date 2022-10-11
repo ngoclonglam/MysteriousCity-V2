@@ -507,6 +507,40 @@ Config.Products = {
             slot = 1,
         }
     },
+    ["bar"] = {
+        -- [1] = {
+        --     name = "beer",
+        --     price = 100,
+        --     amount = 50,
+        --     info = {},
+        --     type = "item",
+        --     slot = 1,
+        -- },
+        -- [2] = {
+        --     name = "whiskey",
+        --     price = 350,
+        --     amount = 200,
+        --     info = {},
+        --     type = "item",
+        --     slot = 2,
+        -- },
+        [1] = {
+            name = "joint",
+            price = 300,
+            amount = 100,
+            info = {},
+            type = "item",
+            slot = 1,
+        },
+        -- [3] = {
+        --     name = "vodka",
+        --     price = 12,
+        --     amount = 50,
+        --     info = {},
+        --     type = "item",
+        --     slot = 3,
+        -- },
+    },
 }
 Config.Locations = {
     -- 24/7 Locations

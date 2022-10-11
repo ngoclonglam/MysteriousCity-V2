@@ -1,0 +1,130 @@
+
+@media screen and (width: 1920px) and (height: 1080px) {
+     .playerhud {width: 16.1% !important;}
+     .mapopenheader {margin-top: -14.5% !important;}
+     .waterhudid{margin-left:0%;}
+ }
+
+@media screen and (width: 3840px) and (height: 1080px) {
+     .playerhud {width: 8.0% !important; left:26.5% !important}
+     .mapopenheader {margin-top: -14.5% !important;}
+     .waterhudid{margin-left:25%;}
+     .mapsborders {width:8%; left:26.5% !important}
+ }
+ 
+@media screen and (width: 2720px) and (height: 768px) {
+     .playerhud {width: 8.0% !important; left:26.5% !important}
+     .mapopenheader {margin-top: -14.5% !important;}
+     .waterhudid{margin-left:15%;}
+     .mapsborders {width:8%; left:26.5% !important}
+ }
+
+@media screen and (width: 2048px) and (height: 768px) {
+     .playerhud {width: 10.5% !important; left:18.3% !important}
+     .mapopenheader {margin-top: -20.5% !important;}
+     .waterhudid{margin-left:2.5%;}
+     .mapsborders {width:10.5%; left:18.3% !important}
+     .venicehudclock {margin-left:-48.9%}
+ }
+ @media screen and (width: 2560px) and (height: 1080px) {
+     .playerhud {width: 12.1% !important; left:12.5% !important; bottom: 5.45% !important}
+     .mapopenheader {margin-top: -14.5% !important;}
+     .waterhudid{margin-left:15%;}
+     .mapsborders {width:12%; left:12.5% !important; bottom: 5.7% !important;}
+ }
+
+ @media screen and (width: 3440px) and (height: 1440px) {
+    .playerhud {width: 12.0% !important; left:12.8% !important; margin-bottom:-0.8% !important}
+    .mapopenheader {margin-top: -14.5% !important;}
+    .waterhudid{margin-left:22.2%;}
+    .mapsborders {width:12.0%; left:12.8% !important; margin-bottom:-0.8% !important; height: 19.8% !important; }
+    .watermarklogos {margin-left:45rem !important;}
+    .idandonline {margin-left:45rem !important;}
+}
+ @media screen and (width: 1920px) and (height: 1200px) {
+      .playerhud { width: 17.8% !important;}
+      .mapopenheader {margin-top: -12.5% !important;}
+      .waterhudid{margin-left:0%;}
+      .mapsborders {width:17.8%;}
+ }
+ 
+ 
+ @media screen and (width: 1920px) and (height: 1440px) {
+     .playerhud {width: 21.5% !important;}
+     .mapopenheader {margin-top: -11.5% !important;}
+     .waterhudid{margin-left:0%;}
+     .mapsborders {width:21.3%;}
+ }
+ @media screen and (width: 1768px) and (height: 992px) {
+      .playerhud {width: 16.1% !important;}
+     .mapopenheader {margin-top: -16% !important;}
+     .waterhudid{margin-left:-5%;}
+  }
+ 
+  @media screen and (width: 1680px) and (height: 1050px) {
+      .playerhud {width: 18.1% !important;}
+     .mapopenheader {margin-top: -14% !important;}
+     .waterhudid{margin-left:-10.7%;}
+       .mapsborders {width:17.8% !important;}
+  }
+ 
+   @media screen and (width: 1600px) and (height: 1200px) {
+      .playerhud {width: 21.5% !important;}
+     .mapopenheader {margin-top: -13% !important;}
+     .waterhudid{margin-left:-15.99%;}
+       .mapsborders {width:21.3% !important;}
+  }
+ 
+  @media screen and (width: 1600px) and (height: 1024px) {
+      .playerhud { width:18.1% !important;}
+      .mapopenheader {margin-top: -15.5% !important;}
+      .waterhudid{margin-left:-16.2%;}
+      .mapsborders {width:18.1%;}
+ }
+ 
+ 
+  @media screen and (width: 1600px) and (height: 900px) {
+      .playerhud { width:16.1% !important;}
+      .mapopenheader {margin-top: -16.5% !important;}
+      .waterhudid{margin-left:-16.2%;}
+      .mapsborders {width:16.1%;}
+ }
+ 
+  @media screen and (width: 1440px) and (height: 900px) {
+      .playerhud { width:17.8% !important;}
+      .mapopenheader {margin-top: -16.5% !important;}
+      .waterhudid{margin-left:-29.1%;}
+      .mapsborders {width:17.8%;}
+ }
+ 
+  @media screen and (width: 1400px) and (height: 1050px) {
+      .playerhud { width:21.5% !important;}
+      .mapopenheader {margin-top: -14% !important;}
+      .waterhudid{margin-left:-32.7%;}
+      .mapsborders {width:17.8%;}
+ }
+ 
+  @media screen and (width: 1366px) and (height: 768px) {
+      .playerhud { width:16% !important;}
+      .mapopenheader {margin-top: -20% !important;}
+      .waterhudid{margin-left:-18.9%; transform:scale(0.8)}
+      .mapsborders {width:17.8%;}
+      .venicehudclock {margin-left:-48.9%}
+ }
+ 
+  @media screen and (width: 1360px) and (height: 768px) {
+      .playerhud { width:16% !important;}
+      .mapopenheader {margin-top: -20% !important;}
+      .waterhudid{margin-left:-18.9%; transform:scale(0.8)}
+      .mapsborders {width:16%;}
+    .venicehudclock {margin-left:-48.9%}
+ }
+
+   @media screen and (width: 1280px) and (height: 720px) {
+      .playerhud { width:16% !important;}
+      .mapopenheader {margin-top: -20% !important;}
+      .waterhudid{margin-left:-25.9%; transform:scale(0.8)}
+      .mapsborders {width:16%;}
+    .venicehudclock {margin-left:-48.9%}
+ }
+ 

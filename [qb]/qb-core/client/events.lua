@@ -137,6 +137,7 @@ RegisterNetEvent('QBCore:Command:SpawnVehicle', function(vehName)
     SetVehicleFuelLevel(vehicle, 100.0)
     SetVehicleDirtLevel(vehicle, 0.0)
     SetModelAsNoLongerNeeded(hash)
+    exports['ps-fuel']:SetFuel(vehicle, 100.0)
     TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(vehicle))
 end)
 

@@ -1,0 +1,2589 @@
+@font-face {
+  src: url('./fonts/Gilroy-ExtraBold.otf') format("OpenType");
+  font-family: "gilroy";
+}
+
+@font-face {
+  src: url('./fonts/Gilroy-Light.otf') format("OpenType");
+  font-family: "gilroy-light";
+}
+
+
+@font-face {
+  src: url('./fonts/Futura_SC_T_OT_Book_Regular.otf') format("OpenType");
+  font-family: "futura";
+}
+
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  font-family: "gilroy";
+}
+
+body {
+
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+#app {
+
+  width: 100vw;
+  height: 100vh;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   background-image: url('./images/background.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+}
+
+
+.notify-container {
+  position: absolute;
+  right: -10rem;
+
+  bottom: 1rem;
+}
+
+
+.notify {
+
+  width: 16rem;
+  background: linear-gradient(180deg, rgba(1, 227, 241, 0.06) 0%, rgba(1, 209, 222, 0.06) 100%);
+  box-shadow: 0px 24px 35px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+
+  position: relative;
+  margin-bottom: 3rem;
+  min-height: 1rem;
+  z-index: 70;
+  border-radius: .5rem;
+
+}
+
+
+
+.notify-title {
+  position: absolute;
+  color: black;
+  z-index: 2;
+}
+
+.notify-title {
+  position: absolute;
+  color: black;
+  z-index: 2;
+  font-size: 1.2rem;
+  font-weight: 600;
+  left: 1rem;
+  top: 0rem;
+}
+
+.notify-text {
+  padding: 1rem;
+  color: white;
+  filter: drop-shadow(0px 0px 5px #00F0FF);
+
+  width: 100%;
+  margin-top: 3rem;
+  margin-left: -0.5rem;
+  font-size: 0.9rem;
+  z-index: 78;
+
+}
+
+
+/* minigame  */
+
+.game {
+  display: none;
+  align-items: center;
+  opacity: 1;
+  position: absolute;
+  left: 60%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.fill-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ----------- */
+/* Fishing rod */
+/* ----------- */
+
+.fishing-rod {
+  width: 46px;
+  height: 352px;
+  position: relative;
+  margin-right: 10px;
+}
+
+.reel-handle {
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 81.2%;
+  left: 1.8%;
+  z-index: 10;
+}
+
+.reel-handle img {
+  animation-name: rotate;
+  animation-iteration-count: infinite;
+  animation-duration: 0.35s;
+  animation-timing-function: linear;
+  transform-origin: 12px 2.5px;
+  animation-play-state: paused;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.indicator-active .reel-handle img {
+  animation-play-state: running;
+}
+
+.reel-line {
+  width: 18px;
+  height: 16px;
+  position: absolute;
+  top: 265px;
+  left: 4px;
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/49240/game-reel-loop.png") top left repeat-x;
+  background-size: auto 100%;
+  z-index: 5;
+  animation-name: reel;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-play-state: paused;
+  opacity: 0.3;
+}
+
+.indicator-active .reel-line {
+  animation-play-state: running;
+}
+
+@keyframes reel {
+  0% {
+    background-position: 0;
+  }
+
+  100% {
+    background-position: 139px;
+  }
+}
+
+.reel-line-tension {
+  width: 42%;
+  height: 13.5%;
+  position: absolute;
+  bottom: 26.8%;
+  left: 29%;
+  /* background: red;
+  opacity: 0.5; */
+}
+
+/* --------- */
+/* Game body */
+/* --------- */
+
+.game-body {
+  width: 36px;
+  height: 350px;
+  position: relative;
+}
+
+.seafloor {
+  position: relative;
+  z-index: 5;
+}
+
+.seaweed {
+  width: 94.5%;
+  height: 19%;
+  position: absolute;
+  bottom: 4%;
+  left: 3%;
+  z-index: 10;
+}
+
+.bubbles {
+  width: 94.5%;
+  height: 95.2%;
+  position: absolute;
+  bottom: 4%;
+  left: 2.7%;
+  /* background: red;
+  opacity: 0.5; */
+}
+
+.fish {
+  width: 25px;
+  height: 17px;
+  position: absolute;
+  top: calc(100% - 17px);
+  left: 18%;
+  opacity: 0.8;
+  will-change: top;
+}
+
+.indicator {
+  width: 34px;
+  height: 46px;
+  position: absolute;
+  top: calc(100% - 46px);
+  left: 3%;
+  opacity: 0.8;
+  z-index: 30;
+}
+
+.glass {
+  z-index: 20;
+}
+
+/* ------------ */
+/* Progress bar */
+/* ------------ */
+
+.progress-bar {
+  width: 16px;
+  height: 334px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-gradient-wrapper {
+  position: absolute;
+  bottom: 1px;
+  left: 0;
+  width: 15px;
+  height: 100%;
+  overflow: hidden;
+  border-top-right-radius: 4px;
+  will-change: height;
+}
+
+.progress-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 15px;
+  height: 332px;
+  display: block;
+}
+
+/* ------- */
+/* Success */
+/* ------- */
+
+.success {
+  width: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 100;
+  opacity: 0;
+  display: none;
+  cursor: pointer;
+}
+
+.nice-catch {
+  width: 100%;
+  position: relative;
+  z-index: 20;
+}
+
+.perfect {
+  width: 46.743295%;
+  margin-top: -4px;
+  transform-origin: top;
+  position: relative;
+  z-index: 10;
+}
+
+/* minigame end */
+
+
+.fishing-buttons {
+  position: absolute;
+  right: 1rem;
+  bottom: .75rem;
+  display: flex;
+  align-items: center;
+}
+
+.fishing-button {
+  background-image: url('./images/fishing_button.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 12.375rem;
+  height: 2.75rem;
+  margin: 0 .5rem;
+  display: flex;
+  align-items: center;
+}
+
+.fishing-button-icon {
+  width: 21.5%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fishing-button-icon p {
+  font-family: 'gilroy-light';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 0.625rem;
+  line-height: 99.5%;
+  /* identical to box height, or 10px */
+
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  color: #FFFFFF;
+
+}
+
+
+.fishing-button-text {
+  width: 78.5%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'gilroy-light';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 0.625rem;
+  line-height: 99.5%;
+  text-align: center;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
+}
+
+.fishing-button-progress {
+  background-image: url('./images/fishing_button_2.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 12.375rem;
+  height: 2.75rem;
+  margin: 0 .5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fishing-button-progress-text {
+  font-family: 'gilroy-light';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 0.625rem;
+  line-height: 99.5%;
+  /* identical to box height, or 10px */
+
+  text-align: center;
+  letter-spacing: 0.05em;
+
+  color: #FFFFFF;
+
+}
+
+.achievenments-container {
+  width: 62.6875rem;
+  height: 45rem;
+  display: flex;
+  flex-direction: column;
+  margin-left: 5rem;
+  margin-top:3.6rem;
+  background: linear-gradient(180deg, rgba(1, 211, 224, 0.3) 37.5%, rgba(17, 20, 22, 0.3) 100%), linear-gradient(180deg, rgba(26, 26, 26, 0.75) 37.5%, rgba(17, 20, 22, 0.75) 100%);
+  border-radius: 0.5rem;
+}
+
+.achievements-swiper {
+  position: relative;
+  flex: 1;
+  z-index: 222222;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 0rem;
+}
+
+.achievement-header-text {
+  font-family: 'gilroy';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 1rem;
+  line-height: 99.5%;
+  /* or 16px */
+  position: absolute;
+  left: 50%;
+  top: 1rem;
+  transform: translateX(-50%);
+  text-align: center;
+  letter-spacing: 0.075em;
+
+  color: #FFFFFF;
+
+}
+
+.achievement-reward-box {
+  width: 6.25rem;
+  height: 6.25rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 0.9375rem;
+}
+
+.achievement-reward-box-open {
+  background: rgba(212, 216, 37, 0.26);
+  border: 0.1875rem solid #D4D825;
+}
+
+.achievement-reward-box-locked {
+  background: rgba(44, 44, 44, 0.26);
+  border: 3px solid #A5A5A5;
+}
+
+.achievement-reward-box-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.achievement-reward {
+  margin-top: 1.75rem;
+  font-family: 'gilroy';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 0.75rem;
+  line-height: 99.5%;
+  /* identical to box height, or 12px */
+
+  letter-spacing: 0.05em;
+
+  color: #FFFFFF;
+
+  text-align: center;
+}
+
+.achievement-claim-button {
+  position: absolute;
+  left: 0;
+  font-family: 'gilroy';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 1rem;
+  line-height: 99.5%;
+  /* or 16px */
+
+  letter-spacing: 0.075em;
+
+
+  bottom: -3.5rem;
+  width: 13.0625rem;
+  height: 2.8294rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0px 0px 8px 8px;
+  cursor: pointer;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.171) 100%);
+
+}
+
+.achievement-claim-button-open {
+  color: #FFFFFF;
+
+}
+
+.achievement-claim-button-locked {
+  color: rgba(255, 255, 255, 0.23);
+
+
+}
+
+.achievement-claim-button-locked p {
+  width: 6.875rem;
+  text-align: center;
+}
+
+.achievement-reward-item-locked {
+  filter: brightness(50%)
+}
+
+.achievement-box {
+  width: 13.0625rem !important;
+  height: 20.0881rem !important;
+  border-radius: 0.5rem 0.5rem 0rem 0rem;
+  position: relative !important;
+  margin: 0 1.3rem;
+}
+
+.achievement-box-open {
+  background: linear-gradient(180deg, rgba(212, 216, 37, 0.45) 0%, rgba(0, 0, 0, 0.225) 100%);
+
+}
+
+.achievement-box-locked {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(0, 0, 0, 0.225) 100%);
+}
+
+.swiper-pagination-bullet {
+  width: 9px !important;
+  height: 9px !important;
+
+  background: rgba(255, 255, 255, 0.22) !important;
+}
+
+.swiper-pagination-bullet-active {
+  width: 9px !important;
+  height: 9px !important;
+
+
+  background: #25D2D8 !important;
+  box-shadow: 0px 0px 18px #02D9E6 !important;
+}
+
+.achievements-swiper-buttons {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 25%;
+  padding: 0 2rem;
+  justify-content: space-between;
+}
+
+.trophy-big-icon {
+  position: absolute;
+  left: -1rem;
+  top: -1rem;
+}
+
+.achievements-swiper-wrapper {
+  height: 75% !important;
+  overflow: unset;
+
+  padding: 4rem 0;
+}
+
+.swiper-pagination {
+  width: 60% !important;
+  position: static !important;
+}
+
+.achievenments-header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3rem;
+}
+
+.achievements_button {
+  position: relative;
+  top: 1.75rem;
+
+  cursor: pointer;
+}
+
+.achievenments-header-trophy {
+  width: 2.0625rem;
+  height: 2.4375rem;
+}
+
+.achievenments-header-content-left {
+  display: flex;
+  align-items: center;
+}
+
+.achievenments-header-text {
+  margin-left: .5rem;
+  font-family: 'gilroy';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 99.5%;
+  /* identical to box height, or 24px */
+
+  letter-spacing: 0.075em;
+
+  color: #FFFFFF;
+}
+
+.menu-wrapper {
+  width: 100%;
+  height: 100%;
+ 
+  background-color: radial-gradient(163.47% 163.47% at -4.3% 65.19%, #181818 40.1%, #535353 95.31%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 1;
+
+
+
+}
+
+
+.menu-wrapper-left-page {
+  width: 25rem;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.playerimage {
+  width: 70%;
+  height: 8.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  align-content: flex-start;
+  margin-top: 1rem;
+}
+
+.playerimagesource {
+  width: 4rem;
+  height: 4rem;
+  border: 2px solid #00F0FF;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
+  justify-content: center;
+}
+
+.playerimagesource img {
+  width: 100%;
+  height: 100%;
+  border-radius: 2rem;
+  object-fit: contain;
+}
+
+.playerimage h2 {
+  position: absolute;
+  width: 13rem;
+
+  margin-left: 5rem;
+  margin-top: -1rem;
+
+  text-align: start;
+  color: white;
+  font-size: 110%;
+  cursor: pointer;
+}
+
+
+.playerimage h3 {
+  color: gray;
+  font-size: 100%;
+  margin-top: 2rem;
+  margin-left: 5rem;
+  position: absolute;
+}
+
+.welcome-fishing {
+  width: 70%;
+
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  color: white;
+  font-size: 150%;
+  margin-top: 0.5rem;
+
+}
+
+.menu-wrapper-left-page-button {
+  width: 100%;
+  height: 50rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.menu-wrapper-left-page-button-in {
+  width: 17rem;
+  height: 10.0625rem;
+  margin-top: 1.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 150%;
+  letter-spacing: 0.175em;
+  cursor: pointer;
+
+}
+
+.wiki-buton-bg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(2, 2, 2, 0.568);
+  background-image: url('images/wikibg.png');
+  border-radius: 1rem;
+}
+
+.market-buton-bg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(2, 2, 2, 0.568);
+  background-image: url('images/marketbg.png');
+  border-radius: 1rem;
+}
+
+.spot-buton-bg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(2, 2, 2, 0.568);
+  background-image: url('images/marketbg.png');
+  border-radius: 1rem;
+}
+
+
+.board-buton-bg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(2, 2, 2, 0.568);
+  background-image: url('images/boardbg.png');
+  border-radius: 1rem;
+}
+
+.buton-text {
+  position: absolute;
+  color: white !important;
+  opacity: 1.0 !important;
+  z-index: 1;
+
+
+}
+
+.menu-wrapper-middle-page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: start;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+
+}
+
+.fish-progressbar {
+  width: 1.625rem;
+  height: 1.625rem;
+  margin-left: .5rem;
+  position: relative;
+}
+
+.fish-progressbar img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.top-header {
+
+  top: 3rem;
+  width: 50%;
+  height: 8rem;
+
+  margin-top: 0rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  align-content:flex-start;
+
+}
+
+.m-logo {
+  width: 100%;
+  height: 100%;
+ margin-top:-3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: flex-start;
+ 
+}
+
+
+.m-logo h2 {
+
+  width:15rem;
+  margin-top:-3rem;
+  font-family: "futura";
+  color: white;
+  margin-left:1rem;
+  width:100%;
+  text-align:center;
+  font-size: 24px;
+  letter-spacing: 0.24em;
+  text-shadow: 0px 1px 21px rgba(255, 255, 255, 0.7);
+}
+.m-logo h2 span{
+  font-family: "futura";
+  margin-left:-1rem;
+}
+.wiki-wrapper {
+  width: 93%;
+  height: 44.375rem;
+
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+
+}
+
+.wiki-wrapper-image {
+  width: 100%;
+
+  height: 100%;
+  background-image: url('images/wiki-container.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+
+}
+
+.wiki-butons {
+  width: 100%;
+  height: 5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.wiki-butons h2 {
+  width: 196px;
+  height: 62px;
+  background: rgba(17, 19, 22, 0.32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 0.5rem;
+  color: White;
+  font-size: 120%;
+  cursor: pointer;
+}
+
+.otherbuton {
+  width: 4rem !important;
+  height: 62px;
+  background: rgba(17, 19, 22, 0.32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1rem;
+  border-radius: 0.5rem;
+  color: White;
+  font-size: 120%;
+  cursor: pointer;
+
+}
+
+.spots-wrapper {
+  width: 90%;
+  height: 44.375rem;
+  margin-top: 5rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  
+  justify-content: center;
+ 
+}
+.testimage {
+  width: 40%;
+  height: 40%;
+  background-image: url('images/otherbuton.png');
+  background-size: 100% 100%;
+}
+
+.spot-container {
+  width: 26.5rem;
+  height: 33.9375rem;
+
+}
+
+.spot-box {
+  background: linear-gradient(180deg, rgba(1, 227, 241, 0.06) 0%, rgba(1, 209, 222, 0.06) 100%);
+  box-shadow: 0rem 1.5rem 2.1875rem rgba(0, 0, 0, 0.25);
+  border-radius: 0.5rem;
+  width: 100%;
+  position: relative;
+  height: 100%;
+}
+
+.spot-image {
+  width: 100%;
+  height: 12.625rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.spots-swiper-container {
+  width: 85%;
+  margin-left:-20rem;
+  overflow: hidden;
+
+}
+
+.spot-stars {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem;
+}
+
+.spot-details {
+  position: absolute;
+  left: 1rem;
+  top: 9rem;
+}
+
+.spot-name {
+  font-family: "gilroy";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 1.25rem;
+  line-height: 99.5%;
+  /* identical to box height, or 20px */
+  margin-bottom: .45rem;
+
+  letter-spacing: 0.05em;
+
+  color: #FFFFFF;
+
+}
+
+.spot-location {
+  font-family: "gilroy";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 0.9375rem;
+  line-height: 99.5%;
+  margin-bottom: .85rem;
+
+  letter-spacing: 0.05em;
+
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.spot-desc {
+  font-family: "gilroy-light";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 0.75rem;
+  line-height: 99.5%;
+
+  letter-spacing: 0.05em;
+  width: 23.6875rem;
+  color: rgba(255, 255, 255, 0.25);
+
+}
+
+.spot-feature-name {
+  font-family: "gilroy";
+  font-style: normal;
+  font-weight: 800;
+  font-size: 1.25rem;
+  line-height: 99.5%;
+  /* identical to box height, or 20px */
+
+  letter-spacing: 0.05em;
+
+  color: #FFFFFF;
+}
+
+.spot-feature-val {
+  font-family: "gilroy-light";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 0.875rem;
+  line-height: 99.5%;
+  /* identical to box height, or 14px */
+
+  text-align: right;
+  letter-spacing: 0.05em;
+
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.back-button-wiki {
+  height: 60%;
+  width: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -11rem;
+
+  background: rgba(17, 19, 22, 0.52);
+  border-radius: 0.5rem;
+
+}
+
+.spot-features {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding-right: 1rem;
+}
+
+.spot-feature {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  justify-content: space-between;
+}
+
+.back-button-wiki img {
+  filter: drop-shadow(0px 0px 10px #00F0FF);
+}
+
+
+
+
+.swiper-next {
+  position: absolute;
+  right: 12rem;
+  z-index: 22222222;
+  top: 50%;
+  cursor: pointer;
+
+  transform: translateY(-50%);
+}
+
+.spot-mark {
+  width: 26.5rem;
+  height: 82px;
+  margin-top: 4rem;
+  background: linear-gradient(267.94deg, #061A1D 0%, #111316 98.81%);
+  box-shadow: 0px 0px 7.75rem #000000;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'gilroy';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 99.5%;
+  /* identical to box height, or 24px */
+  cursor: pointer;
+  letter-spacing: 0.05em;
+
+  color: #FFFFFF;
+
+}
+
+.swiper-prev {
+  position: absolute;
+    right: 12rem;
+  z-index: 22222222;
+  top: 50%;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.board-wrapper-image {
+  width: 100%;
+  height: 100%;
+  background-image: url('images/wiki-container.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: start;
+  flex-wrap: wrap;
+  border-radius: 1rem;
+
+}
+
+.market-wrapper-image {
+  width: 100%;
+  height: 70%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  border-radius: 1rem;
+  margin-top: 5rem;
+
+}
+
+.market-wrapper-image-buybutton {
+  width: 40%;
+  height: 48rem;
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: url('images/market-buy-button.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  object-fit: cover;
+}
+
+.market-wrapper-image-sellbutton {
+  width: 40%;
+  height: 48rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image: url('images/market-sell-button.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  object-fit: cover;
+}
+
+.market-wrapper-sellbutton {
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  color: white;
+  letter-spacing: 0.175em;
+  font-size: 1.25rem;
+  align-content:flex-start;
+
+
+
+
+}
+
+.market-wrapper-sellbutton h2:nth-child(1) {
+  margin-top: 5rem;
+  width: 80%;
+
+  text-align: center;
+  
+}
+.market-wrapper-sellbutton h2:nth-child(2) {
+
+  width: 80%;
+
+  text-align: center;
+  
+}
+
+.market-wrapper-sellbutton2 {
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  color: black;
+  letter-spacing: 0.175em;
+  font-size: 1.25rem;
+  align-content: flex-start;
+
+
+
+}
+
+.market-wrapper-sellbutton2 h2:nth-child(1) {
+  margin-top: 5rem;
+  width: 80%;
+
+  text-align: center;
+}
+
+.market-wrapper-sellbutton2 h2:nth-child(2) {
+
+  width: 80%;
+
+  text-align: center;
+}
+
+.market-button-buy {
+
+  margin-top: 20rem;
+  width: 22.75rem;
+  height: 4.5625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #01D3E0;
+  border-radius: 12px;
+  font-size: 2rem;
+  color: #044347;
+  cursor: pointer;
+
+  transition: 0.5s all;
+
+}
+
+.market-button-buy:hover {
+  transition: 0.5s all;
+  transform: scale(1.05);
+  filter: drop-shadow(0px 0px 10px #00F0FF);
+}
+
+.market-button-buy2 {
+
+  margin-top: 20rem;
+  width: 22.75rem;
+  height: 4.5625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 12px;
+  font-size: 2rem;
+  color: #044347;
+  cursor: pointer;
+  transition: 0.5s all;
+}
+
+.market-button-buy2:hover {
+
+  transform: scale(1.05);
+  filter: drop-shadow(0px 0px 10px #00F0FF);
+  transition: 0.5s all;
+}
+
+.buy-image {
+  position: absolute;
+  width: 50%;
+  height: 80%;
+  margin-top: 5rem;
+  margin-left: -5rem;
+}
+
+.board-wraper-player {
+  width: 98%;
+  height: 90%;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: start;
+  overflow: auto;
+
+
+}
+
+.board-wraper-player::-webkit-scrollbar-track {
+  margin-top: 7rem;
+  border-radius: 10px;
+
+  background-color: rgba(128, 128, 128, 0.493);
+}
+
+.board-wraper-player::-webkit-scrollbar {
+  height: 1rem;
+  width: 10px;
+}
+
+.board-wraper-player::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #01DFEE;
+  margin-left: 1rem;
+}
+
+.board-player {
+  width: 11.75rem;
+  height: 10.9375rem;
+
+  margin-left: 2.5rem;
+  margin-top: 2rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.board-player-image {
+  width: 100%;
+
+  z-index: -1;
+}
+.board-player-image img {
+  width: 100%;
+
+  z-index: -1;
+}
+
+.board-player-number {
+  margin-top: -11rem;
+  margin-left: 0.5rem;
+  color: white;
+  font-size: 120%;
+
+}
+
+.board-player-image-player {
+  width: 5rem;
+  height: 5rem;
+  margin-top: -9rem;
+  margin-left: 2.5rem;
+  border: 2px solid #FF5DB5;
+  border-radius: 3rem;
+}
+
+.board-player-image-player img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  border-radius: 3rem;
+  justify-content: center;
+}
+
+.board-player-name {
+  width: 100%;
+  margin-top: -3.5rem;
+  color: White;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.board-player-name h2 {
+  font-size: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.board-player-name h3 {
+  font-size: 80%;
+  width: 100%;
+  text-align: center;
+  color: gray;
+}
+
+
+.player-profile {
+  width: 90.6875rem;
+  height: 44.375rem;
+
+  margin-top: 3.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+ 
+}
+
+.player-profile-left-page {
+  width: 20rem;
+  height: 60rem;
+
+  display: flex;
+  align-items: flex-start;
+}
+
+.player-profile-in-image {
+  width: 100%;
+  margin-top: 12rem;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-background {
+  width: 200%;
+  height: 100%;
+
+  background-size: 100% 100%;
+}
+
+.player-profile-settings {
+  position: absolute;
+  width: 24rem;
+ 
+  height: 32rem;
+
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  
+
+}
+
+.player-profile-settings-level-and-leader {
+  width: 100%;
+
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.level-player {
+
+  width: 30%;
+  height: 100%;
+
+
+}
+
+.level-player h2 {
+  color: gray;
+  font-size: 80%;
+  width: 55%;
+  text-align: center;
+  margin-top: -1rem;
+}
+
+.level-player img {
+  max-height: 100%;
+  height: 100%;
+  transform: scale(1.6);
+  margin-top: -0.5rem;
+
+}
+
+.board-player-profile {
+  margin-top: 0;
+  width: 30%;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  margin-right: 1.5rem;
+}
+
+.board-player-profile h2 {
+  color: gray;
+  font-size: 80%;
+  width: 100%;
+  text-align: end;
+
+}
+
+.player-profile-playername {
+  width: 100%;
+
+  margin-top: 2rem;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 150%;
+  color: white;
+
+}
+
+.player-profile-playerxp {
+  width: 90%;
+  height: 10%;
+  margin-top: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.player-profile-player-text {
+
+  width: 100%;
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.47);
+}
+
+.player-profile-player-text h2 {
+  font-size: 90%;
+}
+
+.player-profile-player-xpbar {
+
+  width: 100%;
+  height: 20%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:-1.8rem;
+ 
+
+}
+.player-profile-player-xpbar h2{
+  font-size:1.5rem;
+  color:white;
+}
+
+.player-profile-player-xpbar h2 span{
+  font-size:1rem;
+  color:white;
+}
+
+.player-profile-player-xpbar-wid {
+  position: relative;
+  max-width:100%;
+  height: 100%;
+  background-color: #25D2D8;
+  box-shadow: 0px 0px 17px rgba(37, 210, 216, 0.38);
+  border-radius: 8px;
+  z-index: 1;
+
+}
+
+.player-profile-change {
+  width: 90%;
+  height: 60%;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.player-profile-change h2 {
+  color: rgba(255, 255, 255, 0.47);
+  font-size: 80%;
+  letter-spacing: 0.075em;
+}
+
+.usediscordphoto {
+  width: 18.75rem;
+  height: 3.625rem;
+  margin-left: 1rem;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.075em;
+  font-size: 80%;
+  color: rgba(255, 255, 255, 0.4);
+  background: linear-gradient(267.94deg, #061A1D 0%, #111316 98.81%);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.5s all;
+}
+
+.usediscordphoto:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0px 0px 10px #00F0FF);
+  border: 1px solid white;
+  transition: 0.5s all;
+  color: white;
+}
+
+.urlbutton {
+  width: 18.75rem;
+  height: 3.625rem;
+  margin-left: 1rem;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(267.94deg, #061A1D 0%, #111316 98.81%);
+  border-radius: 8px;
+
+}
+
+.urlbutton input {
+  width: 100%;
+  height: 60%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  text-align: center;
+  color: white;
+}
+
+.deletebutton {
+  width: 18.75rem;
+  height: 3.625rem;
+  margin-left: 1rem;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.075em;
+  font-size: 80%;
+  color: rgba(255, 255, 255, 0.4);
+  background: linear-gradient(267.94deg, #1D0606 0%, #161111 98.81%);
+  border-radius: 8px;
+  transition: 0.5s all;
+  cursor: pointer;
+}
+
+.deletebutton:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0px 0px 10px #1D0606);
+  color: white;
+  transition: 0.5s all;
+
+}
+
+.player-small-image {
+  position: absolute;
+  width: 9.0625rem;
+  height: 9.0625rem;
+  margin-top: 10rem;
+  margin-left: 5.9rem;
+  border-radius: 5rem;
+  border: 3px solid #01D3E0;
+}
+
+.player-small-image img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0px 0px 10px #00F0FF);
+  border-radius: 5rem;
+}
+
+
+.wiki-fish-container {
+  width: 96%;
+
+  height: 80%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  overflow: auto;
+
+
+}
+
+.wiki-fish-container::-webkit-scrollbar-track {
+
+  margin-top: 5rem;
+  border-radius: 10px;
+
+
+  background-color: rgba(128, 128, 128, 0.493);
+}
+
+.wiki-fish-container::-webkit-scrollbar {
+  height: 1rem;
+  width: 10px;
+
+}
+
+.wiki-fish-container::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #01DFEE;
+  margin-left: 1rem;
+}
+
+.wiki-fish-wrapper-border {
+  width: 12rem;
+  height: 10.9375rem;
+
+  margin-top: 1rem;
+  padding-top: 1rem;
+  margin-left: 1.5rem;
+  background-image: url('images/board-5.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+.background-fish {
+  width: 12rem;
+  height: 10.9375rem;
+  margin-top: -1rem;
+  z-index: -1;
+
+
+}
+.background-fish img{
+  width:100%;
+
+
+}
+
+.testdiv {
+  position: absolute;
+  width: 12rem;
+  height: 10.9375rem;
+}
+
+.wiki-fish-wrapper-border-common {
+  width: 12rem;
+  height: 10.9375rem;
+
+  margin-top: 1rem;
+  margin-left: 1.5rem;
+  background-image: url('images/board-5.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.wiki-fish-wrapper-border-uncommon {
+  width: 12rem;
+  height: 10.9375rem;
+
+  margin-top: 1rem;
+  margin-left: 1.5rem;
+  background-image: url('images/board-4.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.wiki-fish-wrapper-border-rare {
+  width: 12rem;
+  height: 10.9375rem;
+
+  margin-top: 1rem;
+  margin-left: 1.5rem;
+  background-image: url('images/board-3.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.wiki-fish-wrapper-border-all {
+  width: 12rem;
+  height: 10.9375rem;
+
+  margin-top: 1rem;
+  margin-left: 1.5rem;
+  background-image: url('images/board-3.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.wiki-fish-wrapper-border-legendary {
+  width: 12rem;
+  height: 10.9375rem;
+
+  margin-top: 1rem;
+  margin-left: 1.5rem;
+  background-image: url('images/board-2.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.wiki-fish-wrapper-border-epic {
+  width: 12rem;
+  height: 10.9375rem;
+
+  margin-top: 1rem;
+  margin-left: 1.5rem;
+  background-image: url('images/board-1.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.wiki-fish-wrapper-star {
+
+
+  width: 40%;
+  height: 20%;
+  margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.fish-price {
+  margin-left: 3.7rem;
+  margin-bottom: 0.2rem;
+  font-size: 100%;
+  min-width: 5rem;
+  height: 30px;
+  border-top-right-radius: 0.6rem;
+  border-bottom-left-radius: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #01DFEE;
+  color: #0A757D;
+}
+
+.fish-price-common {
+  margin-left: 3.5rem;
+  margin-bottom: 0.2rem;
+  font-size: 100%;
+  min-width: 5rem;
+  height: 30px;
+  border-top-right-radius: 0.6rem;
+  border-bottom-left-radius: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #01DFEE;
+  color: #0A757D;
+}
+
+.fish-price-uncommon {
+  margin-left: 3.5rem;
+  margin-bottom: 0.2rem;
+  font-size: 100%;
+  min-width: 5rem;
+  height: 30px;
+  border-top-right-radius: 0.6rem;
+  border-bottom-left-radius: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #01EE43;
+  color: #0A757D;
+}
+
+.fish-price-rare {
+  margin-left: 3.5rem;
+  margin-bottom: 0.2rem;
+  font-size: 100%;
+  min-width: 5rem;
+  height: 30px;
+  border-top-right-radius: 0.6rem;
+  border-bottom-left-radius: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #DBEE01;
+  color: #0A757D;
+}
+
+.fish-price-legandary {
+  margin-left: 3.5rem;
+  margin-bottom: 0.2rem;
+  font-size: 100%;
+  min-width: 5rem;
+  height: 30px;
+  border-top-right-radius: 0.6rem;
+  border-bottom-left-radius: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #DE7EFF;
+  color: #0A757D;
+}
+
+.fish-price-epic {
+  margin-left: 3.5rem;
+  margin-bottom: 0.2rem;
+  font-size: 100%;
+  min-width: 5rem;
+  height: 30px;
+  border-top-right-radius: 0.6rem;
+  border-bottom-left-radius: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FE5EB6;
+  color: #0A757D;
+  ;
+}
+
+
+.wiki-fish-wrapper-fish-image {
+  width: 100%;
+
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.wiki-fish-wrapper-fish-image img {
+  width: 50%;
+  height:50%
+
+}
+
+.wiki-fish-wrapper-fish-name {
+  width: 100%;
+  height: 30%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.wiki-fish-wrapper-fish-name h2:nth-child(1) {
+  color: white;
+  width: 100%;
+  text-align: center;
+  font-size: 100%;
+}
+
+.wiki-fish-wrapper-fish-name h2:nth-child(2) {
+  color: white;
+  width: 100%;
+  text-align: center;
+  font-size: 60%;
+  letter-spacing: 0.175em;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.searchbar {
+  margin-right: 62.4rem;
+
+  margin-top: 1rem;
+  width: 450px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  align-content: flex-start;
+  background: rgba(17, 19, 22, 0.32);
+  border-radius: 8px;
+}
+
+.searchbaricon {
+  width: 3rem;
+
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchbar input {
+  width: 15rem;
+  background: transparent;
+  border: none;
+  color: white;
+  outline: none;
+}
+
+
+.searchbarplayer {
+  margin-right: 62.4rem;
+
+  margin-top: 1rem;
+  width: 450px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  align-content: flex-start;
+  background: rgba(17, 19, 22, 0.32);
+  border-radius: 8px;
+}
+
+
+.searchbarplayer input {
+  width: 15rem;
+  background: transparent;
+  border: none;
+  color: white;
+  outline: none;
+}
+
+.buymarket-wrapper-image {
+  width: 95%;
+  height: 68%;
+  background-image: url('images/wiki-container.png') !important;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: start;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+
+  border-radius: 1rem;
+
+}
+
+.wiki-butons-market {
+  width: 100%;
+  height: 5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.wiki-butons-market h2 {
+  width: 196px;
+  height: 62px;
+  background: rgba(17, 19, 22, 0.32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 2rem;
+  border-radius: 0.5rem;
+  color: White;
+  font-size: 120%;
+  cursor: pointer;
+}
+
+.back-button-wiki-market {
+  height: 100%;
+  width: 8%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 40rem;
+  margin-top: -11rem;
+  z-index: 1;
+  cursor: pointer;
+
+}
+
+.basket-button-wiki-market {
+  position: absolute;
+  height: 100%;
+  width: 8%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 4rem;
+
+
+}
+
+.basket-icon-amount {
+  position: relative;
+  color: white;
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+
+  background-color: #02D9E6;
+  left: 3rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.basket-icon-amount h2 {
+  width: 100%;
+  height: 100%;
+
+  color: #131313;
+  margin-left: 0rem;
+}
+
+.back-button-wiki-market img {
+  filter: drop-shadow(0px 0px 10px #00F0FF);
+}
+
+.add-to-card {
+  margin-top: 0.5rem;
+  width: 100%;
+  height: 2rem;
+
+  background: rgba(17, 19, 22, 0.32);
+  border-radius: 0px 0px 8px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-to-card-in {
+  width: 94%;
+  height: 1.3rem;
+  background: rgba(217, 217, 217, 0.1);
+  border-radius: 0px 0px 10px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.5s all;
+}
+
+.add-to-card-in h2 {
+  font-size: 0.8rem;
+  color: white;
+  margin-left: 0.3rem;
+}
+
+.add-to-card-in:hover {
+  transform: scale(1.05);
+  transition: 0.5s all;
+  filter: drop-shadow(0px 0px 10px white);
+
+}
+
+
+.basket-wrapper-image {
+  margin-top: 8.5rem;
+  width: 90%;
+  height: 65%;
+  background-image: url('images/wiki-container.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: start;
+  flex-wrap: wrap;
+  margin-top: 6rem;
+  border-radius: 1rem;
+
+}
+
+.basket-wrapper-image-item {
+  margin-top: 8.5rem;
+  width: 100%;
+  height: 100%;
+  background-image: url('images/wiki-container.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: start;
+  flex-wrap: wrap;
+  margin-top: 6rem;
+  border-radius: 1rem;
+}
+
+.basketpage-back-button {
+  width: 15rem !important;
+  height: 3.2rem !important;
+  font-size: 1rem !important;
+  background: linear-gradient(90deg, rgba(0, 240, 255, 0.45) 0%, rgba(17, 19, 22, 0.45) 100%) !important;
+}
+
+.basketpage-total-button {
+  width: 15rem !important;
+  font-size: 1rem !important;
+  height: 3.2rem !important;
+  background: rgba(17, 19, 22, 0.32) !important;
+}
+
+.basketpage-cash-button {
+  width: 15rem !important;
+  height: 3.2rem !important;
+  font-size: 1rem !important;
+  background: rgba(1, 223, 238, 0.38) !important;
+}
+
+.basketpage-cash-button:hover {
+  border: 1px solid white;
+}
+
+.basketpage-card-button:hover {
+  border: 1px solid white;
+}
+
+.basketpage-card-button {
+  width: 15rem !important;
+  height: 3.2rem !important;
+  font-size: 1rem !important;
+  background: rgba(222, 126, 255, 0.38) !important;
+}
+
+.basketpage-cash-button span {
+  position: absolute;
+  margin-right: 9rem;
+  margin-bottom: 2.5rem;
+}
+
+.basketpage-card-button span {
+  position: absolute;
+  margin-right: 9rem;
+  margin-bottom: 2.5rem;
+}
+
+
+.wiki-fish-wrapper-border-sellitem {
+  width: 12rem;
+  height: 13.9375rem;
+
+  margin-top: 1rem;
+  padding-top: 1rem;
+  margin-left:1rem;
+
+
+}
+
+.wiki-fish-wrapper-star-sellitem {
+
+
+  width: 40%;
+  height: 20%;
+  margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: -11rem;
+}
+
+.fish-price-sellitem {
+  margin-left: 3.4rem;
+  margin-bottom: 0.5rem;
+  font-size: 100%;
+  min-width: 5rem;
+  height: 30px;
+  border-top-right-radius: 0.6rem;
+  border-bottom-left-radius: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #01DFEE;
+  color: #0A757D;
+}
+
+.wiki-fish-wrapper-fish-image-sellitem {
+  width: 100%;
+
+  height: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fish-price-uncommon-sellitem {
+  margin-left: 3.4rem;
+  margin-bottom: 0.4rem;
+  font-size: 100%;
+  min-width: 5rem;
+  height: 30px;
+  border-top-right-radius: 0.6rem;
+  border-bottom-left-radius: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #01EE43;
+  color: #0A757D;
+}
+
+.fish-price-rare-sellitem {
+  margin-left: 3.2rem;
+  margin-bottom: 0.5rem;
+  font-size: 100%;
+  min-width: 5rem;
+  height: 30px;
+  border-top-right-radius: 0.6rem;
+  border-bottom-left-radius: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #DBEE01;
+  color: #0A757D;
+}
+
+.fish-price-legandary-sellitem {
+  margin-left: 3.15rem;
+  margin-bottom: 0.5rem;
+  font-size: 100%;
+  min-width: 5rem;
+  height: 30px;
+  border-top-right-radius: 0.6rem;
+  border-bottom-left-radius: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #DE7EFF;
+  color: #0A757D;
+}
+
+.fish-price-epic-sellitem {
+  margin-left: 3.1rem;
+  margin-bottom: 0.6rem;
+  font-size: 100%;
+  min-width: 5rem;
+  height: 30px;
+  border-top-right-radius: 0.6rem;
+  border-bottom-left-radius: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FE5EB6;
+  color: #0A757D;
+  ;
+}
+
+
+.basketpage-cash-button-item-sell {
+  width: 15rem !important;
+  height: 3.2rem !important;
+  font-size: 1rem !important;
+  background: rgba(1, 223, 238, 0.38) !important;
+  transition: 1s all;
+}
+
+
+.basketpage-cash-button-item-sell span {
+  position: absolute;
+  margin-right: 12.5rem;
+  margin-bottom: 2.5rem;
+
+}
+
+.basketpage-cash-button-item-sell:hover {
+  transform: scale(1.1);
+  transition: 1s all;
+  filter: drop-shadow(0px 0px 10px #00F0FF);
+}
+
+.back-button-wiki-market-sellitem {
+  height: 100%;
+  width: 8%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 40rem;
+  margin-top: -11rem;
+  z-index: 1;
+  cursor: pointer;
+
+}
+
+.menu-wrapper-left-page-button-in-block {
+  width: 17rem;
+  height: 10.0625rem;
+  margin-top: 1.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 150%;
+  letter-spacing: 0.175em;
+  cursor: pointer;
+
+
+}
+
+.wiki-buton-bg-block {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(2, 2, 2, 0.568);
+  background-image: url('images/marketblock.png');
+  border-radius: 1rem;
+}
+
+.mainspot {
+  width: 424px;
+  height: 44rem;
+
+  margin-left: 65rem;
+  margin-top: 6.5rem;
+
+}
+
+.mainspot-wrapper {
+  width: 100%;
+  height: 70%;
+
+  background: linear-gradient(180deg, rgba(1, 227, 241, 0.06) 0%, rgba(1, 209, 222, 0.06) 100%);
+  box-shadow: 0px 24px 35px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+}
+
+.mainspot-afk-button {
+  width: 100%;
+  height: 5rem;
+  margin-top: 1.5rem;
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(91.38deg, rgba(0, 255, 255, 0.26) 0.83%, rgba(17, 19, 22, 0) 100%);
+  border: 1px solid #FFFFFF;
+  filter: drop-shadow(0px 0px 161px rgba(255, 255, 255, 0.15));
+  border-radius: 8px;
+  color: white;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  color: #FFFFFF;
+}
+
+.mainspot-cathfish-button {
+  width: 100%;
+  height: 5rem;
+  margin-top: 1.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.15em;
+
+  background: linear-gradient(267.94deg, #061A1D 0%, #111316 98.81%);
+  box-shadow: 0px 0px 124px #000000;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+
+.mainspot-locimages {
+  width: 100%;
+  height: 13rem;
+
+}
+
+.mainspot-locimages img {
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  margin-left: -0.1rem;
+
+}
+
+.mainspot-required {
+  position: absolte;
+  margin-top: -13rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-content: flex-start;
+
+}
+
+.mainspot-yildiz {
+
+  display: flex;
+  align-items: center;
+
+  padding: 1.25rem;
+}
+
+
+.mainspot-spotname {
+  width: 100%;
+  color: white;
+  font-size: 1.2rem;
+  margin-top: 5rem;
+  margin-left: 1rem;
+}
+
+.mainspot-spotloc {
+  width: 100%;
+  color: white;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+  margin-left: 1rem;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.mainspot-spotrequired {
+  width: 100%;
+  color: white;
+  font-size: 0.8rem;
+  width: 23.6875rem;
+  font-family: 'gilroy-light';
+  margin-top: 0.6rem;
+  margin-left: 1rem;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.mainspot-mainrequired {
+  width: 100%;
+
+  height: 14rem;
+
+  display: flex;
+  margin-top: 1rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: flex-start
+}
+
+.mainspot-main-text {
+  width: 50%;
+  height: 3rem;
+  color: white;
+  margin-left: 1rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1.2rem;
+  letter-spacing: 0.05em;
+
+}
+
+.mainspot-main-text2 {
+  color: white;
+  height: 3rem;
+  margin-right: 1rem;
+  font-family: 'gilroy-light';
+  font-size: 1rem;
+  display: flex;
+  font-size: 0.8rem;
+  align-items: center;
+  justify-content: flex-end;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.25);
+
+}
+
+.mainspot-main-text span {
+  margin: 0 .25rem;
+}
+
+.mainspot-main-text2 span {
+  margin: 0 .25rem;
+}

@@ -1,0 +1,4629 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;800&display=swap");
+ @font-face {
+     src: url("./fonts/Gilroy-ExtraBold.otf") format("OpenType");
+     font-family: gilroybold;
+}
+ @font-face {
+     src: url("./fonts/Gilroy-Light.otf") format("OpenType");
+     font-family: gilroylight;
+}
+ html {
+     /* font-size: 16px; */
+}
+ body {
+     margin: 0px;
+     padding: 0px;
+     overflow: hidden;
+     width: 100vw;
+     height: 100vh;
+     user-select: none;
+     position:absolute;
+   
+}
+
+.waterhudid{
+    position:absolute;
+    width:100%;
+    height:20%;
+    margin-left:12.5%;
+}
+ .settingspage {
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     background-image: url("./images/settingsstatus.png");
+     background-repeat: no-repeat;
+     background-size: 100% 100%;
+}
+ .settingpagespeedometer {
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     background-image: url("./images/settingsspedometer.png");
+     background-repeat: no-repeat;
+     background-size: 100% 100%;
+}
+ .playerhud {
+     position: absolute;
+     width: 16.1%;
+     height: 18%;
+     bottom:7%;
+     left: 1.5%;
+}
+ .mapopen-armour {
+     position: absolute;
+    width: 100%;
+     height: 40%;
+   bottom: -23.5%;
+     right: -35.5%;
+}
+ .mapopen-heal {
+     position: absolute;
+     width: 100%;
+     height: 40%;
+     bottom: -23.5%;
+     left: -35.5%;
+     rotate: 180deg;
+     transform: scaleY(-1);
+}
+ .mapopen-thirst {
+     position: absolute;
+     width: 100%;
+     height: 40%;
+     top:-23.3%;
+      left: -35.8%;
+     transform: scale(-1);
+}
+ .mapopen-hunger {
+     position: absolute;
+     width: 100%;
+     height: 40%;
+     top:-22.5%;
+     right: -36%;
+     transform: scaleY(-1);
+}
+.mapopen-stress {
+     position: absolute;
+    left: 66.7%;
+    top: 25%;
+      width: 100%;
+    height: 40%;
+
+}
+ .mapopen-lungs {
+     position: absolute;
+     left: -34.5%;
+     top: 28%;
+       width: 100%;
+     height: 40%;
+}
+.mapopen-stamina {
+     position: absolute;
+     left: -34.5%;
+     top: 28%;
+       width: 100%;
+     
+     height: 40%;
+}
+ .mapopenheader {
+     position: absolute;
+     width: 100%;
+     height: 5rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+      margin-top: -10.5%;
+}
+ .mapopenheader img {
+  
+     width: 109%;
+     height: 5rem;
+   
+  
+     z-index: -1;
+}
+ .venicehudstreetname {
+       position:absolute;
+     font-family: gilroybold;
+     color: white;
+        margin-left:-40%;
+        top:15%;
+        font-size:80%;
+     font-size:80%;
+ 
+}
+ .benicehudcompass {
+     position:absolute;
+     font-family: gilroybold;
+     color: white;
+    
+
+}
+ .venicehudclock {
+         position:absolute;
+     font-family: gilroybold;
+     color: white;
+        margin-left:-12%;
+        top:15%;
+        font-size:80%;
+ 
+}
+ .mapopen-steaminaicon {
+     position: absolute;
+     left: 3%;
+     top: 45%;
+}
+.mapopen-steaminaicon2 {
+     position: absolute;
+     left: 3%;
+     top: 45%;
+}
+ .mapopen-thirsticon {
+     position: absolute;
+     left: 1%;
+     top: 1%;
+}
+ .mapopen-hungericon {
+     position: absolute;
+     right: 1.2%;
+     top: 4%;
+}
+ .mapopen-stressicon {
+     position: absolute;
+     right: 1%;
+     top: 39%;
+}
+ .mapopen-armouricon {
+     position: absolute;
+     right:0%;
+     bottom: -3%;
+}
+ .mapopen-healicon {
+      position: absolute;
+     left:0%;
+     bottom: -3%;
+}
+ .settingsText {
+     position: absolute;
+     width: 70%;
+
+     height: 10%;
+     z-index: 1;
+     margin: auto;
+     left: 0px;
+     right: 0px;
+     display:flex;
+     align-items:center;
+     justify-content:space-between;
+     top: 18%;
+}
+ .statusTextsettingPage {
+    
+     color: rgb(0, 255, 240);
+     font-size: 255%;
+     font-family: gilroybold;
+     cursor: pointer;
+}
+ .statusTextsettingPageopacity {
+     opacity: 0.2;
+}
+ .speedometersettingsPage {
+    
+     color: rgb(0, 255, 240);
+     font-size: 255%;
+     font-family: gilroybold;
+     right: 0rem;
+     cursor: pointer;
+}
+ .speedometersettingsPageopacity {
+     opacity: 0.2;
+}
+
+
+ .resetcinemahide {
+     position: absolute;
+     width: 76%;
+ 
+     height: 5rem;
+     margin: auto;
+     left: 0px;
+     right: 0px;
+     top: 86%;
+     z-index: 1;
+     display:flex;
+     align-items:center;
+     justify-content:space-around;
+}
+ .selectbuttonspeedometerpagehidehud {
+   
+     width: 10%;
+     height: 45%;
+     color: rgb(255, 138, 0);
+     border: 2px solid rgb(255, 138, 0);
+     left: 7.2rem;
+     font-family: gilroybold;
+     text-align: center;
+     top: 1rem;
+     line-height: 2rem;
+     background: linear-gradient(360deg, rgba(255, 138, 0, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+     box-shadow: rgb(255, 138, 0) 0px 0px 11px;
+     text-shadow: rgb(255, 138, 0) 0px 0px 20px;
+     border-radius: 0.5rem;
+     cursor: pointer;
+      justify-content:center;
+     align-items:center;
+     display:flex;
+}
+ .selectbuttonspeedometerpagecinematikmod {
+    
+     width: 10%;
+     height: 45%;
+     color: rgb(0, 178, 255);
+     border: 2px solid rgb(0, 178, 255);
+
+     font-family: gilroybold;
+     text-align: center;
+ 
+ 
+     background: linear-gradient(360deg, rgba(0, 178, 255, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+     box-shadow: rgb(0, 178, 255) 0px 0px 12px;
+     border-radius: 0.5rem;
+     text-shadow: rgb(0, 178, 255) 0px 0px 20px;
+     cursor: pointer;
+     justify-content:center;
+     align-items:center;
+     display:flex;
+}
+ .selectbuttonspeedometerpageresethud {
+    
+     width: 10%;
+     height: 45%;
+     color: rgb(255, 255, 255);
+     border: 2px solid rgb(255, 255, 255);
+     left: 67rem;
+     font-family: gilroybold;
+     text-align: center;
+     top: 1rem;
+     line-height: 2rem;
+     background: linear-gradient(360deg, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+     box-shadow: rgb(255, 255, 255) 0px 0px 12px;
+     border-radius: 0.5rem;
+     text-shadow: rgb(255, 255, 255) 0px 0px 1px;
+     cursor: pointer;
+      justify-content:center;
+     align-items:center;
+     display:flex;
+}
+ .settingpagespeedometerwrapper {
+     position: relative;
+     width: 74%;
+     height: 15%;
+     margin: auto;
+     left: 0px;
+     right: 0px;
+     top: 69%;
+  
+     display:flex;
+     align-items:start;
+     justify-content:space-around;
+}
+.settingspageeditcontainer{
+     position: relative;
+     width: 74%;
+     height: 15%;
+     margin: auto;
+     left: 0px;
+     right: 0px;
+     top: 63%;
+  
+     display:flex;
+     align-items:start;
+     justify-content:space-around;
+}
+
+ .selectbuttonspeedometerpagevertext {
+    
+     width: 19%;
+     height: 32%;
+   
+     border: 2px solid rgb(0, 178, 255);
+     box-shadow: rgb(0, 178, 255) 0px 0px 12px;
+     background: linear-gradient(360deg, rgba(0, 178, 255, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+     color: white;
+     font-family: gilroybold;
+     font-size: 1.5rem;
+     border-radius: 0.5rem;
+     text-align: center;
+     line-height: 2.9rem;
+     transition: transform 0.5s linear 0s;
+     display:flex;
+     align-items:center;
+     justify-content:center;
+}
+ .selectbuttonspeedometerpagevertext:hover {
+     cursor: pointer;
+     transform: scale(1.1);
+}
+ .selectbuttonspeedometerpagevertextedit {
+  
+     width: 10%;
+     height: 22%;
+  
+     border: 2px solid rgb(255, 0, 153);
+     box-shadow: rgb(255, 0, 153) 0px 0px 12px;
+     background: linear-gradient(360deg, rgba(255, 0, 153, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+     color: white;
+     font-family: gilroybold;
+     border-radius: 0.5rem;
+     text-align: center;
+     font-size: 1rem;
+     line-height: 2.5rem;
+     cursor: pointer;
+      font-size: 100%;
+     display:flex;
+     align-items:center;
+     justify-content:center;
+}
+ .selectbuttonspeedometerpagemayhemedit {
+     
+     width: 10%;
+     height: 22%;
+     left: 38.5rem;
+     border: 2px solid rgb(0, 255, 148);
+     box-shadow: rgb(0, 255, 148) 0px 0px 12px;
+     background: linear-gradient(360deg, rgba(0, 255, 148, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+     color: white;
+     font-family: gilroybold;
+     border-radius: 0.5rem;
+     text-align: center;
+     line-height: 2.5rem;
+     transition: all 0.5s ease 0s;
+     font-size: 100%;
+     display:flex;
+     align-items:center;
+     justify-content:center;
+}
+ .selectbuttonspeedometerpagemayhemedit:hover {
+     cursor: pointer;
+     transform: scale(1.1);
+     transition: all 0.5s ease 0s;
+}
+ .selectbuttonspeedometerpageperspectedit {
+    
+     width: 10%;
+     height: 22%;
+     border: 2px solid rgb(0, 178, 255);
+     box-shadow: rgb(0, 178, 255) 0px 0px 12px;
+     background: linear-gradient(360deg, rgba(0, 178, 255, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+     color: white;
+     font-family: gilroybold;
+     cursor: pointer;
+     border-radius: 0.5rem;
+     text-align: center;
+     line-height: 2.5rem;
+     font-size: 100%;
+     transition: all 0.5s ease 0s;
+     display:flex;
+     align-items:center;
+     justify-content:center;
+}
+ .selectbuttonspeedometerpageperspectedit:hover {
+     transform: scale(1.1);
+     transition: all 0.5s ease 0s;
+}
+ .selectbuttonspeedometerpagemayhem {
+   
+     width: 19%;
+     height: 32%;
+     border: 2px solid rgb(255, 0, 61);
+     box-shadow: rgb(255, 0, 61) 0px 0px 12px;
+     background: linear-gradient(360deg, rgba(255, 0, 61, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+     color: white;
+     font-family: gilroybold;
+     font-size: 1.5rem;
+     border-radius: 0.5rem;
+     text-align: center;
+     line-height: 2.9rem;
+     transition: all 0.5s ease 0s;
+     display:flex ;
+     align-items:center;
+     justify-content:center;
+}
+ .selectbuttonspeedometerpagemayhem:hover {
+     cursor: pointer;
+     transform: scale(1.1);
+     transition: all 0.5s ease 0s;
+}
+ .selectbuttonspeedometerpageperspect {
+     
+     width: 19%;
+     height: 32%;
+     border: 2px solid rgb(0, 255, 148);
+     box-shadow: rgb(0, 255, 148) 0px 0px 12px;
+     background: linear-gradient(360deg, rgba(0, 255, 148, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+     color: white;
+     font-family: gilroybold;
+     font-size: 1.5rem;
+     border-radius: 0.5rem;
+     text-align: center;
+     line-height: 2.9rem;
+     transition: all 0.5s ease 0s;
+     justify-content:center;
+     align-items:center;
+display:flex;
+}
+ .selectbuttonspeedometerpageperspect:hover {
+     transform: scale(1.1);
+     cursor: pointer;
+     transition: all 0.5s ease 0s;
+}
+ .hudheadertext {
+     position: absolute;
+     width: 20rem;
+     height: 6rem;
+     z-index: 2;
+     margin: auto;
+     left: 0px;
+     right: 0px;
+     top: 2rem;
+     text-align: center;
+}
+ .texthudheader {
+     color: rgb(0, 255, 240);
+     font-size: 3rem;
+     font-family: gilroybold;
+     text-shadow: rgba(0, 255, 240, 0.46) 0px 0px 150px;
+}
+ .texthudheader2 {
+     color: rgb(0, 255, 240);
+     font-size: 3rem;
+     font-family: gilroybold;
+     text-shadow: rgba(0, 255, 240, 0.46) 0px 0px 150px;
+}
+ .vertexhuddrag {
+     position: absolute;
+     width: 41rem;
+     height: 6rem;
+    bottom:2%;
+     left: 40%;
+  
+}
+ .vertexspeedometer {
+     position: absolute;
+     width: 41rem;
+     height: 2.5rem;
+}
+ .vertexhudcarhealth {
+     position: absolute;
+     width: 12.5rem;
+     height: 4rem;
+     top: 2rem;
+     left: -2rem;
+     transform: scale(2.1);
+}
+ .vertexhudcarfuel {
+     position: absolute;
+     width: 12.5rem;
+     height: 4rem;
+     top: 2rem;
+     left: 21.5rem;
+     transform: scale(2.1);
+}
+ .blurvertex {
+     position: absolute;
+     width: 40rem;
+     height: 10rem;
+     top: -3.5rem;
+}
+ .blurvertex img {
+     width: 40rem;
+     height: 10rem;
+     top: -5rem;
+}
+ .watermark {
+     position: absolute;
+     max-width: 12rem;
+     height: 5rem;
+     margin: auto;
+     right: 0px;
+     left: 103rem;
+     top: 1rem;
+     text-align: start;
+}
+ .servername {
+     position: absolute;
+     font-family: gilroybold;
+     font-size: 2rem;
+     text-align: center;
+     width: 14rem;
+}
+ .servername2 {
+     position: absolute;
+     font-family: gilroybold;
+     font-size: 2rem;
+     top: 2rem;
+     text-align: center;
+     width: 14rem;
+}
+
+
+.hudandjobandweapon { position: absolute;
+                     width: 15rem;
+                     height: 20rem;
+                     margin: auto; 
+                     right: 0px; 
+                     left: 103.1rem;
+                    
+                     display:flex;
+                      align-items:flex-start;
+                      justify-content:center;
+                     flex-wrap:wrap;
+                     align-content:flex-start;
+                     top: 5rem; 
+                    }
+
+.cashandbank { 
+ width: 12rem;
+ height: 6rem;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+}
+
+ .cashandbank img {
+  width:25rem;
+  height:100%;
+  display:flex;
+  align-items:center;
+ justify-content:center;
+  transform:scale(1.4);
+}
+ .playercash {
+     position: absolute;
+     width: 5rem;
+  
+     text-align: start;
+     font-size: 0.8rem;
+     font-family: gilroybold;
+     color: rgb(112, 255, 0);
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+   margin-left:12.2rem;
+}
+ .playerbank {
+    position: absolute;
+     width: 5rem;
+   
+     text-align: start;
+     font-size: 0.8rem;
+     font-family: gilroybold;
+     color: rgb(255, 184, 0);
+       white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+   margin-left:-1.2rem;
+
+}
+ .playerjob {
+     position: absolute;
+     width: 5.7rem;
+  
+     text-align: start;
+     font-size: 0.65rem;
+     font-family: gilroybold;
+     color: rgb(0, 178, 255);
+      white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+   margin-left:-1.3rem;
+}
+ .playerjobgrade {
+     position: absolute;
+     width: 5rem;
+  
+     text-align: start;
+     font-size: 0.6rem;
+     font-family: gilroybold;
+     color: rgb(0, 178, 255);
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     margin-left:11.2rem;
+}
+
+ .jobandgrade {
+   width: 12rem;
+ height: 6rem;
+
+ display:flex;
+ align-items:center;
+ justify-content:center;
+  margin-top:-1.5rem;
+}
+ .jobandgrade img {
+  width:25rem;
+  height:100%;
+  display:flex;
+  align-items:center;
+ justify-content:center;
+  transform:scale(1.4);
+}
+
+ .weaponhud {
+    width: 12rem;
+ height: 6rem;
+
+ display:flex;
+ align-items:center;
+ justify-content:center;
+  margin-top:-1.5rem;
+}
+ .weaponhud img {
+    width:25rem;
+  height:100%;
+  display:flex;
+  align-items:center;
+ justify-content:center;
+    transform:scale(1.4);
+}
+ .idandonline {
+     position: absolute;
+     width: 15rem;
+     height: 5rem;
+     z-index: 1;
+     margin: auto;
+     top: -0.5rem;
+     left: 88rem;
+}
+
+  
+ .playerid {
+     left: 9.5rem;
+     position: absolute;
+     width: 4rem;
+     height: 3rem;
+     display:flex;
+     justify-content:center;
+     align-items:center;
+     border: 3px solid rgb(0, 255, 240);
+     box-shadow: rgb(0, 255, 240) 0px 0px 28px;
+     background: linear-gradient(360deg, rgba(0, 255, 224, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+     border-radius: 0px 0px 7px 7px;
+}
+ .playerid h2 {
+     position: absolute;
+     color: rgb(0, 255, 240);
+     text-align: center;
+     width: 5rem;
+     font-size: 1rem;
+     font-family: gilroybold;
+     top:-0.2rem;
+}
+ .playerid h3 {
+     position: absolute;
+     color: rgb(0, 255, 240);
+     width: 5rem;
+     font-size: 1rem;
+     font-family: gilroybold;
+     text-align: center;
+     top:0.8rem;
+}
+ .onlineplayer {
+     left: 4rem;
+     position: absolute;
+     width: 4rem;
+     height: 3rem;
+    display:flex;
+     align-items:center;
+     justify-content:center;
+     border: 3px solid rgb(0, 255, 240);
+     box-shadow: rgb(0, 255, 240) 0px 0px 28px;
+     background: linear-gradient(360deg, rgba(0, 255, 224, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+     border-radius: 0px 0px 7px 7px;
+}
+ .onlineplayer h2 {
+     position: absolute;
+     color: rgb(0, 255, 240);
+     text-align: center;
+     width: 5rem;
+     font-size: 1rem;
+     font-family: gilroybold;
+     top:-0.2rem;
+}
+ .onlineplayer h3 {
+     position: absolute;
+     color: rgb(0, 255, 240);
+     width: 5rem;
+     font-size: 1rem;
+     font-family: gilroybold;
+     text-align: center;
+     top: 0.7rem;
+}
+ .venicehudeditmode {
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     background-image: url("./images/venicehudeditmode.png");
+     background-repeat: no-repeat;
+     background-size: 100% 100%;
+     z-index: 1;
+}
+ .malibuhudeditmode {
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     background-image: url("./images/malibuhudeditmode.png");
+     background-repeat: no-repeat;
+     background-size: 100% 100%;
+     z-index: 2;
+}
+ .belaireditmode {
+     position: absolute;
+     width: 100vw;
+     height: 100vh;
+     background-image: url("./images/belairhudedit.png");
+     background-repeat: no-repeat;
+     background-size: 100% 100%;
+     z-index: 2;
+}
+ .venicehudeditmodetextwrapper {
+     position: relative;
+     width: 70%;
+   
+     height: 43%;
+        left:50%;
+        transform:translate(-50%);
+        top:30%;
+  
+
+}
+
+.venicehuddefaultandresetbutton{
+    position:absolute;
+    width:34%;
+    height:8%;
+    left:2%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    bottom:9%;
+}
+.venicehuddefaultandresetbutton h2{
+    width:42%;
+    height:100%;
+    border:3px solid white;
+    text-align:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-family: gilroybold;
+    font-size:100%;
+    text-shadow: 0px 0px 16px #FFFFFF;
+    background: linear-gradient(360deg, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+    border-radius: 10px;
+}
+
+ .venicehudeditmodewarn {
+     position: absolute;
+     top: 3.8rem;
+     left: 18.5rem;
+     width: 7rem;
+     height: 19.9rem;
+     color: white;
+     font-size: 0.7rem;
+     font-family: gilroybold;
+     z-index: 1;
+}
+ .venicehudeditmodegeneraltext {
+     position: absolute;
+  
+  
+     left: 64%;
+     width: 35%;
+     height: 100%;
+     color: white;
+     font-size: 70%;
+     font-family: gilroybold;
+     text-shadow: rgb(255, 0, 61) 0px 0px 16px;
+     display:flex;
+     align-items:center;
+     justify-content:center;
+     flex-wrap:wrap;
+
+
+}
+
+.venicehudeditmodegeneraltext h2{
+    width:35%;
+    border:3px solid #FF003D;
+    text-align:center;
+    height:8%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:1rem;
+    border-radius:.5rem;
+    box-shadow: 0px 0px 20px #FF003D;
+    background: linear-gradient(360deg, rgba(255, 0, 61, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+}
+
+
+
+
+
+
+
+
+ .venicehudeditmodegeneraltextinput {
+     position: relative;
+     top: 3.7rem;
+     left: 23.2rem;
+     width: 2rem;
+     height: 19.9rem;
+     color: white;
+     font-size: 1rem;
+     font-family: gilroybold;
+     z-index: 1;
+}
+
+ .venicehudeditmodegeneralinput2 {
+     position: absolute;
+     width: 2.1rem;
+     top: 3.3rem;
+     color: white;
+     border-top: none;
+     border-right: none;
+     border-left: none;
+     border-image: initial;
+     outline: none;
+     font-size: 1rem;
+     background: transparent;
+     font-family: gilroybold;
+     border-bottom: 1px solid red;
+}
+ .venicehudeditmodegeneralinput3 {
+     position: absolute;
+     width: 2.1rem;
+     top: 6.4rem;
+     color: white;
+     border-top: none;
+     border-right: none;
+     border-left: none;
+     border-image: initial;
+     outline: none;
+     background: transparent;
+     font-family: gilroybold;
+     font-size: 1rem;
+     border-bottom: 1px solid red;
+}
+ .venicehudeditmodegeneralinput4 {
+     position: absolute;
+     width: 2.1rem;
+     top: 9rem;
+     color: white;
+     border-top: none;
+     border-right: none;
+     border-left: none;
+     border-image: initial;
+     outline: none;
+     background: transparent;
+     font-family: gilroybold;
+     font-size: 1rem;
+     border-bottom: 1px solid red;
+}
+ .venicehudeditmodegeneralinput5 {
+     position: absolute;
+     width: 2.1rem;
+     top: 12rem;
+     color: white;
+     border-top: none;
+     border-right: none;
+     border-left: none;
+     border-image: initial;
+     outline: none;
+     background: transparent;
+     font-family: gilroybold;
+     font-size: 1rem;
+     border-bottom: 1px solid red;
+}
+ .venicehudeditmodegeneralinput6 {
+     position: absolute;
+     width: 2.1rem;
+     top: 14.8rem;
+     color: white;
+     border-top: none;
+     border-right: none;
+     border-left: none;
+     border-image: initial;
+     outline: none;
+     background: transparent;
+     font-family: gilroybold;
+     font-size: 1rem;
+     border-bottom: 1px solid red;
+}
+ .venicehudeditmodegeneralinput7 {
+     position: absolute;
+     width: 2.1rem;
+     top: 17.6rem;
+     color: white;
+     border-top: none;
+     border-right: none;
+     border-left: none;
+     border-image: initial;
+     outline: none;
+     background: transparent;
+     font-family: gilroybold;
+     font-size: 1rem;
+     border-bottom: 1px solid red;
+}
+ .venicehudeditmodegeneralalttext {
+     position: relative;
+     width: 70rem;
+     height: 2.5rem;
+     top: 18.4rem;
+     left: 5rem;
+     cursor: pointer;
+}
+ .venicehudeditmodegeneralalttext1:hover {
+     transform: scale(1.1);
+}
+ .venicehudeditmodegeneralalttext2:hover {
+     transform: scale(1.1);
+}
+ .venicehudeditmodegeneralalttext3:hover {
+     transform: scale(1.1);
+}
+ .venicehudeditmodegeneralalttext1 {
+     position: absolute;
+     width: 10rem;
+     top: 0.8rem;
+     left: 0.5rem;
+     color: rgb(255, 138, 0);
+     font-family: gilroybold;
+     text-align: center;
+     text-shadow: rgb(255, 138, 0) 0px 0px 16px;
+}
+ .venicehudeditmodegeneralalttext2 {
+     position: absolute;
+     width: 10rem;
+     top: 0.8rem;
+     left: 29.9rem;
+     color: rgb(0, 178, 255);
+     font-family: gilroybold;
+     text-align: center;
+     text-shadow: rgb(0, 178, 255) 0px 0px 16px;
+}
+ .venicehudeditmodegeneralalttext3 {
+     position: absolute;
+     width: 10rem;
+     top: 0.8rem;
+     left: 59.2rem;
+     color: rgb(255, 255, 255);
+     font-family: gilroybold;
+     text-align: center;
+     text-shadow: rgb(255, 255, 255) 0px 0px 16px;
+}
+ .venicehudeditmodegeneralusttext {
+     position: absolute;
+     width: 100%;
+  
+     top:-22%;
+     left:50%;
+     transform:translate(-50%);
+      display:flex;
+      align-items:center;
+      justify-content:start;
+   
+    
+}
+ .venicehudeditmodegeneralusttext1 {
+
+     
+     color: rgb(255, 0, 61);
+     font-family: gilroybold;
+     font-size: 200%;
+     text-shadow: rgba(255, 0, 61, 0.32) 0px 0px 82px;
+}
+ .venicehudeditmodegeneralusttext2 {
+     position: absolute;
+     color: rgba(0, 255, 240, 0.2);
+     font-family: gilroybold;
+     font-size: 2.5rem;
+     right: 1rem;
+     text-shadow: rgba(0, 255, 240, 0.32) 0px 0px 82px;
+}
+ .venicehudeditmodegeneraltextdrop {
+     position: absolute;
+     width: 10rem;
+     color: white;
+     font-family: gilroybold;
+     left: 35rem;
+     top: 24.5rem;
+     text-align: center;
+     text-shadow: rgb(255, 255, 255) 0px 0px 16px;
+}
+ .vertexhudiconlar {
+     position: absolute;
+     width: 40rem;
+     height: 4rem;
+     top: 3rem;
+}
+ .vertexhudcarhealthicon {
+     position: absolute;
+     width: 3rem;
+     height: 3rem;
+     left: 0.2rem;
+     transform: scale(1.2);
+}
+ .vertexhudcarstarticon {
+     position: absolute;
+     left: 6.3rem;
+     transform: scale(1.2);
+     top: -0.2rem;
+}
+ .vertexhudcarkemericon {
+     position: absolute;
+     left: 13.4rem;
+     top: 1.2rem;
+     transform: scale(1.2);
+}
+ .vertexhudcaricon {
+     position: absolute;
+     left: 19.5rem;
+     top: 0.5rem;
+     transform: scale(1.5);
+}
+ .vertexhudcarlightsicon {
+     position: absolute;
+     left: 23rem;
+     top: 0.2rem;
+}
+ .vertexhudcarsabitlemeicon {
+     position: absolute;
+     left: 29.5rem;
+     transform: scale(1.2);
+}
+ .vertexhudcarfuelicon {
+     position: absolute;
+     left: 36rem;
+     transform: scale(1.3);
+}
+ .vertexhudkisalights {
+     position: absolute;
+     left: 17.9rem;
+     top: -2rem;
+     transform: scale(1.6);
+}
+ .vertexhudsettingpagespeedometer {
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     background-image: url("./images/vertexhudeditmode.png");
+}
+ .malibuhud {
+     position: absolute;
+     max-width: 50%;
+
+     height: 1%;
+     bottom:3%;
+     padding-left: 2rem;
+
+     display:flex;
+     align-items:center;
+     justify-content:center;
+}
+ .radialhudicons {
+     width: 3rem;
+     float: left;
+     margin-left: 2rem;
+}
+ .malibuhudhealthbar {
+     position: relative;
+     width: 3.2rem;
+     height: 3rem;
+     border-radius: 1.5rem;
+     display:flex;
+     align-items: center;
+     justify-content: center;
+}
+ .malibuhudhealthbar img {
+     position: absolute;
+     width:auto;
+     height:auto;
+     border-radius: 1.5rem;
+     z-index: 1;
+     transform:scale(1.2) 
+}
+ .malibuhudarmourbar {
+     width: 3.2rem;
+     height: 3rem;
+     border-radius: 1.6rem;
+     display:flex;
+     align-items: center;
+     justify-content: center;
+}
+ .malibuhudarmourbar img {
+     position: absolute;
+     border-radius: 1.5rem;
+     z-index: 1;
+     transform:scale(1.4) 
+}
+ .malibuhudthirstbar {
+     width: 3.2rem;
+     height: 3rem;
+     border-radius: 1.6rem;
+     display:flex;
+     align-items: center;
+     justify-content: center;
+}
+ .malibuhudthirstbar img {
+     position: absolute;
+     width:auto;
+     height:auto;
+     transform:scale(1.2);
+     border-radius: 1.5rem;
+     z-index: 1;
+}
+ .malibuhudhungerbar {
+     width: 3.2rem;
+     height: 3rem;
+     border-radius: 1.6rem;
+     display:flex;
+     align-items: center;
+     justify-content: center;
+}
+ .malibuhudhungerbar img {
+     position: absolute;
+    width:auto;
+     height:auto;
+     transform:scale(1.2);
+     border-radius: 1.5rem;
+     z-index: 1;
+}
+ .malibuhudstaminabar {
+     width: 3.2rem;
+     height: 3rem;
+     border-radius: 1.6rem;
+     display:flex;
+     align-items: center;
+     justify-content: center;
+}
+ .malibuhudstaminabar img {
+     position: absolute;
+     width:auto;
+     height:auto;
+     transform:scale(1.1);
+     border-radius: 1.5rem;
+     z-index: 1;
+}
+ .malibuhudstressbar {
+     width: 3.2rem;
+     height: 3rem;
+     border-radius: 1.6rem;
+ 
+}
+ .malibuhudstressbar img {
+     position: absolute;
+     width:auto;
+     height:auto;
+     transform:scale(1.1);
+     left: 1.0rem;
+     top: 1.1rem;
+     border-radius: 1.5rem;
+     z-index: 1;
+}
+ .malibuhudoxybar {
+     width: 3.2rem;
+     height: 3rem;
+     border-radius: 1.6rem;
+     filter: drop-shadow(rgb(0, 194, 255) 0px 4px 44px);
+     display:flex;
+     align-items: center;
+     justify-content: center;
+}
+ .malibuhudoxybar img {
+     position: absolute;
+     width: 0.8rem;
+     height: 1rem;
+     border-radius: 1.5rem;
+     z-index: 1;
+     transform: scale(1.2);
+}
+ .malibuhudmicrophonebar {
+     width: 3.2rem;
+     height: 3rem;
+     border-radius: 1.6rem;
+     filter: drop-shadow(rgb(255, 255, 255) 0px 4px 44px);
+}
+ .malibuhudmicrophonebar img {
+     position: absolute;
+     width: 0.8rem;
+     height: 1.2rem;
+     left: 1.2rem;
+     top: 1rem;
+     box-shadow: rgb(255, 255, 255) 1px 1px 23px;
+     border-radius: 1.5rem;
+     z-index: 1;
+     transform: scale(1.1);
+}
+ .mayhemhudspeedometer {
+     position: absolute;
+     width: 20rem;
+     height: 20rem;
+    bottom:7%;
+    right:6%;
+     transform: scale(1.3);
+     
+}
+ .mayhemhudindicatorspeedtext {
+     position: absolute;
+     font-family: gilroybold;
+     width: 20rem;
+     height: 20rem;
+     margin: auto;
+     inset: 0px;
+}
+ .mayhemhudindicatorspeedtext1 {
+     position: absolute;
+     top: 15rem;
+     left: 9.9rem;
+     color: rgba(2, 254, 222, 0.55);
+     font-size: 0.7rem;
+}
+ .mayhemhudindicatorspeedtext2 {
+     position: absolute;
+     top: 14.2rem;
+     left: 7.9rem;
+     color: rgb(2, 254, 222);
+     font-size: 0.8rem;
+}
+ .mayhemhudindicatorspeedtext3 {
+     position: absolute;
+     top: 13.3rem;
+     left: 6.4rem;
+     color: rgba(2, 254, 222, 0.55);
+     font-size: 0.7rem;
+}
+ .mayhemhudindicatorspeedtext4 {
+     position: absolute;
+     top: 11.5rem;
+     left: 5.4rem;
+     color: rgb(2, 254, 222);
+     font-size: 0.8rem;
+}
+ .mayhemhudindicatorspeedtext5 {
+     position: absolute;
+     top: 9.9rem;
+     left: 5rem;
+     color: rgba(2, 254, 222, 0.55);
+     font-size: 0.7rem;
+}
+ .mayhemhudindicatorspeedtext6 {
+     position: absolute;
+     top: 8.2rem;
+     left: 5.1rem;
+     color: rgb(2, 254, 222);
+     font-size: 0.8rem;
+}
+ .mayhemhudindicatorspeedtext7 {
+     position: absolute;
+     top: 6.6rem;
+     left: 5.8rem;
+     color: rgba(2, 254, 222, 0.55);
+     font-size: 0.7rem;
+}
+ .mayhemhudindicatorspeedtext8 {
+     position: absolute;
+     top: 5.2rem;
+     left: 6.99rem;
+     color: rgb(2, 254, 222);
+     font-size: 0.8rem;
+}
+ .mayhemhudindicatorspeedtext9 {
+     position: absolute;
+     top: 4.4rem;
+     left: 8.5rem;
+     color: rgba(2, 254, 222, 0.55);
+     font-size: 0.7rem;
+}
+ .mayhemhudindicatorspeedtext10 {
+     position: absolute;
+     top: 4.1rem;
+     left: 10rem;
+     color: rgb(2, 254, 222);
+     font-size: 0.8rem;
+}
+ .mayhemhudindicatorspeedtext11 {
+     position: absolute;
+     top: 4.5rem;
+     left: 11.8rem;
+     color: rgba(2, 254, 222, 0.55);
+     font-size: 0.7rem;
+}
+ .mayhemhudindicatorspeedtext12 {
+     position: absolute;
+     top: 5.4rem;
+     left: 13.2rem;
+     color: rgb(2, 254, 222);
+     font-size: 0.8rem;
+}
+ .mayhemhudindicatorspeedtext13 {
+     position: absolute;
+     top: 6.9rem;
+     left: 14.4rem;
+     color: rgba(2, 254, 222, 0.55);
+     font-size: 0.7rem;
+}
+ .mayhemhudindicatorspeedtext14 {
+     position: absolute;
+     top: 8.3rem;
+     left: 14.99rem;
+     color: rgb(2, 254, 222);
+     font-size: 0.8rem;
+}
+ .mayhemhudspeedoindicator {
+     width:1rem;
+     height:1rem;
+     position:absolute;
+     top:10rem;
+     left: 10rem;
+     transition: all 0.2s linear 0s;
+}
+ .indicatorfix {
+     position:absolute;
+     transform: rotate(-120deg);
+     top:-5.4rem;
+     left:-7rem;
+}
+ .mayhemhudspeedtext {
+     position: absolute;
+     left: 53%;
+     top: 45%;
+     transform: translate(-50%, -50%);
+     z-index: 2;
+}
+ .speedosvg {
+     position: absolute;
+     width: 20rem;
+     height: 20rem;
+     margin: auto;
+     inset: 0px;
+}
+ .mayhemhudnitro {
+     position: absolute;
+     width: 3.5rem;
+     height: 3.5rem;
+     background: rgba(0, 255, 123, 0.22);
+     border-radius: 2rem;
+     top: 14.4rem;
+     left: 10.5rem;
+     transform: scale(0.95);
+}
+ .mayhemhudwind {
+     position: absolute;
+     width: 3.5rem;
+     height: 3.5rem;
+     background: rgba(0, 255, 123, 0.22);
+     border-radius: 2rem;
+     top: 14.4rem;
+     left: 10.5rem;
+     transform: scale(0.95);
+}
+ .mayhemhudaltdudee {
+     position: absolute;
+     width: 3.5rem;
+     height: 3.5rem;
+     background: rgba(0, 255, 123, 0.22);
+     border-radius: 2rem;
+     top: 14.4rem;
+     left: 10.5rem;
+     transform: scale(0.95);
+}
+ .mayhemhudcarhealth {
+     position: absolute;
+     width: 3.5rem;
+     height: 3.5rem;
+     top: 13rem;
+     left: 13.6rem;
+     transform: scale(0.95);
+     border-radius: 2rem;
+     background: rgb(190 25 64 / 48%) 
+}
+ .mayhemhudcarfuel {
+     position: absolute;
+     width: 3.5rem;
+     height: 3.5rem;
+     top: 9.9rem;
+     left: 15rem;
+     transform: scale(0.95);
+     border-radius: 2rem;
+}
+ .mayhemhudnitro img {
+     position: absolute;
+     width: 1rem;
+     height: 1rem;
+     margin: auto;
+     left: 0px;
+     right: 0px;
+     top: 0.7rem;
+}
+ .mayhemhudnitro h2 {
+     position: absolute;
+     width: 3rem;
+     height: 1rem;
+     margin: auto;
+     left: 0px;
+     right: 0px;
+     top: 1.9rem;
+     font-size: 0.8rem;
+     font-family: gilroybold;
+     color: rgb(0, 255, 133);
+     text-align: center;
+}
+ .mayhemhudaltdudee img {
+     position: absolute;
+     width: 1rem;
+     height: 1rem;
+     margin: auto;
+     left: 0px;
+     right: 0px;
+     top: 0.7rem;
+}
+ .mayhemhudaltdudee h2 {
+     position: absolute;
+     width: 3rem;
+     height: 1rem;
+     margin: auto;
+     left: 0px;
+     right: 0px;
+     top: 1.9rem;
+     font-size: 0.8rem;
+     font-family: gilroybold;
+     color: rgb(0, 255, 133);
+     text-align: center;
+}
+ .mayhemhudwind img {
+     position: absolute;
+     width: 1rem;
+     height: 1rem;
+     margin: auto;
+     left: 0px;
+     right: 0px;
+     top: 0.7rem;
+}
+ .mayhemhudwind h2 {
+     position: absolute;
+     width: 3rem;
+     height: 1rem;
+     margin: auto;
+     left: 0px;
+     right: 0px;
+     top: 1.9rem;
+     font-size: 0.8rem;
+     font-family: gilroybold;
+     color: rgb(0, 255, 133);
+     text-align: center;
+}
+ .mayhemhudcarhealth img {
+     position: absolute;
+     width: 1rem;
+     height: 1rem;
+     margin: auto;
+     left: 0px;
+     right: 0px;
+     top: 0.4rem;
+     transform: scale(3);
+}
+ .mayhemhudcarhealth h2 {
+     position: absolute;
+     width: 3rem;
+     height: 1rem;
+     margin: auto;
+     left: 0px;
+     right: 0px;
+     top: 1.9rem;
+     font-size: 0.8rem;
+     font-family: gilroybold;
+     color: rgba(255, 0, 61, 0.78);
+     text-align: center;
+}
+ .mayhemhudcarfuel img {
+     position: absolute;
+     width: 1rem;
+     height: 1rem;
+     margin: auto;
+     left: 0px;
+     right: 0px;
+     top: 0.4rem;
+     transform: scale(3);
+}
+ .mayhemhudcarfuel h2 {
+     position: absolute;
+     width: 3rem;
+     height: 1rem;
+     margin: auto;
+     left: 0px;
+     right: 0px;
+     top: 1.9rem;
+     font-size: 0.8rem;
+     font-family: gilroybold;
+     color: rgb(255, 199, 0);
+     text-align: center;
+}
+ .settingpagevertexhud {
+    
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     background-image: url("./images/vertexhudeditmodebackground.png");
+     background-repeat: no-repeat;
+     background-size:100% 100%;
+   
+     z-index: 2;
+}
+ .mayhemhudsettingspage {
+     position: absolute;
+     width: 100vw;
+     height: 100vh;
+     background-image: url("./images/mayhemhudsettingspage.png");
+     background-repeat: no-repeat;
+     background-size: 100% 100%;
+     z-index: 2;
+}
+ .settingspageperspect {
+     position: absolute;
+     width: 100vw;
+     height: 100vh;
+     background-image: url("./images/perspecthudsettingspage.png");
+     background-repeat: no-repeat;
+     background-size: 100% 100%;;
+     z-index: 2;
+}
+ .vertexhudsettingpagehealtwrapper {
+          position:absolute;
+     width: 40%;
+  
+     height: 10%;
+    top:35%;
+    left:-10%;
+     display:flex;
+     align-items:center;
+     justify-content:center;
+     z-index:1;
+     display:flex;
+     align-items:center;
+     justify-content:center;
+    
+  
+}
+ .vertexhudsettingspagehealthborder {
+   
+     width: 8rem;
+     height: 2rem;
+     text-align: center;
+       display:flex;
+     align-items:center;
+     justify-content:center;
+     line-height: 2rem;
+     font-family: gilroybold;
+   
+     color: white;
+     border: 2px solid rgb(0, 255, 240);
+     border-radius: 0.5rem;
+     background: linear-gradient(360deg, rgba(0, 255, 240, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+}
+ .vertexhudsettingspagecolorpickerhealth {
+    
+     width: 2rem;
+     height: 2rem;
+     border: 2px solid rgb(0, 255, 240);
+       display:flex;
+     align-items:center;
+       margin-left:2%;
+     justify-content:center;
+     border-radius: 0.5rem;
+     background: linear-gradient(360deg, rgba(0, 255, 240, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+     left: 9rem;
+}
+
+
+
+
+ .vertexhudsettingpagefuelwrapper {
+     position:absolute;
+     width: 40%;
+     height: 10%;
+     top:35%;
+     right:-10%;
+     display:flex;
+     align-items:center;
+     justify-content:center;
+     z-index:1;
+     display:flex;
+     flex-direction:row-reverse;
+     align-items:center;
+     justify-content:center
+}
+ .vertexhudsettingspagefuelborder {
+    
+     width: 8rem;
+     height: 2rem;
+     text-align: center;
+     margin-left:2%;
+     line-height: 2rem;
+     font-family: gilroybold;
+     color: white;
+     border: 2px solid rgb(0, 255, 240);
+     border-radius: 0.5rem;
+     background: linear-gradient(360deg, rgba(0, 255, 240, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+}
+ .vertexhudsettingspagecolorpickerfuel {
+   
+     width: 2rem;
+     height: 2rem;
+     border: 2px solid rgb(0, 255, 240);
+     border-radius: 0.5rem;
+     background: linear-gradient(360deg, rgba(0, 255, 240, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+     left: 9rem;
+       display:flex;
+     align-items:center;
+     justify-content:center;
+     margin-left:2%;
+}
+
+
+
+
+ .vertexhudsettingpagespeedwrapper {
+        position:absolute;
+     width: 40%;
+  
+     height: 10%;
+    top:21%;
+     display:flex;
+     align-items:center;
+     justify-content:center;
+     z-index:1;
+    
+   
+   
+}
+ .vertexhudsettingspagespeedborder {
+   
+     width: 8rem;
+     height: 2rem;
+     text-align: center;
+    display:flex;
+     align-items:center;
+     justify-content:space-around;;
+     font-family: gilroybold;
+     color: white;
+     border: 2px solid rgb(0, 255, 240);
+     border-radius: 0.5rem;
+     background: linear-gradient(360deg, rgba(0, 255, 240, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+}
+ .vertexhudsettingspagecolorpickerspeed {
+   
+     width: 2rem;
+     height: 2rem;
+     border: 2px solid rgb(0, 255, 240);
+     border-radius: 0.5rem;
+     background: linear-gradient(360deg, rgba(0, 255, 240, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+    margin-left:2%;
+     display:flex;
+     align-items:center;
+     justify-content:center;
+}
+ .vertexhudsettingspagecolorpickericonspeed {
+   
+     width: 1rem;
+     height: 1rem;
+     padding: 0.2rem;
+     border-radius: 0.3rem;
+     cursor: pointer;
+     display:flex;
+     align-items:center;
+     justify-content:center;
+}
+
+ .vertexhudsettingspage3text {
+    position:absolute;
+    bottom:3%;
+     width: 100%;
+     height: 5%;
+    
+    
+    
+     display: flex;
+     align-items:center;
+     justify-content:space-around;
+}
+
+.vertexhudsettingspagetextone{
+    color:white;
+     font-family: gilroybold;
+     min-width:13%;
+     border:2px solid white;
+     height:100%;
+     display:flex;
+        align-items:center;
+        justify-content:center;
+        color: #FFFFFF;
+
+text-shadow: 0px 0px 16px #FFFFFF;
+border-radius:.5rem;
+font-size:100%;
+box-shadow: 0px 0px 28px #FFFFFF;
+background: linear-gradient(360deg, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+
+}
+
+ .vertexhudeditandsavebutton {
+     position: absolute;
+     width: 70%;
+  
+     height: 5rem;
+     margin: auto;
+     left: 0px;
+     right: 0px;
+     top: 23%;
+}
+ .vertexhudeditbutton {
+   
+     font-family: gilroybold;
+     font-size: 2.2rem;
+     color: rgb(0, 255, 240);
+     cursor: pointer;
+}
+ .vertexhudeditbutton:nth-child(2) {
+     position: absolute;
+     font-family: gilroybold;
+     font-size: 2.2rem;
+     color: rgb(0, 255, 240);
+     right: 1rem;
+     cursor: pointer;
+}
+ .vertexhudsettingspagesagsolsvgs {
+     position: relative;
+     width: 50rem;
+     height: 2rem;
+     margin: auto;
+     top: 19rem;
+     left: 5rem;
+}
+ .vertexhudsettingspagesagsvg {
+     position: absolute;
+     top: 0rem;
+     left: 21.5rem;
+     rotate: 180deg;
+     transform: scaleY(-1);
+}
+ .settingpagevertexspeedtext {
+     position: absolute;
+     width: 5rem;
+     color: white;
+     text-align: center;
+     font-family: gilroybold;
+     margin: auto;
+     left: 1rem;
+     right: 0px;
+     top: 33rem;
+     font-size: 2rem;
+     letter-spacing: 0.25em;
+}
+
+
+ .veniceeditmodecolorsbuttons {
+     position: absolute;
+     width: 15%;
+     height: 70%;
+     top: 1%;
+     left: 2rem;
+    
+
+     display:flex;
+     align-items:center;
+    justify-content:flex-start;
+    flex-wrap:wrap;
+
+    align-content:flex-start
+   
+}
+
+
+
+ .veniceeditmodehealthgeneralborder {
+    
+     width: 100%;
+     height: 10%;
+     display:flex;
+     align-items:center;
+     padding:0;
+     margin:0;
+     justify-content:space-between;
+     align-content:flex-start;
+ 
+
+}
+ .veniceeditmodecolorborder {
+     border:2px solid;
+     width: 100%;
+     height: 100%;
+     border-radius: 0.5rem;
+     display:flex;
+     align-items:center;
+     justify-content:space-around;
+       align-content:flex-start;
+
+
+}
+.newvenicehudtexthealth{
+   font-family: gilroybold;
+   color:white;
+}
+
+ .veniceeditmodehealthicon {
+
+     width: 15%;
+     height: 100%;
+     border: 2px solid;
+     border-radius: 0.5rem;
+     background: linear-gradient(360deg, rgba(0, 255, 240, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+
+        margin-left:0.5rem;
+     display:flex;
+     align-items:center;
+     justify-content:center;
+       align-content:flex-start;
+
+}
+
+
+ .veniceeditmodehealthicons {
+
+     width: 1rem;
+     height: 1rem;
+     border-radius: 0.3rem;
+     cursor: pointer;
+     display:flex;
+     align-items:center;
+     justify-content:center;
+}
+
+
+
+
+
+ .veniceeditmodegeneralborderarmour {
+      
+     width: 100%;
+     height: 10%;
+     display:flex;
+     align-items:center;
+     justify-content:space-between;
+     margin-top:1rem;
+     
+    
+}
+ .veniceeditmodecolorborderarmour {
+     
+     border:2px solid;
+     width: 100%;
+     height: 100%;
+     border-radius: 0.5rem;
+     display:flex;
+     align-items:center;
+     justify-content:space-around;
+}
+
+ .veniceeditmodeiconarmour {
+       
+      width: 15%;
+     height: 100%;
+     color: rgb(0, 56, 255);
+     border: 2px solid;
+     border-radius: 0.5rem;
+     background: linear-gradient(360deg, rgba(0, 56, 255, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        margin-left:1rem;
+}
+
+.venicehudnewtextarmour{
+   font-family: gilroybold;
+   color:white;
+   font-size:1rem;
+}
+ .veniceeditmodeiconsarmour {
+     width: 1rem;
+     height: 1rem;
+     border-radius: 0.3rem;
+     cursor: pointer;
+}
+
+
+
+
+
+ .veniceeditmodegeneralborderthirst {
+   
+     width: 100%;
+     height: 10%;
+     display:flex;
+     align-items:center;
+     justify-content:space-between;
+     margin-top:1rem;
+  
+}
+ .veniceeditmodecolorborderthirst {
+   
+     width: 100%;
+     height: 100%;
+     color: rgb(0, 255, 240);
+     border: 2px solid;
+     top: 0.9rem;
+     border-radius: 0.5rem;
+    display:flex;
+    align-items:center;
+      justify-content:space-around;
+      
+     box-shadow: rgb(0, 255, 240) 0px 0px 20px;
+     background: linear-gradient(360deg, rgba(0, 255, 240, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+}
+
+ .veniceeditmodeiconthirst {
+   
+      width: 15%;
+     height: 100%;
+     color: rgb(0, 255, 240);
+     border: 2px solid;
+     border-radius: 0.5rem;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        margin-left:0.5rem;
+}
+ .veniceeditmodeiconsthirst {
+   
+     width: 1rem;
+     height: 1rem;
+ 
+  
+  
+     background-color: rgb(0, 255, 240);
+     border-radius: 0.3rem;
+     cursor: pointer;
+}
+
+
+
+
+
+ .veniceeditmodegeneralborderhunger {
+     width: 100%;
+     height: 10%;
+     display:flex;
+     align-items:center;
+     justify-content:space-between;
+     margin-top:1rem;
+}
+
+ .veniceeditmodecolorborderhunger {
+   
+     width: 100%;
+     height: 100%;
+     color: rgb(0, 255, 240);
+     border: 2px solid;
+     top: 0.9rem;
+     border-radius: 0.5rem;
+    display:flex;
+    align-items:center;
+      justify-content:space-around;
+      
+     box-shadow: rgb(255, 138, 0) 0px 0px 20px;
+     background: linear-gradient(360deg, rgba(255, 138, 0, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+}
+
+
+ .veniceeditmodeiconhunger {
+      width: 15%;
+     height: 100%;
+     color: rgb(0, 255, 240);
+     border: 2px solid;
+     border-radius: 0.5rem;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        margin-left:0.5rem;
+}
+ .veniceeditmodeiconshunger {
+   width: 1rem;
+     height: 1rem;
+ 
+  
+  
+     background-color: rgb(0, 255, 240);
+     border-radius: 0.3rem;
+     cursor: pointer;
+}
+
+.venicehudnewtexthunger{
+   font-family: gilroybold;
+   color:white;
+   font-size:1rem;
+}
+
+
+
+
+
+
+ .veniceeditmodegeneralborderstress {
+      width: 100%;
+     height: 10%;
+     display:flex;
+     align-items:center;
+     justify-content:space-between;
+     margin-top:1rem;
+  
+}
+ .veniceeditmodecolorborderstress {
+  
+     width: 100%;
+     height: 100%;
+     color: rgb(0, 255, 240);
+     border: 2px solid;
+     top: 0.9rem;
+     border-radius: 0.5rem;
+    display:flex;
+    align-items:center;
+      justify-content:space-around;
+      
+     box-shadow: rgb(255, 0, 153) 0px 0px 20px;
+     background: linear-gradient(360deg, rgba(255, 0, 153, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+}
+
+ .veniceeditmodeiconstress {
+
+      width: 15%;
+     height: 100%;
+     color: rgb(0, 255, 240);
+     border: 2px solid;
+     border-radius: 0.5rem;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        margin-left:0.5rem;
+}
+ .veniceeditmodeiconsstress {
+      width: 1rem;
+     height: 1rem;
+     background-color: rgb(0, 255, 240);
+     border-radius: 0.3rem;
+     cursor: pointer;
+}
+
+.venicehudnewtextstress{
+   font-family: gilroybold;
+   color:white;
+   font-size:1rem;
+}
+
+
+
+
+
+
+ .veniceeditmodegeneralborderoxygen {
+      width: 100%;
+     height: 10%;
+     display:flex;
+     align-items:center;
+     justify-content:space-between;
+     margin-top:1rem;
+  
+}
+ .veniceeditmodecolorborderoxygen {
+       width: 100%;
+     height: 100%;
+     color: rgb(0, 255, 240);
+     border: 2px solid;
+     top: 0.9rem;
+     border-radius: 0.5rem;
+    display:flex;
+    align-items:center;
+      justify-content:space-around;
+     box-shadow: 0px 0px 20px;
+     background: linear-gradient(360deg, rgba(0, 255, 148, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+}
+.veniceeditmodeiconoxygen {
+  
+    width: 15%;
+     height: 100%;
+     color: rgb(0, 255, 240);
+     border: 2px solid;
+     border-radius: 0.5rem;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        margin-left:0.5rem;
+}
+ .veniceeditmodeiconsoxygen {
+   
+     width: 1rem;
+     height: 1rem;
+     margin: auto;
+     background-color: rgb(0, 255, 148);
+     border-radius: 0.3rem;
+     cursor: pointer;
+}
+.venicehudnewtextlungs{
+     font-family: gilroybold;
+   color:white;
+   font-size:1rem;
+}
+
+
+
+ .veniceeditmodegeneralborderstamina {
+      width: 100%;
+     height: 10%;
+     display:flex;
+     align-items:center;
+     justify-content:space-between;
+     margin-top:1rem;
+}
+ .veniceeditmodecolorborderstamina {
+ 
+       width: 100%;
+     height: 100%;
+     color: rgb(0, 255, 240);
+     border: 2px solid;
+     top: 0.9rem;
+     border-radius: 0.5rem;
+    display:flex;
+    align-items:center;
+      justify-content:space-around;
+     box-shadow: 0px 0px 20px;
+     background: linear-gradient(360deg, rgba(0, 255, 148, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+}
+
+ .veniceeditmodeiconstamina {
+
+   
+      width: 15%;
+     height: 100%;
+     color: rgb(0, 255, 240);
+     border: 2px solid;
+     border-radius: 0.5rem;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        margin-left:0.5rem;
+        
+}
+ .veniceeditmodeiconsstamina {
+    
+     width: 1rem;
+     height: 1rem;
+     margin: auto;
+     background-color: rgb(0, 255, 148);
+     border-radius: 0.3rem;
+     cursor: pointer;
+}
+
+
+.venicehudnewtextstamina{
+     font-family: gilroybold;
+   color:white;
+   font-size:1rem;
+}
+
+
+
+
+
+ .veniceeditmodecolorsbuttons2 {
+      position: absolute;
+     width: 15%;
+     height: 70%;
+     top: 1%;
+     left: 21%;
+    
+
+     display:flex;
+     align-items:center;
+    justify-content:flex-start;
+    flex-wrap:wrap;
+
+    align-content:flex-start;
+ 
+}
+
+
+
+
+
+ .veniceeditmodehealthgeneralborder2 {
+    
+     width: 100%;
+     height: 10%;
+     display:flex;
+     align-items:center;
+     padding:0;
+     margin:0;
+    
+     align-content:flex-start;
+}
+
+
+
+ .veniceeditmodecolorborder2 {
+      border:2px solid;
+     width: 100%;
+     height: 100%;
+     border-radius: 0.5rem;
+     display:flex;
+     align-items:center;
+     justify-content:space-around;
+       align-content:flex-start;
+}
+
+
+.veniceeditmodecolorborder2 input{
+
+     width: 1.8rem;
+     top: 0.4rem;
+     color: white;
+     border-top: none;
+     border-right: none;
+     border-left: none;
+     border-image: initial;
+     outline: none;
+     background: transparent;
+     font-family: gilroybold;
+     font-size: 100%;
+     border-bottom: 1px solid red;
+}
+
+
+
+
+
+ .veniceeditmodegeneralborderarmour2 {
+    
+     width: 100%;
+     height: 10%;
+     display:flex;
+     align-items:center;
+     padding:0;
+     margin:0;
+
+     align-content:flex-start;
+     margin-top:1rem;
+}
+ .veniceeditmodecolorborderarmour2 {
+    
+        border:2px solid;
+     width: 100%;
+     height: 100%;
+     border-radius: 0.5rem;
+     display:flex;
+     align-items:center;
+     justify-content:space-around;
+       align-content:flex-start;
+}
+
+.veniceeditmodecolorborderarmour2 input{
+
+     width: 1.8rem;
+     top: 0.4rem;
+     color: white;
+     border-top: none;
+     border-right: none;
+     border-left: none;
+     border-image: initial;
+     outline: none;
+     background: transparent;
+     font-family: gilroybold;
+     font-size: 100%;
+     border-bottom: 1px solid red;
+}
+
+
+
+
+
+
+
+
+
+
+ .veniceeditmodegeneralborderthirst2 {
+     width: 100%;
+     height: 10%;
+     display:flex;
+     align-items:center;
+     padding:0;
+     margin:0;
+   
+     align-content:flex-start;
+     margin-top:1rem;
+
+}
+ .veniceeditmodecolorborderthirst2 {
+ 
+        border:2px solid;
+     width: 100%;
+     height: 100%;
+     border-radius: 0.5rem;
+     display:flex;
+     align-items:center;
+     justify-content:space-around;
+       align-content:flex-start;
+}
+
+
+.veniceeditmodecolorborderthirst2 input{
+
+     width: 1.8rem;
+     top: 0.4rem;
+     color: white;
+     border-top: none;
+     border-right: none;
+     border-left: none;
+     border-image: initial;
+     outline: none;
+     background: transparent;
+     font-family: gilroybold;
+     font-size: 100%;
+     border-bottom: 1px solid red;
+}
+
+
+
+ .veniceeditmodegeneralborderhunger2 {
+       width: 100%;
+     height: 10%;
+     display:flex;
+     align-items:center;
+     padding:0;
+     margin:0;
+   
+     align-content:flex-start;
+     margin-top:1rem;
+}
+ .veniceeditmodecolorborderhunger2 {
+       border:2px solid;
+     width: 100%;
+     height: 100%;
+     border-radius: 0.5rem;
+     display:flex;
+     align-items:center;
+     justify-content:space-around;
+       align-content:flex-start;
+}
+ .veniceeditmodecolorborderhunger2 input{
+
+     width: 1.8rem;
+     top: 0.4rem;
+     color: white;
+     border-top: none;
+     border-right: none;
+     border-left: none;
+     border-image: initial;
+     outline: none;
+     background: transparent;
+     font-family: gilroybold;
+     font-size: 100%;
+     border-bottom: 1px solid red
+
+}
+
+
+
+
+
+
+ .veniceeditmodegeneralborderstress2 {
+         width: 100%;
+     height: 10%;
+     display:flex;
+     align-items:center;
+     padding:0;
+     margin:0;
+
+     align-content:flex-start;
+     margin-top:1rem;
+}
+ .veniceeditmodecolorborderstress2 {
+      border:2px solid;
+     width: 100%;
+     height: 100%;
+     border-radius: 0.5rem;
+     display:flex;
+     align-items:center;
+     justify-content:space-around;
+       align-content:flex-start;
+
+}
+ .veniceeditmodecolorborderstress2 input{
+
+     width: 1.8rem;
+     top: 0.4rem;
+     color: white;
+     border-top: none;
+     border-right: none;
+     border-left: none;
+     border-image: initial;
+     outline: none;
+     background: transparent;
+     font-family: gilroybold;
+     font-size: 100%;
+     border-bottom: 1px solid red
+
+}
+
+
+
+
+ .veniceeditmodegeneralborderoxygen2 {
+          width: 100%;
+     height: 10%;
+     display:flex;
+     align-items:center;
+     padding:0;
+     margin:0;
+  
+     align-content:flex-start;
+     margin-top:1rem;
+}
+ .veniceeditmodecolorborderoxygen2 {
+      border:2px solid;
+     width: 100%;
+     height: 100%;
+     border-radius: 0.5rem;
+     display:flex;
+     align-items:center;
+     justify-content:space-around;
+       align-content:flex-start;
+}
+.veniceeditmodecolorborderoxygen2 input{
+
+     width: 1.8rem;
+     top: 0.4rem;
+     color: white;
+     border-top: none;
+     border-right: none;
+     border-left: none;
+     border-image: initial;
+     outline: none;
+     background: transparent;
+     font-family: gilroybold;
+     font-size: 100%;
+     border-bottom: 1px solid red
+
+}
+
+
+
+
+
+ .veniceeditmodegeneralborderstamina2 {
+           width: 100%;
+     height: 10%;
+     display:flex;
+     align-items:center;
+     padding:0;
+     margin:0;
+  
+     align-content:flex-start;
+     margin-top:1rem;
+}
+ .veniceeditmodecolorborderstamina2 {
+     border:2px solid;
+     width: 100%;
+     height: 100%;
+     border-radius: 0.5rem;
+     display:flex;
+     align-items:center;
+     justify-content:space-around;
+       align-content:flex-start;
+}
+
+.veniceeditmodecolorborderstamina2 input{
+
+     width: 1.8rem;
+     top: 0.4rem;
+     color: white;
+     border-top: none;
+     border-right: none;
+     border-left: none;
+     border-image: initial;
+     outline: none;
+     background: transparent;
+     font-family: gilroybold;
+     font-size: 100%;
+     border-bottom: 1px solid red;
+
+}
+
+
+
+
+
+
+
+ .venicehudeditmodehudimage {
+     position: absolute;
+     width: 15rem;
+     height: 10rem;
+     margin: auto;
+     left: 0px;
+     right: 0px;
+     top: 18%;
+}
+ .venicehudeditmodehudaltimage {
+     position: absolute;
+     width: 15rem;
+     height: 10rem;
+     margin: auto;
+     left: 7.5rem;
+     right: 0px;
+     transform: scale(1.2);
+     top: 71%;
+}
+ .playerweapon {
+    position:absolute;
+   width: 3rem;
+   height: 1.5rem;
+ left:2rem;
+  
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+ .playerweapon img {
+    width:100%;
+  height:100%;
+  
+  
+}
+ .playerweaponammo {
+     
+     width: 1rem;
+     display: flex;
+     font-size: 1rem;
+     margin-top:0rem;
+    margin-left:-1rem;
+     font-family: gilroybold;
+  display:flex;
+  align-items:center;
+   justify-content:center;
+  
+}
+ .playerweaponammo h2 {
+   
+     font-size: 1rem;
+   
+     color: white;
+}
+ .playerweaponammo h3 {
+   
+     font-size: 1rem;
+    margin-left:0.4rem;
+     color: rgba(255, 255, 255, 0.31);
+     left: 1.2rem;
+}
+ .watermarklogos {
+     position: relative;
+     left: 106rem;
+     top: 1.5rem;
+     width: 13rem;
+     height: 5rem;
+}
+ .watermarklogos img {
+     position: absolute;
+     background-size: 100% 100%;
+}
+ .vertexhudspeedtext {
+     position: absolute;
+     width: 5rem;
+     height: 2rem;
+     margin: auto;
+     left: -0.8rem;
+     top: 0rem;
+     right: 0px;
+     text-align: center;
+     font-size: 2rem;
+     z-index: 1;
+}
+ .activeSpeed {
+     font-family: gilroybold;
+     font-style: normal;
+     font-weight: 700;
+     font-size: 2rem;
+     line-height: 58px;
+     z-index: 1;
+}
+ .lightSpeed {
+     font-family: gilroybold;
+     font-style: normal;
+     font-weight: 700;
+     font-size: 2rem;
+     line-height: 58px;
+     z-index: 1;
+     color: rgba(255, 255, 255, 0.25);
+}
+ .activeSpeed2 {
+     font-family: gilroybold;
+     font-style: normal;
+     font-weight: 700;
+     font-size: 2rem;
+     line-height: 58px;
+     z-index: 1;
+}
+ .lightSpeed2 {
+     font-family: gilroybold;
+     font-style: normal;
+     font-weight: 700;
+     font-size: 2rem;
+     line-height: 58px;
+     z-index: 1;
+     color: rgba(255, 255, 255, 0.25);
+}
+ .opacitydown {
+     opacity: 0.5;
+}
+ .textHudIcons {
+     position: absolute;
+     width: 2rem;
+     height: 5rem;
+     border: 1px solid red;
+}
+ .mayhemhudspeedometerbar {
+     position: absolute;
+     left: 4.3rem;
+     top: 4rem;
+}
+ .belairhud {
+     position: absolute;
+     width: 60rem;
+     height: 3rem;
+     bottom: -1rem;
+     left: -1rem;
+     display: flex;
+}
+ .belairdraghud {
+     position: relative;
+     width: 4rem;
+     height: 1rem;
+     top: 0.5rem;
+     border-top-left-radius: 0.3rem;
+     border-top-right-radius: 0.3rem;
+     margin-left: 2.5rem;
+}
+ .belairhudhealtnormal {
+     width: 5rem;
+     height: 1rem;
+     background: linear-gradient(360deg, rgba(61, 61, 61, 0) -86.67%, rgb(92, 92, 92) 86.67%);
+     top: 0.5rem;
+     border-top-left-radius: 0.3rem;
+     border-top-right-radius: 0.3rem;
+}
+ .belairhudhealtnormalin {
+     width: 50%;
+     height: 100%;
+     background-color: blue;
+     border-top-left-radius: 0.3rem;
+     border-top-right-radius: 0.3rem;
+}
+ .belaiarhealhticon {
+     position: absolute;
+     left: 0.4rem;
+     top: -1.3rem;
+     ;
+     border-radius:3rem;
+     witdh:auto;
+     width:1rem;
+     height:1rem;
+     transform:scale(1.3)
+}
+ .belaiarhealhticon img{
+     position:absolute;
+     filter: drop-shadow(0 0 0.5rem #7aff00);
+}
+ .belairhealthicontext {
+     position: absolute;
+     color: white;
+     font-family: gilroybold;
+     width: 5rem;
+     text-align: end;
+     top: -1.4rem;
+}
+ .belairhudmicnormal {
+     width: 4rem;
+     height: 1rem;
+     background: linear-gradient(360deg, rgba(61, 61, 61, 0) -86.67%, rgb(92, 92, 92) 86.67%);
+     top: 0.5rem;
+     border-top-left-radius: 0.3rem;
+     border-top-right-radius: 0.3rem;
+     margin-left: 1rem;
+}
+ .belairhudmicnormalin {
+     width: 50%;
+     height: 100%;
+     background-color: white;
+     border-top-left-radius: 0.3rem;
+     border-top-right-radius: 0.3rem;
+}
+ .belaiarmicicon {
+     position: absolute;
+     left: 2.8rem;
+     top: -1.5rem;
+     ;
+     border-radius:3rem;
+     witdh:auto;
+     width:1rem;
+     height:1rem;
+     transform:scale(1.3) 
+}
+ .belaiarmicicon img{
+     position:absolute;
+     filter: drop-shadow(0 0 0.5rem white);
+}
+ .belaiararmouricon {
+    position: absolute;
+     left: 0.4rem;
+     top: -1.3rem;
+     ;
+     border-radius:rem;
+     witdh:auto;
+     width:1rem;
+     height:1rem;
+     transform:scale(1.3)
+}
+ .belaiararmouricon img{
+     position:absolute;
+     filter: drop-shadow(0 0 0.5rem #7aff00);
+}
+ .belairhudarmournormal {
+     width: 5rem;
+     height: 1rem;
+     background: linear-gradient(360deg, rgba(61, 61, 61, 0) -86.67%, rgb(92, 92, 92) 86.67%);
+     border-top-left-radius: 0.3rem;
+     border-top-right-radius: 0.3rem;
+}
+ .belairhudarmournormalin {
+     width: 50%;
+     height: 100%;
+     background-color: blue;
+     border-top-left-radius: 0.3rem;
+     border-top-right-radius: 0.3rem;
+}
+ .belairarmouricontext {
+     position: absolute;
+     color: white;
+     font-family: gilroybold;
+     width: 5rem;
+     text-align: end;
+     top: -1.4rem;
+}
+ .belairhudthirstnormal {
+     width: 5rem;
+     height: 1rem;
+     background: linear-gradient(360deg, rgba(61, 61, 61, 0) -86.67%, rgb(92, 92, 92) 86.67%);
+     border-top-left-radius: 0.3rem;
+     border-top-right-radius: 0.3rem;
+}
+ .belairhudthirstnormalin {
+     width: 50%;
+     height: 100%;
+     background-color: rgb(4, 182, 45);
+     border-top-left-radius: 0.3rem;
+     border-top-right-radius: 0.3rem;
+}
+ .belaiarthirsticon {
+    position: absolute;
+     left: 0.4rem;
+     top: -1.3rem;
+     ;
+     border-radius:4rem;
+     witdh:auto;
+     width:1rem;
+     height:1rem;
+     transform:scale(1.3) 
+}
+ .belaiarthirsticon img{
+     position:absolute;
+     filter: drop-shadow(0 0 0.5rem #7aff00);
+}
+ .belairthirsticontext {
+     position: absolute;
+     color: white;
+     font-family: gilroybold;
+     width: 5rem;
+     text-align: end;
+     top: -1.4rem;
+}
+ .belairhudhungernormal {
+     width: 5rem;
+     height: 1rem;
+     background: linear-gradient(360deg, rgba(61, 61, 61, 0) -86.67%, rgb(92, 92, 92) 86.67%);
+     border-top-left-radius: 0.3rem;
+     border-top-right-radius: 0.3rem;
+}
+ .belairhudhungernormalin {
+     width: 50%;
+     height: 100%;
+     background-color: rgb(4, 182, 45);
+     border-top-left-radius: 0.3rem;
+     border-top-right-radius: 0.3rem;
+}
+ .belaiarhungericon {
+     position: absolute;
+     left: 0.4rem;
+     top: -1.3rem;
+     
+     border-radius:4rem;
+     witdh:auto;
+     width:1rem;
+     height:1rem;
+     transform:scale(1.3) 
+}
+ .belaiarhungericon img{
+     position:absolute;
+     filter: drop-shadow(0 0 0.5rem #7aff00);
+}
+ .belairhungericontext {
+     position: absolute;
+     color: white;
+     font-family: gilroybold;
+     width: 5rem;
+     text-align: end;
+     top: -1.4rem;
+}
+ .belairhudstaminanormal {
+     width: 5rem;
+     height: 1rem;
+     background: linear-gradient(360deg, rgba(61, 61, 61, 0) -86.67%, rgb(92, 92, 92) 86.67%);
+     border-top-left-radius: 0.3rem;
+     border-top-right-radius: 0.3rem;
+}
+ .belairhudstaminanormalin {
+     width: 50%;
+     height: 100%;
+     background-color: rgb(4, 182, 45);
+     border-top-left-radius: 0.3rem;
+     border-top-right-radius: 0.3rem;
+}
+ .belaiarstaminaicon {
+     position: absolute;
+     left: 0.4rem;
+     top: -1.3rem;
+     ;
+     border-radius:4rem;
+     witdh:auto;
+     width:1rem;
+     height:1rem;
+     transform:scale(1.2) 
+}
+ .belaiarstaminaicon img{
+     position:absolute;
+     filter: drop-shadow(0 0 0.5rem #7aff00);
+}
+ .belairstaminaicontext {
+     position: absolute;
+     color: white;
+     font-family: gilroybold;
+     width: 5rem;
+     text-align: end;
+     top: -1.4rem;
+}
+ .belairhudstressnormal {
+     width: 5rem;
+     height: 1rem;
+     background: linear-gradient(360deg, rgba(61, 61, 61, 0) -86.67%, rgb(92, 92, 92) 86.67%);
+     top: 0.5rem;
+     border-top-left-radius: 0.3rem;
+     border-top-right-radius: 0.3rem;
+}
+ .belairhudstressnormalin {
+     width: 50%;
+     height: 100%;
+     background-color: rgb(4, 182, 45);
+     border-top-left-radius: 0.3rem;
+     border-top-right-radius: 0.3rem;
+}
+ .belaiarstressicon {
+     position: absolute;
+     left: 0.4rem;
+     top: -1.3rem;
+     ;
+     border-radius:4rem;
+     witdh:auto;
+     width:1rem;
+     height:1rem;
+     transform:scale(1.2) 
+}
+ .belaiarstressicon img{
+     position:absolute;
+     filter: drop-shadow(0 0 0.6rem #7aff00);
+}
+ .belairstressicontext {
+     position: absolute;
+     color: white;
+     font-family: gilroybold;
+     width: 5rem;
+     text-align: end;
+     top: -1.4rem;
+}
+ .belairhudoxynormal {
+     width: 5rem;
+     height: 1rem;
+     background: linear-gradient(360deg, rgba(61, 61, 61, 0) -86.67%, rgb(92, 92, 92) 86.67%);
+     border-top-left-radius: 0.3rem;
+     border-top-right-radius: 0.3rem;
+}
+ .belairhudoxynormalin {
+     width: 50%;
+     height: 100%;
+     background-color: rgb(4, 182, 45);
+     border-top-left-radius: 0.3rem;
+     border-top-right-radius: 0.3rem;
+}
+ .belaiaroxyicon {
+     position: absolute;
+     left: 0.4rem;
+     top: -1rem;
+     box-shadow: rgb(255, 255, 255) 0px 0px 18px;
+     width: 0.5rem;
+     height: 0.5rem;
+}
+ .belairoxyicontext {
+     position: absolute;
+     color: white;
+     font-family: gilroybold;
+     width: 5rem;
+     text-align: end;
+     top: -1rem;
+}
+ .perspecthudsvg {
+     position: absolute;
+     width: 14rem;
+     height: 6rem;
+     left: 3rem;
+     top: 5rem;
+}
+ .perspecthudcaricon {
+     position: absolute;
+     width: 13.9rem;
+     height: 2rem;
+     display: flex;
+     top: 2.7rem;
+     left: 0.27rem;
+}
+ .perspecthudlight img {
+     width: 5rem;
+     height: 4rem;
+     margin-top: -1.1rem;
+     transform: scale(0.7);
+     margin-left: -14rem;
+}
+ .perspecthudkemer img {
+     width: 5rem;
+     height: 4rem;
+     margin-top: -0.8rem;
+     margin-left: -9.1rem;
+     transform: scale(0.3);
+}
+ .perspecthudcruise img {
+     width: 5rem;
+     height: 4rem;
+     margin-top: -1.2rem;
+     margin-left: -4.1rem;
+    transform: scale(0.8);
+}
+ .perspecthudcarimage {
+     position: absolute;
+     left: 5.85rem;
+}
+ .perspecthudnitro {
+     position: absolute;
+     width: 5rem;
+     height: 5rem;
+     top: 3rem;
+     left: 0.5rem;
+     transform: scale(0.6);
+}
+ .perspecthudnitro img {
+     position: absolute;
+     margin: auto;
+     inset: 0px;
+     transform: scale(1.9);
+}
+ .perspecthudnitro h2 {
+     position: absolute;
+     color: rgb(0, 255, 224);
+     font-family: gilroybold;
+     width: 5rem;
+     top: 3.8rem;
+     left: -1rem;
+}
+ .perspecthudwindspeed {
+     position: absolute;
+     width: 5rem;
+     height: 5rem;
+     top: 3rem;
+     left: 0.5rem;
+     transform: scale(0.6);
+}
+ .perspecthudwindspeed img {
+     position: absolute;
+     margin: auto;
+     inset: 0px;
+     transform: scale(1.9);
+}
+ .perspecthudwindspeed h2 {
+     position: absolute;
+     color: rgb(0, 255, 224);
+     font-family: gilroybold;
+     width: 5rem;
+     top: 3.9rem;
+     left: -2.5rem;
+}
+ .perspecthudrpm {
+     position: absolute;
+     width: 5rem;
+     height: 5rem;
+     top: 1.2rem;
+     left: 3.5rem;
+     transform: scale(0.5);
+}
+ .perspecthudrpm h2 {
+     position: absolute;
+     width: 5.2rem;
+     margin: auto;
+     margin-left:-0.1rem;
+     inset: 0.7rem 0px 0px;
+     text-align: center;
+     font-size: 3rem;
+     color: white;
+     font-family: gilroybold;
+}
+ .perspecthudcarhealth {
+     position: absolute;
+     width: 5rem;
+     height: 5rem;
+     top: 1.3rem;
+     left: 12rem;
+     transform: scale(0.5);
+}
+ .perspecthudcarhealth img {
+     position: absolute;
+     height: 5rem;
+     width: 5rem;
+     margin: auto;
+     inset: 0px 0px 1.3rem;
+     transform: scale(1.2);
+}
+ .perspecthudcarfuel {
+     position: absolute;
+     width: 5rem;
+     height: 5rem;
+     top: 3rem;
+     left: 15rem;
+     transform: scale(0.6);
+}
+ .perspecthudcarfuel img {
+     position: absolute;
+     margin: auto;
+     inset: 0px 0px 1rem;
+     transform: scale(1.5);
+}
+ .perspecthudcarfuel h2 {
+     position: absolute;
+     color: rgb(255, 199, 1);
+     font-family: gilroybold;
+     width: 5rem;
+     top: 3.8rem;
+     left: 3rem;
+}
+ .perspecthudspeedtext {
+     position: absolute;
+     font-family: gilroybold;
+     width: 4rem;
+     text-align: center;
+     left: 5.4rem;
+     top: -1.4rem;
+     font-size: 1.5rem;
+     letter-spacing: 0.1em;
+}
+ .perspectmotor {
+     position: absolute;
+     left: -1.3rem;
+     top: -1rem;
+     transform: scale(0.8);
+}
+ .perspectheli {
+     position: absolute;
+     left: -1.8rem;
+     top: -0.3rem;
+     transform: scale(0.8);
+}
+ .perspecttekne {
+     position: absolute;
+     left: 0.1rem;
+     top: -0.3rem;
+     transform: scale(0.8);
+}
+ .venicehudonwalk {
+     position: absolute;
+     width: 30rem;
+     height: 5rem;
+    bottom:10%;
+     left: 2%;
+}
+ .onwalk-heal {
+     position: absolute;
+     width: 7rem;
+     transform: scaleX(-1);
+     top: 7rem;
+}
+ .onwalk-armour {
+     position: absolute;
+     width: 7rem;
+     top: 7rem;
+     left: 11rem;
+}
+ .onwalk-thirst {
+     position: absolute;
+     width: 7rem;
+     transform: scale(-1);
+     top: 2.6rem;
+}
+ .onwalk-hunger {
+     position: absolute;
+     width: 7rem;
+     top: 2.6rem;
+     left: 11rem;
+     transform: scaleY(-1);
+}
+ .onwalk-stress {
+     position: absolute;
+     width: 7rem;
+     transform: rotate(90deg);
+     top: 9.6rem;
+     left: 5.7rem;
+}
+ .onwalk-stamina {
+     position: absolute;
+     width: 7rem;
+     transform: rotate(90deg);
+     top: 5.8rem;
+     left: 5.7rem;
+}
+ .onwalk-lungs {
+     position: absolute;
+     width: 7rem;
+     transform: rotate(90deg);
+     top: 5.8rem;
+     left: 5.7rem;
+}
+ .venicehudonwalkhudicon {
+     position: absolute;
+     width: 16rem;
+     height: 3rem;
+     top: 5.5rem;
+     left: 1rem;
+}
+ .venicehudonwalktrhirsticon {
+     position: absolute;
+     left: 0.3rem;
+     top: 0.3rem;
+}
+ .venicehudonwalkhealthicon {
+     position: absolute;
+     left: 0.25rem;
+     top: 2.1rem;
+}
+ .venicehudonwalkstaminaicon {
+     position: absolute;
+     left: 7.5rem;
+     top: 0.3rem;
+}
+ .venicehudonwalkstressicon {
+     position: absolute;
+     left: 7.4rem;
+     top: 2.5rem;
+}
+ .venicehudonwalkhungericon {
+     position: absolute;
+     left: 14.9rem;
+     top: 0.3rem;
+}
+ .venicehudonwalkarmoricon {
+     position: absolute;
+     left: 14.9rem;
+     top: 2.3rem;
+}
+ .venicehudonwalkmic1icon {
+     position: absolute;
+     left: 5.8rem;
+     top: 0.6rem;
+}
+ .venicehudonwalkmic2icon {
+     position: absolute;
+     left: 5.5rem;
+     top: 0.3rem;
+}
+ .venicehudonwalkmic3icon {
+     position: absolute;
+     left: 5.1rem;
+     top: 0.05rem;
+}
+ .venicehudonwalkmicicon {
+     position: absolute;
+     left: 6.55rem;
+     top: 0.2rem;
+     transform: scale(0.7);
+}
+ .venicehudonwalklungsicon {
+     position: absolute;
+     left: 7.4rem;
+}
+ .mayhemhudcaricons {
+     position: absolute;
+     width: 10rem;
+     display: flex;
+     top: 10rem;
+     left: 6rem;
+     z-index: 2;
+}
+ .mayhemhudlight {
+     position: absolute;
+     transform: scale(0.8);
+}
+ .mayhemhudkemer {
+     position: absolute;
+     transform: scale(0.9);
+     left: 4rem;
+     top: 1rem;
+}
+ .mayhemhudcruise {
+     position: absolute;
+     transform: scale(0.9);
+     left: 5.5rem;
+     top: -0.4rem;
+}
+ .mayhemhudgear {
+     position: absolute;
+     color: rgb(255, 199, 1);
+     font-family: gilroybold;
+     top: 31%;
+     left: 51%;
+     font-size: 1.2rem;
+}
+ .mayhemhudaltdude {
+     position: absolute;
+     left: 4.6rem;
+     top: 8.6rem;
+}
+ .mayhemhudsettingswrapper {
+     position: absolute;
+     width: 100vw;
+     height: 100vh;
+}
+ .mayhemhudsettingspageallsvg {
+     position: absolute;
+     width:20%;
+     height:20%;
+     left: 39.5%;
+     top: 37%;
+
+     display:flex;
+     align-items:center;
+     justify-content:center;
+}
+.newmayhemhudwrapper{
+    position:absolute;
+    width:70%;
+    height:46%;
+  
+    top:28%;
+    left:15%;
+
+
+   
+  
+
+}
+ .mayhemhudsettingspagesetborder {
+       position:absolute;
+     width: 35%;
+     height: 80%;
+     text-align: center;
+     font-size: 100%;
+       left:0%;
+     color: white;
+     font-family: gilroybold;
+     display:flex;
+     align-items:center;
+     justify-content:space-around;
+     align-content:flex-start;  
+      flex-wrap:wrap;
+     
+     
+}
+ .mayhemhudsettingspagesetborder2 {
+         position:absolute;
+     width: 15rem;
+     height: 15rem;
+     left: 37.3rem;
+     top: 20rem;
+     text-align: center;
+     font-size: 1.3rem;
+     line-height: 2rem;
+     color: white;
+     font-family: gilroybold;
+}
+ .mayhemhudsettingsborder {
+     width: 32%;
+     height: 7%;
+     border: 2px solid rgb(0, 255, 224);
+     border-radius: 0.5rem;
+     margin-top: 1rem;
+     display:flex;
+     align-items:center;
+     justify-content:center;
+}
+.newmayhemhudborder{
+    width: 5%;
+     height: 7%;
+     border: 2px solid rgb(0, 255, 224);
+     border-radius: 0.5rem;
+     margin-top: 1rem;
+     display:flex;
+     align-items:center;
+     justify-content:center;
+     margin-left:-3%;
+}
+
+
+
+
+
+ .mayhemhudsettingspagesetborder5 {
+       position:absolute;
+     width: 35%;
+     height: 80%;
+     text-align: center;
+     font-size: 100%;
+       right:1%;
+     color: white;
+     font-family: gilroybold;
+     display:flex;
+     align-items:center;
+     justify-content:space-around;
+     align-content:flex-start;  
+      flex-wrap:wrap;
+  
+}
+.mayhemhudsettingspagesetborder5 div:nth-child(17){
+    margin-left:50%;
+}
+
+
+ .colorinput {
+     appearance: none;
+     outline: none;
+     border: none;
+     width: 1rem;
+     pointer-events: none;
+     position: absolute;
+     z-index: 1;
+     background-color: transparent !important;
+     color: transparent !important;
+}
+ .speedometerSizeWrapper {
+     width: 100%;
+     height: 100%;
+     position: relative;
+}
+ .speedometerSize {
+     position: absolute;
+     left: 50%;
+     transform: translateX(-50%);
+     top: 59.5%;
+     font-family: gilroybold;
+     font-style: normal;
+     font-weight: 500;
+     font-size: 0.9rem;
+     line-height: 1.75rem;
+     text-align: center;
+     color: rgb(255, 255, 255);
+     z-index: 3;
+}
+ .speedometerSizeWrapper input {
+     appearance: none;
+     margin-top: 1rem;
+     border: none;
+     outline: none;
+     width: 9rem;
+     height: 0.4rem;
+     background-color: rgba(255, 255, 255, 0.22);
+}
+ .speedometerSizeWrapper input::-webkit-slider-thumb {
+     appearance: none;
+     background: rgb(255, 255, 255);
+     box-shadow: rgba(0, 0, 0, 0.25) -1px 0px 4px;
+     width: 0.625rem;
+     border-radius: 0.625rem;
+     height: 0.625rem;
+}
+ .zero {
+     position: absolute;
+     left: -1.6rem;
+     top: 0.2rem;
+}
+ .one {
+     position: absolute;
+     right: -1.5rem;
+     top: 0.2rem;
+}
+ .mayhemhudsettinspagechangebuttons {
+     position: absolute;
+     color: white;
+     display: flex;
+        bottom:5%;
+        height:5%;
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+     font-family: gilroybold;
+     font-size: 1.1rem;
+     z-index:1;
+     text-shadow: rgb(255, 255, 255) 0px 0px 16px;
+}
+.mayhemhudsettinspagechangebuttons2{
+    min-width:10%;
+    border:2px solid white;
+    height:100%;
+    border-radius:.5rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+ .settinspageperspectallsvg {
+    
+     width: 17%;
+     height: 8rem;
+     
+       display:flex;
+       align-items:center;
+       justify-content:center;
+   
+    
+}
+ .settingspageperspectborder {
+     position: absolute;
+     width: 100%;
+     height: 100%;
+   
+   
+}
+ .settingspageperspectborders:nth-child(1) {
+      position:absolute;
+     width: 8%;
+     height: 5%;
+     left: 10%;
+     top: 44%;
+     color: white;
+     border: 1px solid;
+     border-radius: 0.5rem;
+     display:flex;
+align-items:center;
+justify-content:space-around;
+flex-direction:row-reverse;
+
+}
+
+ .settingspageperspectborders:nth-child(1) h2 {
+    
+   
+   
+     font-family: gilroybold;
+     font-size: 100%;
+    
+}
+ .settingspageperspectborders:nth-child(2) {
+    
+       position:absolute;
+     width: 8%;
+     height: 5%;
+     left: 23%;
+     top: 55%;
+     color: white;
+     border: 1px solid;
+     border-radius: 0.5rem;
+     display:flex;
+align-items:center;
+justify-content:space-around;
+flex-direction:row-reverse;
+}
+ .settingspageperspectborders:nth-child(2) h2 {
+   
+     font-family: gilroybold;
+     font-size: 100%;
+}
+ .settingspageperspectborders:nth-child(3) {
+   
+      position:absolute;
+     width: 8%;
+     height: 5%;
+     left: 26%;
+     top: 43%;
+     color: white;
+     border: 1px solid;
+     border-radius: 0.5rem;
+     display:flex;
+align-items:center;
+justify-content:space-around;
+flex-direction:row-reverse;
+}
+
+ .settingspageperspectborders:nth-child(3) h2 {
+   
+     font-family: gilroybold;
+     font-size: 100%;
+}
+ .settingspageperspectborders:nth-child(4) {
+   
+      position:absolute;
+     width: 8%;
+     height: 5%;
+     left: 29%;
+     top: 32%;
+     color: white;
+     border: 1px solid;
+     border-radius: 0.5rem;
+     display:flex;
+align-items:center;
+justify-content:space-around;
+flex-direction:row-reverse;
+}
+ .settingspageperspectborders:nth-child(4) h2 {
+    font-family: gilroybold;
+     font-size: 100%;
+}
+ .settingspageperspectborders:nth-child(4) h1 {
+   
+       font-family: gilroybold;
+     font-size: 100%;
+}
+ .settingspageperspectborders:nth-child(5) {
+ 
+        position:absolute;
+     width: 8%;
+     height: 5%;
+     left: 60%;
+     top: 32%;
+     color: white;
+     border: 1px solid;
+     border-radius: 0.5rem;
+     display:flex;
+align-items:center;
+justify-content:space-around;
+flex-direction:row-reverse;
+}
+
+ .settingspageperspectborders:nth-child(5) h2 {
+      font-family: gilroybold;
+     font-size: 100%;
+}
+ .settingspageperspectborders:nth-child(6) {
+   
+      position:absolute;
+     width: 8%;
+     height: 5%;
+     left: 64%;
+     top: 43%;
+     color: white;
+     border: 1px solid;
+     border-radius: 0.5rem;
+     display:flex;
+align-items:center;
+justify-content:space-around;
+flex-direction:row-reverse;
+}
+
+ .settingspageperspectborders:nth-child(6) h2 {
+     font-family: gilroybold;
+     font-size: 100%;
+}
+ .settingspageperspectborders:nth-child(7) {
+       position:absolute;
+     width: 8%;
+     height: 5%;
+     left: 67%;
+     top: 55%;
+     color: white;
+     border: 1px solid;
+     border-radius: 0.5rem;
+     display:flex;
+align-items:center;
+justify-content:space-around;
+flex-direction:row-reverse;
+}
+ .settingspageperspectborders:nth-child(7) h2 {
+    
+       font-family: gilroybold;
+     font-size: 100%;
+}
+ .settingspageperspectborders:nth-child(8) {
+     position:absolute;
+     width: 8%;
+     height: 5%;
+     left: 77%;
+     top: 43%;
+     color: white;
+     border: 1px solid;
+     border-radius: 0.5rem;
+     display:flex;
+align-items:center;
+justify-content:space-around;
+flex-direction:row-reverse;
+}
+
+ .settingspageperspectborders:nth-child(8) h2 {
+   
+         font-family: gilroybold;
+     font-size: 100%;
+}
+ .settingspageperspectcolorpicker {
+     position: absolute;
+     width: 100%;
+     height: 40%;
+
+     top: 30%;
+
+     
+}
+ .settingspageperspectcolorpickers:nth-child(1) {
+     position: absolute;
+     width: 1.8%;
+     height:  13%;
+     left: 19%;
+     top: 34%;
+     color: white;
+     border: 1px solid;
+     border-radius: 0.5rem;
+          display:flex;
+     align-items:center;
+     justify-content:center;
+}
+
+ .settingspageperspectcolorpickers:nth-child(2) {
+     position: absolute;
+     width: 1.8%;
+     height:  13%;
+     left: 35%;
+     top: 32%;
+     color: white;
+     border: 1px solid;
+     border-radius: 0.5rem;
+          display:flex;
+     align-items:center;
+     justify-content:center;
+ 
+}
+ .settingspageperspectcolorpickers img {
+     position: absolute;
+     background-color: red;
+     border-radius: 0.2rem;
+     cursor: pointer;
+}
+ .settingspageperspectcolorpickers:nth-child(3) {
+       position: absolute;
+     width: 1.8%;
+     height:  13%;
+     left: 38%;
+     top: 4%;
+     color: white;
+     border: 1px solid;
+     border-radius: 0.5rem;
+          display:flex;
+     align-items:center;
+     justify-content:center;
+}
+
+ .settingspageperspectcolorpickers:nth-child(4) {
+        position: absolute;
+     width: 1.8%;
+     height:  13%;
+     right: 29.0%;
+     top: 4.5%;
+     color: white;
+     border: 1px solid;
+     border-radius: 0.5rem;
+          display:flex;
+     align-items:center;
+     justify-content:center;
+}
+
+ .settingspageperspectcolorpickers:nth-child(5) {
+       position: absolute;
+     width: 1.8%;
+     height:  13%;
+     right: 25.3%;
+     top: 31.5%;
+     color: white;
+     border: 1px solid;
+     border-radius: 0.5rem;
+          display:flex;
+     align-items:center;
+     justify-content:center;
+}
+
+ .settingspageperspectcolorpickers:nth-child(6) {
+        position: absolute;
+     width: 1.8%;
+     height:  13%;
+     right: 22.3%;
+     top: 61.5%;
+     color: white;
+     border: 1px solid;
+     border-radius: 0.5rem;
+          display:flex;
+     align-items:center;
+     justify-content:center;
+}
+
+ .settingspageperspectcolorpickers:nth-child(7) {
+       position: absolute;
+     width: 1.8%;
+     height:  13%;
+     right: 12.3%;
+     top: 32%;
+     color: white;
+     border: 1px solid;
+     border-radius: 0.5rem;
+          display:flex;
+     align-items:center;
+     justify-content:center;
+}
+
+ .settingspageperspectcolorpickers:nth-child(8) {
+     position: absolute;
+     width: 1.8%;
+     height:  13%;
+     left: 32%;
+     top: 61.5%;
+     color: white;
+     border: 1px solid;
+     border-radius: 0.5rem;
+          display:flex;
+     align-items:center;
+     justify-content:center;
+     border-radius: 0.5rem;
+}
+
+ .perspecthudaltbox {
+     position:absolute;
+     width:70%;
+
+     bottom:6%;
+     display:flex;
+     align-items:center;
+     justify-content:center;
+   
+   
+    
+}
+ .malibuhudallsvg {
+     position: absolute;
+     width: 15%;
+   
+    justify-content:center;
+    align-items:center;
+    display:flex;
+     height: 2rem;
+     margin: auto;
+     left: 1.5rem;
+     right: 2rem;
+     top: 56%;
+}
+ .malibuhudsettingspagegeneraltext {
+     position:absolute;
+    left: 64%;
+     width: 35%;
+     height: 100%;
+     color: white;
+    
+     font-size: 70%;
+     font-family: gilroybold;
+     text-shadow: rgb(255, 0, 61) 0px 0px 16px;
+     display:flex;
+     align-items:center;
+     justify-content:center;
+     flex-wrap:wrap;
+
+
+}
+.malibuhudsettingspagegeneraltext h2{
+       width:35%;
+
+    text-align:center;
+    height:8%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:1rem;
+    border-radius:.5rem;
+     border-radius:.5rem;
+      border:3px solid #FF0099;
+     text-shadow: 0px 0px 16px #FF0099;
+      box-shadow: 0px 0px 18px #FF0099;
+      background: linear-gradient(360deg, rgba(255, 0, 153, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+    
+}
+
+
+.newmalibuhudcontainer{
+     position: relative;
+     width: 70%;
+   
+     height: 49%;
+   
+        left:50%;
+        transform:translate(-50%);
+        top:28%;
+       
+       
+}
+
+
+
+ .malibuhudsettingpageborder {
+     position: absolute;
+     width: 12%;
+     height: 70%;
+     left:5%;
+   
+        
+}
+ .malibuhudsettingpageborder1 {
+     position: absolute;
+     width: 2%;
+     height: 70%;
+      left:18%;
+     
+      
+}
+ .malibuhudsettingpageborders1 img {
+   
+     padding: 0.1rem;
+     background-color: red;
+     border-radius: 0.2rem;
+     cursor: pointer;
+}
+
+
+ .malibuhudsettingpageborders {
+     width: 100%;
+     height: 10%;
+     border: 2px solid;
+     color: white;
+     margin-top: 1rem;
+     border-radius: 0.5rem;
+     text-align: center;
+     font-family: gilroybold;
+     display:flex;
+     align-items:center;
+     justify-content:space-around;
+    
+}
+ .malibuhudsettingpageborders1 {
+     width: 100%;
+     height: 10%;
+     border: 2px solid;
+     color: white;
+     margin-top: 1rem;
+     border-radius: 0.5rem;
+     text-align: center;
+     font-family: gilroybold;
+        display:flex;
+     align-items:center;
+     justify-content:center;
+}
+
+ .malibuhudsettingpageborders h2 {
+         color: white;
+     font-size:120%;
+     font-family: gilroybold;
+}
+
+ .malibuhudsettingpageborders4 {
+        width: 100%;
+     height: 10%;
+     border: 2px solid;
+     color: white;
+     margin-top: 1rem;
+     border-radius: 0.5rem;
+     text-align: center;
+     font-family: gilroybold;
+        display:flex;
+     align-items:center;
+     justify-content:space-around;
+}
+ .malibuhudsettingpageborders4 h2 {
+     margin-left: -2rem;
+     font-size: 1rem;
+     margin-top: 0.4rem;
+     color: white;
+     font-family: gilroybold;
+}
+ .malibuhudsettingpageborders4 input {
+   
+     width: 1.6rem;
+     height: 1rem;
+     border-top: none;
+     border-right: none;
+     border-left: none;
+     border-image: initial;
+     left: 1.5rem;
+     color: white;
+     border-bottom: 1px solid red;
+     outline: none;
+     background: transparent;
+     top: -2rem;
+     font-family: gilroybold;
+}
+
+ .malibuhudsettingpageborder3 {
+       position: absolute;
+     width: 12%;
+    height: 70%;
+     left:22%;
+}
+
+ .malibuhudsettingpageborders6 {
+     width: 100%;
+     height: 2rem;
+     border: 2px solid;
+     color: white;
+     margin-top: 1rem;
+     border-radius: 0.5rem;
+     text-align: center;
+     font-family: gilroybold;
+     line-height: 2rem;
+}
+
+ .malibuhudsettingpageborders6 img {
+     margin-top: 0.45rem;
+     padding: 0.1rem;
+     background-color: red;
+     border-radius: 0.2rem;
+     cursor: pointer;
+}
+
+
+
+ .malibuhudchangetext {
+     position: absolute;
+     color: white;
+     font-family: gilroybold;
+     width: 51%;
+     display: flex;
+     height:7%;
+      bottom :6%;
+      left:4.9%;
+     
+      align-items:center;
+      justify-content:space-between;
+     
+}
+
+.malibuhudchangetext1{
+       width:22%;
+       border:3px solid white;
+       text-align:center;
+       height:100%;
+       display:flex ;
+       align-items:center;
+       justify-content:center;
+       border-radius:.5rem;
+       text-shadow: 0px 0px 16px #FFFFFF;
+       background: linear-gradient(360deg, rgba(255, 255, 255, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+}
+.malibuhudchangetext1:nth-child(2){
+     margin-left:-8%;
+}
+
+ .belairmodeallsvg {
+     position: absolute;
+     width:34%;
+     height:10%;
+
+     left:34%;
+       top:62%;
+       display:flex;
+       align-items:center;
+       justify-content:center;
+   
+}
+ .belairmodesettingspagebox {
+     position: absolute;
+     width: 71%;
+     height: 46%;
+     top: 28%;
+     left: 14%;
+    
+}
+.newbelairhudwrapper{
+        position: absolute;
+     width: 71%;
+     height: 46%;
+     top: 28%;
+     left: 14%;
+}
+.newbelairhudcontainer{
+
+    width:30%;
+      height:80%;
+      margin-left:4.5%;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+   
+    
+    
+}
+
+ .belairmodesettingspageboxs1 {
+
+     width:40%;
+     height: 8%;
+     
+     border: 1px solid;
+   
+     border-radius: 0.4rem;
+     display:flex;
+     align-items:center;
+     justify-content:space-around;
+}
+ .belairmodesettingspageboxs1 h2{
+     color:white;
+        font-family: gilroybold;
+        font-size:100%;
+ }
+
+ .belairhudnewborder{
+  
+     width:5%;
+     height:8%;
+     border-radius:.5rem;
+     margin-left:-14%;
+     display:flex;
+     align-items:center;
+
+     justify-content:center;
+ }
+
+
+
+
+
+
+.newmlibuhudcontainer2{
+     position:absolute;
+     width:2%;
+     height:80%;
+     top:100%;
+     border: 1px solid;
+     flex-wrap:wrap;
+     border-radius: 0.4rem;
+     display:flex;
+     left:16.5%;
+     align-items:center;
+     justify-content:center;
+     align-content:flex-start;
+    
+
+}
+ .belairmodesettingspageboxs2 {
+    width:100%;
+    height:20%;
+     height: 2rem;
+     border: 1px solid white;
+      margin-top:30%;
+     border-radius: 0.4rem;
+    
+}
+ .belairmodesettingspageboxs2 img {
+     position: absolute;
+     border: 1px solid;
+     background-color: red;
+     padding: 0.2rem;
+     border-radius: 0.3rem;
+     margin: auto;
+     inset: 0px;
+     cursor: pointer;
+}
+ .belairmodesettingspageboxx {
+     position: absolute;
+     width: 10rem;
+     height: 20rem;
+     left: 17.5rem;
+}
+ .belairmodesettingspageboxs11 {
+    
+     border: 1px solid;
+    
+     border-radius: 0.4rem;
+     width:35%;
+     height:8%;
+     display:flex;
+     align-items:center;
+     justify-content:space-around;
+     
+}
+ .belairmodesettingspageboxs22 {
+     position: relative;
+     width: 2rem;
+     height: 2rem;
+     border: 1px solid;
+     margin-top: 0.6rem;
+     left: -2.8rem;
+     border-radius: 0.4rem;
+     top: -19.77rem;
+}
+ .belairmodesettingspageboxs22 img {
+     position: absolute;
+     color: white;
+     padding: 0.2rem;
+     border-radius: 0.3rem;
+     margin: auto;
+     inset: 0px;
+     cursor: pointer;
+     background-color: red;
+}
+
+
+
+
+ .belairmodesettingspageboxs11 input {
+   
+     width: 2rem;
+     left: 3.5rem;
+     outline: none;
+     background: transparent;
+     border-top: none;
+     border-right: none;
+     border-left: none;
+     border-image: initial;
+     border-bottom: 1px solid red;
+     color: white;
+     font-family: gilroybold;
+}
+ .belairmodetext {
+     position: absolute;
+     width: 35%;
+     height: 100%;
+     right: 1%; 
+     top:0%;
+
+     font-family: gilroybold;
+     color: white;
+     font-size: 0.7rem;
+     text-align: center;
+  
+     display:flex;
+     align-items:center;
+     justify-content:center;
+     flex-wrap:wrap;
+}
+.belairmodetext h2{
+       width:35%;
+   border: 2px solid #00FFF0;
+    box-shadow: 0px 0px 20px #00FFF0;
+    text-align:center;
+    height:8%;
+    display:flex;
+    font-size:100%;
+    align-items:center;
+    justify-content:center;
+    margin:1rem;
+    border-radius:.5rem;
+    
+background: linear-gradient(360deg, rgba(0, 255, 240, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);}
+
+ .belairmodedefaultext {
+     position: absolute;
+     font-family: gilroybold;
+     color: white;
+     width: 50%;
+     height:6%;
+     display: flex;
+    bottom:3%;
+ 
+    align-items:center;
+    justify-content:space-between;
+    
+  
+}
+.belairmodedefaultext h2{
+    width:20%;
+    height:100%;
+    font-size:90%;
+    text-align:center;
+    border:2px solid white;
+    border-radius:.5rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+
+ .venicehudphoneinventorymenumic {
+     position: absolute;
+     width: 12rem;
+     height: 14rem;
+     right: -1.2rem;
+     top: 20rem;
+}
+ .venicehudphoneinventorymicbox {
+     position: absolute;
+     width: 7rem;
+     height: 2.5rem;
+     border-radius: 0.5rem;
+     top: 0.9rem;
+     font-family: gilroybold;
+     color: rgb(0, 255, 240);
+     text-align: center;
+     line-height: 2.5rem;
+     background: linear-gradient(360deg, rgba(0, 255, 240, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+}
+ .venicehudphoneinventorymicbox2 {
+     position: absolute;
+     width: 7rem;
+     height: 2.5rem;
+     top: 4.2rem;
+     border-radius: 0.5rem;
+     font-family: gilroybold;
+     color: rgb(0, 255, 240);
+     text-align: center;
+     line-height: 2.5rem;
+     background: linear-gradient(360deg, rgba(0, 255, 240, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+}
+ .venicehudphoneinventorymicbox3 {
+     position: absolute;
+     width: 7rem;
+     height: 2.5rem;
+     border-radius: 0.5rem;
+     top: 7.5rem;
+     font-family: gilroybold;
+     color: rgb(0, 255, 240);
+     text-align: center;
+     line-height: 2.5rem;
+     background: linear-gradient(360deg, rgba(0, 255, 240, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+}
+ .venicehudphoneinventorymicbox4 {
+     position: absolute;
+     width: 7rem;
+     height: 2.5rem;
+     top: 10.8rem;
+     border-radius: 0.5rem;
+     font-family: gilroybold;
+     color: rgb(0, 255, 240);
+     text-align: center;
+     line-height: 2.5rem;
+     background: linear-gradient(360deg, rgba(0, 255, 240, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+}
+ .venicehudpressbox {
+     position: absolute;
+     font-family: gilroybold;
+     color: rgb(0, 255, 240);
+     left: 7.5rem;
+     height: 2.3rem;
+     width: 2.5rem;
+     background: linear-gradient(360deg, rgba(0, 255, 240, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+     border: 2px solid;
+     margin-top: 0.8rem;
+     border-radius: 0.6rem;
+     bottom: 10.65rem;
+     text-align: center;
+     line-height: 2.5rem;
+}
+ .venicehudpressbox2 {
+     position: absolute;
+     font-family: gilroybold;
+     color: rgb(0, 255, 240);
+     left: 7.5rem;
+     height: 2.3rem;
+     width: 2.5rem;
+     background: linear-gradient(360deg, rgba(0, 255, 240, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+     border: 2px solid;
+     margin-top: 0.8rem;
+     border-radius: 0.6rem;
+     bottom: 7.3rem;
+     text-align: center;
+     line-height: 2.5rem;
+}
+ .venicehudpressbox3 {
+     position: absolute;
+     font-family: gilroybold;
+     color: rgb(0, 255, 240);
+     left: 7.5rem;
+     height: 2.3rem;
+     width: 2.5rem;
+     background: linear-gradient(360deg, rgba(0, 255, 240, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+     border: 2px solid;
+     margin-top: 0.8rem;
+     border-radius: 0.6rem;
+     bottom: 4.05rem;
+     text-align: center;
+     line-height: 2.5rem;
+}
+ .venicehudpressbox4 {
+     position: absolute;
+     font-family: gilroybold;
+     color: rgb(0, 255, 240);
+     left: 7.5rem;
+     height: 2.3rem;
+     width: 2.5rem;
+     background: linear-gradient(360deg, rgba(0, 255, 240, 0.3) 0%, rgba(0, 0, 0, 0) 147.06%);
+     border: 2px solid;
+     margin-top: 0.8rem;
+     border-radius: 0.6rem;
+     bottom: 0.7rem;
+     text-align: center;
+     line-height: 2.5rem;
+}
+ .phoneimages {
+     position: absolute;
+     left: 0.8rem;
+     top: 0.9rem;
+}
+ .inventoryimages {
+     position: absolute;
+     left: 0.5rem;
+     top: 0.9rem;
+}
+ .menuimages {
+     position: absolute;
+     left: 0.5rem;
+     top: 0.9rem;
+}
+ .micimages {
+     position: absolute;
+     left: 0.8rem;
+     top: 0.9rem;
+}
+ .venicehudphoneinventorymicbox h2 {
+     position: absolute;
+     font-size: 1rem;
+     width: 4rem;
+     margin-left: 2rem;
+     top: -0.7rem;
+}
+ .venicehudphoneinventorymicbox2 h2 {
+     position: absolute;
+     font-size: 1rem;
+     width: 4rem;
+     margin-left: 2rem;
+     top: -0.7rem;
+}
+ .venicehudphoneinventorymicbox3 h2 {
+     position: absolute;
+     font-size: 1rem;
+     width: 4rem;
+     margin-left: 2rem;
+     top: -0.7rem;
+}
+ .venicehudphoneinventorymicbox4 h2 {
+     position: absolute;
+     font-size: 1rem;
+     width: 4rem;
+     margin-left: 2rem;
+     top: -0.7rem;
+}
+
+.newvertexhudcontainer{
+    position:absolute;
+    width:70%;
+    height:46%;
+
+    top:27.5%;
+    left:15%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  
+}
+
+ .vertexhudallsvg {
+        position:absolute;
+     width:50%;
+     height:50%;
+        
+      display:flex;
+      align-items:center;
+      justify-content:center;
+     
+    
+   
+   
+
+   
+}
+ .vertexhudmotoricon {
+     position: absolute;
+     left: -2.3rem;
+     top: -1.3rem;
+}
+ .vertexhudheliicon {
+     position: absolute;
+     left: -2.99rem;
+     top: -1rem;
+}
+ .vertexhudtekneicon {
+     position: absolute;
+     left: -0.99rem;
+     top: -1rem;
+}
+ .mapsborders {
+     position: absolute;
+     width:16%;
+     height:19%;
+   
+     bottom:6.8%;
+       left:1.5%;
+       display:flex;
+       align-items:center;
+       justify-content:center;
+       z-index:-1;
+}
+ .mapborder {
+
+    width:100%;
+    height:100%;
+  
+   
+}
+ .mapborder img {
+       transform:scale(1.11);
+     width: 100%;
+     height: 100%;
+}
+ .clockcompassstreet {
+   position:absolute;
+   width:100%;
+
+   height:5%;
+   display:flex;
+   align-items:center;
+   justify-content:space-around;
+   top:1%;
+   z-index:2;
+    
+}
+ .clockcompassstreet h2 {
+   
+     color: white;
+     font-size: 0.7rem;
+     font-family: gilroybold;
+   
+}
+ .clockcompassstreet h3 {
+     
+     color: white;
+     font-size: 0.7rem;
+     font-family: gilroybold;
+
+}
+ .clockcompassstreet h4 {
+    
+     color: white;
+     font-size: 1rem;
+     font-family: gilroybold;
+   
+   
+     z-index: 1;
+}
+ .perspecthudwrapper {
+     position: absolute;
+     top: 54rem;
+     right: 25rem;
+}
+ .speedometerbackground{
+     position:absolute;
+     margin:auto auto;
+     left:0.27rem;
+     right:0;
+     top:0.3rem;
+     bottom:0;
+     transform:scale(0.99) 
+}
+ .roadssvg{
+     position:absolute;
+     width:100%;
+     height:50%;
+     margin-left:2%;
+      margin-top:-1%;
+     display:flex;
+     align-items:center;
+     justify-content:center;
+     
+}
+ .mapopen-mic{
+     position:absolute;
+     width:15%;
+     height:25%;
+     display:flex;
+     align-items:center;
+     justify-content:center;
+     flex-wrap:wrap;
+     flex-direction:row;
+     align-content:flex-start;
+     bottom:-22.7%;
+     left:42.9%;
+    
+}
+ .mapopen-micicon img{
+   
+
+     transform:scale(1.3);
+}
+ .mapopen-mic1{
+  position:absolute;
+    top:20%;
+   
+}
+ .mapopen-mic2{
+    position:absolute;
+    top:27%;
+}
+ .mapopen-mic3{
+   position:absolute;
+    top:36%;
+}
+ .perspecthudlatsvg{
+     margin-left:0.2rem;
+}
+ .roadssvg2{
+     position:absolute;
+      width:100%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      top:35%;
+}
+
+
+.perspectnewborder{
+    position:absolute;
+    width:70%;
+    height:46%;
+ 
+    top:28%;
+    left:15%;
+    justify-content:center;
+    align-items:center;
+    display:flex;
+}
+
+.mayhemspeedometer{
+    position:absolute;
+    width:20%;
+    height:20%;
+    bottom:1%;
+    border:1px solid red;
+    }

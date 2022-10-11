@@ -1,0 +1,180 @@
+
+
+@media screen and (width: 2560px) and (height: 1440px) {
+  html {
+   font-size:14px;
+  }
+  .menu-wrapper{
+    margin-top:19rem;
+  }
+}
+
+@media screen and (width: 1920px) and (height: 1440px) {
+  html {
+   font-size:16px;
+  }
+  .menu-wrapper{
+    margin-top:19rem;
+  }
+}
+
+
+@media screen and (width: 1768px) and (height: 992px) {
+  html {
+   font-size:15px;
+  }
+
+}
+
+
+@media screen and (width: 1680px) and (height: 1050px) {
+  html {
+   font-size:15px;
+  }
+
+}
+
+@media screen and (width: 1600px) and (height: 1200px) {
+  html {
+      font-size:14px;
+  }
+  .menu-wrapper{
+    margin-top:20rem;
+  }
+  .market-wrapper-image{
+     margin-top:-3rem;
+  }
+  
+
+}
+
+@media screen and (width: 1600px) and (height: 1024px) {
+  html {
+      font-size:14px;
+  }
+  .menu-wrapper{
+    margin-top:12rem;
+  }
+  .market-wrapper-image{
+     margin-top:0rem;
+  }
+
+}
+
+@media screen and (width: 1600px) and (height: 900px) {
+  html {
+      font-size:13px;
+  }
+  .menu-wrapper{
+    margin-top:6rem;
+  }
+  .market-wrapper-image{
+     margin-top:3rem;
+  }
+ 
+}
+
+@media screen and (width: 1440px) and (height: 900px) {
+  html {
+      font-size:12px;
+  }
+  .menu-wrapper{
+    margin-top:3rem;
+  }
+  .market-wrapper-image{
+     margin-top:5rem;
+  }
+
+  .player-profile{
+     margin-top:7rem;
+  }
+
+}
+
+@media screen and (width: 1400px) and (height: 1050px) {
+  html {
+      font-size:12px;
+  }
+  .menu-wrapper{
+    margin-top:18rem;
+  }
+  .market-wrapper-image{
+     margin-top:5rem;
+  }
+
+  .player-profile{
+     margin-top:7rem;
+  }
+
+}
+@media screen and (width: 1366px) and (height: 768px) {
+  html {
+      font-size:10px;
+  }
+  .menu-wrapper{
+    margin-top:18rem;
+  }
+  .market-wrapper-image{
+     margin-top:5rem;
+  }
+  .achievenments-container{
+    margin-left:9rem;
+
+  }
+ 
+  
+}
+
+@media screen and (width: 1360px) and (height: 768px) {
+  html {
+      font-size:10px;
+  }
+  .menu-wrapper{
+    margin-top:18rem;
+  }
+  .market-wrapper-image{
+     margin-top:5rem;
+  }
+  .achievenments-container{
+    margin-left:9rem;
+
+  }
+ 
+  
+}
+
+@media screen and (width: 1280px) and (height: 1024px) {
+  html {
+      font-size:10px;
+  }
+  .menu-wrapper{
+    margin-top:18rem;
+  }
+  .market-wrapper-image{
+     margin-top:5rem;
+  }
+  .achievenments-container{
+    margin-left:9rem;
+
+  }
+ 
+  
+}
+
+@media screen and (width: 1280px) and (height: 720px) {
+  html {
+      font-size:10px;
+  }
+  .menu-wrapper{
+    margin-top:18rem;
+  }
+  .market-wrapper-image{
+     margin-top:5rem;
+  }
+  .achievenments-container{
+    margin-left:9rem;
+
+  }
+ 
+  
+}

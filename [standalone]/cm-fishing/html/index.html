@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+</head>
+<style></style>
+
+<body>
+
+    <div id="app">
+        <div class="fishing-buttons" v-show="fishingStarted">
+            <div class="fishing-button">
+                <div class="fishing-button-icon">
+                    <img src="./images/arrow-down.png">
+                </div>
+                <p class="fishing-button-text">Catch Fish</p>
+            </div>
+            <div class="fishing-button">
+                <div class="fishing-button-icon">
+                    <p>G</p>
+                </div>
+                <p class="fishing-button-text">Swing the rod...</p>
+            </div>
+            <div class="fishing-button">
+                <div class="fishing-button-icon">
+                    <p>X</p>
+                </div>
+                <p class="fishing-button-text">Cancel Fishing...</p>
+            </div>
+            <div class="fishing-button-progress">
+                <p class="fishing-button-progress-text">{{fishingProgressText}}</p>
+                <div class="fish-progressbar">
+                    <img src="./images/fish-icon.png">
+                </div>
+            </div>
+        </div>
+        <div class="container" v-show="show ">
+            <div class="notify-container"></div>
+            <div class="menu-wrapper" v-if="homepage == 'main'">
+                <div class="menu-wrapper-left-page">
+                    <div class="playerimage" v-if="playeraccount" v-for="data in playeraccount">
+                        <div class="playerimagesource">
+                            <img src="./images/nopp.png" v-if="data.playerimage == '0'" />
+                            <img v-bind:src="data.playerimage" v-else />
+                        </div>
+                        <h2 @click="newPage('profile')">Mrs.{{data.playername}}</h2>
+                        <h3>Lv.{{data.level}}</h3>
+                    </div>
+                    <div class="welcome-fishing">Welcome to fishing</div>
+                    <div class="menu-wrapper-left-page-button">
+                        <div class="menu-wrapper-left-page-button-in" @click="newPage('wiki')">
+                            <div class="wiki-buton-bg"
+                                v-bind:style=" selectedButtonMain == 'wiki' ? {'background-image': 'url(images/wikiactive.png)', 'border' : '3px solid #00F0FF', 'filter': 'drop-shadow(0px 0px 25px rgba(0, 240, 255, 0.5))','transition' : '1s all'} : {'background-image': 'url(images/wikibg.png)', 'transition':'1s all'} ">
+                            </div>
+                            <h2 class="buton-text">{{language["WIKI"]}}</h2>
+                        </div>
+                        <div class="menu-wrapper-left-page-button-in" @click="newPage('board')">
+                            <div class="wiki-buton-bg"
+                                v-bind:style=" selectedButtonMain == 'board' ? {'background-image': 'url(images/boardactive.png)', 'border' : '3px solid #00F0FF', 'filter': 'drop-shadow(0px 0px 25px rgba(0, 240, 255, 0.5))','transition' : '1s all'} : {'background-image': 'url(images/boardbg.png)', 'transition':'1s all'} ">
+                            </div>
+                            <h2 class="buton-text">{{language["BOARD"]}}</h2>
+                        </div>
+
+                        <div v-if="showMarket" class="menu-wrapper-left-page-button-in" @click="newPage('market')">
+                            <div class="wiki-buton-bg"
+                                v-bind:style=" selectedButtonMain == 'market' ? {'background-image': 'url(images/marketactive.png)', 'border' : '3px solid #00F0FF', 'filter': 'drop-shadow(0px 0px 25px rgba(0, 240, 255, 0.5))','transition' : '1s all'} : {'background-image': 'url(images/marketbg.png)', 'transition':'1s all'} ">
+                            </div>
+
+                            <h2 class="buton-text">{{language["MARKET"]}}</h2>
+                        </div>
+                        <div v-else class="menu-wrapper-left-page-button-in-block">
+                            <div class="wiki-buton-bg-block"></div>
+                        </div>
+                        <div class="menu-wrapper-left-page-button-in" @click="newPage('spots')">
+                            <div class="wiki-buton-bg"
+                                v-bind:style=" selectedButtonMain == 'spots' ? {'background-image': 'url(images/spotactive.png)', 'border' : '3px solid #00F0FF', 'filter': 'drop-shadow(0px 0px 25px rgba(0, 240, 255, 0.5))','transition' : '1s all'} : {'background-image': 'url(images/spotbg.png)', 'transition':'1s all'} ">
+                            </div>
+                            <h2 class="buton-text">{{language["SPOTS"]}}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-wrapper-middle-page">
+                    <div class="top-header">
+                        <div class="m-logo"> <img src="./images/m-logo.png" alt="">
+                            <h2>{{language["FISHIN"]}} <span>{{language["FISHING"]}}</span></h2>
+                          
+                        </div>
+                    </div>
+                    <div class="searchbar"
+                        v-if="page == 'wiki' || page == 'wikicommon' || page == 'wikiuncommon' || page == 'wikirare' || page == 'wikilegendary'|| page == 'wikiepic'|| page == 'wikiall' || page == 'other'">
+                        <div class="searchbaricon"> <img src="./images/icon-search.png" alt=""> </div> <input
+                            type="text" placeholder="Search wiki" v-model="search">
+                    </div>
+                    <div class="searchbarplayer" v-if="page == 'board'">
+                        <div class="searchbaricon"> <img src="./images/icon-search.png" alt=""> </div> <input
+                            type="text" placeholder="Search player.." v-model="searchplayer">
+                    </div>
+                    <div class="searchbarplayer"
+                        v-if="page == 'marketbuyin' ||  page == 'buymarketinall' ||  page == 'buymarketinroads' ||  page == 'buymarketinbaits'">
+                        <div class="searchbaricon"> <img src="./images/icon-search.png" alt=""> </div> <input
+                            type="text" placeholder="Search item.." v-model="search">
+                    </div>
+                    <div class="mainspot" v-if="page == 'main' && nearSpot">
+                        <div class="mainspot-wrapper">
+                            <div class="mainspot-locimages">
+                                <img :src="'./images/'+nearSpot.bgimage" alt="">
+                            </div>
+                            <div class="mainspot-required">
+                                <div class="mainspot-yildiz" v-if="nearSpot.spotLvlStars">
+                                    <template v-for="n in 5">
+                                        <img v-if="nearSpot.spotLvlStars >= n" class="spot-star"
+                                            src="./images/star_full.png">
+                                        <img v-else-if="nearSpot.spotLvlStars.toFixed(0) >= n" class="spot-star"
+                                            src="./images/half_star.png">
+                                        <img v-else class="spot-star spot-empty-star" src="./images/star_empty.png">
+                                    </template>
+                                </div>
+                                <h2 class="mainspot-spotname">{{nearSpot.blipName}}</h2>
+                                <h2 class="mainspot-spotloc">{{nearSpot.location}}</h2>
+                                <h2 class="mainspot-spotrequired">{{nearSpot.statement}}</h2>
+                                <div class="mainspot-mainrequired">
+                                    <h2 class="mainspot-main-text">{{language["LOCATION"]}}</h2>
+                                    <h2 class="mainspot-main-text2">{{nearSpot.location}}</h2>
+                                    <h2 class="mainspot-main-text">{{language["SPOTQUALITY"]}}</h2>
+                                    <h2 class="mainspot-main-text2">{{nearSpot.spotQuality}}</h2>
+                                    <h2 class="mainspot-main-text">{{language["AFKCATCHMIN"]}} <span> 1 </span> {{language["AFKCATCHMINUTE"]}}</h2>
+                                    <h2 class="mainspot-main-text2"><span> {{nearSpot.afkCatchInMinute}} </span> per mn
+                                    </h2>
+                                    <h2 class="mainspot-main-text">{{language["FISHQUALITYSCALE"]}} </h2>
+                                    <h2 class="mainspot-main-text2">{{nearSpot.fishQualityScale}}</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div v-if="(useafkfarm && playerlevel >= nearSpot.requiredLvl) " class="mainspot-afk-button" @click="afkmodestart">{{language["ENABLEAFKMODE"]}} </div>
+                        <div v-else-if ="useafkfarm" class="mainspot-afk-button" >{{language["LOWLEVEL"]}}</div>
+                        <div v-if="playerlevel >= nearSpot.requiredLvl "  class="mainspot-cathfish-button" @click="StartFishing">{{language["CATCHFISH"]}}</div>
+                        <div v-else  class="mainspot-cathfish-button" >{{language["LOWLEVEL"]}}</div>
+                    </div>
+                    <div class="wiki-wrapper"
+                        v-if="page != 'spots' && page != 'profile' && page != 'market' && page != 'marketbuyin' && page != 'buymarketinall'&& page != 'buymarketinroads'&& page != 'buymarketinbaits' && page != 'itemsellpage'">
+                        <div class="wiki-wrapper-image"
+                            v-if="page == 'wiki' || page == 'wikicommon' || page == 'wikiuncommon' || page == 'wikirare' || page == 'wikilegendary'|| page == 'wikiepic'|| page == 'wikiall' || page== 'other'">
+                            <div class="wiki-butons">
+                                <h2 @click="newPage('wikiall')"
+                                    v-bind:style=" selectedButton == 'wikiall' ? {'border' : '2px solid #00F0FF', 'filter': 'drop-shadow(0px 0px 25px rgba(0, 240, 255, 0.5))', 'background': 'linear-gradient(90deg, rgba(0, 240, 255, 0.45) 0%, rgba(17, 19, 22, 0.45) 100%)','transition' : '1s all'} : {'background': 'rgba(17, 19, 22, 0.32)', 'transition':'1s all'} ">
+                                    {{language["ALL"]}}</h2>
+                                <h2 @click="newPage('wikicommon')"
+                                    v-bind:style=" selectedButton == 'wikicommon' ? {'border' : '2px solid #00F0FF', 'filter': 'drop-shadow(0px 0px 25px rgba(0, 240, 255, 0.5))', 'background': 'linear-gradient(90deg, rgba(0, 240, 255, 0.45) 0%, rgba(17, 19, 22, 0.45) 100%)','transition' : '1s all'} : {'background': 'rgba(17, 19, 22, 0.32)', 'transition':'1s all'} ">
+                                    {{language["COMMON"]}}</h2>
+                                <h2 @click="newPage('wikiuncommon')"
+                                    v-bind:style=" selectedButton == 'wikiuncommon' ? {'border' : '2px solid #00FF85', 'filter': 'drop-shadow(0px 0px 25px #00FF85)', 'background': 'linear-gradient(90deg, rgba(0, 255, 133, 0.45) 0%, rgba(17, 19, 22, 0.45) 100%)','transition' : '1s all'} : {'background': 'rgba(17, 19, 22, 0.32)', 'transition':'1s all'} ">
+                                    {{language["UNCOMMON"]}}</h2>
+                                <h2 @click="newPage('wikirare')"
+                                    v-bind:style=" selectedButton == 'wikirare' ? {'border' : '2px solid #FFE600', 'filter': 'drop-shadow(0px 0px 25px #FFE600)', 'background': 'linear-gradient(90deg, rgba(255, 230, 0, 0.45) 0%, rgba(17, 19, 22, 0.45) 100%)','transition' : '1s all'} : {'background': 'rgba(17, 19, 22, 0.32)', 'transition':'1s all'} ">
+                                    {{language["RARE"]}}</h2>
+                                <h2 @click="newPage('wikilegendary')"
+                                    v-bind:style=" selectedButton == 'wikilegendary' ? {'border' : '2px solid #DB00FF', 'filter': 'drop-shadow(0px 0px 25px #DB00FF)', 'background': 'linear-gradient(90deg, rgba(219, 0, 255, 0.45) 0%, rgba(17, 19, 22, 0.45) 100%)','transition' : '1s all'} : {'background': 'rgba(17, 19, 22, 0.32)', 'transition':'1s all'} ">
+                                    {{language["LEGANDARY"]}}</h2>
+                                <h2 @click="newPage('wikiepic')"
+                                    v-bind:style=" selectedButton == 'wikiepic' ? {'border' : '2px solid #FF0099', 'filter': 'drop-shadow(0px 0px 25px #FF0099)', 'background': 'linear-gradient(90deg, rgba(178, 15, 118, 0.45) 0%, rgba(17, 19, 22, 0.45) 100%);','transition' : '1s all'} : {'background': 'rgba(17, 19, 22, 0.32)', 'transition':'1s all'} ">
+                                    {{language["EPIC"]}}</h2>
+                                <h2 class="otherbuton" @click="newPage('other')"
+                                    v-bind:style=" selectedButton == 'other' ? {'border' : '2px solid #00F0FF', 'filter': 'drop-shadow(0px 0px 25px rgba(0, 240, 255, 0.5))', 'background': 'linear-gradient(90deg, rgba(0, 240, 255, 0.45) 0%, rgba(17, 19, 22, 0.45) 100%)','transition' : '1s all'} : {'background': 'rgba(17, 19, 22, 0.32)', 'transition':'1s all'} ">
+                                    <div class="testimage"></div>
+                                </h2>
+                                <div class="back-button-wiki" @click="newPage('main')"> <img src="./images/back-button.png" alt=""> </div>
+                            </div>
+                            <div class="wiki-fish-container" v-if="page == 'wikiall'">
+                                <div class="wiki-fish-wrapper-border-common" v-for="data in filterByTerm"
+                                    v-if="data.category == 'common' || data.category == 'rods' && data.stars == 1 || data.category == 'baits' && data.stars == 1 ">
+                                    <div class="wiki-fish-wrapper-star"> <img src="./images/doluyildiz.png" alt=""> <img
+                                            src="./images/bosyildiz.png" v-for="yildiz in 4">
+                                        <h2 class="fish-price-common">{{data.price}}$</h2>
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image" v-if="data.category == 'common'">
+                                        <img v-bind:src="'images/fishimage/common/' + data.itemname+'.png'" />
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image" v-if="data.category == 'rods'">
+                                        <img v-bind:src="'images/fishimage/rods/' + data.itemname+'.png'" />
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image" v-if="data.category == 'baits'">
+                                        <img v-bind:src="'images/fishimage/baits/' + data.itemname+'.png'" />
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-name">
+                                        <h2>{{data.name}}</h2>
+                                        <h2>{{language["COMMON"]}}</h2>
+                                    </div>
+                                </div>
+                                <div class="wiki-fish-wrapper-border-uncommon" v-for="data in filterByTerm"
+                                    v-if="data.category == 'uncommon'  || data.category == 'rods' && data.stars == 2 || data.category == 'baits' && data.stars == 2">
+                                    <div class="wiki-fish-wrapper-star"> <img src="./images/uncommondoluyildiz.png"
+                                            v-for="yildiz in 2"> <img src="./images/bosyildiz.png" v-for="yildiz in 3">
+                                        <h2 class="fish-price-uncommon">{{data.price}}$</h2>
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image" v-if="data.category == 'uncommon'"> <img
+                                            v-bind:src="'images/fishimage/uncommon/' + data.itemname+'.png'" />
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image" v-if="data.category == 'rods'">
+                                        <img v-bind:src="'images/fishimage/rods/' + data.itemname +'.png'" />
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image" v-if="data.category == 'baits'"> <img
+                                            v-bind:src="'images/fishimage/baits/' + data.itemname+'.png'" />
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-name">
+                                        <h2>{{data.name}}</h2>
+                                        <h2>{{language["UNCOMMON"]}}</h2>
+                                    </div>
+                                </div>
+                                <div class="wiki-fish-wrapper-border-rare" v-for="data in filterByTerm"
+                                    v-if="data.category == 'rare' || data.category == 'rods' && data.stars == 3 || data.category == 'baits' && data.stars == 3">
+                                    <div class="wiki-fish-wrapper-star"> <img src="./images/raredoluyildiz.png"
+                                            v-for="yildiz in 3"> <img src="./images/bosyildiz.png" v-for="yildiz in 2">
+                                        <h2 class="fish-price-rare">{{data.price}}$</h2>
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image" v-if="data.category == 'rare'">
+                                        <img v-bind:src="'images/fishimage/rare/' + data.itemname+'.png'" />
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image" v-if="data.category == 'rods'">
+                                        <img v-bind:src="'images/fishimage/rods/' + data.itemname+'.png'" />
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image" v-if="data.category == 'baits'">
+                                        <img v-bind:src="'images/fishimage/baits/' + data.itemname+'.png'" />
+                                    </div>
+
+                                    <div class="wiki-fish-wrapper-fish-name">
+                                        <h2>{{data.name}}</h2>
+                                        <h2>{{language["RARE"]}}</h2>
+                                    </div>
+                                </div>
+                                <div class="wiki-fish-wrapper-border-legendary" v-for="data in filterByTerm"
+                                    v-if="data.category == 'legendary'|| data.category == 'rods' && data.stars == 4 || data.category == 'baits' && data.stars == 4">
+                                    <div class="wiki-fish-wrapper-star"> <img src="./images/legendarydoluyildiz.png"
+                                            v-for="yildiz in 4"> <img src="./images/bosyildiz.png" v-for="yildiz in 1">
+                                        <h2 class="fish-price-legandary">{{data.price}}$</h2>
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image" v-if="data.category == 'legendary'"> <img
+                                            v-bind:src="'images/fishimage/legendary/' + data.itemname+'.png'" />
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image" v-if="data.category == 'baits'"> <img
+                                            v-bind:src="'images/fishimage/baits/' + data.itemname+'.png'" />
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image" v-if="data.category == 'rods'"> <img
+                                            v-bind:src="'images/fishimage/rods/' + data.itemname+'.png'" />
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-name">
+                                        <h2>{{data.name}}</h2>
+                                        <h2>{{language["LEGANDARY"]}}</h2>
+                                    </div>
+                                </div>
+                                <div class="wiki-fish-wrapper-border-epic" v-for="data in filterByTerm"
+                                    v-if="data.category == 'epic' || data.category == 'rods' && data.stars == 5 || data.category == 'baits' && data.stars == 5">
+                                    <div class="wiki-fish-wrapper-star"> <img src="./images/epicdoluyildiz.png"
+                                            v-for="yildiz in 5">
+                                        <h2 class="fish-price-epic">{{data.price}}$</h2>
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image" v-if="data.category == 'epic'"> <img
+                                            v-bind:src="'images/fishimage/epic/' + data.itemname+'.png'" /> </div>
+                                    <div class="wiki-fish-wrapper-fish-image" v-if="data.category == 'baits'"> <img
+                                            v-bind:src="'images/fishimage/baits/' + data.itemname+'.png'" />
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image" v-if="data.category == 'rods'"> <img
+                                            v-bind:src="'images/fishimage/rods/' + data.itemname+'.png'" />
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-name">
+                                        <h2>{{data.name}}</h2>
+                                        <h2>{{language["EPIC"]}}</h2>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+                            <div class="wiki-fish-container" v-if="page == 'wikicommon'">
+                                <div class="wiki-fish-wrapper-border-common" v-for="data in filterByTerm"
+                                    v-if="data.category == 'common'">
+                                    <div class="wiki-fish-wrapper-star"> <img src="./images/doluyildiz.png" alt=""> <img
+                                            src="./images/bosyildiz.png" v-for="yildiz in 4">
+                                        <h2 class="fish-price-common">{{data.price}}$</h2>
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image"> <img
+                                            v-bind:src="'images/fishimage/common/' + data.itemname+'.png'" /> </div>
+                                    <div class="wiki-fish-wrapper-fish-name">
+                                        <h2>{{data.name}}</h2>
+                                        <h2>{{language["COMMON"]}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wiki-fish-container" v-if="page == 'wikiuncommon'">
+                                <div class="wiki-fish-wrapper-border-uncommon" v-for="data in filterByTerm"
+                                    v-if="data.category == 'uncommon'">
+                                    <div class="wiki-fish-wrapper-star"> <img src="./images/uncommondoluyildiz.png"
+                                            v-for="yildiz in 2"> <img src="./images/bosyildiz.png" v-for="yildiz in 3">
+                                        <h2 class="fish-price-uncommon">{{data.price}}$</h2>
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image"> <img
+                                            v-bind:src="'images/fishimage/uncommon/' + data.itemname+'.png'" /> </div>
+                                    <div class="wiki-fish-wrapper-fish-name">
+                                        <h2>{{data.name}}</h2>
+                                        <h2>{{language["UNCOMMON"]}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wiki-fish-container" v-if="page == 'wikirare'">
+                                <div class="wiki-fish-wrapper-border-rare" v-for="data in filterByTerm"
+                                    v-if="data.category == 'rare'">
+                                    <div class="wiki-fish-wrapper-star"> <img src="./images/raredoluyildiz.png"
+                                            v-for="yildiz in 3"> <img src="./images/bosyildiz.png" v-for="yildiz in 2">
+                                        <h2 class="fish-price-rare">{{data.price}}$</h2>
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image"> <img
+                                            v-bind:src="'images/fishimage/rare/' + data.itemname+'.png'" /> </div>
+                                    <div class="wiki-fish-wrapper-fish-name">
+                                        <h2>{{data.name}}</h2>
+                                        <h2>{{language["RARE"]}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wiki-fish-container" v-if="page == 'wikilegendary'">
+                                <div class="wiki-fish-wrapper-border-legendary" v-for="data in filterByTerm"
+                                    v-if="data.category == 'legendary'">
+                                    <div class="wiki-fish-wrapper-star"> <img src="./images/legendarydoluyildiz.png"
+                                            v-for="yildiz in 4"> <img src="./images/bosyildiz.png" v-for="yildiz in 1">
+                                        <h2 class="fish-price-legandary">{{data.price}}$</h2>
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image">
+                                        <img v-bind:src="'images/fishimage/legendary/' + data.itemname +'.png'" />
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-name">
+                                        <h2>{{data.name}}</h2>
+                                        <h2>{{language["LEGANDARY"]}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wiki-fish-container" v-if="page == 'wikiepic'">
+                                <div class="wiki-fish-wrapper-border-epic" v-for="data in filterByTerm"
+                                    v-if="data.category == 'epic'">
+                                    <div class="wiki-fish-wrapper-star"> <img src="./images/epicdoluyildiz.png"
+                                            v-for="yildiz in 5">
+                                        <h2 class="fish-price-epic">{{data.price}}$</h2>
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image"> <img
+                                            v-bind:src="'images/fishimage/epic/' + data.itemname+'.png'" /> </div>
+                                    <div class="wiki-fish-wrapper-fish-name">
+                                        <h2>{{data.name}}</h2>
+                                        <h2>{{language["EPIC"]}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wiki-fish-container" v-if="page == 'other'">
+                                <div class="wiki-fish-wrapper-border-common" v-for="data in filterByTerm"
+                                    v-if="data.category == 'baits' && data.stars == 1 || data.category == 'rods' && data.stars == 1">
+                                    <div class="wiki-fish-wrapper-star">
+                                        <img src="./images/doluyildiz.png">
+                                        <img src="./images/bosyildiz.png" v-for="yildiz in 4">
+                                        <h2 class="fish-price-common">{{data.price}}$</h2>
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image" v-if="data.category == 'baits'">
+                                        <img v-bind:src="'images/fishimage/baits/' + data.itemname+'.png'" />
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image" v-if="data.category == 'rods'">
+                                        <img v-bind:src="'images/fishimage/rods/' + data.itemname+'.png'" />
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-name">
+                                        <h2>{{data.name}}</h2>
+                                        <h2>{{language["COMMON"]}}</h2>
+                                    </div>
+                                </div>
+                                <div class="wiki-fish-wrapper-border-uncommon" v-for="data in filterByTerm"
+                                    v-if="data.category == 'baits' && data.stars == 2 || data.category == 'rods' && data.stars == 2">
+                                    <div class="wiki-fish-wrapper-star">
+                                        <img src="./images/uncommondoluyildiz.png" v-for="yildiz in 2">
+                                        <img src="./images/bosyildiz.png" v-for="yildiz in 3">
+                                        <h2 class="fish-price-uncommon">{{data.price}}$</h2>
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image" v-if="data.category == 'baits'">
+                                        <img v-bind:src="'images/fishimage/baits/' + data.itemname+'.png'" />
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image" v-if="data.category == 'rods'">
+                                        <img v-bind:src="'images/fishimage/rods/' + data.itemname+'.png'" />
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-name">
+                                        <h2>{{data.name}}</h2>
+                                        <h2>{{language["UNCOMMON"]}}</h2>
+                                    </div>
+                                </div>
+                                <div class="wiki-fish-wrapper-border-rare" v-for="data in filterByTerm"
+                                    v-if="data.category == 'baits' && data.stars == 3 || data.category == 'rods' && data.stars == 3">
+                                    <div class="wiki-fish-wrapper-star">
+                                        <img src="./images/raredoluyildiz.png" v-for="yildiz in 3">
+                                        <img src="./images/bosyildiz.png" v-for="yildiz in 2">
+                                        <h2 class="fish-price-rare">{{data.price}}$</h2>
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image" v-if="data.category == 'baits'">
+                                        <img v-bind:src="'images/fishimage/baits/' + data.itemname+'.png'" />
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image" v-if="data.category == 'rods'">
+                                        <img v-bind:src="'images/fishimage/rods/' + data.itemname+'.png'" />
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-name">
+                                        <h2>{{data.name}}</h2>
+                                        <h2>{{language["RARE"]}}</h2>
+                                    </div>
+                                </div>
+                                <div class="wiki-fish-wrapper-border-legendary" v-for="data in filterByTerm"
+                                    v-if="data.category == 'baits' && data.stars == 4 || data.category == 'rods' && data.stars == 4">
+                                    <div class="wiki-fish-wrapper-star">
+                                        <img src="./images/legendarydoluyildiz.png" v-for="yildiz in 4">
+                                        <img src="./images/bosyildiz.png">
+                                        <h2 class="fish-price-legandary">{{data.price}}$</h2>
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image" v-if="data.category == 'baits'">
+                                        <img v-bind:src="'images/fishimage/baits/' + data.itemname+'.png'" />
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image" v-if="data.category == 'rods'">
+                                        <img v-bind:src="'images/fishimage/rods/' + data.itemname+'.png'" />
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-name">
+                                        <h2>{{data.name}}</h2>
+                                        <h2>{{language["LEGANDARY"]}}</h2>
+                                    </div>
+                                </div>
+                                <div class="wiki-fish-wrapper-border-epic" v-for="data in filterByTerm"
+                                    v-if="data.category == 'baits' && data.stars == 5 || data.category == 'rods' && data.stars == 5">
+                                    <div class="wiki-fish-wrapper-star">
+                                        <img src="./images/epicdoluyildiz.png" v-for="yildiz in 5">
+
+                                        <h2 class="fish-price-epic">{{data.price}}$</h2>
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image" v-if="data.category == 'baits'">
+                                        <img v-bind:src="'images/fishimage/baits/' + data.itemname+'.png'" />
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image" v-if="data.category == 'rods'">
+                                        <img v-bind:src="'images/fishimage/rods/' + data.itemname+'.png'" />
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-name">
+                                        <h2>{{data.name}}</h2>
+                                        <h2>{{language["EPIC"]}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="board-wrapper-image " v-if="page == 'board'">
+                            <div class="board-wraper-player">
+                                <div class="board-player" v-for="(data,index) in filterPlayer">
+                                    <div class="board-player-image">
+                                        <img src="./images/board-1.png" v-if="index == 0">
+                                        <img src="./images/board-2.png" v-else-if="index == 1">
+                                        <img src="./images/board-3.png" v-else-if="index == 2">
+                                        <img src="./images/board-4.png" v-else-if="index == 3">
+                                        <img src="./images/board-5.png" v-else>
+
+                                    </div>
+                                    <h2 class="board-player-number">{{index + 1 }}</h2>
+                                    <div class="board-player-image-player">
+                                        <img v-if="data.playerimage == '0'" src="./images/nopp.png" alt="">
+                                        <img v-bind:src="data.playerimage" v-else />
+                                    </div>
+                                    <div class="board-player-name">
+                                        <h2>{{data.playername}}</h2>
+                                        <h3>Lv {{data.level}}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- add to card yapılan itemlerin gösterildiği yer -->
+
+                        <div class="basket-wrapper-image-item" v-if="page == 'basketpage'">
+                            <div class="wiki-butons-market">
+                                <h2 class="basketpage-back-button" @click="newPage('marketbuyin')">{{language["CARD"]}}</h2>
+                                <h2 class="basketpage-total-button">{{language["TOTAL"]}} :{{baskettotalprice}}$</h2>
+                                <h2 class="basketpage-cash-button" @click="buyitem('cash')">{{language["PAYVIACASH"]}}
+                                    <span> <img src="./images/basketmoneyicon.png" alt=""> </span>
+                                </h2>
+                                <h2 class="basketpage-card-button" @click="buyitem('bank')">{{language["PAYVIACARD"]}}
+                                    <span> <img src="./images/basketcardicon.png" alt=""> </span>
+                                </h2>
+                                <div class="back-button-wiki-market" @click="newPage('buymarketinall')"> <img
+                                        src="./images/back-button.png" alt=""> </div>
+                                <!-- <div class="basket-button-wiki-market">
+                                    <div class="basket-icon-amount" @click="newPage('basketpage')">
+                                        <h2>{{marketbasket.length}}</h2>
+                                    </div> <img src="./images/basketicon.png" alt="">
+                                </div> -->
+                            </div>
+
+                            <div class="wiki-fish-container">
+                                <div class="wiki-fish-wrapper-border-sellitem" v-for="(data,index) in marketbasket">
+                                    <div class="background-fish" v-if="data.itemstars == 1"> <img
+                                            src="./images/board-5.png" alt=""> </div>
+                                    <div class="background-fish" v-else-if="data.itemstars == 2"> <img
+                                            src="./images/board-4.png" alt=""> </div>
+                                    <div class="background-fish" v-else-if="data.itemstars == 3"> <img
+                                            src="./images/board-3.png" alt=""> </div>
+                                    <div class="background-fish" v-else-if="data.itemstars == 4"> <img
+                                            src="./images/board-2.png" alt=""> </div>
+                                    <div class="background-fish" v-else-if="data.itemstars == 5"> <img
+                                            src="./images/board-1.png" alt="">
+                                    </div>
+
+
+
+                                    <div class="wiki-fish-wrapper-star-sellitem" v-if="data.itemstars == 1">
+                                        <img src="./images/doluyildiz.png">
+                                        <img src="./images/bosyildiz.png" v-for="yildiz in 4">
+                                        <h2 class="fish-price-sellitem">{{data.itemprice}}$</h2>
+                                    </div>
+
+                                    <div class="wiki-fish-wrapper-star-sellitem" v-else-if="data.itemstars == 2">
+                                        <img src="./images/uncommondoluyildiz.png" v-for="yildiz in 2">
+                                        <img src="./images/bosyildiz.png" v-for="yildiz in 3">
+                                        <h2 class="fish-price-uncommon-sellitem">{{data.itemprice}}$</h2>
+                                    </div>
+                                    <div class="wiki-fish-wrapper-star-sellitem" v-else-if="data.itemstars == 3">
+                                        <img src="./images/raredoluyildiz.png" v-for="yildiz in 3">
+                                        <img src="./images/bosyildiz.png" v-for="yildiz in 2">
+                                        <h2 class="fish-price-rare-sellitem">{{data.itemprice}}$</h2>
+                                    </div>
+                                    <div class="wiki-fish-wrapper-star-sellitem" v-else-if="data.itemstars == 4">
+                                        <img src="./images/legendarydoluyildiz.png" v-for="yildiz in 4">
+                                        <img src="./images/bosyildiz.png">
+                                        <h2 class="fish-price-legandary-sellitem">{{data.itemprice}}$</h2>
+                                    </div>
+                                    <div class="wiki-fish-wrapper-star-sellitem" v-else-if="data.itemstars == 5">
+                                        <img src="./images/epicdoluyildiz.png" v-for="yildiz in 5">
+                                        <h2 class="fish-price-epic-sellitem">{{data.itemprice}}$</h2>
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image-sellitem"
+                                        v-if="data.itemcategory == 'baits'">
+                                        <img v-bind:src="'images/fishimage/baits/' + data.itemname+'.png'" />
+                                    </div>
+                                    <div class="wiki-fish-wrapper-fish-image-sellitem"
+                                        v-if="data.itemcategory == 'rods'">
+                                        <img v-bind:src="'images/fishimage/rods/' + data.itemname+'.png'" />
+                                    </div>
+
+
+                                    <!-- <div class="wiki-fish-wrapper-fish-image-sellitem" v-else> 
+                                        <img v-bind:src="'images/fishimage/baits/' + data.itemname+'.png'" />
+                                    </div> -->
+
+                                    <div class="wiki-fish-wrapper-fish-name">
+                                        <h2>{{data.itemlabel}}</h2>
+                                        <h2>{{data.itemcategory}}</h2>
+                                    </div>
+                                    <div class="add-to-card">
+                                        <div class="add-to-card-in"> <img src="images/addtocard.png" alt="">
+                                            <h2 @click="deletetocard(index,data.itemprice)">
+                                                Delete to card</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div> <!-- itemlerin satıldığı sayfa -->
+
+                    </div>
+                    <!-- itemlerin satıldığı sayfa -->
+
+                    <div class="basket-wrapper-image" v-if="page == 'itemsellpage' && playeritems">
+                        <div class="wiki-butons-market">
+                            <h2 class="basketpage-back-button">{{language["CARD"]}}</h2>
+                            <h2 class="basketpage-total-button">{{language["TOTAL"]}} : {{playertotalprice}}$</h2>
+                            <h2 class="basketpage-cash-button-item-sell" @click="playersellitem">{{language["SELL"]}}
+                                <span> <img src="./images/basketmoneyicon.png" alt=""> </span>
+                            </h2>
+                            <div class="back-button-wiki-market-sellitem" @click="newPage('main')"> <img
+                                    src="./images/back-button.png" alt=""> </div>
+                        </div>
+                        <div class="wiki-fish-container">
+                            <div class="wiki-fish-wrapper-border-sellitem" v-for="(data,index) in playeritems"
+                                v-if="data.itemcategory != 'rods' && data.itemcategory != 'baits'">
+                                <div class="background-fish" v-if="data.itemcategory == 'common'"> <img
+                                        src="./images/board-5.png" alt=""> </div>
+                                <div class="background-fish" v-else-if="data.itemcategory == 'uncommon'"> <img
+                                        src="./images/board-4.png" alt=""> </div>
+                                <div class="background-fish" v-else-if="data.itemcategory == 'rare'"> <img
+                                        src="./images/board-3.png" alt=""> </div>
+                                <div class="background-fish" v-else-if="data.itemcategory == 'legendary'"> <img
+                                        src="./images/board-2.png" alt=""> </div>
+                                <div class="background-fish" v-else-if="data.itemcategory == 'epic'"> <img
+                                        src="./images/board-1.png" alt=""> </div>
+
+                                <div class="wiki-fish-wrapper-star-sellitem" v-if="data.itemcategory == 'common'">
+                                    <img src="./images/doluyildiz.png" alt=""> <img src="./images/bosyildiz.png"
+                                        v-for="yildiz in 4">
+                                    <h2 class="fish-price-sellitem">{{((data.itemcount * data.itemprice))}}$</h2>
+                                </div>
+                                <div class="wiki-fish-wrapper-star-sellitem"
+                                    v-else-if="data.itemcategory == 'uncommon'"> <img
+                                        src="./images/uncommondoluyildiz.png" v-for="yildiz in 2"> <img
+                                        src="./images/bosyildiz.png" v-for="yildiz in 3">
+                                    <h2 class="fish-price-uncommon-sellitem">{{((data.itemcount *
+                                        data.itemprice))}}$</h2>
+                                </div>
+                                <div class="wiki-fish-wrapper-star-sellitem" v-else-if="data.itemcategory == 'rare'">
+                                    <img src="./images/raredoluyildiz.png" v-for="yildiz in 3"> <img
+                                        src="./images/bosyildiz.png" v-for="yildiz in 2">
+                                    <h2 class="fish-price-rare-sellitem">{{((data.itemcount * data.itemprice))}}$
+                                    </h2>
+                                </div>
+                                <div class="wiki-fish-wrapper-star-sellitem"
+                                    v-else-if="data.itemcategory == 'legendary'"> <img
+                                        src="./images/legendarydoluyildiz.png" v-for="yildiz in 4"> <img
+                                        src="./images/bosyildiz.png" v-for="yildiz in 1">
+                                    <h2 class="fish-price-legandary-sellitem">{{((data.itemcount *
+                                        data.itemprice))}}$</h2>
+                                </div>
+                                <div class="wiki-fish-wrapper-star-sellitem" v-else-if="data.itemcategory == 'epic'">
+                                    <img src="./images/doluyildiz.png" v-for="yildiz in 5">
+                                    <h2 class="fish-price-epic-sellitem">{{((data.itemcount * data.itemprice))}}$
+                                    </h2>
+                                </div>
+                                <div class="wiki-fish-wrapper-fish-image-sellitem" v-if="data.itemcategory == 'common'">
+                                    <img v-bind:src="'images/fishimage/common/' + data.itemname+'.png'" />
+                                </div>
+                                <div class="wiki-fish-wrapper-fish-image-sellitem"
+                                    v-else-if="data.itemcategory == 'uncommon'"> <img
+                                        v-bind:src="'images/fishimage/uncommon/' + data.itemname+'.png'" /> </div>
+                                <div class="wiki-fish-wrapper-fish-image-sellitem"
+                                    v-else-if="data.itemcategory == 'rare'"> <img
+                                        v-bind:src="'images/fishimage/rare/' + data.itemname+'.png'" /> </div>
+                                <div class="wiki-fish-wrapper-fish-image-sellitem"
+                                    v-else-if="data.itemcategory == 'epic'"> <img
+                                        v-bind:src="'images/fishimage/epic/' + data.itemname+'.png'" /> </div>
+                                <div class="wiki-fish-wrapper-fish-image-sellitem"
+                                    v-else-if="data.itemcategory == 'legendary'"> <img
+                                        v-bind:src="'images/fishimage/legendary/' + data.itemname + '.png'" />
+                                </div>
+                                <div class="wiki-fish-wrapper-fish-name">
+                                    <h2>{{data.itemlabel}} x ({{data.itemcount}})</h2>
+                                    <h2>{{data.itemcategory}}</h2>
+                                </div>
+                                <div class="add-to-card">
+                                    <div class="add-to-card-in"> <img src="images/addtocard.png" alt="">
+                                        <h2 @click="deletetocardplayeritem(index,data.itemcount,data.itemprice)">
+                                            {{language["DELETETOCARD"]}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="market-wrapper-image " v-show="page == 'market'">
+                        <div class="market-wrapper-image-buybutton">
+                            <div class="market-wrapper-sellbutton">
+                                <h2> {{language["BUYSTUFFS"]}}</h2>
+                                <h2> {{language["FROMMARKET"]}}</h2>
+                                <div class="market-button-buy" @click="newPage('marketbuyin')">{{language["BUY"]}}</div>
+                            </div>
+                        </div>
+                        <div class="market-wrapper-image-sellbutton">
+                            <div class="market-wrapper-sellbutton2">
+                                <h2> {{language["SELLYOURSTUFF"]}}</h2>
+                                <h2> {{language["TOMARKETPLACE"]}}</h2>
+                                <div class="market-button-buy2" @click="newPage('itemsellpage')">{{language["SELL"]}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buymarket-wrapper-image"
+                        v-if="page == 'marketbuyin' ||  page == 'buymarketinall' ||  page == 'buymarketinroads' ||  page == 'buymarketinbaits'">
+                        <div class="wiki-butons-market">
+                            <h2 @click="newPage('buymarketinall')"
+                                v-bind:style=" selectedButton == 'buymarketinall' ? {'border' : '2px solid #00F0FF', 'filter': 'drop-shadow(0px 0px 25px rgba(0, 240, 255, 0.5))', 'background': 'linear-gradient(90deg, rgba(0, 240, 255, 0.45) 0%, rgba(17, 19, 22, 0.45) 100%)','transition' : '1s all'} : {'background': 'rgba(17, 19, 22, 0.32)', 'transition':'1s all'} ">
+                                {{language["ALL"]}}</h2>
+                            <h2 @click="newPage('buymarketinroads')"
+                                v-bind:style=" selectedButton == 'buymarketinroads' ? {'border' : '2px solid #00F0FF', 'filter': 'drop-shadow(0px 0px 25px rgba(0, 240, 255, 0.5))', 'background': 'linear-gradient(90deg, rgba(0, 240, 255, 0.45) 0%, rgba(17, 19, 22, 0.45) 100%)','transition' : '1s all'} : {'background': 'rgba(17, 19, 22, 0.32)', 'transition':'1s all'} ">
+                                {{language["RODS"]}}</h2>
+                            <h2 @click="newPage('buymarketinbaits')"
+                                v-bind:style=" selectedButton == 'buymarketinbaits' ? {'border' : '2px solid #00FF85', 'filter': 'drop-shadow(0px 0px 25px #00FF85)', 'background': 'linear-gradient(90deg, rgba(0, 255, 133, 0.45) 0%, rgba(17, 19, 22, 0.45) 100%)','transition' : '1s all'} : {'background': 'rgba(17, 19, 22, 0.32)', 'transition':'1s all'} ">
+                                {{language["BAITS"]}}</h2>
+                            <div class="back-button-wiki-market"> <img src="./images/back-button.png" alt=""> </div>
+                            <div class="basket-button-wiki-market">
+                                <div class="basket-icon-amount" @click="newPage('basketpage')">
+                                    <h2>{{marketbasket.length}}</h2>
+                                </div> <img src="./images/basketicon.png" alt="">
+                            </div>
+                        </div>
+                        <div class="wiki-fish-container" v-if="page == 'buymarketinall'">
+
+                            <div class="wiki-fish-wrapper-border-sellitem" v-for="data in filterByTerm"
+                                v-if="data.category == 'rods' || data.category == 'baits'">
+                                <div class="background-fish" v-if="data.stars == 1">
+                                    <img src="./images/board-5.png">
+                                </div>
+                                <div class="background-fish" v-else-if="data.stars == 2"> <img
+                                        src="./images/board-4.png" alt=""> </div>
+                                <div class="background-fish" v-else-if="data.stars == 3"> <img
+                                        src="./images/board-3.png" alt=""> </div>
+                                <div class="background-fish" v-else-if="data.stars == 4"> <img
+                                        src="./images/board-2.png" alt=""> </div>
+                                <div class="background-fish" v-else-if="data.stars == 5"> <img
+                                        src="./images/board-1.png" alt=""> </div>
+
+                                <div class="wiki-fish-wrapper-star-sellitem" v-if="data.stars == 1">
+                                    <img src="./images/doluyildiz.png" alt=""> <img src="./images/bosyildiz.png"
+                                        v-for="yildiz in 4">
+                                    <h2 class="fish-price-sellitem">{{data.price}}$</h2>
+                                </div>
+                                <div class="wiki-fish-wrapper-star-sellitem" v-else-if="data.stars == 2"> <img
+                                        src="./images/uncommondoluyildiz.png" v-for="yildiz in 2"> <img
+                                        src="./images/bosyildiz.png" v-for="yildiz in 3">
+                                    <h2 class="fish-price-uncommon-sellitem">{{data.price}}$</h2>
+                                </div>
+                                <div class="wiki-fish-wrapper-star-sellitem" v-else-if="data.stars == 3">
+                                    <img src="./images/raredoluyildiz.png" v-for="yildiz in 3">
+                                    <img src="./images/bosyildiz.png" v-for="yildiz in 2">
+                                    <h2 class="fish-price-rare-sellitem">{{data.price}}$ </h2>
+                                </div>
+
+                                <div class="wiki-fish-wrapper-star-sellitem" v-else-if="data.stars == 4">
+                                    <img src="./images/legendarydoluyildiz.png" v-for="yildiz in 4">
+                                    <img src="./images/bosyildiz.png" v-for="yildiz in 1">
+                                    <h2 class="fish-price-legandary-sellitem">{{data.price}}$ </h2>
+                                </div>
+                                <div class="wiki-fish-wrapper-star-sellitem" v-else-if="data.stars == 5">
+                                    <img src="./images/doluyildiz.png" v-for="yildiz in 5">
+                                    <h2 class="fish-price-epic-sellitem">{{data.price}}$ </h2>
+                                </div>
+                                <div class="wiki-fish-wrapper-fish-image-sellitem" v-if="data.category == 'rods'"> <img
+                                        v-bind:src="'images/fishimage/rods/' + data.itemname+'.png'" /> </div>
+                                <div class="wiki-fish-wrapper-fish-image-sellitem" v-else-if="data.category == 'baits'">
+                                    <img v-bind:src="'images/fishimage/baits/' + data.itemname+'.png'" />
+                                </div>
+
+                                <div class="wiki-fish-wrapper-fish-name">
+                                    <h2>{{data.name}}</h2>
+                                    <h2>{{data.itemcategory}}</h2>
+                                </div>
+                                <div class="add-to-card">
+                                    <div class="add-to-card-in"> <img src="images/addtocard.png" alt="">
+                                        <h2
+                                            @click="addtocard(data.itemname,data.category,data.price,data.name,data.stars)">
+                                            {{language["ADDTOCARD"]}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Buy kısmı rods içi -->
+                        <div class="wiki-fish-container" v-if="page == 'buymarketinroads'">
+                            <div class="wiki-fish-wrapper-border-common" v-for="data in filterByTerm"
+                                v-if="data.category == 'rods' && data.stars == 1">
+                                <div class="wiki-fish-wrapper-star"> <img src="./images/doluyildiz.png" alt=""> <img
+                                        src="./images/bosyildiz.png" v-for="yildiz in 4">
+                                    <h2 class="fish-price-common">{{data.price}}$</h2>
+                                </div>
+                                <div class="wiki-fish-wrapper-fish-image"> <img
+                                        v-bind:src="'images/fishimage/rods/' + data.itemname+'.png'" /> </div>
+                                <div class="wiki-fish-wrapper-fish-name">
+                                    <h2>{{data.name}}</h2>
+                                    <h2>{{language["COMMON"]}}</h2>
+                                </div>
+                                <div class="add-to-card">
+                                    <div class="add-to-card-in"> <img src="images/addtocard.png" alt="">
+                                        <h2
+                                            @click="addtocard(data.itemname,data.category,data.price,data.name,data.stars)">
+                                            {{language["ADDTOCARD"]}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wiki-fish-wrapper-border-uncommon" v-for="data in filterByTerm"
+                                v-if="data.category == 'rods' && data.stars == 2">
+                                <div class="wiki-fish-wrapper-star"> <img src="./images/uncommondoluyildiz.png"
+                                        v-for="yildiz in 2"> <img src="./images/bosyildiz.png" v-for="yildiz in 3">
+                                    <h2 class="fish-price-uncommon">{{data.price}}$</h2>
+                                </div>
+                                <div class="wiki-fish-wrapper-fish-image"> <img
+                                        v-bind:src="'images/fishimage/rods/' + data.itemname+'.png'" /> </div>
+                                <div class="wiki-fish-wrapper-fish-name">
+                                    <h2>{{data.name}}</h2>
+                                    <h2>{{language["UNCOMMON"]}}</h2>
+                                </div>
+                                <div class="add-to-card">
+                                    <div class="add-to-card-in"> <img src="images/addtocard.png" alt="">
+                                        <h2
+                                            @click="addtocard(data.itemname,data.category,data.price,data.name,data.stars)">
+                                            {{language["ADDTOCARD"]}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wiki-fish-wrapper-border-rare" v-for="data in filterByTerm"
+                                v-if="data.category == 'rods' && data.stars == 3">
+                                <div class="wiki-fish-wrapper-star"> <img src="./images/raredoluyildiz.png"
+                                        v-for="yildiz in 3"> <img src="./images/bosyildiz.png" v-for="yildiz in 2">
+                                    <h2 class="fish-price-rare">{{data.price}}$</h2>
+                                </div>
+                                <div class="wiki-fish-wrapper-fish-image"> <img
+                                        v-bind:src="'images/fishimage/rods/' + data.itemname+'.png'" /> </div>
+                                <div class="wiki-fish-wrapper-fish-name">
+                                    <h2>{{data.name}}</h2>
+                                    <h2>{{language["RARE"]}}</h2>
+                                </div>
+                                <div class="add-to-card">
+                                    <div class="add-to-card-in"> <img src="images/addtocard.png" alt="">
+                                        <h2
+                                            @click="addtocard(data.itemname,data.category,data.price,data.name,data.stars)">
+                                            {{language["ADDTOCARD"]}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wiki-fish-wrapper-border-legendary" v-for="data in filterByTerm"
+                                v-if="data.category == 'rods' && data.stars == 4">
+                                <div class="wiki-fish-wrapper-star"> <img src="./images/legendarydoluyildiz.png"
+                                        v-for="yildiz in 4"> <img src="./images/bosyildiz.png" v-for="yildiz in 1">
+                                    <h2 class="fish-price-legandary">{{data.price}}$</h2>
+                                </div>
+                                <div class="wiki-fish-wrapper-fish-image"> <img
+                                        v-bind:src="'images/fishimage/rods/' + data.itemname+'.png'" /> </div>
+                                <div class="wiki-fish-wrapper-fish-name">
+                                    <h2>{{data.name}}</h2>
+                                    <h2>{{language["LEGANDARY"]}}</h2>
+                                </div>
+                                <div class="add-to-card">
+                                    <div class="add-to-card-in"> <img src="images/addtocard.png" alt="">
+                                        <h2
+                                            @click="addtocard(data.itemname,data.category,data.price,data.name,data.stars)">
+                                            {{language["ADDTOCARD"]}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wiki-fish-wrapper-border-epic" v-for="data in filterByTerm"
+                                v-if="data.category == 'rods' && data.stars == 5">
+                                <div class="wiki-fish-wrapper-star"> <img src="./images/epicdoluyildiz.png"
+                                        v-for="yildiz in 5">
+                                    <h2 class="fish-price-epic">{{data.price}}$</h2>
+                                </div>
+                                <div class="wiki-fish-wrapper-fish-image"> <img
+                                        v-bind:src="'images/fishimage/rods/' + data.itemname+'.png'" /> </div>
+                                <div class="wiki-fish-wrapper-fish-name">
+                                    <h2>{{data.name}}</h2>
+                                    <h2>{{language["EPIC"]}}</h2>
+                                </div>
+                                <div class="add-to-card">
+                                    <div class="add-to-card-in"> <img src="images/addtocard.png" alt="">
+                                        <h2
+                                            @click="addtocard(data.itemname,data.category,data.price,data.name,data.stars)">
+                                            {{language["ADDTOCARD"]}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Buy kısmı baits içi -->
+                        <div class="wiki-fish-container" v-if="page == 'buymarketinbaits'">
+                            <div class="wiki-fish-wrapper-border-common" v-for="data in filterByTerm"
+                                v-if="data.category == 'baits' && data.stars == 1">
+                                <div class="wiki-fish-wrapper-star"> <img src="./images/doluyildiz.png" alt=""> <img
+                                        src="./images/bosyildiz.png" v-for="yildiz in 4">
+                                    <h2 class="fish-price">{{data.price}}$</h2>
+                                </div>
+                                <div class="wiki-fish-wrapper-fish-image"> <img
+                                        v-bind:src="'images/fishimage/baits/' + data.itemname+'.png'" /> </div>
+                                <div class="wiki-fish-wrapper-fish-name">
+                                    <h2>{{data.name}}</h2>
+                                    <h2>{{language["COMMON"]}}</h2>
+                                </div>
+                                <div class="add-to-card">
+                                    <div class="add-to-card-in"> <img src="images/addtocard.png" alt="">
+                                        <h2
+                                            @click="addtocard(data.itemname,data.category,data.price,data.name,data.stars)">
+                                            {{language["ADDTOCARD"]}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wiki-fish-wrapper-border-uncommon" v-for="data in filterByTerm"
+                                v-if="data.category == 'baits' && data.stars == 2">
+                                <div class="wiki-fish-wrapper-star"> <img src="./images/uncommondoluyildiz.png"
+                                        v-for="yildiz in 2"> <img src="./images/bosyildiz.png" v-for="yildiz in 3">
+                                    <h2 class="fish-price-uncommon">{{data.price}}$</h2>
+                                </div>
+                                <div class="wiki-fish-wrapper-fish-image"> <img
+                                        v-bind:src="'images/fishimage/baits/' + data.itemname+'.png'" /> </div>
+                                <div class="wiki-fish-wrapper-fish-name">
+                                    <h2>{{data.name}}</h2>
+                                    <h2>{{language["UNCOMMON"]}}</h2>
+                                </div>
+                                <div class="add-to-card">
+                                    <div class="add-to-card-in"> <img src="images/addtocard.png" alt="">
+                                        <h2
+                                            @click="addtocard(data.itemname,data.category,data.price,data.name,data.stars)">
+                                            {{language["ADDTOCARD"]}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wiki-fish-wrapper-border-rare" v-for="data in filterByTerm"
+                                v-if="data.category == 'baits' && data.stars == 3">
+                                <div class="wiki-fish-wrapper-star"> <img src="./images/raredoluyildiz.png"
+                                        v-for="yildiz in 3"> <img src="./images/bosyildiz.png" v-for="yildiz in 2">
+                                    <h2 class="fish-price-rare">{{data.price}}$</h2>
+                                </div>
+                                <div class="wiki-fish-wrapper-fish-image"> <img
+                                        v-bind:src="'images/fishimage/baits/' + data.itemname+'.png'" /> </div>
+                                <div class="wiki-fish-wrapper-fish-name">
+                                    <h2>{{data.name}}</h2>
+                                    <h2>{{language["RARE"]}}</h2>
+                                </div>
+                                <div class="add-to-card">
+                                    <div class="add-to-card-in"> <img src="images/addtocard.png" alt="">
+                                        <h2
+                                            @click="addtocard(data.itemname,data.category,data.price,data.name,data.stars)">
+                                            {{language["ADDTOCARD"]}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wiki-fish-wrapper-border-legendary" v-for="data in filterByTerm"
+                                v-if="data.category == 'baits' && data.stars == 4">
+                                <div class="wiki-fish-wrapper-star"> <img src="./images/legendarydoluyildiz.png"
+                                        v-for="yildiz in 4"> <img src="./images/bosyildiz.png" v-for="yildiz in 1">
+                                    <h2 class="fish-price-legandary">{{data.price}}$</h2>
+                                </div>
+                                <div class="wiki-fish-wrapper-fish-image"> <img
+                                        v-bind:src="'images/fishimage/baits/' + data.itemname+'.png'" /> </div>
+                                <div class="wiki-fish-wrapper-fish-name">
+                                    <h2>{{data.name}}</h2>
+                                    <h2>{{language["LEGANDARY"]}}</h2>
+                                </div>
+                                <div class="add-to-card">
+                                    <div class="add-to-card-in"> <img src="images/addtocard.png" alt="">
+                                        <h2
+                                            @click="addtocard(data.itemname,data.category,data.price,data.name,data.stars)">
+                                            {{language["ADDTOCARD"]}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wiki-fish-wrapper-border-epic" v-for="data in filterByTerm"
+                                v-if="data.category == 'baits' && data.stars == 5">
+                                <div class="wiki-fish-wrapper-star"> <img src="./images/epicdoluyildiz.png"
+                                        v-for="yildiz in 5">
+                                    <h2 class="fish-price-epic">{{data.price}}$</h2>
+                                </div>
+                                <div class="wiki-fish-wrapper-fish-image"> <img
+                                        v-bind:src="'images/fishimage/baits/' + data.itemname+'.png'" /> </div>
+                                <div class="wiki-fish-wrapper-fish-name">
+                                    <h2>{{data.name}}</h2>
+                                    <h2>{{language["EPIC"]}}</h2>
+                                </div>
+                                <div class="add-to-card">
+                                    <div class="add-to-card-in"> <img src="images/addtocard.png" alt="">
+                                        <h2
+                                            @click="addtocard(data.itemname,data.category,data.price,data.name,data.stars)">
+                                            {{language["ADDTOCARD"]}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spots-wrapper" v-if="page == 'spots'">
+                        <div class="spots-swiper-container">
+                            <div class="swiper-wrapper ">
+                                <div class="spots-swiper swiper-slide" v-for="spot in spots">
+                                    <div class="spot-container">
+                                        <div class="spot-box">
+                                            <img class="spot-image" :src="'./images/'+spot.bgimage">
+                                            <div class="spot-stars">
+                                                <template v-for="n in 5">
+                                                    <img v-if="spot.spotLvlStars >= n" class="spot-star"
+                                                        src="./images/star_full.png">
+                                                    <img v-else-if="spot.spotLvlStars.toFixed(0) >= n" class="spot-star"
+                                                        src="./images/half_star.png">
+                                                    <img v-else class="spot-star spot-empty-star"
+                                                        src="./images/star_empty.png">
+                                                </template>
+                                            </div>
+                                            <div class="spot-details">
+                                                <p class="spot-name">{{spot.blipName}}</p>
+                                                <p class="spot-location">{{spot.location}}</p>
+                                                <p class="spot-desc">{{spot.statement}}</p>
+                                                <div class="spot-features">
+                                                    <div class="spot-feature">
+                                                        <p class="spot-feature-name">{{language["LOCATION"]}}</p>
+                                                        <p class="spot-feature-val">{{spot.location}}</p>
+                                                    </div>
+                                                    <div class="spot-feature">
+                                                        <p class="spot-feature-name">Spot Quality</p>
+                                                        <p class="spot-feature-val">{{spot.spotQuality}}</p>
+                                                    </div>
+                                                    <div class="spot-feature">
+                                                        <p class="spot-feature-name">{{language["AFKCATCHMIN1MIN"]}}</p>
+                                                        <p class="spot-feature-val">{{spot.afkCatchInMinute}} per mn
+                                                        </p>
+                                                    </div>
+                                                    <div class="spot-feature">
+                                                        <p class="spot-feature-name">{{language["SPOTQUALITY"]}}</p>
+                                                        <p class="spot-feature-val">{{spot.fishQualityScale}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="spot-mark" @click="MarkLocation(spot.coords)">
+                                        {{language["MARKLOCATION"]}}
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                        <img src="./images/swiper_back.png" class="swiper-prev" v-show="showPrevSwiperButton">
+                        <img src="./images/swiper_next.png" class="swiper-next" v-show="showNextSwiperButton">
+                    </div>
+                    <div class="player-profile" v-if="page == 'profile'">
+                        <div class="player-profile-left-page" v-for="data in playeraccount">
+                            <div class="player-small-image">
+                                <img src="./images/nopp.png" v-if="data.playerimage == '0'" />
+                                <img v-bind:src="data.playerimage" v-else />
+                            </div>
+                            <div class="player-profile-in-image">
+                                <div class="player-profile-settings">
+                                    <div class="player-profile-settings-level-and-leader">
+                                        <div class="level-player"> <img src="./images/level.png" alt="">
+                                            <h2>Lv.{{playerlevel}}</h2>
+                                        </div>
+                                        <div class="board-player-profile"> <img src="./images/siralama.png" alt="">
+                                            <h2>16.th</h2>
+                                        </div>
+                                    </div>
+                                    <div class="player-profile-playername"></div>
+                                    <div class="player-profile-playerxp">
+                                        <div class="player-profile-player-text">
+                                            <h2>Lv.{{playerlevel}}</h2>
+                                            <h2>lv.{{(playerlevel + 1 )}}</h2>
+                                        </div>
+                                        <div class="player-profile-player-xpbar">
+                                           <h2> {{playerxp}} / <span>{{maxxp}}</span></h2>
+                                        </div>
+                                    </div>
+                                    <div class="player-profile-change">
+                                        <h2>{{language["CHANGEPROFILE"]}}</h2>
+                                        <div v-if="usediscord" class="usediscordphoto" @click="discordimage">{{language["DISCORDPHOTO"]}}
+                                        </div>
+                                        <div class="urlbutton">
+                                            <input v-model="playercustomimage" type="text" placeholder="URL.."
+                                                v-on:keyup.enter="changecustomimage">
+                                        </div>
+                                        <div class="deletebutton" @click="resetPhoto">{{language["DELETEPROFILE"]}}</div>
+                                    </div>
+                                </div> <img class="profile-background" src="./images/profile.png" alt="">
+                            </div>
+                        </div>
+                        <div class="achievenments-container">
+                            <div class="achievenments-container-header">
+                                <div class="achievenments-header-content">
+                                    <div class="achievenments-header-content-left">
+                                        <img src="./images/trophy_big.png" class="achievenments-header-trophy">
+                                        <p class="achievenments-header-text">{{language["ACHIEVEMENTS"]}}</p>
+                                    </div>
+                                    <img src="./images/swiper_back.png" class="achievements_button" @click="newPage('main')">
+                                </div>
+                                <img src="./images/achievements_border.png">
+                            </div>
+                            <div class="achievements-swiper">
+                                <div class="achievements-swiper-container">
+
+                                    <div class="swiper-wrapper achievements-swiper-wrapper" v-if="rewardsTable"> 
+                                        <div class="swiper-slide achievement-container achievement-box"
+                                            :class="n.level != playerlevel ? 'achievement-box-locked' : 'achievement-box-open' "
+                                            v-for="n in rewardsTable">
+                                            <img src="./images/lock.png" v-if="n.level != playerlevel" class="trophy-big-icon">
+                                            <img src="./images/trophy_big.png" v-else class="trophy-big-icon">
+                                            <p class="achievement-header-text">Level {{n.level}}</p>
+                                            <div class="achievement-reward-box-container">
+
+                                                <div class="achievement-reward-box"
+                                                    :class="n.level != playerlevel ? 'achievement-reward-box-locked' : 'achievement-reward-box-open' ">
+
+                                                    <img :class="n.level != playerlevel ? 'achievement-reward-item-locked' : 'achievement-reward-item-open' "
+                                                        src="./images/cash.png">
+                                                </div>
+                                                <p class="achievement-reward">${{n.odul}}</p>
+                                            </div>
+                                            <div class="achievement-claim-button":class="n.level != playerlevel ? 'achievement-claim-button-locked' : 'achievement-claim-button-open' ">
+                                                <p v-if="n.gorevdurumu == 0 && playerlevel < n.level ">{{language["ACHIEVEMENTSLOCKED"]}}</p>
+                                                <p v-else-if="n.gorevdurumu == 0 && playerlevel >= n.level && !counter" @click="reward(n.odul,n.level)">{{language["CLAIM"]}}</p>
+                                                <p v-else-if="n.gorevdurumu == 1">{{language["AWARD"]}}</p>
+                                                   
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="achievements-swiper-buttons">
+                                    <img src="./images/back-button.png" class="achievements-swiper-prev">
+                                    <div class="swiper-pagination"></div>
+                                    <img src="./images/next-button.png" class="achievements-swiper-next">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-wrapper-bottom-page"></div>
+        </div>
+    </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+<script src="./lib/progressbar.js"></script>
+<script src="script.js"></script>
+<script></script>
+
+</html>
