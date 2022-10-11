@@ -39,11 +39,11 @@ if Config.EnableNitro then
     end
 
     function StopVehicleLightTrail(ptfx, duration)
-      CreateThread(function()
+      Citizen.CreateThread(function()
         local startTime = GetGameTimer()
         local endTime = GetGameTimer() + duration
-        while GetGameTimer() < endTime do
-          Wait(0)
+        while GetGameTimer() < endTime do 
+          Citizen.Wait(0)
           local now = GetGameTimer()
           local scale = (endTime - now) / duration
           SetParticleFxLoopedScale(ptfx, scale)
@@ -83,7 +83,7 @@ if Config.EnableNitro then
         vehicles2[vehicle] = nil
         particles2[vehicle] = nil
       end
-    end
+    end    
     function SetVehicleNitroBoostEnabled(vehicle, enabled)
 
 
@@ -95,11 +95,11 @@ if Config.EnableNitro then
     end
     function IsVehicleNitroPurgeEnabled(vehicle)
       return vehicles[vehicle] == true
-    end
+    end    
     function SetVehicleNitroPurgeEnabled(vehicle, enabled)
         if IsVehicleNitroPurgeEnabled(vehicle) == enabled then
           return
-        end
+        end        
       if enabled then
         local bone = GetEntityBoneIndexByName(vehicle, 'bonnet')
         local pos = GetWorldPositionOfEntityBone(vehicle, bone)
@@ -126,7 +126,7 @@ if Config.EnableNitro then
         vehicles[vehicle] = nil
         particles[vehicle] = nil
       end
-    end
+    end    
 
     function SetNitroBoostScreenEffectsEnabled(enabled)
       if enabled then
@@ -139,30 +139,30 @@ if Config.EnableNitro then
         StopGameplayCamShaking(true)
         SetTransitionTimecycleModifier('default', 0.35)
       end
-    end
+    end    
     function GetVehicleInDirection()
 
         local playerCoords = GetEntityCoords(playerPed)
         local inDirection  = GetOffsetFromEntityInWorldCoords(playerPed, 0.0, 5.0, 0.0)
         local rayHandle    = StartShapeTestRay(playerCoords, inDirection, 10, playerPed, 0)
         local numRayHandle, hit, endCoords, surfaceNormal, entityHit = GetShapeTestResult(rayHandle)
-
+    
         if hit == 1 and GetEntityType(entityHit) == 2 then
             return entityHit
         end
-
+    
         return nil
     end
     RegisterNetEvent('codem-venicehud:SetupNitro')
     AddEventHandler('codem-venicehud:SetupNitro', function()
-        local vehicle = GetVehicleInDirection()
+        local vehicle = GetVehicleInDirection() 
         if IsPedSittingInAnyVehicle(playerPed) then
             Config.Notification(Config.Notifications["cant_install_nitro"]["message"], Config.Notifications["cant_install_nitro"]["type"])
         else
             if vehicle ~= nil and DoesEntityExist(vehicle) and IsPedOnFoot(playerPed) then
                 TaskStartScenarioInPlace(playerPed, 'PROP_HUMAN_BUM_BIN', 0, true)
-                CreateThread(function()
-                    Wait(5000)
+                Citizen.CreateThread(function()
+                    Citizen.Wait(5000)
                     ClearPedTasksImmediately(playerPed)
                     TriggerServerEvent('codem-venicehud:RemoveItem',Config.NitroItem, 1)
                     TriggerServerEvent('codem-venicehud:InstallNitro', GetVehicleNumberPlateText(vehicle))
@@ -176,14 +176,14 @@ if Config.EnableNitro then
     AddEventHandler('codem-venicehud:UpdateNitroData', function(nitroData)
         nitro = nitroData
         while not response do
-          Wait(0)
-        end
+          Citizen.Wait(0)
+        end  
         local playerVeh = GetVehiclePedIsIn(playerPed, false)
         if playerVeh ~= 0 and nitro[GetVehicleNumberPlateText(playerVeh)] ~= nil then
             SendNUIMessage({ type="set_status",       statustype = "nitro", value = nitro[GetVehicleNumberPlateText(playerVeh)]})
         end
     end)
-
+    
     local isPressing = false
     RegisterCommand('+nitro', function()
         local playerVeh = GetVehiclePedIsIn(playerPed, false)
@@ -200,29 +200,29 @@ if Config.EnableNitro then
                             isPressing = false
                             SetVehicleNitroBoostEnabled(playerVeh, false)
                             SetVehicleLightTrailEnabled(playerVeh, false)
-                            SetVehicleNitroPurgeEnabled(playerVeh, false)
+                            SetVehicleNitroPurgeEnabled(playerVeh, false)     
 				                    SetVehicleEnginePowerMultiplier(playerVeh,1.0)
                             TriggerServerEvent('codem-venicehud:UpdateNitro', GetVehicleNumberPlateText(playerVeh), nitro[GetVehicleNumberPlateText(playerVeh)])
-                            break
+                            break  
                         end
                         if playerVeh == 0 then
                             isPressing = false
 				                    SetVehicleEnginePowerMultiplier(playerVeh,1.0)
                             SetVehicleNitroBoostEnabled(playerVeh, false)
                             SetVehicleLightTrailEnabled(playerVeh, false)
-                            SetVehicleNitroPurgeEnabled(playerVeh, false)
+                            SetVehicleNitroPurgeEnabled(playerVeh, false)                            
                             TriggerServerEvent('codem-venicehud:UpdateNitro', GetVehicleNumberPlateText(playerVeh), nitro[GetVehicleNumberPlateText(playerVeh)])
                             break
                         end
                         if GetPedInVehicleSeat(playerVeh, -1) == playerPed then
                             local force = Config.NitroForce
                             nitro[GetVehicleNumberPlateText(playerVeh)] = nitro[GetVehicleNumberPlateText(playerVeh)] - Config.RemoveNitroOnpress
-                            SendNUIMessage({ type="set_status",       statustype = "nitro", value = nitro[GetVehicleNumberPlateText(playerVeh)]})
+                            SendNUIMessage({ type="set_status",       statustype = "nitro", value = nitro[GetVehicleNumberPlateText(playerVeh)]})                           
                             SetVehicleNitroBoostEnabled(playerVeh, true)
                             SetVehicleLightTrailEnabled(playerVeh, true)
                             SetVehicleNitroPurgeEnabled(playerVeh, true)
                             CreateVehicleExhaustBackfire(playerVeh, 1.25)
-	                          SetVehicleEnginePowerMultiplier(playerVeh,55.0)
+	                          SetVehicleEnginePowerMultiplier(playerVeh,55.0)	
                         else
                             SetVehicleNitroBoostEnabled(playerVeh, false)
                             SetVehicleLightTrailEnabled(playerVeh, false)
@@ -230,10 +230,10 @@ if Config.EnableNitro then
 				                    SetVehicleEnginePowerMultiplier(playerVeh,1.0)
                             isPressing = false
                             TriggerServerEvent('codem-venicehud:UpdateNitro', GetVehicleNumberPlateText(playerVeh), nitro[GetVehicleNumberPlateText(playerVeh)])
-
+    
                             break
                         end
-                        Wait(400)
+                        Citizen.Wait(400)
                     end
                 end
             end
@@ -246,8 +246,8 @@ if Config.EnableNitro then
                 isPressing = false
                 SetVehicleNitroBoostEnabled(playerVeh, false)
                 SetVehicleLightTrailEnabled(playerVeh, false)
-                SetVehicleNitroPurgeEnabled(playerVeh, false)
-				        SetVehicleEnginePowerMultiplier(playerVeh,1.0)
+                SetVehicleNitroPurgeEnabled(playerVeh, false)          
+				        SetVehicleEnginePowerMultiplier(playerVeh,1.0)                         
                 SendNUIMessage({ type="set_status",       statustype = "nitro", value = nitro[GetVehicleNumberPlateText(playerVeh)]})
                 TriggerServerEvent('codem-venicehud:UpdateNitro', GetVehicleNumberPlateText(playerVeh), nitro[GetVehicleNumberPlateText(playerVeh)])
             end
@@ -255,8 +255,8 @@ if Config.EnableNitro then
             SendNUIMessage({ type="set_status",       statustype = "nitro", value = 0})
         end
     end)
-
+    
     RegisterKeyMapping('+nitro', 'Toggle Nitro', 'keyboard',  Config.NitroKey)
-
-
+    
+    
 end

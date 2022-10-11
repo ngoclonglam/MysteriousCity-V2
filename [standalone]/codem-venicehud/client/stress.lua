@@ -2,9 +2,9 @@ if Config.UseStress then
     local stress = 0
     RegisterNetEvent('hud:client:UpdateStress', function(newStress) -- Add this event with adding stress elsewhere
         while not response do
-            Wait(0)
-        end
-        stress = newStress     
+            Citizen.Wait(0)
+        end          
+        stress = newStress        
         SendNUIMessage({ type="set_status", statustype = "stress", value = newStress})
     end)
     function IsWhitelistedWeaponStress(weapon)
@@ -31,8 +31,9 @@ if Config.UseStress then
              Wait(10000)
             end
         end
+     
     end)
-
+    
     CreateThread(function() -- Shooting
         if Config.AddStress["on_shoot"].enable  then
             while true do
@@ -51,22 +52,24 @@ if Config.UseStress then
             end
 
         end
+   
     end)
-
+    
     CreateThread(function()
         while true do
             local ped = playerPed
             if stress >= 100 then
+    
                 local ShakeIntensity = GetShakeIntensity(stress)
                 local FallRepeat = math.random(2, 4)
                 local RagdollTimeout = (FallRepeat * 1750)
                 ShakeGameplayCam('SMALL_EXPLOSION_SHAKE', ShakeIntensity)
                 SetFlash(0, 0, 500, 3000, 500)
-
+    
                 if not IsPedRagdoll(ped) and IsPedOnFoot(ped) and not IsPedSwimming(ped) then
                     SetPedToRagdollWithFall(ped, RagdollTimeout, RagdollTimeout, 1, GetEntityForwardVector(ped), 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
                 end
-
+    
                 Wait(500)
                 for i=1, FallRepeat, 1 do
                     Wait(750)
@@ -84,7 +87,7 @@ if Config.UseStress then
             Wait(GetEffectInterval(stress))
         end
     end)
-
+    
     function GetShakeIntensity(stresslevel)
         local retval = 0.05
         local Intensity = {
@@ -124,7 +127,7 @@ if Config.UseStress then
         end
         return retval
     end
-
+    
     function GetEffectInterval(stresslevel)
         local EffectInterval = {
             [1] = {
@@ -162,6 +165,7 @@ if Config.UseStress then
         end
         return retval
     end
+    
 end
 
 
@@ -246,10 +250,10 @@ AddEventHandler('hospital:client:RespawnAtHospital', function()
     TriggerServerEvent('hud:server:RelieveStress', 10000)
 end)
 
-CreateThread(function()
+Citizen.CreateThread(function()
     if Config.RemoveStress["on_swimming"].enable then
         while true do
-            Wait(10000)
+            Citizen.Wait(10000)
             if IsPedSwimming(playerPed) then
                 local val = math.random(Config.RemoveStress["on_swimming"].min, Config.RemoveStress["on_swimming"].max)
                 TriggerServerEvent('hud:server:RelieveStress', val)
@@ -258,10 +262,10 @@ CreateThread(function()
     end
 end)
 
-CreateThread(function()
+Citizen.CreateThread(function()
     if Config.RemoveStress["on_running"].enable then
         while true do
-            Wait(10000)
+            Citizen.Wait(10000)
             if IsPedRunning(playerPed) then
                 local val = math.random(Config.RemoveStress["on_running"].min, Config.RemoveStress["on_running"].max)
                 TriggerServerEvent('hud:server:RelieveStress', val)

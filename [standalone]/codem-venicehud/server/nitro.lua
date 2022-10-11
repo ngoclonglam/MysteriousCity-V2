@@ -2,11 +2,11 @@ nitro = {}
 
 if Config.EnableNitro then
 
-    CreateThread(function()
+    Citizen.CreateThread(function()
         while frameworkObject == nil do
-            Wait(0)
+            Citizen.Wait(0)
         end
-
+    
         if Config.Framework == "esx" then
             frameworkObject.RegisterUsableItem(Config.NitroItem, function(source)
                 TriggerClientEvent('codem-venicehud:SetupNitro', source)
@@ -17,7 +17,7 @@ if Config.EnableNitro then
             end)
         end
     end)
-
+    
     RegisterServerEvent('codem-venicehud:InstallNitro')
     AddEventHandler('codem-venicehud:InstallNitro', function(plate)
         local src = source
@@ -26,7 +26,7 @@ if Config.EnableNitro then
             TriggerClientEvent('codem-venicehud:UpdateNitroData', -1, nitro)
         end
     end)
-
+    
     RegisterServerEvent('codem-venicehud:UpdateNitro')
     AddEventHandler('codem-venicehud:UpdateNitro', function(plate, val)
         local src = source

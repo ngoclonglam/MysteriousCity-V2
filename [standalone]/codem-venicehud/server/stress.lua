@@ -21,9 +21,9 @@ if Config.UseStress then
 
         return false
     end
-
+    
     RegisterNetEvent('hud:server:GainStress', function(amount)
-
+    
         local src = source
         local identifier = GetIdentifier(src)
         local newStress
@@ -35,7 +35,7 @@ if Config.UseStress then
         end
         newStress = tonumber(stressData[identifier]) + amount
         if newStress <= 0 then newStress = 0 end
-
+    
         if newStress > 100 then
             newStress = 100
         end
@@ -51,13 +51,13 @@ if Config.UseStress then
     --     ExecuteSql("UPDATE `codem-venicehud-data` SET stress = '"..newStress.."' WHERE identifier = '"..identifier.."'")
     --     TriggerClientEvent('hud:client:UpdateStress', src, newStress)
     -- end)
-
+    
     RegisterNetEvent('hud:server:RelieveStress', function(amount)
         local src = source
         local identifier = GetIdentifier(src)
-
+    
         local newStress
-
+            
         if stressData[identifier] == nil then
             stressData[identifier] = 0
         end
@@ -70,7 +70,7 @@ if Config.UseStress then
         stressData[identifier] = newStress
         ExecuteSql("UPDATE `codem-venicehud-data` SET stress = '"..newStress.."' WHERE identifier = '"..identifier.."'")
         TriggerClientEvent('hud:client:UpdateStress', src, newStress)
-        if newStress > 10  then
+        if newStress > 10  then 
         Config.Notification(Config.Notifications["stress_relive"].message, Config.Notifications["stress_relive"].type, true, src)
         end
     end)

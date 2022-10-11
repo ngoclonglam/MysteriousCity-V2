@@ -1,8 +1,8 @@
 
 -------------------------------------------- General --------------------------------------------
 Config = {}
-Config.Framework = "newbq" -- newqb, oldqb, esx
-Config.Mysql = "oxymsql" -- mysql-async, ghmattimysql, oxmysql
+Config.Framework = "newqb" -- newqb, oldqb, esx
+Config.Mysql = "oxmysql" -- mysql-async, ghmattimysql, oxmysql
 Config.Voice = "pma" -- mumble, saltychat, pma
 Config.DefaultHud = "malibuhud" -- Default hud when player first login avaliable huds [venicehud, malibuhud, belairhud]
 Config.DefaultCarHud = "mayhemhud" -- Default hud when player first login avaliable huds [vertexhud, mayhemhud, perspecthud]
@@ -10,7 +10,7 @@ Config.EnableDynamicStatusFirstJoin = false -- Enable dynamic status first join
 Config.DefaultSpeedUnit = "kmh" -- Default speed unit when player first login avaliable speed units [kmh, mph]
 Config.HudSettingsCommand = 'hud' -- Command for open hud settings
 Config.DisplayMapOnWalk = true -- true - Show map when walking | false - Hide map when walking
-Config.DisplayRealTime = false -- if you set this to true will show the real time according to player local time | if false it will show the game time
+Config.DisplayRealTime = true -- if you set this to true will show the real time according to player local time | if false it will show the game time
 Config.EnableSpamNotification = true -- Spam preventation for seatbelt, cruise etc.
 Config.EnableDateDisplay = true -- Determines if display date or nor
 Config.DefaultSpeedometerSize = 1.2 -- 0.5 - 1.3
@@ -90,7 +90,7 @@ Config.DefaultHudColors = {
         ["oxy"] = "#48A7FF",
         ["nitro"] = "#AFFF48",
         ["altitude"] = "#00FFF0",
-    },    
+    },
     ["belairhud"] = {
         ["health"] = "#FF8A00",
         ["armor"] = "#2E3893",
@@ -129,6 +129,7 @@ Config.DefaultCarHudColors = {
         ["nitro"] = "#00ffff",
         ["wind"] = "#FF4848",
         ["altitude"] = "#00ffff",
+
     },
     ["vertexhud"] = {
         ["health"] = "#00FFF0",
@@ -150,61 +151,61 @@ Config.DefaultCarHudColors = {
 
 -------------------------------------------- Locale --------------------------------------------
 Config.Locale = {
-    ["STATUS"] = 'Tình Trạng',
-    ["SPEEDOMETER"] = 'Đồng Hồ Tốc Độ',
-    ["SHOW_HUD"] = 'Hiện Hud',
-    ["HIDE_HUD"] = 'Ẩn Hud',
-    ["CINEMATIC_MODE"] = 'Chế Độ Điện Ảnh',
+    ["STATUS"] = 'Status',
+    ["SPEEDOMETER"] = 'Speedometer',
+    ["SHOW_HUD"] = 'Show Hud',
+    ["HIDE_HUD"] = 'Hide Hud',
+    ["CINEMATIC_MODE"] = 'Cinematic Mode',
     ["RESET_HUD"] = 'Reset Hud',
-    ["SELECT"] = 'Chọn',
-    ["EDIT"] = 'Sửa',
+    ["SELECT"] = 'Select',
+    ["EDIT"] = 'Edit',
     ["ID"] = 'ID',
     ["ONLINE"] = 'Online',
-    ["CHANGE_ALL_COLORS"] = 'Đổi Màu',
-    ["DRAG_DROP"] = 'Kéo & Thả',
-    ["DEFAULT"] = 'Mặc Định',
+    ["CHANGE_ALL_COLORS"] = 'Change All Colors',
+    ["DRAG_DROP"] = 'Drag & Drop',
+    ["DEFAULT"] = 'Default',
     ["CIRCLE"] = 'Circle',
     ["SHIFT"] = 'Shift',
     ["NEEDLE"] = 'Needle',
-    ["SPEED"] = 'Tốc Độ',
+    ["SPEED"] = 'Speed',
     ["GAS"] = 'Gas',
-    ["HEALTH"] = 'Máu',
+    ["HEALTH"] = 'Health',
     ["NITRO"] = 'Nitro',
-    ["WIND"] = 'Gió',
-    ["ROADS"] = 'Đường',
+    ["WIND"] = 'Wind',
+    ["ROADS"] = 'Roads',
     ["ALTITUDE"] = 'Altitude',
-    ["ARMOUR"] = 'Giáp',
-    ["THIRST"] = 'Độ Khát',
-    ["HUNGER"] = 'Độ Đói',
+    ["ARMOUR"] = 'Armour',
+    ["THIRST"] = 'Thirst',
+    ["HUNGER"] = 'Hunger',
     ["STRESS"] = 'Stress',
-    ["LUNGS"] = 'Phổi',
-    ["STAMINA"] = 'Thể Lực',
+    ["LUNGS"] = 'Lungs',
+    ["STAMINA"] = 'Stamina',
     ["AT"] = 'at',
     ["RESET"] = 'Reset',
-    ["HIDE_ID"] = 'Ẩn ID',
-    ["SHOW_ID"] = 'Hiện ID',
-    ["HIDE_ONLINE"] = 'Ẩn Online',
-    ["SHOW_ONLINE"] = 'Hiện Online',
-    ["HIDE_MONEY"] = 'Ẩn Tiền',
-    ["SHOW_MONEY"] = 'Hiện Tiền',
-    ["HIDE_JOB"] = 'Ẩn Nghề',
-    ["SHOW_JOB"] = 'Hiện Nghề',
-    ["HIDE_AMMO"] = 'Ẩn Đạn',
-    ["SHOW_AMMO"] = 'Hiện Đạn',
-    ["SHOW_PHONE_KEY"] = 'Hiện Nút Phone',
-    ["HIDE_PHONE_KEY"] = 'Ẩn Nút Phone',
-    ["HIDE_INVENTORY_KEY"] = 'Ẩn Nút Túi Đồ',
-    ["SHOW_INVENTORY_KEY"] = 'Hiện Nút Túi Đồ',
-    ["HIDE_MENU_KEY"] = 'Ẩn Nút Menu',
-    ["SHOW_MENU_KEY"] = 'Hiện Nút Menu',
-    ["HIDE_MIC_KEY"] = 'Ẩn Nút Micro',
-    ["SHOW_MIC_KEY"] = 'Hiện Nút Micro',
-    ["SHOW_LOGO"] = 'Hiện Logo',
-    ["HIDE_LOGO"] = 'Ẩn Logo',
-    ["EDIT_PAGE"] = 'Chỉnh Sửa Trang',
+    ["HIDE_ID"] = 'Hide ID',
+    ["SHOW_ID"] = 'Show ID',
+    ["HIDE_ONLINE"] = 'Hide Online',
+    ["SHOW_ONLINE"] = 'Show Online',
+    ["HIDE_MONEY"] = 'Hide Money',
+    ["SHOW_MONEY"] = 'Show Money',
+    ["HIDE_JOB"] = 'Hide Job',
+    ["SHOW_JOB"] = 'Show Job',
+    ["HIDE_AMMO"] = 'Hide Ammo',
+    ["SHOW_AMMO"] = 'Show Ammo',
+    ["SHOW_PHONE_KEY"] = 'Show Phone Key',
+    ["HIDE_PHONE_KEY"] = 'Hide Phone Key',
+    ["HIDE_INVENTORY_KEY"] = 'Hide Inventory Key',
+    ["SHOW_INVENTORY_KEY"] = 'Show Inventory Key',
+    ["HIDE_MENU_KEY"] = 'Hide Menu Key',
+    ["SHOW_MENU_KEY"] = 'Show Menu Key',
+    ["HIDE_MIC_KEY"] = 'Hide Mic Key',
+    ["SHOW_MIC_KEY"] = 'Show Mic Key',
+    ["SHOW_LOGO"] = 'Show Logo',
+    ["HIDE_LOGO"] = 'Hide Logo',
+    ["EDIT_PAGE"] = 'Edit Page',
     ["HUD"] = 'HUD',
-    ["STYLE_SELECTOR"] = 'Chọn Phong Cách',
-    ["DISABLED"] = 'Không Hoạt Động',
+    ["STYLE_SELECTOR"] = 'Style Selector',
+    ["DISABLED"] = 'Not active',
 
 
 
@@ -268,10 +269,10 @@ Config.Text2Style = {
 Config.CompassStreetnameClock = true -- true  show -- false hide
 
 -------------------------------------------- Keys --------------------------------------------
-Config.DefaultCruiseControlKey = "y" -- Default control key for cruise. Players can change the key according to their desire 
-Config.DefaultSeatbeltControlKey = "b" -- Default control key for seatbelt. Players can change the key according to their desire 
-Config.VehicleEngineToggleKey = "g" -- Default control key for toggle engine. Players can change the key according to their desire 
-Config.NitroKey = "," -- Default control key for use nitro. Players can change the key according to their desire 
+Config.DefaultCruiseControlKey = "b" -- Default control key for cruise. Players can change the key according to their desire 
+Config.DefaultSeatbeltControlKey = "k" -- Default control key for seatbelt. Players can change the key according to their desire 
+Config.VehicleEngineToggleKey = "y" -- Default control key for toggle engine. Players can change the key according to their desire 
+Config.NitroKey = "X" -- Default control key for use nitro. Players can change the key according to their desire 
 
 -------------------------------------------- Nitro --------------------------------------------
 Config.Nitro = false --- just html icon
@@ -302,47 +303,47 @@ Config.SettingsLocale = { -- Settings texts
     ["classic_hud_2"] = "hud",
     ["radial_hud_1"] = "radial",
     ["radial_hud_2"] = "hud",
-    ["hide_hud"] = "Ẩn Hud",
-    ["health"] = "Máu",
-    ["armor"] = "Giáp",
-    ["thirst"] = "Độ Khát",
+    ["hide_hud"] = "Hide Hud",
+    ["health"] = "Health",
+    ["armor"] = "Armor",
+    ["thirst"] = "Thirst",
     ["stress"] = "Stress",
     ["oxy"] = "Oxygen",
-    ["hunger"] = "Độ Đói",
-    ["show_hud"] = "Hiện Hud",
-    ["stamina"] = "Thể Lực",
+    ["hunger"] = "Hunger",
+    ["show_hud"] = "Show Hud",
+    ["stamina"] = "Stamina",
     ["nitro"] = "Nitro",
     ["Altitude"] = "Altitude",
-    ["Parachute"] = "Dù",
-    ["enable_cinematicmode"] = "Chế Độ Điện Ảnh",
-    ["disable_cinematicmode"] = "Tắt Chế Độ Điện Ảnh",
+    ["Parachute"] = "Parachute",
+    ["enable_cinematicmode"] = "Cinematic Mode",
+    ["disable_cinematicmode"] = "Disable Cinematic",
     ["exit_settings_1"] = "EXIT FROM",
-    ["exit_settings_2"] = "CÀI ĐẶT",
-    ["speedometer"] = "ĐỒNG HỒ TỐC ĐỘ",
-    ["map"] = "BẢN ĐỒ",
-    ["show_compass"] = "Hiện La Bàn",
-    ["hide_compass"] = "Ẩn La Bàn",
+    ["exit_settings_2"] = "SETTINGS",
+    ["speedometer"] = "SPEEDOMETER",
+    ["map"] = "MAP",
+    ["show_compass"] = "Show Compass",
+    ["hide_compass"] = "Hide Compass",
     ["rectangle"] = "Rectangle",
     ["radial"] = "Radial",
     ["dynamic"] = "DYNAMiC",
     ["status"] = "STATUS",
-    ["enable"] = "BẬT",
+    ["enable"] = "Enable",
     ["hud_size"] = "Status size",
-    ["disable"] = "TẮT",
+    ["disable"] = "Disable",
     ["hide_at"] = "Hide at",
     ["and_above"] = "and above",
     ["and_below"] = "and below",
     ["enable_edit_mode"] = "Drag HUD (One by one)",
     ["enable_edit_mode_2"] = "Drag HUD (All)",
     ["change_status_size"] = "Change status size",
-    ["change_color"] = "Thay đổi màu sắc của HUD đã chọn ",
-    ["disable_edit_mode"] = "Tắt Chế Độ Chỉnh Sửa",
-    ["reset_hud_positions"] = "Reset Vị Trí Hud",
-    ["info_text"] = "Cẩn thận tăng tốc độ làm mới có thể làm giảm hiệu suất trò chơi của bạn!",
-    ["speedometer_size"] = "Kích Thước Bảng Tốc Độ",
+    ["change_color"] = "Change color of selected hud ",
+    ["disable_edit_mode"] = "Disable Edit Mode",
+    ["reset_hud_positions"] = "Reset Hud Positions",
+    ["info_text"] = "Be aware increasing refresh rate may decrease your in game perfomance!",
+    ["speedometer_size"] = "Speedometer Size",
     ["refresh_rate"] = "Refresh Rate",
     ["esc_to_exit"] = "PRESS ESC TO EXIT EDIT MODE",
-    ["toggle_minimap"] = "Bật Minimap",
+    ["toggle_minimap"] = "Toggle Minimap",
 }
 
 -------------------------------------------- Fuel --------------------------------------------
@@ -386,25 +387,25 @@ Config.RemoveStress = { -- You can set here amounts by your desire
     ["on_eat"] = {
         min = 5,
         max = 10,
-        enable = false,
+        enable = true,
 
     },
     ["on_drink"] = {
         min = 5,
         max = 10,
-        enable = false,
+        enable = true,
 
     },
     ["on_swimming"] = {
         min = 5,
         max = 10,
-        enable = false,
+        enable = true,
 
     },
     ["on_running"] = {
         min = 5,
         max = 10,
-        enable = false,
+        enable = true,
     },
 
 }
@@ -415,56 +416,56 @@ Config.RemoveStress = { -- You can set here amounts by your desire
 
 Config.Notifications = { -- Notifications
     ["stress_gained"] = {
-        message = 'Bị căng thẳng',
+        message = 'Getting Stressed',
         type = "error",
     },
     ["stress_relive"] = {
-        message =  'Bạn đang thư giãn',
+        message =  'You Are Relaxing',
         type = "success",
     },
     ["took_off_seatbelt"] = {
         type = "error",
-        message = "Bạn đã cởi dây an toàn.",
+        message = "You took off seatbelt.",
     },
     ["took_seatbelt"] = {
         type = "success",
-        message = "Bạn đã thắt dây an toàn.",
+        message = "You took seatbelt.",
     },
     ["cruise_actived"] = {
         type = "success",
-        message = "Kiểm soát tốc độ kích hoạt.",
+        message = "Cruise activated.",
     },
     ["cruise_disabled"] = {
         type = "error",
-        message = "Kiểm soát tốc độ bị vô hiệu hóa.",
+        message = "Cruise disabled.",
     },
     ["spam"] = {
         type = "error",
-        message = "Vui lòng đợi trong vài giây.",
+        message = "Please wait for a few seconds.",
     },
     ["engine_on"] = {
         type = "success",
-        message = "Động cơ đang bật.",
+        message = "Engine is on.",
     },
     ["engine_off"] = {
         type = "success",
-        message = "Động cơ bị tắt.",
+        message = "Engine is off.",
     },
     ["cant_install_nitro"] = {
         type = "error",
-        message = "Bạn không thể cài đặt Nitro bên trong xe.",
+        message = "You can't install nitro inside vehicle.",
     },
     ["no_veh_nearby"] = {
         type = "error",
-        message = "Không có xe gần đó.",
+        message = "No vehicle nearby.",
     },
     ["cash_display"] = {
         type = "success",
-        message = "Bạn có $%s trong túi của bạn.",
+        message = "You have $%s in your pocket.",
     },
     ["bank_display"] = {
         type = "success",
-        message = "Bạn có $%s trong ngân hàng của bạn.",
+        message = "You have $%s in your bank.",
     },
 }
 
@@ -482,20 +483,22 @@ Config.Notification = function(message, type, isServer, src) -- You can change h
             TriggerEvent('QBCore:Notify', message, type, 1500)
         end
     end
-end 
+end
 
 
 
 
-CreateThread(function()
+Citizen.CreateThread(function()
     frameworkObject = GetFrameworkObject()
     Config.GetStatus = function()
-        Wait(100)
+        Citizen.Wait(100)
         while true do
                 if Config.Framework == "newqb" or Config.Framework == "oldqb"  then
+
                     WaitPlayer()
                     local myhunger = frameworkObject.Functions.GetPlayerData().metadata["hunger"]
                     local mythirst = frameworkObject.Functions.GetPlayerData().metadata["thirst"]
+
 
                     SendNUIMessage({
                         type = "set_status",
@@ -506,7 +509,7 @@ CreateThread(function()
                         type = "set_status",
                         statustype = "thirst",
                         value =  mythirst,
-                    })        
+                    })
                 end
                 if Config.Framework == "esx" then
                     TriggerEvent('esx_status:getStatus', 'hunger', function(hunger)
@@ -524,10 +527,10 @@ CreateThread(function()
                                 value =  mythirst,
                             })
                         end)
-                    end)               
+                    end)
                 end
-          
-            Wait(7000)
+
+            Citizen.Wait(7000)
         end
     end
 

@@ -22,7 +22,7 @@ shared_script{
 	'config.lua',
 }
 
-dependencies {
+dependencies { 
 	'/server:5104',
 	'/onesync',
 }
@@ -38,7 +38,7 @@ escrow_ignore {
 	'server/stress.lua',
 	'server/nitro.lua',
 	'config.lua',
-	'GetFrameworkObject.lua'
+	'GetFrameworkObject.lua',	
 }
 
 client_scripts {

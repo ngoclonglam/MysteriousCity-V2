@@ -1,19 +1,19 @@
 if Config.EnableCruise then
     local cruiseIsOn = false
     local cruiseSpeed = 999.0
-
+    
     RegisterKeyMapping('cruise', 'Cruise Control', 'keyboard', Config.DefaultCruiseControlKey)
     local cruiseSpam = 0
-    CreateThread(function()
+    Citizen.CreateThread(function()
         while true do
-            Wait(1700)
+            Citizen.Wait(1700)
             if cruiseSpam > 0 then
-                Wait(3500)
+                Citizen.Wait(3500)
                 cruiseSpam = 0
             end
         end
     end)
-
+    
     RegisterCommand('cruise', function()
         if cruiseSpam >= 3 then
             if Config.EnableSpamNotification  then
@@ -32,7 +32,7 @@ if Config.EnableCruise then
             end
             local currSpeed = GetEntitySpeed(vehicle)
             cruiseSpeed = currSpeed
-
+            
             local maxSpeed = cruiseIsOn and cruiseSpeed or GetVehicleHandlingFloat(vehicle, "CHandlingData", "fInitialDriveMaxFlatVel")
             SetEntityMaxSpeed(vehicle, maxSpeed)
             SendNUIMessage({type = "toggle_cruise", toggle = cruiseIsOn})

@@ -8,53 +8,53 @@ if Config.EnableSeatbelt then
         local seatPlayerId = {}
         if IsCar(car) then
             for i=1, GetVehicleModelNumberOfSeats(GetEntityModel(car)) do
-                if not IsVehicleSeatFree(car, i-2) then
-                    local otherPlayerId = GetPedInVehicleSeat(car, i-2)
+                if not IsVehicleSeatFree(car, i-2) then 
+                    local otherPlayerId = GetPedInVehicleSeat(car, i-2) 
                     local playerHandle = NetworkGetPlayerIndexFromPed(otherPlayerId)
                     local playerServerId = GetPlayerServerId(playerHandle)
                     table.insert(seatPlayerId, playerServerId)
                 end
             end
-            if #seatPlayerId > 0 then TriggerServerEvent("seatbelt:server:PlaySound", action, seatPlayerId) end
+            if #seatPlayerId > 0 then TriggerServerEvent("seatbelt:server:PlaySound", action, seatPlayerId) end 
         end
     end
-
+    
     RegisterNetEvent('seatbelt:client:PlaySound')
     AddEventHandler('seatbelt:client:PlaySound', function(action, volume)
         SendNUIMessage({type = action, volume = volume})
     end)
 
     RegisterKeyMapping('seatbelt', 'Toggle Seatbelt', 'keyboard', Config.DefaultSeatbeltControlKey)
-    CreateThread(function()
+    Citizen.CreateThread(function()
         while true do
-            Wait(1500)
+            Citizen.Wait(1500)
             if seatbeltSpam > 0 then
-                Wait(3500)
+                Citizen.Wait(3500)
                 seatbeltSpam = 0
             end
         end
     end)
-
+    
     RegisterNetEvent('codem-venicehud:seatbelt:toggle')
     AddEventHandler('codem-venicehud:seatbelt:toggle', function(toggle)
         local car = GetVehiclePedIsIn(playerPed)
 	    if car ~= 0 and IsCar(car) then
             local vehicleClass = GetVehicleClass(GetVehiclePedIsIn(playerPed))
             if vehicleClass == 8 or vehicleClass == 13 or vehicleClass == 14 or vehicleClass == 21 then
-                return
+                return 
             end
             if seatbeltSpam >= 3 then
                 if Config.EnableSpamNotification  then
                     Config.Notification(Config.Notifications["spam"]["message"], Config.Notifications["spam"]["type"])
                 end
                 return
-            end
+            end        
             seatbeltOn = toggle
             if seatbeltOn then
                 SendNUIMessage({
                     type="update_seatbelt",
                     toggle = true
-                })
+                })                
                 playSound("buckle")
                 Config.Notification(Config.Notifications["took_seatbelt"]["message"], Config.Notifications["took_seatbelt"]["type"])
             else
@@ -64,7 +64,7 @@ if Config.EnableSeatbelt then
                 })
                 playSound("unbuckle")
                 Config.Notification(Config.Notifications["took_off_seatbelt"]["message"], Config.Notifications["took_off_seatbelt"]["type"])
-            end
+            end              
         end
     end)
 
@@ -76,20 +76,20 @@ if Config.EnableSeatbelt then
 	    if car ~= 0 and IsCar(car) then
             local vehicleClass = GetVehicleClass(GetVehiclePedIsIn(playerPed))
             if vehicleClass == 8 or vehicleClass == 13 or vehicleClass == 14 or vehicleClass == 21 then
-                return
+                return 
             end
             if seatbeltSpam >= 3 then
                 if Config.EnableSpamNotification  then
                     Config.Notification(Config.Notifications["spam"]["message"], Config.Notifications["spam"]["type"])
                 end
                 return
-            end
+            end        
             seatbeltOn = not seatbeltOn
             if seatbeltOn then
                 SendNUIMessage({
                     type="update_seatbelt",
                     toggle = true
-                })
+                })                
                 playSound("buckle")
                 Config.Notification(Config.Notifications["took_seatbelt"]["message"], Config.Notifications["took_seatbelt"]["type"])
             else
@@ -99,11 +99,11 @@ if Config.EnableSeatbelt then
                 })
                 playSound("unbuckle")
                 Config.Notification(Config.Notifications["took_off_seatbelt"]["message"], Config.Notifications["took_off_seatbelt"]["type"])
-            end
+            end              
         end
-
-    end, false)
-    function Fwv(entity)
+              				  
+    end, false)    
+    function Fwv(entity)  
         local hr = GetEntityHeading(entity) + 90.0
         if hr < 0.0 then hr = 360.0 + hr end
         hr = hr * 0.0174533
@@ -112,7 +112,7 @@ if Config.EnableSeatbelt then
     function IsCar(veh)
         local vc = GetVehicleClass(veh)
         return (vc >= 0 and vc <= 7) or (vc >= 9 and vc <= 12) or (vc >= 17 and vc <= 20)
-    end
+    end  
     RegisterNetEvent('codem-venicehud:client:EjectPlayer')
     AddEventHandler('codem-venicehud:client:EjectPlayer', function(velocity)
 	    if not seatbeltOn then
@@ -121,12 +121,12 @@ if Config.EnableSeatbelt then
 	        SetEntityCoords(playerPed, co.x + fw.x, co.y + fw.y, co.z - 0.47, true, true, true)
 	        SetEntityVelocity(playerPed, velocity.x, velocity.y, velocity.z)
 	        Wait(500)
-	        SetPedToRagdoll(playerPed, 1000, 1000, 0, 0, 0, 0)
-            seatbeltOn = false
+	        SetPedToRagdoll(playerPed, 1000, 1000, 0, 0, 0, 0)       
+            seatbeltOn = false 
             SendNUIMessage({
                 type="update_seatbelt",
                 toggle = false
-            })
+            })  
         end
     end)
 
@@ -138,16 +138,16 @@ if Config.EnableSeatbelt then
 	        local car = GetVehiclePedIsIn(playerPed)
 	        if car ~= 0 and (wasInCar or IsCar(car)) then
 	        	wasInCar = true
-	        	if seatbeltOn then
+	        	if seatbeltOn then 
                 	DisableControlAction(0, 75)
                 end
 	        	speedBuffer[2] = speedBuffer[1]
-	        	speedBuffer[1] = GetEntitySpeed(car)
+	        	speedBuffer[1] = GetEntitySpeed(car) 
+           
 
 
-
-                if speedBuffer[2] and GetEntitySpeedVector(car, true).y > 1.0  and speedBuffer[1] > 15 and (speedBuffer[2] - speedBuffer[1]) > (speedBuffer[1] * 0.255) then
-
+                if speedBuffer[2] and GetEntitySpeedVector(car, true).y > 1.0  and speedBuffer[1] > 15 and (speedBuffer[2] - speedBuffer[1]) > (speedBuffer[1] * 0.255) then			   
+                  
                     if not seatbeltOn then
 
                         local co = GetEntityCoords(playerPed)
@@ -155,26 +155,26 @@ if Config.EnableSeatbelt then
 	        		    SetEntityCoords(playerPed, co.x + fw.x, co.y + fw.y, co.z - 0.47, true, true, true)
 	        		    SetEntityVelocity(playerPed, velBuffer[2].x, velBuffer[2].y, velBuffer[2].z)
 	        		    Wait(500)
-	        		    SetPedToRagdoll(playerPed, 1000, 1000, 0, 0, 0, 0)
+	        		    SetPedToRagdoll(playerPed, 1000, 1000, 0, 0, 0, 0)                    
                         seatbeltOn = false
                         SendNUIMessage({
                             type="update_seatbelt",
                             toggle = false
-                        })
+                        })  
                     end
 
                     local seatPlayerId = {}
                     for i=1, GetVehicleModelNumberOfSeats(GetEntityModel(car)) do
                         if i ~= 1 then
-                            if not IsVehicleSeatFree(car, i-2) then
-                                local otherPlayerId = GetPedInVehicleSeat(car, i-2)
+                            if not IsVehicleSeatFree(car, i-2) then 
+                                local otherPlayerId = GetPedInVehicleSeat(car, i-2) 
                                 local playerHandle = NetworkGetPlayerIndexFromPed(otherPlayerId)
                                 local playerServerId = GetPlayerServerId(playerHandle)
                                 table.insert(seatPlayerId, playerServerId)
                             end
                         end
                     end
-                    if #seatPlayerId > 0 then TriggerServerEvent("codem-venicehud:server:EjectPlayer", seatPlayerId, velBuffer[2]) end
+                    if #seatPlayerId > 0 then TriggerServerEvent("codem-venicehud:server:EjectPlayer", seatPlayerId, velBuffer[2]) end                    
 	        	end
 	        	velBuffer[2] = velBuffer[1]
 	        	velBuffer[1] = GetEntityVelocity(car)
@@ -186,12 +186,12 @@ if Config.EnableSeatbelt then
                 SendNUIMessage({
                     type="update_seatbelt",
                     toggle = false
-                })
+                })  
                	speedBuffer[1], speedBuffer[2] = 0.0, 0.0
             else
                 Wait(2000)
             end
-            Wait(0)
+            Wait(0) 
         end
     end)
 end
