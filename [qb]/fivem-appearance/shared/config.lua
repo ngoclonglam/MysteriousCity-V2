@@ -31,8 +31,8 @@ Config.GenderBasedOnPed = true
 
 Config.AlwaysKeepProps = true
 
-Config.PersistUniforms = false -- Keeps Job / Gang Outfits on player reconnects / logout
-Config.OnDutyOnlyClothingRooms = false -- Set to `true` to make the clothing rooms accessible only to players who are On Duty
+Config.PersistUniforms = true -- Keeps Job / Gang Outfits on player reconnects / logout
+Config.OnDutyOnlyClothingRooms = true -- Set to `true` to make the clothing rooms accessible only to players who are On Duty
 
 Config.BossManagedOutfits = true -- Allows Job / Gang bosses to manage their own job / gang outfits
 
@@ -614,6 +614,26 @@ Config.ClothingRooms = {
     {
         job = "police",
         coords = vector4(458.55, -997.85, 30.69, 77.19),
+        width = 3,
+        length = 3,
+        zone = {
+            shape = {
+                vector2(460.41918945312, -993.11444091797),
+                vector2(449.39508056641, -993.60614013672),
+                vector2(449.88696289062, -990.23779296875),
+                vector2(450.97882080078, -989.71411132812),
+                vector2(451.0325012207, -987.89904785156),
+                vector2(453.47863769531, -987.76928710938),
+                vector2(454.35513305664, -988.46459960938),
+                vector2(460.4231262207, -987.94573974609)
+            },
+            minZ = 30.69 - 1.5,
+            maxZ = 30.69 + 1.5,
+        }
+    },
+    {
+        job = "police",
+        coords = vector4(300.68, -597.34, 43.28, 334.71),
         width = 3,
         length = 3,
         zone = {
