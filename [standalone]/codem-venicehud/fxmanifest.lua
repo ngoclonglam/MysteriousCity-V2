@@ -22,7 +22,7 @@ shared_script{
 	'config.lua',
 }
 
-dependencies { 
+dependencies {
 	'/server:5104',
 	'/onesync',
 }

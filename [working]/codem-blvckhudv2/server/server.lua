@@ -27,13 +27,13 @@ function ExecuteSql(query)
         end)
     end
     while IsBusy do
-        Citizen.Wait(0)
+        Wait(0)
     end
     return result
 end
 
 
-Citizen.CreateThread(function()
+CreateThread(function()
     frameworkObject = GetFrameworkObject()
     if Config.Framework == "esx" then
         frameworkObject.RegisterServerCallback("codem-blvckhudv2:GetMoney", function(source, cb, moneytype)
@@ -71,11 +71,11 @@ AddEventHandler('codem-blvckhudv2:RemoveItem', function(item, amount)
     end
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
     while frameworkObject == nil do
-        Citizen.Wait(0)
+        Wait(0)
     end
-    Citizen.Wait(2000)
+    Wait(2000)
     local data = ExecuteSql("SELECT * FROM `codem-hud-data`")
     local newPreferences = {}
     for k,v in pairs(data) do

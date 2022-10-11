@@ -3,7 +3,7 @@ function GetFrameworkObject()
     if Config.Framework == "esx" then
         while object == nil do
             TriggerEvent('esx:getSharedObject', function(obj) object = obj end)
-            Citizen.Wait(0)
+            Wait(0)
         end
     end
     if Config.Framework == "newqb" then
@@ -12,7 +12,7 @@ function GetFrameworkObject()
     if Config.Framework == "oldqb" then
         while object == nil do
             TriggerEvent('QBCore:GetObject', function(obj) object = obj end)
-            Citizen.Wait(200)
+            Wait(200)
         end
     end
     return object

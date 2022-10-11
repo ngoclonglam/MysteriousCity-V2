@@ -22,7 +22,7 @@ Config.Blips = {                                                    -- Here you 
 
 Config.MarkerSettings = {                                           -- used only when Config.UseTarget = false. Colors of the marker. Active = when player stands inside the marker.
     Active = {
-        r = 255, 
+        r = 255,
         g = 153,
         b = 20,
         a = 200,
@@ -60,7 +60,7 @@ Config.SpawnPoint = vector4(72.67, 120.83, 79.18, 158.66)  -- Vehicle spawn poin
 Config.EnableCloakroom = true                                 -- Set to false if you want to hide the "CLoakroom" button under WorkMenu
 
 Config.Clothes = {
-    
+
     -- Here you can configure clothes. More information on: https://docs.fivem.net/natives/?_0xD4F7B05C. Under this link you can see what id means what component.
 
     male = {{["component_id"] = 1, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 3, ["texture"] = 0, ["drawable"] = 11},{["component_id"] = 4, ["texture"] = 2, ["drawable"] = 10},{["component_id"] = 5, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 6, ["texture"] = 0, ["drawable"] = 54},{["component_id"] = 7, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 8, ["texture"] = 0, ["drawable"] = 57},{["component_id"] = 9, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 10, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 11, ["texture"] = 0, ["drawable"] = 13},},
@@ -89,7 +89,7 @@ Config.Lang = {
 
     -- Server
     ["isAlreadyHost"] = "This player leads his team.",
-    ["isBusy"] = "This player already belongs to another team.", 
+    ["isBusy"] = "This player already belongs to another team.",
     ["hasActiveInvite"] = "This Player already has an active invitation from someone.",
     ["HaveActiveInvite"] = "You already have an active invitation to join the team.",
     ["InviteDeclined"] = "Your invitation has been declined.",
@@ -100,7 +100,7 @@ Config.Lang = {
     ["RequireOneFriend"] = "This job requires at least one team member",
     ["dontHaveReqItem"] = "You do not have the required item to start work"
 
-} 
+}
 
 -- Homes Locations:
 
@@ -137,7 +137,7 @@ Config.TargetLocations = {
         vector3(1046.36, -498.17, 64.27),
         vector3(945.77, -519.09, 60.81),
     },
-    
+
     {-- Grove Street: 
         vector3(85.94, -1959.76, 21.12),
         vector3(114.31, -1961.23, 21.33),

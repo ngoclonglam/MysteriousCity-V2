@@ -64,7 +64,7 @@ Config.Rotations = {       -- Used with the AttachEntityToEntity() function, whe
 
 Config.MarkerSettings = {   -- used only when Config.UseTarget = false. Colors of the marker. Active = when player stands inside the marker.
     Active = {
-        r = 255, 
+        r = 255,
         g = 153,
         b = 20,
         a = 200,
@@ -134,7 +134,7 @@ Config.Lang = {
 
     -- Server
     ["isAlreadyHost"] = "This player leads his team.",
-    ["isBusy"] = "This player already belongs to another team.", 
+    ["isBusy"] = "This player already belongs to another team.",
     ["hasActiveInvite"] = "This Player already has an active invitation from someone.",
     ["HaveActiveInvite"] = "You already have an active invitation to join the team.",
     ["InviteDeclined"] = "Your invitation has been declined.",
