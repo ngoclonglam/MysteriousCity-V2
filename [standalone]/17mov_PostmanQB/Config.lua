@@ -3,7 +3,6 @@ Config.MailboxRenewalTime = 45000 * 60      -- Only one letter can be taken from
 
 Config.Props = {
     --Props from which letters can be collected
-    
     `prop_postbox_01a`,
     -- Add more if u want!
 }
@@ -30,7 +29,7 @@ Config.Blips = {                                -- Here you can configure Compan
 
 Config.MarkerSettings = {                       -- used only when Config.UseTarget = false. Colors of the marker. Active = when player stands inside the marker.
     Active = {
-        r = 255, 
+        r = 255,
         g = 153,
         b = 20,
         a = 200,
@@ -68,9 +67,9 @@ Config.SpawnPoint = vector4(-276.66, -894.68, 31.08, 337.31)  -- Vehicle spawn p
 Config.EnableCloakroom = true                                 -- Set to false if you want to hide the "CLoakroom" button under WorkMenu
 
 Config.Clothes = {
-    
+
     -- Here you can configure clothes. More information on: https://docs.fivem.net/natives/?_0xD4F7B05C. Under this link you can see what id means what component.
-    
+
     male = {{["component_id"] = 1, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 3, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 4, ["texture"] = 0, ["drawable"] = 10},{["component_id"] = 5, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 6, ["texture"] = 0, ["drawable"] = 36},{["component_id"] = 7, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 8, ["texture"] = 0, ["drawable"] = 15},{["component_id"] = 9, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 10, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 11, ["texture"] = 0, ["drawable"] = 250},},
     female = {{["component_id"] = 1, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 3, ["texture"] = 0, ["drawable"] = 14},{["component_id"] = 4, ["texture"] = 0, ["drawable"] = 6},{["component_id"] = 5, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 6, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 7, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 8, ["texture"] = 0, ["drawable"] = 15},{["component_id"] = 9, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 10, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 11, ["texture"] = 0, ["drawable"] = 258},},
 }
@@ -94,7 +93,7 @@ Config.Lang = {
 
     -- Server
     ["isAlreadyHost"] = "This player leads his team.",
-    ["isBusy"] = "This player already belongs to another team.", 
+    ["isBusy"] = "This player already belongs to another team.",
     ["hasActiveInvite"] = "This Player already has an active invitation from someone.",
     ["HaveActiveInvite"] = "You already have an active invitation to join the team.",
     ["InviteDeclined"] = "Your invitation has been declined.",
@@ -109,4 +108,4 @@ Config.Lang = {
     ["collected"] = "You have collected letters",
     ["broken"] = "The mailbox was damaged. The letters cannot be collected from it",
     ["dontHaveReqItem"] = "You do not have the required item to start work"
-} 
+}
