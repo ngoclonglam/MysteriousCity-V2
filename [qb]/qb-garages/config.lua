@@ -326,7 +326,7 @@ Garages = {
     },
     ["mechanic"] = {
         label = "Mechanic",
-        takeVehicle = vector3(-360.59, -128.11, 38.7),
+        takeVehicle = vector3(-362.96, -137.36, 38.68),
         spawnPoint = vector4(-386.63, -131.68, 38.68, 294.39),
         putVehicle = vector3(-360.59, -128.11, 38.7),
         showBlip = false,
@@ -338,7 +338,7 @@ Garages = {
     },
     ["tunner"] = {
         label = "Tunner",
-        takeVehicle = vector3(-320.87, -942.49, 31.08),
+        takeVehicle = vector3(-325.18, -948.94, 31.08),
         spawnPoint = vector4(-307.79, -951.09, 31.08, 64.08),
         putVehicle = vector3(-320.87, -942.49, 31.08),
         showBlip = false,

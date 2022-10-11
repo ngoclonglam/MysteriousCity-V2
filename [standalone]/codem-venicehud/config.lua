@@ -10,7 +10,7 @@ Config.EnableDynamicStatusFirstJoin = false -- Enable dynamic status first join
 Config.DefaultSpeedUnit = "kmh" -- Default speed unit when player first login avaliable speed units [kmh, mph]
 Config.HudSettingsCommand = 'hud' -- Command for open hud settings
 Config.DisplayMapOnWalk = true -- true - Show map when walking | false - Hide map when walking
-Config.DisplayRealTime = true -- if you set this to true will show the real time according to player local time | if false it will show the game time
+Config.DisplayRealTime = false -- if you set this to true will show the real time according to player local time | if false it will show the game time
 Config.EnableSpamNotification = true -- Spam preventation for seatbelt, cruise etc.
 Config.EnableDateDisplay = true -- Determines if display date or nor
 Config.DefaultSpeedometerSize = 1.2 -- 0.5 - 1.3
@@ -206,20 +206,14 @@ Config.Locale = {
     ["HUD"] = 'HUD',
     ["STYLE_SELECTOR"] = 'Style Selector',
     ["DISABLED"] = 'Not active',
-
-
-
-
-
-
 }
 
 
 -------------------------------------------- Settings hud --------------------------------------------
-Config.HelperTextEnable = true  --- true enable --- false disable
+Config.HelperTextEnable = false  --- true enable --- false disable
 Config.HelperText = {
-    ['phone'] = 'Phone',['phonepress'] = 'F1',
-    ['inventory'] = 'Inventory', ['inventorypress'] = 'F2',
+    ['phone'] = 'Phone',['phonepress'] = 'M',
+    ['inventory'] = 'Inventory', ['inventorypress'] = 'TAB',
     ['menu'] = 'Menu',['menupress'] = 'F3',
     ['mic'] = 'Mic',['micpress'] = 'N',
 }
@@ -241,10 +235,10 @@ Config.ShowMenu = {
 
 
 -------------------------------------------- Watermark hud --------------------------------------------
-Config.DisableWaterMarkTextAndLogo = true -- true - Disable watermark text and logo 
+Config.DisableWaterMarkTextAndLogo = false -- true - Disable watermark text and logo 
 Config.UseWaterMarkText = true -- if true text will be shown | if  false logo will be shown
-Config.WaterMarkText1 = "CODEM" -- Top right server text
-Config.WaterMarkText2 = "SCRiPTS"  -- Top right server text
+Config.WaterMarkText1 = "MYSTERIOUS" -- Top right server text
+Config.WaterMarkText2 = "CITY"  -- Top right server text
 Config.WaterMarkLogo = "https://cdn.discordapp.com/attachments/862018783391252500/967359920703942686/Frame_303.png" -- Logo url
 Config.LogoWidth = "11.875rem"
 Config.LogoHeight = "3.313rem"
@@ -269,9 +263,9 @@ Config.Text2Style = {
 Config.CompassStreetnameClock = true -- true  show -- false hide
 
 -------------------------------------------- Keys --------------------------------------------
-Config.DefaultCruiseControlKey = "b" -- Default control key for cruise. Players can change the key according to their desire 
-Config.DefaultSeatbeltControlKey = "k" -- Default control key for seatbelt. Players can change the key according to their desire 
-Config.VehicleEngineToggleKey = "y" -- Default control key for toggle engine. Players can change the key according to their desire 
+Config.DefaultCruiseControlKey = "y" -- Default control key for cruise. Players can change the key according to their desire 
+Config.DefaultSeatbeltControlKey = "b" -- Default control key for seatbelt. Players can change the key according to their desire 
+Config.VehicleEngineToggleKey = "g" -- Default control key for toggle engine. Players can change the key according to their desire 
 Config.NitroKey = "X" -- Default control key for use nitro. Players can change the key according to their desire 
 
 -------------------------------------------- Nitro --------------------------------------------
@@ -387,25 +381,25 @@ Config.RemoveStress = { -- You can set here amounts by your desire
     ["on_eat"] = {
         min = 5,
         max = 10,
-        enable = true,
+        enable = false,
 
     },
     ["on_drink"] = {
         min = 5,
         max = 10,
-        enable = true,
+        enable = false,
 
     },
     ["on_swimming"] = {
         min = 5,
         max = 10,
-        enable = true,
+        enable = false,
 
     },
     ["on_running"] = {
         min = 5,
         max = 10,
-        enable = true,
+        enable = false,
     },
 
 }
