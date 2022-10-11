@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head> 
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="counter">Progress: <span style="color:var(--layoutColor)">0%</span></div>
+    
+    <div class="WorkMenu">
+        <div class="container">
+            <div class="containerTittle">DELIVERER MULTIPLAYER LOBBY</div>
+            <div class="containerInside">
+                <div class="flex">
+                    <div class="partyChild childHost" id="0" plyId="0" onclick="Kick()"><div class="partyHost"><i class="fa-regular fa-user"></i></div></div>    
+                </div>
+
+                <div class="partyContainer">
+                    <!-- <div class="partyChild"><div class="busySlot"><div class="xmark">❌</div> Michaelllle Fernandezzz</div></div> -->
+                    <!-- <div class="partyChild"><div class="freeSlot"><i class="fa-solid fa-user-plus"></i></div></div> -->
+                    <!-- <div class="partyChild"><div class="freeSlot"><i class="fa-solid fa-user-plus"></i></div></div> -->
+                </div>
+
+                <div class="flex2">
+                    <div class="button" onclick="startJob()">Start Working</div>
+                    <div class="button" onclick="cloakroom()" id="Cloakroom">Cloakroom</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="cloakroomMenu">
+        <div class="container">
+            <div class="containerTittle">Cloakroom</div>
+            <div class="containerInside">
+                <div class="flex2">
+                    <div onclick="workClothes()" class="button" style="margin-top: 1vh;"><i class="fa-solid fa-business-time"></i> <div>Work Clothes</div></div>
+                    <div onclick="citizenClothes()" class="button"><i class="fa-solid fa-user-tie"></i><div>Citizen Clothes</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="closestPlayers">
+        <div class="container">
+            <div class="containerTittle">NEARBY PLAYERS</div>
+            <div class="containerInside">
+                <div class="flex2">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="inviteBox">
+        <div class="container">
+            <div class="containerInside">
+                You have received an invitation to join the team from
+                <div class="flex">
+                    <div class="partyHost"><i class="fa-regular fa-user"></i><span id="inviteUser"></span></div>
+                </div>
+    
+                <div class="flex3">
+                    <div class="button2" onclick="reactRequest(true)">Accept</div>
+                    <div class="button2"onclick="reactRequest(false)">Decline</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="tutorial">
+        <div class="container">
+            <div class="containerInside">
+                <label>The job involves delivering packages to homes. If you work in a team, one person drives the car to the designated place, while the other person takes the package from the trunk, and goes to deliver the package to the house. On the other hand, if you work alone, you have to do both tasks yourself. The payout depends on the number of packages delivered. Finish the work when you want by returning to the base and leaving the car at the designated place</label>
+                <div class="flex" style="margin-top: 1vh;">
+                    <div class="button2" onclick="CloseTutorial()">Confirm</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
