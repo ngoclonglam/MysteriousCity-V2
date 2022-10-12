@@ -57,7 +57,7 @@ Config.Locations = {                            -- Here u can change all of the 
             vector3(-276.66, -894.68, 31.08),
         },
         CurrentAction = 'finish_job',
-        CurrentActionMsg = 'Press ~INPUT_CONTEXT~ to ~y~end ~s~working.',
+        CurrentActionMsg = 'Nhấn E để ngưng công việc',
         scale = {x = 3.0, y = 3.0, z = 3.0}
     },
 
@@ -79,9 +79,9 @@ Config.Lang = {
     -- Here you can changea all translations used in client.lua, and server.lua. Dont forget to translate it also under the HTML and JS file.
 
     -- Client
-    ["no_permission"] = "Only the party owner can do that!",
+    ["no_permission"] = "Chỉ có chủ sở hữu mới có thể làm!",
     ["keybind"] = 'Marker Interaction',
-    ["too_far"] = "Your party has started work, but you are too far from headquarters. You can still join them.",
+    ["too_far"] = "Nhóm của bạn đang làm việc, nhưng bạn ở quá xa trụ sở chính. Bạn vẫn có thể tham gia cùng họ.",
     ["kicked"] = "You kicked %s out of the party",
     ["alreadyWorking"] = "First, complete the previous order.",
     ["quit"] = "You have left the Team",
