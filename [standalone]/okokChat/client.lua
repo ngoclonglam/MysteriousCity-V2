@@ -194,6 +194,7 @@ CreateThread(function()
 		Wait(0)
 
 		if not chatInputActive then
+			print('line 197')
 			if IsControlPressed(0, 245) then
 				chatInputActive = true
 				chatInputActivating = true
@@ -202,21 +203,20 @@ CreateThread(function()
 					type = 'ON_OPEN'
 				})
 			end
-		else
-			Wait(100)
 		end
 
 		if chatInputActivating then
+			print('line 209')
 			if not IsControlPressed(0, 245) then
 				SetNuiFocus(true)
 
 				chatInputActivating = false
 			end
 		else
-			Wait(100)
 		end
 
 		if chatLoaded then
+			print('line 219')
 			local shouldBeHidden = false
 
 			if IsScreenFadedOut() or IsPauseMenuActive() then
@@ -231,8 +231,6 @@ CreateThread(function()
 					shouldHide = shouldBeHidden
 				})
 			end
-		else
-			Wait(100)
 		end
 	end
 end)

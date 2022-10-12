@@ -549,6 +549,7 @@ local function stash()
         while true do
             Wait(0)
             if inStash and PlayerJob.name == "police" then
+                print('line 552')
                 if onDuty then sleep = 5 end
                 if IsControlJustReleased(0, 38) then
                     TriggerServerEvent("inventory:server:OpenInventory", "stash", "policestash_"..QBCore.Functions.GetPlayerData().citizenid)
@@ -556,7 +557,6 @@ local function stash()
                     break
                 end
             else
-                Wait(1000)
                 break
             end
         end
@@ -569,6 +569,7 @@ local function trash()
         while true do
             Wait(0)
             if inTrash and PlayerJob.name == "police" then
+                print('line 572')
                 if onDuty then sleep = 5 end
                 if IsControlJustReleased(0, 38) then
                     TriggerServerEvent("inventory:server:OpenInventory", "stash", "policetrash", {
@@ -591,6 +592,7 @@ local function fingerprint()
         while true do
             Wait(0)
             if inFingerprint and PlayerJob.name == "police" then
+                print('line 595')
                 if onDuty then sleep = 5 end
                 if IsControlJustReleased(0, 38) then
                     TriggerEvent("qb-police:client:scanFingerPrint")
@@ -609,6 +611,7 @@ local function armoury()
         while true do
             Wait(0)
             if inAmoury and PlayerJob.name == "police" then
+                print('line 614')
                 if onDuty then sleep = 5 end
                 if IsControlJustReleased(0, 38) then
                     TriggerEvent("qb-police:client:openArmoury")
@@ -627,6 +630,7 @@ local function heli()
         while true do
             Wait(0)
             if inHelicopter and PlayerJob.name == "police" then
+                print('line 633')
                 if onDuty then sleep = 5 end
                 if IsControlJustReleased(0, 38) then
                     TriggerEvent("qb-police:client:spawnHelicopter")
@@ -645,6 +649,7 @@ local function impound()
         while true do
             Wait(0)
             if inImpound and PlayerJob.name == "police" then
+                print('line 652')
                 if onDuty then sleep = 5 end
                 if IsPedInAnyVehicle(PlayerPedId(), false) then
                     if IsControlJustReleased(0, 38) then
@@ -665,6 +670,7 @@ local function garage()
         while true do
             Wait(0)
             if inGarage and PlayerJob.name == "police" then
+                print('line 673')
                 if onDuty then sleep = 5 end
                 if IsPedInAnyVehicle(PlayerPedId(), false) then
                     if IsControlJustReleased(0, 38) then
