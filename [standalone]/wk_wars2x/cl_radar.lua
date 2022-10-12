@@ -328,7 +328,7 @@ function RADAR:SetPowerState( state, instantOverride )
 				self:SetPoweringUpState( true )
 
 				-- Set a 2 second countdown
-				Citizen.SetTimeout( 2000, function()
+				SetTimeout( 2000, function()
 					-- Tell the system the radar has 'powered up'
 					self:SetPoweringUpState( false )
 
@@ -1616,13 +1616,13 @@ function RADAR:RunDynamicThreadWaitCheck()
 end
 
 -- Create the thread that will run the dynamic thread wait check, this check only runs every two seconds
-Citizen.CreateThread( function()
+CreateThread( function()
 	while ( true ) do
 		-- Run the function
 		RADAR:RunDynamicThreadWaitCheck()
 
 		-- Make the thread wait two seconds
-		Citizen.Wait( 2000 )
+		Wait( 2000 )
 	end
 end )
 
@@ -1645,7 +1645,7 @@ function RADAR:RunThreads()
 			self:CreateRayThreads( PLY.veh, vehs )
 
 			-- Make the thread this function runs in wait the dynamic time defined by the system
-			Citizen.Wait( self:GetThreadWaitTime() )
+			Wait( self:GetThreadWaitTime() )
 
 		-- If the current ray trace state is the same as the total number of rays, then we reset the ray trace
 		-- state back to 0 so the thread system can run again
@@ -1658,13 +1658,13 @@ end
 
 -- Create the main thread that will run the threads function, the function itself is run every frame as the
 -- dynamic wait time is ran inside the function
-Citizen.CreateThread( function()
+CreateThread( function()
 	while ( true ) do
 		-- Run the function
 		RADAR:RunThreads()
 
 		-- Make the thread wait 0 ms
-		Citizen.Wait( 0 )
+		Wait( 0 )
 	end
 end )
 
@@ -1772,7 +1772,7 @@ function RADAR:Main()
 end
 
 -- Main thread
-Citizen.CreateThread( function()
+CreateThread( function()
 	-- Remove the NUI focus just in case
 	SetNuiFocus( false, false )
 
@@ -1791,7 +1791,7 @@ Citizen.CreateThread( function()
 	RegisterKeyBinds()
 
 	-- Wait a short period of time
-	Citizen.Wait( 1000 )
+	Wait( 1000 )
 
 	-- Load the saved UI settings (if available)
 	LoadUISettings()
@@ -1806,7 +1806,7 @@ Citizen.CreateThread( function()
 	while ( true ) do
 		RADAR:Main()
 
-		Citizen.Wait( 100 )
+		Wait( 300 )
 	end
 end )
 
@@ -1824,15 +1824,15 @@ function RADAR:RunDisplayValidationCheck()
 end
 
 -- Runs the display validation check for the radar
-Citizen.CreateThread( function()
-	Citizen.Wait( 100 )
+CreateThread( function()
+	Wait( 100 )
 
 	while ( true ) do
 		-- Run the check
 		RADAR:RunDisplayValidationCheck()
 
 		-- Wait half a second
-		Citizen.Wait( 500 )
+		Wait( 500 )
 	end
 end )
 
@@ -1849,12 +1849,12 @@ function RADAR:UpdateVehiclePool()
 end
 
 -- Runs the vehicle pool updater
-Citizen.CreateThread( function()
+CreateThread( function()
 	while ( true ) do
 		-- Update the vehicle pool
 		RADAR:UpdateVehiclePool()
 
 		-- Wait 3 seconds
-		Citizen.Wait( 3000 )
+		Wait( 3000 )
 	end
 end )

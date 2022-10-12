@@ -100,13 +100,13 @@ end)
 
 CreateThread(function()
 	while true do
-		Wait(1)
+		Wait(0)
 		if mClosestScrapyard ~= 0 then
 			local pos = GetEntityCoords(PlayerPedId())
 			if #(pos - vector3(Config.Locations[mClosestScrapyard]["deliver"].x, Config.Locations[mClosestScrapyard]["deliver"].y, Config.Locations[mClosestScrapyard]["deliver"].z)) < 10.0 then
 				if IsPedInAnyVehicle(PlayerPedId()) then
 					local vehicle = GetVehiclePedIsIn(PlayerPedId(), true)
-					if vehicle ~= 0 and vehicle ~= nil then
+					if vehicle ~= 0 and vehicle then
 						local vehpos = GetEntityCoords(vehicle)
 						if #(pos - vector3(vehpos.x, vehpos.y, vehpos.z)) < 2.5 and not mIsBusy then
 							drawText3Ds(vehpos.x, vehpos.y, vehpos.z, Lang:t('text.disassemble_vehicle'))
@@ -137,6 +137,8 @@ CreateThread(function()
 						end
 					end
 				end
+            else
+                Wait(1000)
 			end
             -- addon feature: if use target disable drawtext, we're gonna use ped instead
 			if #(pos - vector3(Config.Locations[mClosestScrapyard]["list"].x, Config.Locations[mClosestScrapyard]["list"].y, Config.Locations[mClosestScrapyard]["list"].z)) < 1.5 and not Config.UseTarget then
@@ -146,6 +148,8 @@ CreateThread(function()
 						CreateListEmail()
 					end
 				end
+            else
+                Wait(1000)
 			end
 		end
 	end
@@ -178,7 +182,7 @@ function SetClosestScrapyard()
     local current = nil
     local dist = nil
 	for id in pairs(Config.Locations) do
-		if current ~= nil then
+		if current then
 			if #(pos - vector3(Config.Locations[id]["main"].x, Config.Locations[id]["main"].y, Config.Locations[id]["main"].z)) < dist then
 				current = id
 				dist = #(pos - vector3(Config.Locations[id]["main"].x, Config.Locations[id]["main"].y, Config.Locations[id]["main"].z))

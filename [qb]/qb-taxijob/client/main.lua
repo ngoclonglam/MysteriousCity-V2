@@ -758,6 +758,8 @@ CreateThread(function()
                     QBCore.Functions.Notify(Lang:t("info.taxi_returned"), 'success')
                 end
             end
+        else
+            Wait(1000)
         end
         Wait(1)
     end
@@ -776,6 +778,8 @@ CreateThread(function()
                    TriggerEvent('qb-bossmenu:client:OpenMenu')
                 end
             end
+        else
+            break
         end
         Wait(sleep)
     end

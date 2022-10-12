@@ -540,6 +540,6 @@ CreateThread(function()
             return a.id < b.id
         end)
         players = tempPlayers
-        Wait(1500)
+        Wait(10000)
     end
 end)

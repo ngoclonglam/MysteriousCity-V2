@@ -1099,7 +1099,7 @@ end)
 
 CreateThread(function()
     while true do
-        Wait(5000)
+        Wait(60000)
         UpdateBlips()
     end
 end)
