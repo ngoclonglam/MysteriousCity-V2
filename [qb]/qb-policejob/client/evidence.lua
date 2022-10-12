@@ -228,6 +228,8 @@ CreateThread(function() -- Gunpowder Status when shooting
                 end
                 DropBulletCasing(weapon, ped)
             end
+        else
+            Wait(500)
         end
     end
 end)
@@ -258,6 +260,8 @@ CreateThread(function()
                     TriggerServerEvent('evidence:server:AddCasingToInventory', CurrentCasing, info)
                 end
             end
+        else
+            Wait(500)
         end
 
         if CurrentBlooddrop and CurrentBlooddrop ~= 0 then
@@ -283,6 +287,8 @@ CreateThread(function()
                     TriggerServerEvent('evidence:server:AddBlooddropToInventory', CurrentBlooddrop, info)
                 end
             end
+        else
+            Wait(500)
         end
 
         if CurrentFingerprint and CurrentFingerprint ~= 0 then
@@ -307,6 +313,8 @@ CreateThread(function()
                     TriggerServerEvent('evidence:server:AddFingerprintToInventory', CurrentFingerprint, info)
                 end
             end
+        else
+            Wait(500)
         end
     end
 end)

@@ -2,7 +2,7 @@ Config = {}
 Config.MinimumCoursesToMedium = 15      -- One course will give player one point. So if Config.MinimumCoursesToMedium = 15, then player will need to make first 15 easy courses
 Config.MinimumCoursesToHard = 30        -- Same as above but with hard level :D
 Config.EnableRedArrowMarker = true      -- Set to false to hide big red arrow over a target location
-Config.UseTarget = false                -- Set to true if you want to use Target System. You can configure your target under /client/target.lua file.
+Config.UseTarget = true                -- Set to true if you want to use Target System. You can configure your target under /client/target.lua file.
 Config.RequiredJob = "none"             -- Set to "none" if you dont want using jobs. If you are using target, you have to set "job" parameter inside every export in target.lua
 
 Config.Blips = {                        -- Here you can configure Job Blip
@@ -25,7 +25,7 @@ Config.VehicleCauction = 500           -- Deposit for the car collected at the t
 
 Config.MarkerSettings = {              -- used only when Config.UseTarget = false. Colors of the marker. Active = when player stands inside the marker.
     Active = {
-        r = 255, 
+        r = 255,
         g = 153,
         b = 20,
         a = 200,
@@ -98,7 +98,7 @@ Config.Lang = {
     ['ReturnDeposit'] = 'The deposit for the owner of the vehicle was returned!',
     ['Deposit'] = 'Deposits of $500 were collected',
     ["isAlreadyHost"] = "This player leads his team.",
-    ["isBusy"] = "This player already belongs to another team.", 
+    ["isBusy"] = "This player already belongs to another team.",
     ["hasActiveInvite"] = "This Player already has an active invitation from someone.",
     ["HaveActiveInvite"] = "You already have an active invitation to join the team.",
     ["InviteDeclined"] = "Your invitation has been declined.",
@@ -114,9 +114,9 @@ Config.Clothes = {
 
     -- Here you can configure clothes. More information on: https://docs.fivem.net/natives/?_0xD4F7B05C. Under this link you can see what id means what component.
 
-    male = {          
+    male = {
         components = {{["component_id"] = 1, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 3, ["texture"] = 0, ["drawable"] = 64},{["component_id"] = 4, ["texture"] = 7, ["drawable"] = 9},{["component_id"] = 5, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 6, ["texture"] = 0, ["drawable"] = 25},{["component_id"] = 7, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 8, ["texture"] = 0, ["drawable"] = 15},{["component_id"] = 9, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 10, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 11, ["texture"] = 0, ["drawable"] = 54},},
-    },         
+    },
     female = {
         components = {{["component_id"] = 1, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 3, ["texture"] = 0, ["drawable"] = 75},{["component_id"] = 4, ["texture"] = 0, ["drawable"] = 30},{["component_id"] = 5, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 6, ["texture"] = 0, ["drawable"] = 25},{["component_id"] = 7, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 8, ["texture"] = 0, ["drawable"] = 15},{["component_id"] = 9, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 10, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 11, ["texture"] = 0, ["drawable"] = 47},},
     }
