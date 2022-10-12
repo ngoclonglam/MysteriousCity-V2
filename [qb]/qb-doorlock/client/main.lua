@@ -823,10 +823,12 @@ CreateThread(function()
 			playerCoords = GetEntityCoords(playerPed)
 			if not closestDoor.id then
 				local distance = #(playerCoords - lastCoords)
+				print('line 826')
 				if distance > 15 then
 					updateDoors()
 					sleep = 1000
 				else
+					print('line 831')
 					for k in pairs(nearbyDoors) do
 						local door = Config.DoorList[k]
 						if door.setText and door.textCoords then
@@ -843,6 +845,7 @@ CreateThread(function()
 			end
 			if closestDoor.id then
 				while isLoggedIn do
+					print('line 848')
 					if not paused and IsPauseMenuActive() then
 						hideNUI()
 						paused = true
