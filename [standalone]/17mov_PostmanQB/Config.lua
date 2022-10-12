@@ -14,7 +14,7 @@ Config.RequireOneFriendMinimum = false          -- Set to true if you want to fo
 Config.Scenario = "prop_human_parking_meter"    -- An animation that plays while searching a crate. Note: this must be a Scenario, not an animation
 Config.JobVehicleModel = "minivan"              -- Vehicle Job Model
 Config.VehicleDeposit = 1500                    -- Deposit for the car collected at the time of pulling out, and refunded when returning the car
-Config.Price = 2                                -- 2$ per one letter
+Config.Price = 150                                -- 2$ per one letter
 Config.splitReward = true                       -- If it is true, the payout is: (Config.Price * collectedLetters) / PartyCount, if false then: (Config.Price * collectedLetters)
 
 Config.Blips = {                                -- Here you can configure Company blip.
@@ -87,7 +87,7 @@ Config.Lang = {
     ["quit"] = "Bạn đã rời khỏi đội",
     ["cantSpawnVeh"] = "Chỗ lấy xe đã có xe khác",
     ["nobodyNearby"] = "Không có ai xung quanh",
-    ["pickLetter"] = "Collect letters",
+    ["pickLetter"] = "Lấy thư",
     ["checking"] = "Bạn đang kiểm tra hộp thư",
     ["spawnPointBusy"] = "Chỗ lấy xe đã có xe khác",
 

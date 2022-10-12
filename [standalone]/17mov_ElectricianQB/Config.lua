@@ -11,7 +11,7 @@ Config.Blips = {                        -- Here you can configure Job Blip
         Color = 26,
         Scale = 0.8,
         Pos = vector3(751.06, 222.85, 87.42),
-        Label = 'Electrician'
+        Label = 'Thợ Điện'
     },
 }
 
@@ -73,8 +73,8 @@ Config.Lang = {
     ["nobodyAround"] = "No Persons around!",
     ["cantInvite"] = "Only the Team Owner can invite others.",
     ["kickNotify"] = "You kicked %s out of the team",
-    ["plyIsBusy"] = "First, complete the previous order.",
-    ["leftTeam"] = "You have left the Team!",
+    ["plyIsBusy"] = "Đầu tiên, hoàn thành đơn đặt hàng trước.",
+    ["leftTeam"] = "Bạn đã rời khỏi đội!",
     ["tooFar"] = "Your team has started work, but you are too far away from headquarters. You can still join them.",
     ["cantSpawn"] = "The truck's spawn location is occupied.",
     ["waitingForReady"] = "Waiting for a partner to be ready....",
@@ -97,15 +97,15 @@ Config.Lang = {
     ['Promotion'] = 'Congratulations! The boss has promoted you in the company. From now on you can take difficult orders!',
     ['ReturnDeposit'] = 'The deposit for the owner of the vehicle was returned!',
     ['Deposit'] = 'Deposits of $500 were collected',
-    ["isAlreadyHost"] = "This player leads his team.",
-    ["isBusy"] = "This player already belongs to another team.",
-    ["hasActiveInvite"] = "This Player already has an active invitation from someone.",
-    ["HaveActiveInvite"] = "You already have an active invitation to join the team.",
-    ["InviteDeclined"] = "Your invitation has been declined.",
-    ["InviteAccepted"] = "Your invitation has been accepted!",
-    ["error"] = "There was a Problem joining a team. Please try again later.",
-    ["kickedOut"] = "You've been kicked out of the garbage team!",
-    ["reward"] = "You have received a payout of $",
+    ["isAlreadyHost"] = "Người chơi này dẫn dắt đội của bạn",
+    ["isBusy"] = "Người chơi này đã thuộc về một đội khác.",
+    ["hasActiveInvite"] = "Người chơi này đã có một lời mời từ ai đó.",
+    ["HaveActiveInvite"] = "Bạn đã có một lời mời để tham gia nhóm.",
+    ["InviteDeclined"] = "Lời mời của bạn đã bị từ chối.",
+    ["InviteAccepted"] = "Lời mời của bạn đã được chấp nhận!",
+    ["error"] = "Có một vấn đề khi tham gia một đội, vui lòng thử lại sau.",
+    ["kickedOut"] = "Bạn đã bị đuổi khỏi đội!",
+    ["reward"] = "Bạn đã nhận được một khoản thanh toán là $",
     ["RequireOneFriend"] = "This job requires one team member",
     ["dontHaveReqItem"] = "You do not have the required item to start work"
 }

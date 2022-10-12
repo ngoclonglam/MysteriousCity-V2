@@ -78,14 +78,14 @@ Config.Lang = {
     -- Here you can changea all translations used in client.lua, and server.lua. Dont forget to translate it also under the HTML and JS file.
 
     -- Client
-    ["no_permission"] = "Only the party owner can do that!",
+    ["no_permission"] = "Chỉ có người chủ nhóm mới có thể làm!",
     ["keybind"] = 'Diving Marker Interaction',
-    ["too_far"] = "Your party has started work, but you are too far from headquarters. You can still join them.",
-    ["kicked"] = "You kicked %s out of the party",
-    ["alreadyWorking"] = "First, complete the previous order.",
-    ["quit"] = "You have left the Team",
+    ["too_far"] = "Nhóm của bạn đang làm việc, nhưng bạn ở quá xa trụ sở chính. Bạn vẫn có thể tham gia cùng họ.",
+    ["kicked"] = "Bạn đã đuổi %s khỏi nhóm của bạn",
+    ["alreadyWorking"] = "Đầu tiên, hoàn thành đơn đặt hàng trước.",
+    ["quit"] = "Bạn đã rời khỏi đội",
     ["cantSpawnVeh"] = "The boat spawn site is occupied.",
-    ["nobodyNearby"] = "There is no one around",
+    ["nobodyNearby"] = "Không có ai ở gần",
     ["newTarget"] = "The treasure has been found or the boss has indicated a new location",
     ["treasureBlipName"] = "Treasure Location",
     ["collectTreasure"] = "Collect Treasure",
@@ -96,16 +96,16 @@ Config.Lang = {
     ["treasure"] = "Treasure Location",
 
     -- Server
-    ["isAlreadyHost"] = "This player leads his team.",
-    ["isBusy"] = "This player already belongs to another team.",
-    ["hasActiveInvite"] = "This Player already has an active invitation from someone.",
-    ["HaveActiveInvite"] = "You already have an active invitation to join the team.",
-    ["InviteDeclined"] = "Your invitation has been declined.",
-    ["InviteAccepted"] = "Your invitation has been accepted!",
-    ["error"] = "There was a Problem joining a team. Please try again later.",
+    ["isAlreadyHost"] = "Người chơi này dẫn dắt đội của bạn",
+    ["isBusy"] = "Người chơi này đã thuộc về một đội khác.",
+    ["hasActiveInvite"] = "Người chơi này đã có một lời mời từ ai đó.",
+    ["HaveActiveInvite"] = "Bạn đã có một lời mời để tham gia nhóm.",
+    ["InviteDeclined"] = "Lời mời của bạn đã bị từ chối.",
+    ["InviteAccepted"] = "Lời mời của bạn đã được chấp nhận!",
+    ["error"] = "Có một vấn đề khi tham gia một đội, vui lòng thử lại sau.",
     ["kickedOut"] = "You've been kicked out of the divers team!",
-    ["reward"] = "You have received a payout of $",
-    ["RequireOneFriend"] = "This job requires at least one team member",
+    ["reward"] = "Bạn đã nhận được một khoản thanh toán là $",
+    ["RequireOneFriend"] = "Công việc này yêu cầu ít nhất một thành viên trong nhóm",
     ["yourTeamWon"] = "Your team has found a treasure. Head to the base and complete the work to get paid, or keep searching!",
 
 }

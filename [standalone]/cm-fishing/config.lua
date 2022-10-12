@@ -121,7 +121,7 @@ Config.RequiredXP = {
 
 
 Config.FishingRestaurant = {
-    ["name"] = "Fish Restaurant",
+    ["name"] = "Bán Cá",
     ["blip"] = {
         ["sprite"] = 628,
         ["color"] = 3
@@ -142,10 +142,10 @@ Config.Spots = {
             requiredLvl = 0,
             coords = vector3(-1847.1, -1250.8, 8.61577),
             location = "Pasific Ocean",
-            statement = "Del Perro Pier is, as its name suggests, located in Del Perro, Los Santos. It is mainly accessed through Red Desert Avenue. Del Perro Pier is renowned for its bright, vivid colors that shine at night, giving the surrounding beaches a sort of vibe.",
-            spotQuality = "Standart",
+            statement = "Del Perro Pier, như tên gọi của nó, nằm ở Del Perro, Los Santos.Nó chủ yếu được truy cập thông qua Đại lộ Sa mạc Đỏ. Del Perro Pier nổi tiếng với những màu sắc tươi sáng, sống động, tỏa sáng vào ban đêm, mang đến cho các bãi biển xung quanh một sự rung cảm.",
+            spotQuality = "Tiêu Chuẩn",
             afkCatchInMinute = 1,
-            fishQualityScale = "Common",
+            fishQualityScale = "Phổ thông",
             fishQualityScaleTable = {'common'},
 
         },
@@ -159,10 +159,10 @@ Config.Spots = {
             coords = vector3(-3427.9, 966.576, 8.34668),
 
             location = "Alamo Sea",
-            statement = "The Chumash Historic Family Pier is located in the heart of Chumash, which is accessible from Barbareno Road. A staple icon of the area, the boardwalk is lined with white fencing.",
-            spotQuality = "Normal",
+            statement = "Cầu tàu gia đình lịch sử Chumash nằm ở trung tâm của Chumash, có thể truy cập từ đường Barbareno. Một biểu tượng chủ yếu của khu vực, Boardwalk được lót bằng hàng rào trắng.",
+            spotQuality = "Phổ Biến",
             afkCatchInMinute = 3,
-            fishQualityScale = "Common - Uncommon",
+            fishQualityScale = "Phổ thông - không phổ biến",
             fishQualityScaleTable = {'common', 'uncommon'},
 
         },
@@ -176,10 +176,10 @@ Config.Spots = {
             coords = vector3(-278.00, 6638.32, 8.61577),
 
             location = "Alamo Sea",
-            statement = "Procopio Beach is a beach in Grand Theft Auto V and Grand Theft Auto Online, located in northern Blaine County, east of Paleto Bay. It is located off the Great Ocean Highway and is located east of the Procopio Promenade.",
-            spotQuality = "Good",
+            statement = "Procopio Beach là một bãi biển ở Grand Theft Auto V và Grand Theft Auto Online, nằm ở phía bắc Hạt Blaine, phía đông của Vịnh Paleto. Nó nằm ngoài đường cao tốc đại dương và nằm ở phía đông của Promenade Procopio.",
+            spotQuality = "Tốt",
             afkCatchInMinute = 4,
-            fishQualityScale = "Common - Rare",
+            fishQualityScale = "Phổ thông - Hiếm",
             fishQualityScaleTable = {'common', 'rare'},
 
         },
@@ -192,10 +192,10 @@ Config.Spots = {
             coords = vector3(-1612.5, 5262.59, 3.97410),
 
             location = "Alamo Sea",
-            statement = "A group of businesses located at a pier on the north shore of the Alamo -Sea at the western edge of the settlement of Galilee, including the boatshop and a related fishing charter/commercial fishery Millars Fishery.",
-            spotQuality = "Very Good",
+            statement = "Một nhóm các doanh nghiệp nằm ở một bến tàu trên bờ phía bắc của Alamo-Sea ở rìa phía tây của khu định cư của Galilee, bao gồm Boatshop và một nghề đánh bắt cá/nghề cá thương mại liên quan.",
+            spotQuality = "Rất Tốt",
             afkCatchInMinute = 4,
-            fishQualityScale = "Uncommon - Rare",
+            fishQualityScale = "Không phổ biến - Quý hiếm",
             fishQualityScaleTable = {'uncommon', 'rare'},
         },
 
@@ -211,7 +211,7 @@ Config.Spots = {
             statement = "The Alamo Sea is the largest body of water located on the San Andreas mainland. It is fed by agricultural runoff from nearby Grapeseed and drains into the Pacific Ocean via Cassidy Creek and the Zancudo River..",
             spotQuality = "Legendary",
             afkCatchInMinute = 5,
-            fishQualityScale = "Uncommon - Legendary",
+            fishQualityScale = "Không phổ biến - Huyền thoại",
             fishQualityScaleTable = {'common', 'legendary'},
 
         },
@@ -227,7 +227,7 @@ Config.Spots = {
             statement = "The center is located on Tongva Drive in Tongva Valley, Los Santos County right next to a stream which eventually feeds into the Zancudo River.",
             spotQuality = "Epic",
             afkCatchInMinute = 5,
-            fishQualityScale = "Rare - Epic",
+            fishQualityScale = "Hiếm - Sử thi",
             fishQualityScaleTable = {'rare', 'epic'},
         },
 

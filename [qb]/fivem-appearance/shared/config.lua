@@ -632,7 +632,7 @@ Config.ClothingRooms = {
         }
     },
     {
-        job = "police",
+        job = "ambulance",
         coords = vector4(300.68, -597.34, 43.28, 334.71),
         width = 3,
         length = 3,
