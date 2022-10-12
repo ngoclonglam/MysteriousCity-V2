@@ -28,7 +28,6 @@ files {
 shared_script{
 	'config.lua',
 	'GetFrameworkObject.lua',
-	
 }
 
 
@@ -40,7 +39,6 @@ escrow_ignore {
 	'afkmode.lua',
 	'minigame.lua',
 	'readme.lua'
-	
 }
 
 client_scripts {
@@ -52,12 +50,11 @@ server_scripts {
 	'server/main.lua',
 	'server/PlayerLoaded.lua',
 	'GetFrameworkObject.lua',
-	'@async/async.lua', -- MYSQL ASYNC
+	-- '@async/async.lua', -- MYSQL ASYNC
 	'@mysql-async/lib/MySQL.lua',  -- MYSQL ASYNC
 }
 dependencies {
 	'fishing-minigame',
-	
 }
 
 lua54 'yes'

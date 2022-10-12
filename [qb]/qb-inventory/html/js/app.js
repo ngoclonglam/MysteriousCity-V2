@@ -569,6 +569,9 @@ function FormatItemInfo(itemData) {
         } else if (itemData.name == "labkey") {
             $(".item-info-title").html("<p>" + itemData.label + "</p>");
             $(".item-info-description").html("<p>Lab: " + itemData.info.lab + "</p>");
+        } else if (itemData.name == "vehiclekey") {
+            $(".item-info-title").html('<p>' + itemData.info.model + '</p>');
+            $(".item-info-description").html('<p>Plate : ' + itemData.info.plate + '</p>');
         } else {
             $(".item-info-title").html("<p>" + itemData.label + "</p>");
             $(".item-info-description").html("<p>" + itemData.description + "</p>");

@@ -220,8 +220,8 @@ Config.HelperText = {
 -------------------------------------------- general text hud --------------------------------------------
 
 Config.ShowMenu = {
-    ['showid'] = true,
-    ['showonline'] = true,
+    ['showid'] = false,
+    ['showonline'] = false,
     ['showmoney'] = true,
     ['showjob'] = true,
     ['showammo'] = true,

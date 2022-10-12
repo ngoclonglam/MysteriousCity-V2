@@ -186,7 +186,7 @@ RegisterNUICallback('loaded', function(data, cb)
 	cb('ok')
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	SetTextChatEnabled(false)
 	SetNuiFocus(false)
 
@@ -231,7 +231,7 @@ Citizen.CreateThread(function()
 	end
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	TriggerEvent('chat:addSuggestion', '/'..Config.ClearChatCommand, 'Clear the chat (just for you)',{})
 	TriggerEvent('chat:addSuggestion', '/'..Config.ClearEveryonesChatCommand, 'Clear the chat (for everyone)',{})
 	TriggerEvent('chat:addSuggestion', '/'..Config.AdvertisementCommand, 'Advert something for '..Config.AdvertisementPrice..'€',{})

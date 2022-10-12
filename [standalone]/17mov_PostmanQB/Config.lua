@@ -7,7 +7,7 @@ Config.Props = {
     -- Add more if u want!
 }
 
-Config.UseTarget = false                        -- Change it to true if you want to use a target system. All setings about the target system are under target.lua file.
+Config.UseTarget = true                        -- Change it to true if you want to use a target system. All setings about the target system are under target.lua file.
 Config.RequiredJob = "none"                     -- Set to "none" if you dont want using jobs. If you are using target, you have to set "job" parameter inside every export in target.lua
 Config.RequiredItem = "none"                    -- Required Item needed to start the job. Set to "none", if you dont want to use RequiredItem
 Config.RequireOneFriendMinimum = false          -- Set to true if you want to force players to create teams
