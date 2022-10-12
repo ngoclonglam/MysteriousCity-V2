@@ -92,7 +92,7 @@ Config.Locations = {       -- Here u can change all of the base job locations.
             vector3(-329.48321533203,-1522.9837646484,27.534698486328),
         },
         CurrentAction = 'finish_job',
-        CurrentActionMsg = 'Press ~INPUT_CONTEXT~ to ~y~end ~s~working.',
+        CurrentActionMsg = 'Nhấn E để kết thúc công việc',
         scale = {x = 3.0, y = 3.0, z = 3.0}
     },
 

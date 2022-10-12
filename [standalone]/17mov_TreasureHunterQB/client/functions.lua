@@ -97,7 +97,7 @@ function ChangeClothes(type)
         SetEnableScuba(ped, false)
         SetEnableScubaGearLight(ped, false)
         -- Choose Here your default skin manager script
-        TriggerServerEvent('qb-clothes:loadPlayerSkin')
+        TriggerEvent('fivem-appearance:client:reloadSkin')
         
         -- QBCore.Functions.TriggerCallback('fivem-appearance:getPlayerSkin', function(appearance)
         --     for k,v in pairs(appearance.components) do

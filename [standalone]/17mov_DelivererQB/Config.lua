@@ -7,7 +7,7 @@ Config.VehicleBackBone = "handle_dside_r"                           -- Only used
 Config.VehicleBootOffset = 5                                        -- Means 5 meters back from basic vehicle coords. Used when trying to take parcel out of the vehicle.
 Config.VehicleSearchingScenario = "prop_human_parking_meter"        -- Scenario used while "searcing" inside vehicle.
 Config.VehicleDeposit = 1500                                        -- Deposit for the car collected at the time of pulling out, and refunded when returning the car
-Config.Price = 100                                                  -- 100$ per one delivery
+Config.Price = 300                                                  -- 100$ per one delivery
 Config.splitReward = true                                           -- If it is true, the payout is: (Config.Price * deliveries) / PartyCount, if false then: (Config.Price * deliveries)
 
 Config.Blips = {                                                    -- Here you can configure Company blip.
@@ -50,7 +50,7 @@ Config.Locations = {                                               -- Here u can
             vector3(72.67, 120.83, 79.18),
         },
         CurrentAction = 'finish_job',
-        CurrentActionMsg = 'Press ~INPUT_CONTEXT~ to ~y~end ~s~working.',
+        CurrentActionMsg = 'Nhấn E để kết thúc công việc',
         scale = {x = 3.0, y = 3.0, z = 3.0}
     },
 

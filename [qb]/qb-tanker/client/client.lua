@@ -25,7 +25,7 @@ AddEventHandler('QBCore:Client:OnJobUpdate', function()
 		CreateBossBlip(true)
 	elseif not Config.jobrequirement then
 		CreateBossBlip(true)
-	else 
+	else
 		CreateBossBlip(false)
 	end
 end)
@@ -34,7 +34,7 @@ function CreateBossBlip(type)
 	if type then
 		RemoveBlip(StartJobBlip)
 		StartJobBlip = AddBlipForCoord(Config.tanker['BossSpawn'].Pos.x, Config.tanker['BossSpawn'].Pos.y, Config.tanker['BossSpawn'].Pos.z)
-		
+
 		SetBlipSprite (StartJobBlip, 408)
 		SetBlipDisplay(StartJobBlip, 4)
 		SetBlipScale  (StartJobBlip, 0.8)
@@ -64,7 +64,7 @@ CreateThread(function()
 				RequestModel(ped_hash)
 				while not HasModelLoaded(ped_hash) do
 					Wait(1)
-				end	
+				end
 				BossNPC = CreatePed(1, ped_hash, Config.tanker['BossSpawn'].Pos.x, Config.tanker['BossSpawn'].Pos.y, Config.tanker['BossSpawn'].Pos.z-1, Config.tanker['BossSpawn'].Pos.h, false, true)
 				SetBlockingOfNonTemporaryEvents(BossNPC, true)
 				SetPedDiesWhenInjured(BossNPC, false)
@@ -77,7 +77,7 @@ CreateThread(function()
 				RequestModel(ped_hash)
 				while not HasModelLoaded(ped_hash) do
 					Wait(1)
-				end	
+				end
 				TruckManNPC = CreatePed(1, ped_hash, Config.tanker['TruckMan'].Pos.x, Config.tanker['TruckMan'].Pos.y, Config.tanker['TruckMan'].Pos.z-1, Config.tanker['TruckMan'].Pos.h, false, true)
 				SetBlockingOfNonTemporaryEvents(TruckManNPC, true)
 				SetPedDiesWhenInjured(TruckManNPC, false)
@@ -121,9 +121,9 @@ CreateThread(function()
 		local sleep = 500
 		local ped = PlayerPedId()
 		local coords = GetEntityCoords(ped)
-		if(GetDistanceBetweenCoords(coords,Config.tanker['BossSpawn'].Pos.x, Config.tanker['BossSpawn'].Pos.y, Config.tanker['BossSpawn'].Pos.z, true) < 4.0) then	
+		if(GetDistanceBetweenCoords(coords,Config.tanker['BossSpawn'].Pos.x, Config.tanker['BossSpawn'].Pos.y, Config.tanker['BossSpawn'].Pos.z, true) < 4.0) then
 			sleep = 4
-			if(GetDistanceBetweenCoords(coords,Config.tanker['BossSpawn'].Pos.x, Config.tanker['BossSpawn'].Pos.y, Config.tanker['BossSpawn'].Pos.z, true) < 1.5) then	
+			if(GetDistanceBetweenCoords(coords,Config.tanker['BossSpawn'].Pos.x, Config.tanker['BossSpawn'].Pos.y, Config.tanker['BossSpawn'].Pos.z, true) < 1.5) then
 				sleep = 0
 				if (Config.jobrequirement and (PlayerData.job ~= nil and PlayerData.job.name == Config.jobname)) or not Config.jobrequirement then
 					if not JobStarted then
@@ -159,10 +159,10 @@ CreateThread(function()
 							SetPedComponentVariation(ped, 6, Config.Clothes.female['shoes_1'], Config.Clothes.female['shoes_2'], 0) --shoes
 							SetPedPropIndex(ped, 0, Config.Clothes.female['helmet_1'], Config.Clothes.female['helmet_2'], true) --hat
 							SetPedPropIndex(ped, 2, Config.Clothes.female['ears_1'], Config.Clothes.female['ears_2'], true) --ear
-						end	
+						end
 							Wait(500)
 							DoScreenFadeIn(500)
-						
+
 							JobStarted = true
     						if not QBCore.Functions.SetTimer() then exports['okokNotify']:Alert('Cảnh Báo', 'Đã ngoài khung giờ làm việc, bạn có thể bị cảnh sát hỏi thăm', 5000, 'warning') end
 							if tutorial then
@@ -179,7 +179,7 @@ CreateThread(function()
 								EndTextCommandSetBlipName(TruckManBlip)
 							else
 								exports.pNotify:SendNotification({text = "<b>Ông Chủ</b></br>Bạn đã biết phải làm gì rồi đó, hãy đi lấy xe tải của mình", timeout = 4000})
-								
+
 								-- QBCore.Functions.Notify('Bạn đã biết phải làm gì rồi đó, hãy đi lấy xe tải của mình', 'success')
 								TruckOutBlip = AddBlipForCoord(Config.tanker['TruckOut'].Pos.x, Config.tanker['TruckOut'].Pos.y, Config.tanker['TruckOut'].Pos.z)
 								SetBlipSprite (TruckOutBlip, 477)
@@ -189,13 +189,13 @@ CreateThread(function()
 								SetBlipAsShortRange(TruckOutBlip, true)
 								BeginTextCommandSetBlipName("STRING")
 								AddTextComponentString('Truck Out')
-								EndTextCommandSetBlipName(TruckOutBlip)	
+								EndTextCommandSetBlipName(TruckOutBlip)
 							end
 							CreateStartWork()
 
 					elseif (IsControlJustReleased(0, Keys['E']) and not IsPedInAnyVehicle(ped, false) and JobStarted) then
 						JobStarted = false
-						TriggerServerEvent("fivem-appearance:reloadskin")
+						TriggerEvent('fivem-appearance:client:reloadSkin')
 						RemoveBlip(TruckOutBlip)
 						RemoveBlip(TruckManBlip)
 						VehicleOut = false
@@ -214,7 +214,6 @@ CreateThread(function()
 						RopeUnloadTextures()
 						DeleteRope(rope)
 						done = false
-						TriggerEvent('fivem-appearance:reloadskin')
 					end
 
 				else
@@ -237,16 +236,16 @@ function CreateStartWork()
 			local coords = GetEntityCoords(ped)
 
 			if tutorial and JobStarted then
-				if(GetDistanceBetweenCoords(coords,Config.tanker['TruckMan'].Pos.x, Config.tanker['TruckMan'].Pos.y, Config.tanker['TruckMan'].Pos.z, true) < 4.0) then	
+				if(GetDistanceBetweenCoords(coords,Config.tanker['TruckMan'].Pos.x, Config.tanker['TruckMan'].Pos.y, Config.tanker['TruckMan'].Pos.z, true) < 4.0) then
 					sleep = 4
-					if(GetDistanceBetweenCoords(coords,Config.tanker['TruckMan'].Pos.x, Config.tanker['TruckMan'].Pos.y, Config.tanker['TruckMan'].Pos.z, true) < 1.5) then	
+					if(GetDistanceBetweenCoords(coords,Config.tanker['TruckMan'].Pos.x, Config.tanker['TruckMan'].Pos.y, Config.tanker['TruckMan'].Pos.z, true) < 1.5) then
 						sleep = 0
 						if Text3 then
 							DrawText3Ds(Config.tanker['TruckMan'].Pos.x, Config.tanker['TruckMan'].Pos.y, Config.tanker['TruckMan'].Pos.z+1.0, 'Tuyệt, hãy lấy hàng và đi tới địa điểm giao')
 						elseif Text2 then
 							DrawText3Ds(Config.tanker['TruckMan'].Pos.x, Config.tanker['TruckMan'].Pos.y, Config.tanker['TruckMan'].Pos.z+1.2, 'Để làm việc bạn phải mua xe tải với giá '..Config.TruckPrice..'~g~$')
-							DrawText3Ds(Config.tanker['TruckMan'].Pos.x, Config.tanker['TruckMan'].Pos.y, Config.tanker['TruckMan'].Pos.z+1.0, 'Nhấn [~g~G~w] để trả tiền')				
-						elseif Text1 then					
+							DrawText3Ds(Config.tanker['TruckMan'].Pos.x, Config.tanker['TruckMan'].Pos.y, Config.tanker['TruckMan'].Pos.z+1.0, 'Nhấn [~g~G~w] để trả tiền')
+						elseif Text1 then
 							DrawText3Ds(Config.tanker['TruckMan'].Pos.x, Config.tanker['TruckMan'].Pos.y, Config.tanker['TruckMan'].Pos.z+1.0, 'Nhấn [~g~E~w~] để nói chuyện')
 						end
 						if (IsControlJustReleased(0, Keys['E']) and not IsPedInAnyVehicle(ped, false) and Text1) then
@@ -258,7 +257,7 @@ function CreateStartWork()
 									Text2 = false
 									Text3 = true
 									tutorial = false
-									
+
 									exports.pNotify:SendNotification({text = "<b>Ông Chủ</b></br>Bạn đã mua xe tải với giá "..Config.TruckPrice.."$", timeout = 4500})
 
 									-- QBCore.Functions.Notify('Bạn đã mua xe tải với giá $'..Config.TruckPrice, 'success')
@@ -270,21 +269,21 @@ function CreateStartWork()
 									SetBlipAsShortRange(TruckOutBlip, true)
 									BeginTextCommandSetBlipName("STRING")
 									AddTextComponentString('Truck Out')
-									EndTextCommandSetBlipName(TruckOutBlip)	
+									EndTextCommandSetBlipName(TruckOutBlip)
 
 									RemoveBlip(TruckManBlip)
 								elseif not cb then
 									exports.pNotify:SendNotification({text = "<b>Ông Chủ</b></br>Bạn không có đủ tiền để mua xe tải", timeout = 4500})
 									-- QBCore.Functions.Notify('Bạn không có đủ tiền để mua xe tải', 'error')	
 								end
-							end)			
+							end)
 						end
 					end
 				end
-			elseif not tutorial and JobStarted then 
-				if(GetDistanceBetweenCoords(coords,Config.tanker['TruckMan'].Pos.x, Config.tanker['TruckMan'].Pos.y, Config.tanker['TruckMan'].Pos.z, true) < 4.0) then	
+			elseif not tutorial and JobStarted then
+				if(GetDistanceBetweenCoords(coords,Config.tanker['TruckMan'].Pos.x, Config.tanker['TruckMan'].Pos.y, Config.tanker['TruckMan'].Pos.z, true) < 4.0) then
 					sleep = 4
-					if(GetDistanceBetweenCoords(coords,Config.tanker['TruckMan'].Pos.x, Config.tanker['TruckMan'].Pos.y, Config.tanker['TruckMan'].Pos.z, true) < 1.5) then	
+					if(GetDistanceBetweenCoords(coords,Config.tanker['TruckMan'].Pos.x, Config.tanker['TruckMan'].Pos.y, Config.tanker['TruckMan'].Pos.z, true) < 1.5) then
 						sleep = 0
 						DrawText3Ds(Config.tanker['TruckMan'].Pos.x, Config.tanker['TruckMan'].Pos.y, Config.tanker['TruckMan'].Pos.z+1.0, 'Bạn biết phải làm gì rồi đó, hãy lấy xe tải và đi làm việc')
 					end
@@ -293,7 +292,7 @@ function CreateStartWork()
 				break
 			end
 
-			if(GetDistanceBetweenCoords(coords,Config.tanker['TruckOut'].Pos.x, Config.tanker['TruckOut'].Pos.y, Config.tanker['TruckOut'].Pos.z, true) < 15.0) and not tutorial then	
+			if(GetDistanceBetweenCoords(coords,Config.tanker['TruckOut'].Pos.x, Config.tanker['TruckOut'].Pos.y, Config.tanker['TruckOut'].Pos.z, true) < 15.0) and not tutorial then
 				sleep = 4
 				DrawMarker(27, Config.tanker['TruckOut'].Pos.x, Config.tanker['TruckOut'].Pos.y, Config.tanker['TruckOut'].Pos.z-1.20, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 2.0, 2.0, 2.0, 123, 204, 88, 200, false, true, 2, true, false, false, false)
 				if(GetDistanceBetweenCoords(coords,Config.tanker['TruckOut'].Pos.x, Config.tanker['TruckOut'].Pos.y, Config.tanker['TruckOut'].Pos.z, true) < 2.0) then
@@ -314,8 +313,8 @@ function CreateStartWork()
 										SetVehicleEngineOn(vehicle, true, true)
 										exports['ps-fuel']:SetFuel(vehicle, 100.0)
 										Plate = QBCore.Functions.GetPlate(vehicle)
-										VehicleOut = true 
-										exports.pNotify:SendNotification({text = "<b>Ông Chủ</b></br>Bạn đã lấy xe tải ra và tốn "..Config.TruckOutPrice.."$, hãy tới chỗ lấy thùng nhiên liệu", timeout = 4500})	
+										VehicleOut = true
+										exports.pNotify:SendNotification({text = "<b>Ông Chủ</b></br>Bạn đã lấy xe tải ra và tốn "..Config.TruckOutPrice.."$, hãy tới chỗ lấy thùng nhiên liệu", timeout = 4500})
 
 										-- QBCore.Functions.Notify('Bạn đã lấy xe tải ra và tốn $'..Config.TruckOutPrice)
 										ManagerBlip = AddBlipForCoord(Config.tanker['Manager'].Pos.x, Config.tanker['Manager'].Pos.y, Config.tanker['Manager'].Pos.z)
@@ -328,13 +327,13 @@ function CreateStartWork()
 										AddTextComponentString('Manager')
 										EndTextCommandSetBlipName(ManagerBlip)
 
-										
+
 										SetEntityAsMissionEntity(vehicle, true, true)
 										TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(vehicle))
-										CreateWork()							
+										CreateWork()
 									end, Config.tanker['TruckOut'].Pos, true)
 								elseif not cb then
-									exports.pNotify:SendNotification({text = "<b>Ông Chủ</b></br>Bạn không có đủ  "..Config.TruckOutPrice.."$ để lấy xe tải ra", timeout = 4500})	
+									exports.pNotify:SendNotification({text = "<b>Ông Chủ</b></br>Bạn không có đủ  "..Config.TruckOutPrice.."$ để lấy xe tải ra", timeout = 4500})
 									-- QBCore.Functions.Notify('Bạn không có đủ $'..Config.TruckOutPrice..' để lấy xe tải ra', 'error')
 								end
 							end, 'gettruck')
@@ -353,7 +352,7 @@ function CreateStartWork()
 
 									-- QBCore.Function.Notify('Bạn đã cất xe tải', 'success')
 									JobStarted = false
-									TriggerServerEvent("fivem-appearance:reloadskin")
+									TriggerEvent("fivem-appearance:client:reloadSkin")
 									RemoveBlip(TruckOutBlip)
 									RemoveBlip(TruckManBlip)
 
@@ -413,7 +412,7 @@ function CreateWork()
 								SetBlipAsShortRange(SemiTrailerBlip, true)
 								BeginTextCommandSetBlipName("STRING")
 								AddTextComponentString('Place')
-								EndTextCommandSetBlipName(SemiTrailerBlip)									
+								EndTextCommandSetBlipName(SemiTrailerBlip)
 							end
 						end
 					elseif(GetDistanceBetweenCoords(coords,Config.tanker['Semitrailer'].Pos.x, Config.tanker['Semitrailer'].Pos.y, Config.tanker['Semitrailer'].Pos.z, true) < 15.0) and job then
@@ -454,7 +453,7 @@ function CreateWork()
 								-- QBCore.Functions.Notify('Hãy xuống xe rồi làm', 'error')
 							end
 						end
-					end							
+					end
 				elseif not VehicleOut then
 					break
 				end
@@ -463,8 +462,8 @@ function CreateWork()
 	end)
 end
 
-CreateThread(function() 
-	while true do 
+CreateThread(function()
+	while true do
 		while JobStarted do
 			Wait(0)
 			local vehicle = GetVehiclePedIsIn(PlayerPedId(), true)
@@ -487,7 +486,7 @@ function Work()
 	BeginTextCommandSetBlipName("STRING")
 	AddTextComponentString('Refueling')
 	EndTextCommandSetBlipName(RefuelingBlip)
-	
+
 
 	while true do
 		local sleep = 500
@@ -496,7 +495,7 @@ function Work()
 			if(GetDistanceBetweenCoords(coords,Config.tanker['Refueling'].Pos.x, Config.tanker['Refueling'].Pos.y, Config.tanker['Refueling'].Pos.z, true) < 30.0) then
 				sleep = 4
 				DrawMarker(27, Config.tanker['Refueling'].Pos.x, Config.tanker['Refueling'].Pos.y, Config.tanker['Refueling'].Pos.z-1.20, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 3.0, 123, 204, 88, 200, false, true, 2, true, false, false, false)
-				if(GetDistanceBetweenCoords(coords,Config.tanker['Refueling'].Pos.x, Config.tanker['Refueling'].Pos.y, Config.tanker['Refueling'].Pos.z, true) < 3.0) then				
+				if(GetDistanceBetweenCoords(coords,Config.tanker['Refueling'].Pos.x, Config.tanker['Refueling'].Pos.y, Config.tanker['Refueling'].Pos.z, true) < 3.0) then
 					DrawText3Ds(Config.tanker['Refueling'].Pos.x, Config.tanker['Refueling'].Pos.y, Config.tanker['Refueling'].Pos.z+1.0, 'Nhấn [~g~E~w~] để lấy nhiên liệu')
 					if(IsControlJustReleased(0, Keys['E']) and IsPedInAnyVehicle(ped, false)) then
 						local vehicle = GetVehiclePedIsIn(GetPlayerPed(-1), true)
@@ -505,8 +504,8 @@ function Work()
 								FreezeEntityPosition(vehicle, true)
 								SetVehicleDoorsLocked(vehicle, 4)
 								TriggerEvent('dream-tanker:sound', 'fueling', 0.5)
-								meter()					
-								while true do 	
+								meter()
+								while true do
 									local ped = PlayerPedId()
 									local coords = GetEntityCoords(ped)
 									local coords2 = GetEntityCoords(Trailer)
@@ -537,23 +536,23 @@ function Work()
 								SetBlipAsShortRange(StationBlip, true)
 								BeginTextCommandSetBlipName("STRING")
 								AddTextComponentString('Filling station')
-								EndTextCommandSetBlipName(StationBlip)	
+								EndTextCommandSetBlipName(StationBlip)
 
 								SetNewWaypoint(Config.Places[RandomPlace].Ped.x, Config.Places[RandomPlace].Ped.y)
-								
+
 								local ped_hash = GetHashKey(Config.Places[RandomPlace].Ped.model)
 								RequestModel(ped_hash)
 								while not HasModelLoaded(ped_hash) do
 									Wait(1)
-								end	
+								end
 								StationNPC = CreatePed(1, ped_hash, Config.Places[RandomPlace].Ped.x, Config.Places[RandomPlace].Ped.y, Config.Places[RandomPlace].Ped.z-1, Config.Places[RandomPlace].Ped.h, false, true)
 								SetBlockingOfNonTemporaryEvents(StationNPC, true)
 								SetPedDiesWhenInjured(StationNPC, false)
 								SetPedCanPlayAmbientAnims(StationNPC, true)
 								SetPedCanRagdollFromPlayerImpact(StationNPC, false)
 								SetEntityInvincible(StationNPC, true)
-								FreezeEntityPosition(StationNPC, true)	
-								
+								FreezeEntityPosition(StationNPC, true)
+
 								local tank = CreateObject(GetHashKey('prop_ind_mech_03a'), Config.Places[RandomPlace].RefulingPlace.x, Config.Places[RandomPlace].RefulingPlace.y, Config.Places[RandomPlace].RefulingPlace.z-1, false,  true, true)
 								FreezeEntityPosition(tank, true)
 
@@ -565,8 +564,8 @@ function Work()
 										if(GetDistanceBetweenCoords(coords,Config.Places[RandomPlace].Ped.x, Config.Places[RandomPlace].Ped.y, Config.Places[RandomPlace].Ped.z, true) < 15.0) then
 											sleep = 4
 											-- DrawMarker(27, Config.Places[RandomPlace].Pos.x, Config.Places[RandomPlace].Pos.y, Config.Places[RandomPlace].Pos.z-1.20, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 3.0, 3.0, 3.0, 123, 204, 88, 200, false, true, 2, true, false, false, false)
-											if(GetDistanceBetweenCoords(coords,Config.Places[RandomPlace].Ped.x, Config.Places[RandomPlace].Ped.y, Config.Places[RandomPlace].Ped.z, true) < 1.5) then			
-												sleep = 0	
+											if(GetDistanceBetweenCoords(coords,Config.Places[RandomPlace].Ped.x, Config.Places[RandomPlace].Ped.y, Config.Places[RandomPlace].Ped.z, true) < 1.5) then
+												sleep = 0
 												DrawText3Ds(Config.Places[RandomPlace].Ped.x, Config.Places[RandomPlace].Ped.y, Config.Places[RandomPlace].Ped.z+1.0, 'Nhấn [~g~E~w~] để nói chuyện')
 												if(IsControlJustReleased(0, Keys['E']) and not IsPedInAnyVehicle(ped, false)) and not done then
 													exports.pNotify:SendNotification({text = "<b>Khách Hàng</b></br>Bạn chắc là người tiếp dầu, hãy đi tới máy dầu bên cạnh để đồ dầu", timeout = 4500})
@@ -580,8 +579,8 @@ function Work()
 													SetBlipAsShortRange(RefulingPlaceBlip, true)
 													BeginTextCommandSetBlipName("STRING")
 													AddTextComponentString('Refuling Place')
-													EndTextCommandSetBlipName(RefulingPlaceBlip)			
-													
+													EndTextCommandSetBlipName(RefulingPlaceBlip)
+
 													while true do
 														local sleep = 500
 														local ped = PlayerPedId()
@@ -593,10 +592,10 @@ function Work()
 															sleep = 4
 															DrawMarker(20, Config.Places[RandomPlace].RefulingPlace.x, Config.Places[RandomPlace].RefulingPlace.y, Config.Places[RandomPlace].RefulingPlace.z+1, 0.0, 0.0, 0.0, 0.0, 180.0, 0.0, 0.4, 0.4, 0.4, 255, 255, 255, 200, false, true, 2, true, false, false, false)
 															if(GetDistanceBetweenCoords(coords,Config.Places[RandomPlace].RefulingPlace.x, Config.Places[RandomPlace].RefulingPlace.y, Config.Places[RandomPlace].RefulingPlace.z, true) < 1.5) then
-																sleep = 0	
+																sleep = 0
 																if not tube then
 																	DrawText3Ds(Config.Places[RandomPlace].RefulingPlace.x, Config.Places[RandomPlace].RefulingPlace.y, Config.Places[RandomPlace].RefulingPlace.z+1.0, 'Kết nối dây nhiên liệu tới thùng hàng')
-																else 
+																else
 																	DrawText3Ds(Config.Places[RandomPlace].RefulingPlace.x, Config.Places[RandomPlace].RefulingPlace.y, Config.Places[RandomPlace].RefulingPlace.z+1.0, 'Nhấn [~g~E~w~] để kết nối dây')
 																end
 
@@ -611,20 +610,20 @@ function Work()
 																	Wait(1000)
 																	ClearPedTasks(ped)
 																	FreezeEntityPosition(ped, false)
-																	
+
 																	for i=1, 3 do
 																		Wait(5)
 																		RopeLoadTextures()
 																	end
 
 																	rope = AddRope(trunkpos.x, trunkpos.y, trunkpos.z, 0.0, 0.0, 0.0, 10.0, 3, 4.0, 1.0, 0, 0, 0, 0, 0, 0, 0)
-																	
+
 																	local coordspack = GetEntityCoords(tank)
 																	local length = GetRopeLength(rope)
 																	AttachEntitiesToRope(rope, Trailer, tank, trunkpos.x, trunkpos.y, trunkpos.z-1.0, coordspack.x, coordspack.y, coordspack.z, length)
-																		
+
 																	meter()
-																	while true do 	
+																	while true do
 																		local ped = PlayerPedId()
 																		local coords = GetEntityCoords(ped)
 																		if(GetDistanceBetweenCoords(coords,trunkpos.x, trunkpos.y, trunkpos.z, true) < 10.0) then
@@ -652,7 +651,7 @@ function Work()
 																	CanRopeOut = false
 
 																	break
-																end			
+																end
 															end
 														else
 															if CanRopeOut then
@@ -665,7 +664,7 @@ function Work()
 														-- if GetVehicleBodyHealth(Trailer) < 1 then
 														-- 	exports.pNotify:SendNotification({text = "<b>Ông Chủ</b></br>Your trailer has been damaged, go get a new one to the manager.", timeout = 4500})
 														-- 	job = false
-											
+
 														-- 	ManagerBlip = AddBlipForCoord(Config.tanker['Manager'].Pos.x, Config.tanker['Manager'].Pos.y, Config.tanker['Manager'].Pos.z)
 														-- 	SetBlipSprite (ManagerBlip, 133)
 														-- 	SetBlipDisplay(ManagerBlip, 4)
@@ -675,10 +674,10 @@ function Work()
 														-- 	BeginTextCommandSetBlipName("STRING")
 														-- 	AddTextComponentString('Manager')
 														-- 	EndTextCommandSetBlipName(ManagerBlip)
-				
+
 														-- 	RemoveBlip(RefuelingBlip)
 														-- 	RemoveBlip(StationBlip)
-				
+
 														-- 	DeletePed(StationNPC)
 														-- 	DeleteObject(tank)
 
@@ -688,15 +687,15 @@ function Work()
 
 														-- 	RopeUnloadTextures()
 														-- 	DeleteRope(rope)
-				
+
 														-- 	CreateWork()
-											
+
 														-- 	break 
 														-- end 
 														Wait(sleep)
 													end
 
-												elseif(IsControlJustReleased(0, Keys['E']) and not IsPedInAnyVehicle(ped, false)) and done then 
+												elseif(IsControlJustReleased(0, Keys['E']) and not IsPedInAnyVehicle(ped, false)) and done then
 
 													QBCore.Functions.TriggerCallback('dream-tanker:payout', function(money)
 														exports.pNotify:SendNotification({text = "<b>Khách Hàng</b></br>Cảm on bạn, hình như sếp của bạn cần bạn đi tiếp thêm nhiên liệu, hãy đi lấy thêm nhiên liệu!.", timeout = 4000})
@@ -723,7 +722,7 @@ function Work()
 										-- if GetVehicleBodyHealth(Trailer) < 1 then
 										-- 	exports.pNotify:SendNotification({text = "<b>Ông Chủ</b></br>Your trailer has been damaged, go get a new one to the manager.", timeout = 4500})
 										-- 	job = false
-							
+
 										-- 	ManagerBlip = AddBlipForCoord(Config.tanker['Manager'].Pos.x, Config.tanker['Manager'].Pos.y, Config.tanker['Manager'].Pos.z)
 										-- 	SetBlipSprite (ManagerBlip, 133)
 										-- 	SetBlipDisplay(ManagerBlip, 4)
@@ -741,12 +740,12 @@ function Work()
 										-- 	DeleteObject(tank)
 
 										-- 	CreateWork()
-							
+
 										-- 	break 
 										-- end
 									Wait(sleep)
 								end
-								break								
+								break
 							else
 								exports.pNotify:SendNotification({text = "<b>Ông Chủ</b></br>Bạn không có thùng nhiên liệu", timeout = 4500})
 							end
@@ -786,12 +785,12 @@ end
 CreateThread(function ()
 	while true do
 		local ped = PlayerPedId()
-		local coords = GetEntityCoords(ped)	
+		local coords = GetEntityCoords(ped)
 		local sleep = 500
 			if CanRopeOut and not IsPedInAnyVehicle(ped, false) then
 				sleep = 4
 				local trunkpos = GetOffsetFromEntityInWorldCoords(Trailer, 0, -6.0, 0)
-				
+
 				if(GetDistanceBetweenCoords(coords.x, coords.y, coords.z, trunkpos.x, trunkpos.y, trunkpos.z, true) < 2.5) and not tube then
 					sleep = 0
                     DrawText3Ds(trunkpos.x, trunkpos.y, trunkpos.z - 0.5, "Để lấy dây nối nhiên liệu hãy nhấn [E]")
@@ -806,18 +805,18 @@ CreateThread(function ()
 						for i=1, 3 do
 							Wait(5)
 							RopeLoadTextures()
-						end	
-						
+						end
+
 						rope = AddRope(trunkpos.x, trunkpos.y, trunkpos.z, 0.0, 0.0, 0.0, 10.0, 3, 1.0, 1.0, 0, 0, 0, 0, 0, 0, 0)
 
-						AttachEntitiesToRope(rope, Trailer, ped, trunkpos.x, trunkpos.y, trunkpos.z-1.0, coords.x, coords.y, coords.z, 1.0)																										
+						AttachEntitiesToRope(rope, Trailer, ped, trunkpos.x, trunkpos.y, trunkpos.z-1.0, coords.x, coords.y, coords.z, 1.0)
 						StartRopeWinding(rope)
 						ActivatePhysics(rope)
-						RopeForceLength(rope, 4.0)	
-					end	
-				elseif(GetDistanceBetweenCoords(coords.x, coords.y, coords.z, trunkpos.x, trunkpos.y, trunkpos.z, true) < 2.5) and tube then 	
+						RopeForceLength(rope, 4.0)
+					end
+				elseif(GetDistanceBetweenCoords(coords.x, coords.y, coords.z, trunkpos.x, trunkpos.y, trunkpos.z, true) < 2.5) and tube then
 					sleep = 0
-					DrawText3Ds(trunkpos.x, trunkpos.y, trunkpos.z - 0.5, "Để cất dây nối nhiên liệu hãy nhấn [E]")	
+					DrawText3Ds(trunkpos.x, trunkpos.y, trunkpos.z - 0.5, "Để cất dây nối nhiên liệu hãy nhấn [E]")
 					if(IsControlJustReleased(0, Keys['E']) and not IsPedInAnyVehicle(ped, false)) then
 						FreezeEntityPosition(ped, true)
 						startAnim(ped, 'mini@repair', 'fixing_a_ped')
@@ -840,7 +839,7 @@ function meter()
 		for i=1, 100 do
 			Wait(100)
 			number = i
-		end	
+		end
 	end)
 end
 

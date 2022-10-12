@@ -203,7 +203,7 @@ CreateThread(function()
 				})
 			end
 		else
-			Wait(200)
+			Wait(100)
 		end
 
 		if chatInputActivating then
@@ -213,7 +213,7 @@ CreateThread(function()
 				chatInputActivating = false
 			end
 		else
-			Wait(200)
+			Wait(100)
 		end
 
 		if chatLoaded then
@@ -232,7 +232,7 @@ CreateThread(function()
 				})
 			end
 		else
-			Wait(200)
+			Wait(100)
 		end
 	end
 end)
