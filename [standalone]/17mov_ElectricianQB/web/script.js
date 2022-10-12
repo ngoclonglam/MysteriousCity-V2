@@ -66,7 +66,7 @@ window.addEventListener('message', function (event) {
             }
         }
 
-        for (i = 0; i < 1-added; i++) {
+        for (i = 0; i < 2-added; i++) {
             $(".partyContainer").append('<div class="partyChild" onclick="Invite()"><div class="freeSlot"><i class="fa-solid fa-user-plus"></i></div></div>')
         }
     } else if (action == "HostStatusUpdate") {

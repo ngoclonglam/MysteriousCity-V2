@@ -54,7 +54,7 @@
                         <h2 @click="newPage('profile')">Mr.{{data.playername}}</h2>
                         <h3>Lv.{{data.level}}</h3>
                     </div>
-                    <div class="welcome-fishing">Xin Chào Tới Thế Giới Cá</div>
+                    <div class="welcome-fishing">MYSTERIOUS CITY</div>
                     <div class="menu-wrapper-left-page-button">
                         <div class="menu-wrapper-left-page-button-in" @click="newPage('wiki')">
                             <div class="wiki-buton-bg"
@@ -101,12 +101,12 @@
                     </div>
                     <div class="searchbarplayer" v-if="page == 'board'">
                         <div class="searchbaricon"> <img src="./images/icon-search.png" alt=""> </div> <input
-                            type="text" placeholder="Kiếm người chơi.." v-model="searchplayer">
+                            type="text" placeholder="Tìm người chơi.." v-model="searchplayer">
                     </div>
                     <div class="searchbarplayer"
                         v-if="page == 'marketbuyin' ||  page == 'buymarketinall' ||  page == 'buymarketinroads' ||  page == 'buymarketinbaits'">
                         <div class="searchbaricon"> <img src="./images/icon-search.png" alt=""> </div> <input
-                            type="text" placeholder="Kiếm vật phẩm.." v-model="search">
+                            type="text" placeholder="Tìm vật phẩm.." v-model="search">
                     </div>
                     <div class="mainspot" v-if="page == 'main' && nearSpot">
                         <div class="mainspot-wrapper">
@@ -1021,7 +1021,7 @@
                                             <h2>Lv.{{playerlevel}}</h2>
                                         </div>
                                         <div class="board-player-profile"> <img src="./images/siralama.png" alt="">
-                                            <h2>16.th</h2>
+                                            <h2></h2>
                                         </div>
                                     </div>
                                     <div class="player-profile-playername"></div>
