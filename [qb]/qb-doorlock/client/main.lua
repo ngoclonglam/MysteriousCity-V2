@@ -841,7 +841,10 @@ CreateThread(function()
 							end
 						end
 					end
+					sleep = 100
 				end
+			else
+				sleep = 500
 			end
 			if closestDoor.id then
 				while isLoggedIn do
