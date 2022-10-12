@@ -209,7 +209,7 @@ Config.Spots = {
 
             location = "Alamo Sea",
             statement = "The Alamo Sea is the largest body of water located on the San Andreas mainland. It is fed by agricultural runoff from nearby Grapeseed and drains into the Pacific Ocean via Cassidy Creek and the Zancudo River..",
-            spotQuality = "Legendary",
+            spotQuality = "Huyền thoại",
             afkCatchInMinute = 5,
             fishQualityScale = "Không phổ biến - Huyền thoại",
             fishQualityScaleTable = {'common', 'legendary'},
@@ -225,7 +225,7 @@ Config.Spots = {
 
             location = "Zancudo River",
             statement = "The center is located on Tongva Drive in Tongva Valley, Los Santos County right next to a stream which eventually feeds into the Zancudo River.",
-            spotQuality = "Epic",
+            spotQuality = "Sử thi",
             afkCatchInMinute = 5,
             fishQualityScale = "Hiếm - Sử thi",
             fishQualityScaleTable = {'rare', 'epic'},
@@ -336,7 +336,7 @@ Config.Locale = {
     ["RARE"] = 'Quý hiếm',
     ["LEGANDARY"] = 'Huyền thoại',
     ["EPIC"] = 'Sử thi',
-    ["RODS"] = 'Cần câu',
+    ["RODS"] = 'Cần Câu',
     ["BAITS"] = 'Mồi',
 
     ["CARD"] = 'Thẻ',
@@ -362,7 +362,7 @@ Config.Locale = {
     ["ACHIEVEMENTS"] = 'Thành Tích',
     ["CLAIM"] = 'Nhận',
     ["AWARD"] = 'Đã Nhận',
-    ["ACHIEVEMENTSLOCKED"] = 'Thành Tích Bị Khóa',
+    ["ACHIEVEMENTSLOCKED"] = 'THÀNH TÍCH CHƯA MỞ',
 
     -- Javascript Notify
 

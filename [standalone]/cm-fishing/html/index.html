@@ -97,16 +97,16 @@
                     <div class="searchbar"
                         v-if="page == 'wiki' || page == 'wikicommon' || page == 'wikiuncommon' || page == 'wikirare' || page == 'wikilegendary'|| page == 'wikiepic'|| page == 'wikiall' || page == 'other'">
                         <div class="searchbaricon"> <img src="./images/icon-search.png" alt=""> </div> <input
-                            type="text" placeholder="Search wiki" v-model="search">
+                            type="text" placeholder="Tìm kiếm" v-model="search">
                     </div>
                     <div class="searchbarplayer" v-if="page == 'board'">
                         <div class="searchbaricon"> <img src="./images/icon-search.png" alt=""> </div> <input
-                            type="text" placeholder="Search player.." v-model="searchplayer">
+                            type="text" placeholder="Kiếm người chơi.." v-model="searchplayer">
                     </div>
                     <div class="searchbarplayer"
                         v-if="page == 'marketbuyin' ||  page == 'buymarketinall' ||  page == 'buymarketinroads' ||  page == 'buymarketinbaits'">
                         <div class="searchbaricon"> <img src="./images/icon-search.png" alt=""> </div> <input
-                            type="text" placeholder="Search item.." v-model="search">
+                            type="text" placeholder="Kiếm vật phẩm.." v-model="search">
                     </div>
                     <div class="mainspot" v-if="page == 'main' && nearSpot">
                         <div class="mainspot-wrapper">
@@ -979,12 +979,12 @@
                                                         <p class="spot-feature-val">{{spot.location}}</p>
                                                     </div>
                                                     <div class="spot-feature">
-                                                        <p class="spot-feature-name">Spot Quality</p>
+                                                        <p class="spot-feature-name">Đánh Giá</p>
                                                         <p class="spot-feature-val">{{spot.spotQuality}}</p>
                                                     </div>
                                                     <div class="spot-feature">
                                                         <p class="spot-feature-name">{{language["AFKCATCHMIN1MIN"]}}</p>
-                                                        <p class="spot-feature-val">{{spot.afkCatchInMinute}} per mn
+                                                        <p class="spot-feature-val">{{spot.afkCatchInMinute}} mỗi phút
                                                         </p>
                                                     </div>
                                                     <div class="spot-feature">
