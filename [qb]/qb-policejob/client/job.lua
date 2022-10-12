@@ -556,6 +556,7 @@ local function stash()
                     break
                 end
             else
+                Wait(1000)
                 break
             end
         end

@@ -202,6 +202,8 @@ CreateThread(function()
 					type = 'ON_OPEN'
 				})
 			end
+		else
+			Wait(200)
 		end
 
 		if chatInputActivating then
@@ -210,6 +212,8 @@ CreateThread(function()
 
 				chatInputActivating = false
 			end
+		else
+			Wait(200)
 		end
 
 		if chatLoaded then
@@ -227,6 +231,8 @@ CreateThread(function()
 					shouldHide = shouldBeHidden
 				})
 			end
+		else
+			Wait(200)
 		end
 	end
 end)

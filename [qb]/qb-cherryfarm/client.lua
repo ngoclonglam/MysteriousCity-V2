@@ -132,23 +132,9 @@ end
 CreateThread(function()
     while true do
         Wait(0)
-        if worked then
-            DisableControlAction(0, 73, true)
-            DisableControlAction(1, 73, true)
-            DisableControlAction(2, 73, true)
-        else
-            Wait(1000)
-        end
-    end
-end)
-
-CreateThread(function()
-    while true do
-        Wait(1)
         local ped = PlayerPedId()
         local carPos = GetEntityCoords(veh, false)
         local pos = GetEntityCoords(ped)
-
 
         if culege then
             if #(vector3(pos.x, pos.y, pos.z) - vector3(carPos.x , carPos.y, carPos.z)) <= 7.0 and DoesEntityExist(veh) then
@@ -253,6 +239,8 @@ CreateThread(function()
                     exports['okokNotify']:Alert('Thông Tin', 'Bạn phải đi xuống xe để bán cherry', 5000, 'warning')
                 end
             end
+        else
+            Wait(500)
         end
 
         local metrii = #(GetEntityCoords(ped) - vector3(-2173.88, 4282.2, 49.12))
@@ -305,6 +293,8 @@ CreateThread(function()
                     exports['okokNotify']:Alert('Phương Tiện', 'Xe này không phải biển số xe của hái cherry', 5000, 'error')
                 end
             end
+        else
+            Wait(500)
         end
 
         -- writing here
@@ -352,6 +342,8 @@ CreateThread(function()
                     end
                 end
             end
+        else
+            Wait(500)
         end
     end
 end)

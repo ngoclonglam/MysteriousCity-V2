@@ -253,7 +253,7 @@ CreateThread(function()
                 end
             end
         else
-            Wait(500)
+            Wait(1000)
         end
     end
 end)
@@ -274,7 +274,7 @@ CreateThread(function()
                 end
             end
         else
-            Wait(500)
+            Wait(1000)
         end
     end
 end)
@@ -313,7 +313,7 @@ CreateThread(function()
             Wait(1000)
         end
 
-        Wait(1)
+        Wait(0)
     end
 end)
 
@@ -385,6 +385,8 @@ CreateThread(function()
                 -- QBCore.Functions.Notify('Bạn đã bán các thành phẩm của bạn', 'success')
                 exports['okokNotify']:Alert('Bán Đồ', 'Bạn đã bán các thành phẩm của bạn', 2500, 'success')
             end
+        else
+            Wait(1000)
         end
 
         Wait(1)
