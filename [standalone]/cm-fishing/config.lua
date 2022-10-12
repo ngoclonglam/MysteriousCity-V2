@@ -349,9 +349,9 @@ Config.Locale = {
     ["DELETETOCARD"] = 'Xóa giỏ hàng',
     ["ADDTOCARD"] = 'Thâm vào giỏ hàng',
     ["BUYSTUFFS"] = 'Mua Đồ',
-    ["FROMMARKET"] = 'từ chợ',
+    ["FROMMARKET"] = 'Từ Chợ',
     ["SELLYOURSTUFF"] = 'Bán đồ',
-    ["TOMARKETPLACE"] = 'to marketplace',
+    ["TOMARKETPLACE"] = 'Cho Chợ',
 
     ["MARKLOCATION"] = 'Đánh Dấu',
     ["CHANGEPROFILE"] = 'Đổi Avatar',

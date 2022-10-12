@@ -21,19 +21,19 @@
                 <div class="fishing-button-icon">
                     <img src="./images/arrow-down.png">
                 </div>
-                <p class="fishing-button-text">Catch Fish</p>
+                <p class="fishing-button-text">Câu Cá</p>
             </div>
             <div class="fishing-button">
                 <div class="fishing-button-icon">
                     <p>G</p>
                 </div>
-                <p class="fishing-button-text">Swing the rod...</p>
+                <p class="fishing-button-text">Quăng Cần Câu...</p>
             </div>
             <div class="fishing-button">
                 <div class="fishing-button-icon">
                     <p>X</p>
                 </div>
-                <p class="fishing-button-text">Cancel Fishing...</p>
+                <p class="fishing-button-text">Hủy Câu Cá...</p>
             </div>
             <div class="fishing-button-progress">
                 <p class="fishing-button-progress-text">{{fishingProgressText}}</p>
@@ -51,10 +51,10 @@
                             <img src="./images/nopp.png" v-if="data.playerimage == '0'" />
                             <img v-bind:src="data.playerimage" v-else />
                         </div>
-                        <h2 @click="newPage('profile')">Mrs.{{data.playername}}</h2>
+                        <h2 @click="newPage('profile')">Mr.{{data.playername}}</h2>
                         <h3>Lv.{{data.level}}</h3>
                     </div>
-                    <div class="welcome-fishing">Welcome to fishing</div>
+                    <div class="welcome-fishing">Xin Chào Tới Thế Giới Cá</div>
                     <div class="menu-wrapper-left-page-button">
                         <div class="menu-wrapper-left-page-button-in" @click="newPage('wiki')">
                             <div class="wiki-buton-bg"
@@ -132,7 +132,7 @@
                                     <h2 class="mainspot-main-text">{{language["SPOTQUALITY"]}}</h2>
                                     <h2 class="mainspot-main-text2">{{nearSpot.spotQuality}}</h2>
                                     <h2 class="mainspot-main-text">{{language["AFKCATCHMIN"]}} <span> 1 </span> {{language["AFKCATCHMINUTE"]}}</h2>
-                                    <h2 class="mainspot-main-text2"><span> {{nearSpot.afkCatchInMinute}} </span> per mn
+                                    <h2 class="mainspot-main-text2"><span> {{nearSpot.afkCatchInMinute}} </span> mỗi phút
                                     </h2>
                                     <h2 class="mainspot-main-text">{{language["FISHQUALITYSCALE"]}} </h2>
                                     <h2 class="mainspot-main-text2">{{nearSpot.fishQualityScale}}</h2>
