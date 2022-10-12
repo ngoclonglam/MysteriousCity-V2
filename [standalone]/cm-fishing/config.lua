@@ -12,14 +12,14 @@ Config.EnableAFKMode = true
 
 Config.Fish = {
         -- COMMON CATEGORY
-        {itemname = 'bluegill',              xp = 5, name = 'Bluegill',                  sell = true, category = 'common',   price = 3},
-        {itemname = 'goldentrout',           xp = 5, name = 'Golden Trout',              sell = true, category = 'common',   price = 3},
-        {itemname = 'silverymonnow',         xp = 5, name = 'Silvery Monnow',            sell = true, category = 'common',   price = 3},
-        {itemname = 'strippedbass',          xp = 5, name = 'Stripped Bass',             sell = true, category = 'common',   price = 3},
-        {itemname = 'tench',                 xp = 5, name = 'Tench',                     sell = true, category = 'common',   price = 3},
-        {itemname = 'whitefish',             xp = 5, name = 'White Fish',                sell = true, category = 'common',   price = 3},
-        {itemname = 'crappie',               xp = 5, name = 'Crappie',                   sell = true, category = 'common',   price = 3},
-        {itemname = 'cruciancarp',           xp = 5, name = 'Crucian Carp',              sell = true, category = 'common',   price = 3},
+        {itemname = 'bluegill',              xp = 5, name = 'Cá Mang Xanh',              sell = true, category = 'common',   price = 120},
+        {itemname = 'goldentrout',           xp = 5, name = 'Cá Hồi Vàng',               sell = true, category = 'common',   price = 120},
+        {itemname = 'silverymonnow',         xp = 5, name = 'Cá Chim Khoang',            sell = true, category = 'common',   price = 120},
+        {itemname = 'strippedbass',          xp = 5, name = 'Cá Vược',                   sell = true, category = 'common',   price = 120},
+        {itemname = 'tench',                 xp = 5, name = 'Cá Chép Nhớt',              sell = true, category = 'common',   price = 120},
+        {itemname = 'whitefish',             xp = 5, name = 'Cá Trắng',                  sell = true, category = 'common',   price = 120},
+        {itemname = 'crappie',               xp = 5, name = 'Cá Crappie',                sell = true, category = 'common',   price = 120},
+        {itemname = 'cruciancarp',           xp = 5, name = 'Cá Chép Diếc',              sell = true, category = 'common',   price = 120},
         -- UNCOMMON CATEGORY--------------   ------------------------------        ---------------------
         {itemname = 'bluebackherring',       xp = 10, name = 'Blueback Herring',         sell = true, category = "uncommon", price = 4},
         {itemname = 'bulltrout',             xp = 10, name = 'Bull Trout',               sell = true, category = "uncommon", price = 4},
@@ -50,19 +50,19 @@ Config.Fish = {
 
 
         --------------------------- BAITS ------------------------                       sell = false  -- do not change
-        {itemname = 'spoonlurebait',    baitLevel = 1,  fishQualityScale = {'common'},    sell = false, name = 'Spoon Lure Bait',  category = "baits", price = 5, stars = 1, baitsuse = true},
-        {itemname = 'threesidedbait',   baitLevel = 2,  fishQualityScale = {'uncommon'},  sell = false, name = 'Three Sided Bait', category = "baits", price = 5, stars = 2, baitsuse = true},
-        {itemname = 'tailfishbait',     baitLevel = 3,  fishQualityScale = {'rare'},      sell = false, name = 'Tail Fish Bait',   category = "baits", price = 5, stars = 3, baitsuse = true},
-        {itemname = 'doublehookbait',   baitLevel = 4,  fishQualityScale = {'legendary'}, sell = false, name = 'Double Hook Bait', category = "baits", price = 5, stars = 4, baitsuse = true},
-        {itemname = 'triplehooksbait',  baitLevel = 5,  fishQualityScale = {'epic'},      sell = false, name = 'Triple Hook Bait', category = "baits", price = 5, stars = 5, baitsuse = true},
+        {itemname = 'spoonlurebait',    baitLevel = 1,  fishQualityScale = {'common'},    sell = false, name = 'Mồi thìa lượn',  category = "baits", price = 10, stars = 1, baitsuse = true},
+        {itemname = 'threesidedbait',   baitLevel = 2,  fishQualityScale = {'uncommon'},  sell = false, name = 'Mồi ba mặt', category = "baits", price = 10, stars = 2, baitsuse = true},
+        {itemname = 'tailfishbait',     baitLevel = 3,  fishQualityScale = {'rare'},      sell = false, name = 'Mồi đuôi cá',   category = "baits", price = 10, stars = 3, baitsuse = true},
+        {itemname = 'doublehookbait',   baitLevel = 4,  fishQualityScale = {'legendary'}, sell = false, name = 'Móc móc đôi', category = "baits", price = 10, stars = 4, baitsuse = true},
+        {itemname = 'triplehooksbait',  baitLevel = 5,  fishQualityScale = {'epic'},      sell = false, name = 'Mồi ba móc', category = "baits", price = 10, stars = 5, baitsuse = true},
 
 
         --------------------------- RODS ------------------------                          sell = false  -- do not change
-        {itemname = 'woodenrod',       minigameDiff = 'veryHard',  name = 'Wooden Rod',        sell = false, category = "rods", price = 3,  stars = 1, minlevel = 10, use = true},
-        {itemname = 'slimmaterialrod', minigameDiff = 'hard',      name = 'Slim Material Rod', sell = false, category = "rods", price = 4,  stars = 2, minlevel = 20, use = true},
-        {itemname = 'danishrod',       minigameDiff = 'medium',    name = 'Danish Rod',        sell = false, category = "rods", price = 8,  stars = 3, minlevel = 30, use = true},
-        {itemname = 'koidrod',         minigameDiff = 'easy',      name = 'Koi Rod',           sell = false, category = "rods", price = 15, stars = 4, minlevel = 40, use = true},
-        {itemname = 'finewood',        minigameDiff = 'veryEasy',  name = 'Finewood Rod',      sell = false, category = "rods", price = 25, stars = 5, minlevel = 50, use = true},
+        {itemname = 'woodenrod',       minigameDiff = 'veryHard',  name = 'Cần Gỗ Mun',         sell = false, category = "rods", price = 1000,   stars = 1, minlevel = 10, use = true},
+        {itemname = 'slimmaterialrod', minigameDiff = 'hard',      name = 'Cần Lông Bạc',       sell = false, category = "rods", price = 5000,   stars = 2, minlevel = 20, use = true},
+        {itemname = 'danishrod',       minigameDiff = 'medium',    name = 'Cần Cá Đuối',        sell = false, category = "rods", price = 10000,  stars = 3, minlevel = 30, use = true},
+        {itemname = 'koidrod',         minigameDiff = 'easy',      name = 'Cần Thần Koi',       sell = false, category = "rods", price = 50000,  stars = 4, minlevel = 40, use = true},
+        {itemname = 'finewood',        minigameDiff = 'veryEasy',  name = 'Cần Phượng Hoàng',    sell = false, category = "rods", price = 100000, stars = 5, minlevel = 50, use = true},
 }
 
 
@@ -315,63 +315,63 @@ Config.Achievenments = {
 
 
 Config.Locale = {
-    ["WIKI"] = 'WIKI',
-    ["BOARD"] = 'BOARD',
-    ["MARKET"] = 'MARKET',
-    ["SPOTS"] = 'SPOTS',
-    ["FISHIN"] = 'FISHIN',
+    ["WIKI"] = 'TỪ ĐIỂN',
+    ["BOARD"] = 'BẢNG',
+    ["MARKET"] = 'CHỢ',
+    ["SPOTS"] = 'ĐIỂM CÂU',
+    ["FISHIN"] = 'CÂU CÁ',
     ["FISHING"] = 'G',
-    ["LOCATION"] = 'Location',
-    ["SPOTQUALITY"] = 'Spot Quality',
+    ["LOCATION"] = 'Địa Điểm',
+    ["SPOTQUALITY"] = 'Chất Lượng',
     ["AFKCATCHMIN"] = 'AFK Catch in',
-    ["AFKCATCHMINUTE"] = 'Minute',
-    ["FISHQUALITYSCALE"] = 'Fish Quality Scale',
-    ["ENABLEAFKMODE"] = 'Enable AFK Mode',
-    ["CATCHFISH"] = 'CATCH FISH',
-    ["LOWLEVEL"] = 'Low level',
+    ["AFKCATCHMINUTE"] = 'Phút',
+    ["FISHQUALITYSCALE"] = 'Chất Lượng Cá',
+    ["ENABLEAFKMODE"] = 'Bật Chế Độ AFK',
+    ["CATCHFISH"] = 'CÂU CÁ',
+    ["LOWLEVEL"] = 'Level Thấp',
     ["AFKCATCHMIN1MIN"] = 'AFK Catch in 1 min',
-    ["ALL"] = 'All',
-    ["COMMON"] = 'Common',
-    ["UNCOMMON"] = 'Uncommon',
-    ["RARE"] = 'Rare',
-    ["LEGANDARY"] = 'Legandary',
-    ["EPIC"] = 'Epic',
-    ["RODS"] = 'Rods',
-    ["BAITS"] = 'Baits',
+    ["ALL"] = 'TẤT CẢ',
+    ["COMMON"] = 'Phổ thông',
+    ["UNCOMMON"] = 'Không phổ biến',
+    ["RARE"] = 'Quý hiếm',
+    ["LEGANDARY"] = 'Huyền thoại',
+    ["EPIC"] = 'Sử thi',
+    ["RODS"] = 'Cần câu',
+    ["BAITS"] = 'Mồi',
 
-    ["CARD"] = 'Card',
-    ["TOTAL"] = 'Total',
-    ["PAYVIACASH"] = 'Pay via cash',
-    ["PAYVIACARD"] = 'Pay via card',
-    ["SELL"] = 'Sell',
-    ["BUY"] = 'Buy',
+    ["CARD"] = 'Thẻ',
+    ["TOTAL"] = 'Tổng cộng',
+    ["PAYVIACASH"] = 'Thanh toán tiền mặt',
+    ["PAYVIACARD"] = 'Thanh toán qua thẻ',
+    ["SELL"] = 'Bán',
+    ["BUY"] = 'Mua',
 
-    ["DELETETOCARD"] = 'Delete to Card',
-    ["ADDTOCARD"] = 'Add to Card',
-    ["BUYSTUFFS"] = 'Buy Stufss',
-    ["FROMMARKET"] = 'from marketplace',
-    ["SELLYOURSTUFF"] = 'Sell your stuff',
+    ["DELETETOCARD"] = 'Xóa giỏ hàng',
+    ["ADDTOCARD"] = 'Thâm vào giỏ hàng',
+    ["BUYSTUFFS"] = 'Mua Đồ',
+    ["FROMMARKET"] = 'từ chợ',
+    ["SELLYOURSTUFF"] = 'Bán đồ',
     ["TOMARKETPLACE"] = 'to marketplace',
 
-    ["MARKLOCATION"] = 'Mark Location on map',
-    ["CHANGEPROFILE"] = 'Change Profile Photo',
-    ["DISCORDPHOTO"] = 'Use Discord Profile Photo',
+    ["MARKLOCATION"] = 'Đánh Dấu',
+    ["CHANGEPROFILE"] = 'Đổi Avatar',
+    ["DISCORDPHOTO"] = 'Sử Dụng Avatar Discord',
 
-    ["DELETEPROFILE"] = 'Delete Photo',
+    ["DELETEPROFILE"] = 'Xóa Ảnh',
 
-    ["ACHIEVEMENTS"] = 'Achievements',
-    ["CLAIM"] = 'Claim',
-    ["AWARD"] = 'Award Received',
-    ["ACHIEVEMENTSLOCKED"] = 'Achievement Locked',
+    ["ACHIEVEMENTS"] = 'Thành Tích',
+    ["CLAIM"] = 'Nhận',
+    ["AWARD"] = 'Đã Nhận',
+    ["ACHIEVEMENTSLOCKED"] = 'Thành Tích Bị Khóa',
 
     -- Javascript Notify
 
-    ["ADDBASKET"] = 'Added to cart.',
-    ["REMOVEDBASKET"] = 'Removed from cart.',
-    ["PURCHASED"] = 'Purchased.',
-    ["ENOUGHMONEY"] = 'Not enough money.',
-    ["AWARDS"] = 'Award has been received.',
-    ["PHOTO"] = 'Photo updated',
+    ["ADDBASKET"] = 'Thêm vào giỏ',
+    ["REMOVEDBASKET"] = 'Bỏ khỏi giỏ',
+    ["PURCHASED"] = 'Đã mua',
+    ["ENOUGHMONEY"] = 'Không đủ tiền',
+    ["AWARDS"] = 'Giải thưởng đã được nhận.',
+    ["PHOTO"] = 'Đã cập nhật ảnh',
 }
 
 
@@ -410,75 +410,71 @@ end
 
 Config.Notifications = { -- Notifications
     ["rodtostart"] = {
-        message = 'Use a rod to start fishing',
+        message = 'Sử dụng cần câu để câu cá',
         type = "success",
     },
     ["usedbait"] = {
-        message = 'You used a bait',
+        message = 'Hãy sử dụng mồi',
         type = "success",
     },
     ["thisspot"] = {
-        message = 'You can t use this bait on this spot',
-        type = "success",
+        message = 'Không thể dùng mồi này ở tại điểm này',
+        type = "error",
     },
     ["notwater"] = {
-        message = 'You are not near water',
-        type = "success",
+        message = 'Bạn không ở gần mặt nước',
+        type = "error",
     },
 
     ["waitingbait"] = {
-        message = 'Waiting to bait the rod...',
+        message = 'Đang gắn mồi câu...',
         type = "success",
     },
     ["waitinginput"] = {
-        message = 'Waiting for input...',
+        message = 'Đang chờ bấm nút...',
         type = "success",
     },
     ["waitingfish"] = {
-        message = 'Waiting for fish...',
+        message = 'Đang chờ con cá...',
         type = "success",
     },
     ["youcaught"] = {
-        message = 'You Caught',
+        message = 'Bạn đã câu cá thành công',
         type = "success",
     },
     ["escaped"] = {
-        message = 'Fish Escaped',
-        type = "success",
+        message = 'Cá đã chạy mất tiêu',
+        type = "error",
     },
     ["fishingrod"] = {
-        message = 'No fishing rod.',
-        type = "success",
+        message = 'Bạn không có cần câu',
+        type = "errro",
     },
     ["inventory"] = {
-        message = 'Inventory is checked.',
+        message = 'Đang kiểm tra túi đồ',
         type = "success",
     },
     ["bait"] = {
-        message = 'Fish food is gone.',
+        message = 'Đã hết mồi câu',
         type = "success",
     },
     ["checkspot"] = {
-        message = 'Checking fishing spot...',
+        message = 'Kiểm tra điểm câu cá ...',
         type = "success",
     },
     ["notonline"] = {
-        message = 'Player not online...',
-        type = "success",
+        message = 'Người chơi không trực tuyến...',
+        type = "error",
     },
-    
+
     ["rods"] = {
-        message = 'Has a fishing rod...',
+        message = 'Có cần câu...',
         type = "success",
     },
     ["BAITSOFF"] = {
-        message = 'Has a fishing baits.',
+        message = 'Có mồi câu cá.',
         type = "success",
     },
-  
-
-
-
 }
 
 function GetIdentifier(source)

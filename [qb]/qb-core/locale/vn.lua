@@ -11,8 +11,13 @@ local Translations = {
         duplicate_license = 'Rockstar License đang được sử dụng (hãy thử lại)',
         no_valid_license  = 'Rockstar License này không được tìm thấy',
         not_whitelisted = 'Server đang bảo trì hoặc bạn không có quyền vào Server',
-        server_already_open = 'Server đang mở',
-        server_already_closed = 'Server đã đóng'
+        server_already_open = 'Máy chủ đã mở',
+        server_already_closed = 'Máy chủ đã đóng',
+        no_permission = 'Bạn không có quyền cho việc này ..',
+        no_waypoint = 'Không có điểm trên Map',
+        tp_error = 'Lỗi trong khi dịch chuyển tức thời',
+        connecting_database_error = 'Đã xảy ra lỗi cơ sở dữ liệu trong khi kết nối với máy chủ.(Đã bật SQL chưa?)',
+        connecting_database_timeout = 'Kết nối với cơ sở dữ liệu đã hết thời gian.(Đã bật SQL chưa?)',
     },
     success = {
         server_opened = 'Server đã được mở lại',
@@ -27,7 +32,9 @@ local Translations = {
         off_duty = 'Bạn đã dừng làm việc!',
         checking_ban = 'Xin chào %s. Chúng tôi đang kiểm tra tính xác thực của tài khoản.',
         join_server = 'Xin chào %s đã tới {Server Name}.',
-        checking_whitelisted = 'Xin chào %s. Chúng tôi đang kiểm tra whitelist'
+        checking_whitelisted = 'Xin chào %s. Chúng tôi đang kiểm tra whitelist',
+        exploit_banned = 'Bạn đã bị cấm vì gian lận, kiểm tra Discord để biết thêm thông tin: %{discord}',
+        exploit_dropped = 'Bạn đã bị kick vì lạm dụng khai thác',
     },
     command = {
         tp = {
