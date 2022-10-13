@@ -217,6 +217,7 @@ CreateThread(function()
 
 		if chatLoaded then
 			print('line 219')
+			Wait(100)
 			local shouldBeHidden = false
 
 			if IsScreenFadedOut() or IsPauseMenuActive() then
