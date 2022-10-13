@@ -1,17 +1,17 @@
 RegisterNetEvent('esx:playerLoaded')
 AddEventHandler('esx:playerLoaded', function(src)
- 
+
     local identifier = GetIdentifier(src)
-    
+
     local name = GetName(src)
     local data = ExecuteSql("SELECT `identifier` FROM `codem-fishing` WHERE `identifier` = '"..identifier.."'")
 
-    if next(data) then 
+    if next(data) then
         return
-    else 
+    else
         ExecuteSql("INSERT INTO `codem-fishing` (`identifier`,`playername`) VALUES ('"..identifier.."','"..name.."')")
         ExecuteSql("INSERT INTO `codem-fishing-rewards` (`identifier`) VALUES ('"..identifier.."')")
-        Citizen.Wait(300)
+        Wait(300)
         local data = ExecuteSql("SELECT * FROM `codem-fishing`")
         for _,v in pairs(data) do
            fishingData[v.identifier] = v
@@ -25,16 +25,16 @@ RegisterNetEvent('QBCore:Server:OnPlayerLoaded')
 AddEventHandler('QBCore:Server:OnPlayerLoaded', function()
     local src = source
     local identifier = GetIdentifier(src)
-    
+
     local name = GetName(src)
     local data = ExecuteSql("SELECT `identifier` FROM `codem-fishing` WHERE `identifier` = '"..identifier.."'")
- 
-    if next(data) then 
+
+    if next(data) then
         return
-    else 
+    else
         ExecuteSql("INSERT INTO `codem-fishing` (`identifier`,`playername`) VALUES ('"..identifier.."','"..name.."')")
         ExecuteSql("INSERT INTO `codem-fishing-rewards` (`identifier`) VALUES ('"..identifier.."')")
-        Citizen.Wait(300)
+        Wait(300)
         local data = ExecuteSql("SELECT * FROM `codem-fishing`")
         for _,v in pairs(data) do
            fishingData[v.identifier] = v
@@ -109,15 +109,15 @@ end)
 
 
 
-Citizen.CreateThread(function()
+CreateThread(function()
     frameworkObject = GetFrameworkObject()
-    if Config.Framework == 'esx' then 
+    if Config.Framework == 'esx' then
 
         frameworkObject.RegisterCommand('addxp', 'admin', function(source, args, showError)
             local src = source
             local xPlayer = frameworkObject.GetPlayerFromId(tonumber(args[1]))
             local xp = args[2]
-            if xPlayer then 
+            if xPlayer then
                 AddXP(xPlayer.source, xp)
             else
                 Config.Notification(Config.Notifications["notonline"].message, Config.Notifications["notonline"].type, true, src)
@@ -130,7 +130,7 @@ Citizen.CreateThread(function()
             local src = source
             local xPlayer = frameworkObject.GetPlayerFromId(tonumber(args[1]))
             local xp = args[2]
-            if xPlayer then 
+            if xPlayer then
                 RemoveXP(xPlayer.source, xp)
             else
                 Config.Notification(Config.Notifications["notonline"].message, Config.Notifications["notonline"].type, true, src)
@@ -143,7 +143,7 @@ Citizen.CreateThread(function()
             local src = source
             local xPlayer = frameworkObject.GetPlayerFromId(tonumber(args[1]))
             local level = args[2]
-            if xPlayer then 
+            if xPlayer then
                 SetLevel(xPlayer.source, level)
             else
                 Config.Notification(Config.Notifications["notonline"].message, Config.Notifications["notonline"].type, true, src)
@@ -187,8 +187,8 @@ Citizen.CreateThread(function()
 
             end
         end, 'admin')
-        
-    
+
+
     end
 
 
