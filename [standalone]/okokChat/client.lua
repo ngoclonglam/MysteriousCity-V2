@@ -194,7 +194,6 @@ CreateThread(function()
 		Wait(0)
 
 		if not chatInputActive then
-			print('line 197')
 			if IsControlPressed(0, 245) then
 				chatInputActive = true
 				chatInputActivating = true
@@ -203,6 +202,8 @@ CreateThread(function()
 					type = 'ON_OPEN'
 				})
 			end
+		else
+			Wait(100)
 		end
 
 		if chatInputActivating then
@@ -212,7 +213,6 @@ CreateThread(function()
 
 				chatInputActivating = false
 			end
-		else
 		end
 
 		if chatLoaded then
@@ -231,6 +231,8 @@ CreateThread(function()
 					shouldHide = shouldBeHidden
 				})
 			end
+		else
+			Wait(100)
 		end
 	end
 end)
