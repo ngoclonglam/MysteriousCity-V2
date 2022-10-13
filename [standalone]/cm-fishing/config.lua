@@ -144,7 +144,7 @@ Config.Spots = {
             location = "Thái Bình Dương",
             statement = "Del Perro Pier, như tên gọi của nó, nằm ở Del Perro, Los Santos.Nó chủ yếu được truy cập thông qua Đại lộ Sa mạc Đỏ. Del Perro Pier nổi tiếng với những màu sắc tươi sáng, sống động, tỏa sáng vào ban đêm, mang đến cho các bãi biển xung quanh một sự rung cảm.",
             spotQuality = "Tiêu Chuẩn",
-            afkCatchInMinute = 5,
+            afkCatchInMinute = 1,
             fishQualityScale = "Phổ thông",
             fishQualityScaleTable = {'common'},
 
@@ -161,7 +161,7 @@ Config.Spots = {
             location = "Biển Chumash",
             statement = "Cầu tàu gia đình lịch sử Chumash nằm ở trung tâm của Chumash, có thể truy cập từ đường Barbareno. Một biểu tượng chủ yếu của khu vực, Boardwalk được lót bằng hàng rào trắng.",
             spotQuality = "Phổ Biến",
-            afkCatchInMinute = 5,
+            afkCatchInMinute = 1,
             fishQualityScale = "Phổ thông - không phổ biến",
             fishQualityScaleTable = {'common', 'uncommon'},
 
@@ -178,7 +178,7 @@ Config.Spots = {
             location = "Biển Procopio",
             statement = "Biển Procopio là một bãi biển ở Grand Theft Auto V và Grand Theft Auto Online, nằm ở phía bắc Hạt Blaine, phía đông của Vịnh Paleto. Nó nằm ngoài đường cao tốc đại dương và nằm ở phía đông của Promenade Procopio.",
             spotQuality = "Tốt",
-            afkCatchInMinute = 5,
+            afkCatchInMinute = 1,
             fishQualityScale = "Phổ thông - Hiếm",
             fishQualityScaleTable = {'common', 'rare'},
 
@@ -194,7 +194,7 @@ Config.Spots = {
             location = "Biển Alamo",
             statement = "Một nhóm các doanh nghiệp nằm ở một bến tàu trên bờ phía bắc của Alamo-Sea ở rìa phía tây của khu định cư của Galilee, bao gồm Boatshop và một nghề đánh bắt cá/nghề cá thương mại liên quan.",
             spotQuality = "Rất Tốt",
-            afkCatchInMinute = 5,
+            afkCatchInMinute = 1,
             fishQualityScale = "Không phổ biến - Quý hiếm",
             fishQualityScaleTable = {'uncommon', 'rare'},
         },
@@ -210,7 +210,7 @@ Config.Spots = {
             location = "Biển Alamo",
             statement = "Biển Alamo là vùng nước lớn nhất nằm trên lục địa San Andreas.Nó được nuôi dưỡng bởi dòng chảy nông nghiệp từ những quả nho gần đó và cống vào Thái Bình Dương qua Cassidy Creek và sông Zancudo ..",
             spotQuality = "Huyền thoại",
-            afkCatchInMinute = 5,
+            afkCatchInMinute = 1,
             fishQualityScale = "Không phổ biến - Huyền thoại",
             fishQualityScaleTable = {'common', 'legendary'},
 
@@ -226,7 +226,7 @@ Config.Spots = {
             location = "Sông Zancudo",
             statement = "Trung tâm nằm trên Tongva Drive ở Thung lũng Tongva, Hạt Los Santos ngay bên cạnh một con suối cuối cùng ăn vào sông Zancudo.",
             spotQuality = "Sử thi",
-            afkCatchInMinute = 5,
+            afkCatchInMinute = 1,
             fishQualityScale = "Hiếm - Sử thi",
             fishQualityScaleTable = {'rare', 'epic'},
         },
