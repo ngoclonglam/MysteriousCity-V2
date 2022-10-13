@@ -51,7 +51,6 @@ CreateThread(function()
 	while true do
 		Wait(1)
 		if IsPedInAnyVehicle(PlayerPedId(), false) then
-			print('line 54')
 			for key, value in pairs(Config.Radars) do
 				HandlespeedCam(value, key)
 			end

@@ -146,7 +146,6 @@ CreateThread(function()
     while true do
         local sleep = 2000
         if createdCamera ~= 0 then
-            print('line 149')
             sleep = 5
             local instructions = CreateInstuctionScaleform("instructional_buttons")
             DrawScaleformMovieFullscreen(instructions, 255, 255, 255, 255, 0)

@@ -19,7 +19,7 @@ function MenuPool:AddSubMenu(Menu, Text, Description, KeepPosition, KeepBanner)
 			SubMenu = UIMenu.New(Menu.Title:Text(), Text)
 		end
 		if KeepBanner then
-			if Menu.Logo ~= nil then
+			if Menu.Logo then
 				SubMenu.Logo = Menu.Logo
 			else
 				SubMenu.Logo = nil
@@ -39,7 +39,7 @@ function MenuPool:Add(Menu)
 end
 
 function MenuPool:MouseEdgeEnabled(bool)
-	if bool ~= nil then
+	if bool then
 		for _, Menu in pairs(self.Menus) do
 			Menu.Settings.MouseEdgeEnabled = tobool(bool)
 		end
@@ -47,7 +47,7 @@ function MenuPool:MouseEdgeEnabled(bool)
 end
 
 function MenuPool:ControlDisablingEnabled(bool)
-	if bool ~= nil then
+	if bool then
 		for _, Menu in pairs(self.Menus) do
 			Menu.Settings.ControlDisablingEnabled = tobool(bool)
 		end
@@ -55,7 +55,7 @@ function MenuPool:ControlDisablingEnabled(bool)
 end
 
 function MenuPool:ResetCursorOnOpen(bool)
-	if bool ~= nil then
+	if bool then
 		for _, Menu in pairs(self.Menus) do
 			Menu.Settings.ResetCursorOnOpen = tobool(bool)
 		end
@@ -63,7 +63,7 @@ function MenuPool:ResetCursorOnOpen(bool)
 end
 
 function MenuPool:MultilineFormats(bool)
-	if bool ~= nil then
+	if bool then
 		for _, Menu in pairs(self.Menus) do
 			Menu.Settings.MultilineFormats = tobool(bool)
 		end
@@ -71,7 +71,7 @@ function MenuPool:MultilineFormats(bool)
 end
 
 function MenuPool:Audio(Attribute, Setting)
-	if Attribute ~= nil and Setting ~= nil then
+	if Attribute and Setting then
 		for _, Menu in pairs(self.Menus) do
 			if Menu.Settings.Audio[Attribute] then
 				Menu.Settings.Audio[Attribute] = Setting
@@ -89,7 +89,7 @@ function MenuPool:WidthOffset(offset)
 end
 
 function MenuPool:CounterPreText(str)
-	if str ~= nil then
+	if str then
 		for _, Menu in pairs(self.Menus) do
 			Menu.PageCounter.PreText = tostring(str)
 		end
@@ -97,7 +97,7 @@ function MenuPool:CounterPreText(str)
 end
 
 function MenuPool:DisableInstructionalButtons(bool)
-	if bool ~= nil then
+	if bool then
 		for _, Menu in pairs(self.Menus) do
 			Menu.Settings.InstructionalButtons = tobool(bool)
 		end
@@ -105,7 +105,7 @@ function MenuPool:DisableInstructionalButtons(bool)
 end
 
 function MenuPool:MouseControlsEnabled(bool)
-    if bool ~= nil then
+    if bool then
         for _, Menu in pairs(self.Menus) do
             Menu.Settings.MouseControlsEnabled = tobool(bool)
         end

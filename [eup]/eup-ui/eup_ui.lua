@@ -136,7 +136,7 @@ end, false)
 
 CreateThread(function()
     while true do
-        Wait(0)
+        Wait(100)
 		menuPool:ProcessMenus()
 		menuPool:ControlDisablingEnabled(false)
 		menuPool:MouseControlsEnabled(false)

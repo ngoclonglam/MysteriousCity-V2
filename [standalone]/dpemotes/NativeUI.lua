@@ -464,7 +464,7 @@ function GetCharacterCount(str)
     local characters = 0
     for c in str:gmatch("[%z\1-\127\194-\244][\128-\191]*") do
         local a = c:byte(1, -1)
-        if a ~= nil then
+        if a then
             characters = characters + 1
         end
     end
@@ -476,16 +476,16 @@ function GetByteCount(str)
 
     for c in str:gmatch("[%z\1-\127\194-\244][\128-\191]*") do
         local a, b, c, d = c:byte(1, -1)
-        if a ~= nil then
+        if a then
             bytes = bytes + 1
         end
-        if b ~= nil then
+        if b then
             bytes = bytes + 1
         end
-        if c ~= nil then
+        if c then
             bytes = bytes + 1
         end
-        if d ~= nil then
+        if d then
             bytes = bytes + 1
         end
     end
@@ -579,7 +579,7 @@ function UIResText:Colour(R, G, B, A)
 end
 
 function UIResText:Text(Text)
-    if tostring(Text) and Text ~= nil then
+    if tostring(Text) and Text then
         self._Text = tostring(Text)
     else
         return self._Text
@@ -601,7 +601,7 @@ function UIResText:Draw()
         SetTextOutline()
     end
 
-    if self.Alignment ~= nil then
+    if self.Alignment then
         if self.Alignment == 1 or self.Alignment == "Center" or self.Alignment == "Centre" then
             SetTextCentre(true)
         elseif self.Alignment == 2 or self.Alignment == "Right" then
@@ -635,7 +635,7 @@ function RenderText(Text, X, Y, Font, Scale, R, G, B, A, Alignment, DropShadow, 
         SetTextOutline()
     end
 
-    if Alignment ~= nil then
+    if Alignment then
         if Alignment == 1 or Alignment == "Center" or Alignment == "Centre" then
             SetTextCentre(true)
         elseif Alignment == 2 or Alignment == "Right" then
@@ -805,7 +805,7 @@ function UIMenuItem.New(Text, Description)
 end
 
 function UIMenuItem:SetParentMenu(Menu)
-    if Menu ~= nil and Menu() == "UIMenu" then
+    if Menu and Menu() == "UIMenu" then
         self.ParentMenu = Menu
     else
         return self.ParentMenu
@@ -813,7 +813,7 @@ function UIMenuItem:SetParentMenu(Menu)
 end
 
 function UIMenuItem:Selected(bool)
-    if bool ~= nil then
+    if bool then
         self._Selected = tobool(bool)
     else
         return self._Selected
@@ -821,7 +821,7 @@ function UIMenuItem:Selected(bool)
 end
 
 function UIMenuItem:Hovered(bool)
-    if bool ~= nil then
+    if bool then
         self._Hovered = tobool(bool)
     else
         return self._Hovered
@@ -829,7 +829,7 @@ function UIMenuItem:Hovered(bool)
 end
 
 function UIMenuItem:Enabled(bool)
-    if bool ~= nil then
+    if bool then
         self._Enabled = tobool(bool)
     else
         return self._Enabled
@@ -837,7 +837,7 @@ function UIMenuItem:Enabled(bool)
 end
 
 function UIMenuItem:Description(str)
-    if tostring(str) and str ~= nil then
+    if tostring(str) and str then
         self._Description = tostring(str)
     else
         return self._Description
@@ -869,7 +869,7 @@ function UIMenuItem:Position(Y)
 end
 
 function UIMenuItem:RightLabel(Text, MainColour, HighlightColour)
-    if tostring(Text) and Text ~= nil then
+    if tostring(Text) and Text then
         if type(MainColour) == "table" then
             self.Label.MainColour = MainColour
         end
@@ -895,7 +895,7 @@ function UIMenuItem:SetRightBadge(Badge)
 end
 
 function UIMenuItem:Text(Text)
-    if tostring(Text) and Text ~= nil then
+    if tostring(Text) and Text then
         self.Text:Text(tostring(Text))
     else
         return self.Text:Text()
@@ -1019,7 +1019,7 @@ function UIMenuCheckboxItem:Position(Y)
 end
 
 function UIMenuCheckboxItem:Selected(bool)
-    if bool ~= nil then
+    if bool then
         self.Base._Selected = tobool(bool)
     else
         return self.Base._Selected
@@ -1027,7 +1027,7 @@ function UIMenuCheckboxItem:Selected(bool)
 end
 
 function UIMenuCheckboxItem:Hovered(bool)
-    if bool ~= nil then
+    if bool then
         self.Base._Hovered = tobool(bool)
     else
         return self.Base._Hovered
@@ -1035,7 +1035,7 @@ function UIMenuCheckboxItem:Hovered(bool)
 end
 
 function UIMenuCheckboxItem:Enabled(bool)
-    if bool ~= nil then
+    if bool then
         self.Base._Enabled = tobool(bool)
     else
         return self.Base._Enabled
@@ -1043,7 +1043,7 @@ function UIMenuCheckboxItem:Enabled(bool)
 end
 
 function UIMenuCheckboxItem:Description(str)
-    if tostring(str) and str ~= nil then
+    if tostring(str) and str then
         self.Base._Description = tostring(str)
     else
         return self.Base._Description
@@ -1064,7 +1064,7 @@ function UIMenuCheckboxItem:Offset(X, Y)
 end
 
 function UIMenuCheckboxItem:Text(Text)
-    if tostring(Text) and Text ~= nil then
+    if tostring(Text) and Text then
         self.Base.Text:Text(tostring(Text))
     else
         return self.Base.Text:Text()
@@ -1125,7 +1125,7 @@ function UIMenuListItem.New(Text, Items, Index, Description)
 end
 
 function UIMenuListItem:SetParentMenu(Menu)
-    if Menu ~= nil and Menu() == "UIMenu" then
+    if Menu and Menu() == "UIMenu" then
         self.Base.ParentMenu = Menu
     else
         return self.Base.ParentMenu
@@ -1142,7 +1142,7 @@ function UIMenuListItem:Position(Y)
 end
 
 function UIMenuListItem:Selected(bool)
-    if bool ~= nil then
+    if bool then
         self.Base._Selected = tobool(bool)
     else
         return self.Base._Selected
@@ -1150,7 +1150,7 @@ function UIMenuListItem:Selected(bool)
 end
 
 function UIMenuListItem:Hovered(bool)
-    if bool ~= nil then
+    if bool then
         self.Base._Hovered = tobool(bool)
     else
         return self.Base._Hovered
@@ -1158,7 +1158,7 @@ function UIMenuListItem:Hovered(bool)
 end
 
 function UIMenuListItem:Enabled(bool)
-    if bool ~= nil then
+    if bool then
         self.Base._Enabled = tobool(bool)
     else
         return self.Base._Enabled
@@ -1166,7 +1166,7 @@ function UIMenuListItem:Enabled(bool)
 end
 
 function UIMenuListItem:Description(str)
-    if tostring(str) and str ~= nil then
+    if tostring(str) and str then
         self.Base._Description = tostring(str)
     else
         return self.Base._Description
@@ -1187,7 +1187,7 @@ function UIMenuListItem:Offset(X, Y)
 end
 
 function UIMenuListItem:Text(Text)
-    if tostring(Text) and Text ~= nil then
+    if tostring(Text) and Text then
         self.Base.Text:Text(tostring(Text))
     else
         return self.Base.Text:Text()
@@ -1354,7 +1354,7 @@ function UIMenuSliderItem:Position(Y)
 end
 
 function UIMenuSliderItem:Selected(bool)
-    if bool ~= nil then
+    if bool then
         self.Base._Selected = tobool(bool)
     else
         return self.Base._Selected
@@ -1362,7 +1362,7 @@ function UIMenuSliderItem:Selected(bool)
 end
 
 function UIMenuSliderItem:Hovered(bool)
-    if bool ~= nil then
+    if bool then
         self.Base._Hovered = tobool(bool)
     else
         return self.Base._Hovered
@@ -1370,7 +1370,7 @@ function UIMenuSliderItem:Hovered(bool)
 end
 
 function UIMenuSliderItem:Enabled(bool)
-    if bool ~= nil then
+    if bool then
         self.Base._Enabled = tobool(bool)
     else
         return self.Base._Enabled
@@ -1378,7 +1378,7 @@ function UIMenuSliderItem:Enabled(bool)
 end
 
 function UIMenuSliderItem:Description(str)
-    if tostring(str) and str ~= nil then
+    if tostring(str) and str then
         self.Base._Description = tostring(str)
     else
         return self.Base._Description
@@ -1399,7 +1399,7 @@ function UIMenuSliderItem:Offset(X, Y)
 end
 
 function UIMenuSliderItem:Text(Text)
-    if tostring(Text) and Text ~= nil then
+    if tostring(Text) and Text then
         self.Base.Text:Text(tostring(Text))
     else
         return self.Base.Text:Text()
@@ -1516,7 +1516,7 @@ function UIMenuColouredItem:Position(Y)
 end
 
 function UIMenuColouredItem:Selected(bool)
-    if bool ~= nil then
+    if bool then
         self.Base._Selected = tobool(bool)
     else
         return self.Base._Selected
@@ -1524,7 +1524,7 @@ function UIMenuColouredItem:Selected(bool)
 end
 
 function UIMenuColouredItem:Hovered(bool)
-    if bool ~= nil then
+    if bool then
         self.Base._Hovered = tobool(bool)
     else
         return self.Base._Hovered
@@ -1532,7 +1532,7 @@ function UIMenuColouredItem:Hovered(bool)
 end
 
 function UIMenuColouredItem:Enabled(bool)
-    if bool ~= nil then
+    if bool then
         self.Base._Enabled = tobool(bool)
     else
         return self.Base._Enabled
@@ -1540,7 +1540,7 @@ function UIMenuColouredItem:Enabled(bool)
 end
 
 function UIMenuColouredItem:Description(str)
-    if tostring(str) and str ~= nil then
+    if tostring(str) and str then
         self.Base._Description = tostring(str)
     else
         return self.Base._Description
@@ -1561,7 +1561,7 @@ function UIMenuColouredItem:Offset(X, Y)
 end
 
 function UIMenuColouredItem:Text(Text)
-    if tostring(Text) and Text ~= nil then
+    if tostring(Text) and Text then
         self.Base.Text:Text(tostring(Text))
     else
         return self.Base.Text:Text()
@@ -1569,7 +1569,7 @@ function UIMenuColouredItem:Text(Text)
 end
 
 function UIMenuColouredItem:RightLabel(Text, MainColour, HighlightColour)
-    if tostring(Text) and Text ~= nil then
+    if tostring(Text) and Text then
         if type(MainColour) == "table" then
             self.Base.Label.MainColour = MainColour
         end
@@ -1653,7 +1653,7 @@ function UIMenuProgressItem:Position(Y)
 end
 
 function UIMenuProgressItem:Selected(bool)
-    if bool ~= nil then
+    if bool then
         self.Base._Selected = tobool(bool)
     else
         return self.Base._Selected
@@ -1661,7 +1661,7 @@ function UIMenuProgressItem:Selected(bool)
 end
 
 function UIMenuProgressItem:Hovered(bool)
-    if bool ~= nil then
+    if bool then
         self.Base._Hovered = tobool(bool)
     else
         return self.Base._Hovered
@@ -1669,7 +1669,7 @@ function UIMenuProgressItem:Hovered(bool)
 end
 
 function UIMenuProgressItem:Enabled(bool)
-    if bool ~= nil then
+    if bool then
         self.Base._Enabled = tobool(bool)
     else
         return self.Base._Enabled
@@ -1677,7 +1677,7 @@ function UIMenuProgressItem:Enabled(bool)
 end
 
 function UIMenuProgressItem:Description(str)
-    if tostring(str) and str ~= nil then
+    if tostring(str) and str then
         self.Base._Description = tostring(str)
     else
         return self.Base._Description
@@ -1698,7 +1698,7 @@ function UIMenuProgressItem:Offset(X, Y)
 end
 
 function UIMenuProgressItem:Text(Text)
-    if tostring(Text) and Text ~= nil then
+    if tostring(Text) and Text then
         self.Base.Text:Text(tostring(Text))
     else
         return self.Base.Text:Text()
@@ -2387,10 +2387,10 @@ end
 
 function UIMenu.New(Title, Subtitle, X, Y, TxtDictionary, TxtName)
     local X, Y = tonumber(X) or 0, tonumber(Y) or 0
-    if Title ~= nil then Title = tostring(Title) or "" else Title = "" end
-    if Subtitle ~= nil then Subtitle = tostring(Subtitle) or "" else Subtitle = "" end
-    if TxtDictionary ~= nil then TxtDictionary = tostring(TxtDictionary) or "commonmenu" else TxtDictionary = "commonmenu" end
-    if TxtName ~= nil then TxtName = tostring(TxtName) or "interaction_bgd" else TxtName = "interaction_bgd" end
+    if Title then Title = tostring(Title) or "" else Title = "" end
+    if Subtitle then Subtitle = tostring(Subtitle) or "" else Subtitle = "" end
+    if TxtDictionary then TxtDictionary = tostring(TxtDictionary) or "commonmenu" else TxtDictionary = "commonmenu" end
+    if TxtName then TxtName = tostring(TxtName) or "interaction_bgd" else TxtName = "interaction_bgd" end
     local _UIMenu = {
         Logo = Sprite.New(TxtDictionary, TxtName, 0 + X, 0 + Y, 431, 107),
         Banner = nil,
@@ -2519,7 +2519,7 @@ function UIMenu.New(Title, Subtitle, X, Y, TxtDictionary, TxtName)
         }
     }
 
-    if Subtitle ~= "" and Subtitle ~= nil then
+    if Subtitle ~= "" and Subtitle then
         _UIMenu.Subtitle.Rectangle = UIResRectangle.New(0 + _UIMenu.Position.X, 107 + _UIMenu.Position.Y, 431, 37, 0, 0, 0, 255)
         _UIMenu.Subtitle.Text = UIResText.New(Subtitle, 8 + _UIMenu.Position.X, 110 + _UIMenu.Position.Y, 0.35, 245, 245, 245, 255, 0)
         _UIMenu.Subtitle.BackupText = Subtitle
@@ -2557,11 +2557,11 @@ function UIMenu:SetMenuWidthOffset(Offset)
         self.WidthOffset = math.floor(tonumber(Offset))
         self.Logo:Size(431 + self.WidthOffset, 107)
         self.Title:Position(((self.WidthOffset + 431) / 2) + self.Position.X, 20 + self.Position.Y)
-        if self.Subtitle.Rectangle ~= nil then
+        if self.Subtitle.Rectangle then
             self.Subtitle.Rectangle:Size(431 + self.WidthOffset + 100, 37)
             self.PageCounter.Text:Position(425 + self.Position.X + self.WidthOffset, 110 + self.Position.Y)
         end
-        if self.Banner ~= nil then
+        if self.Banner then
             self.Banner:Size(431 + self.WidthOffset, 107)
         end
     end
@@ -2590,7 +2590,7 @@ function UIMenu:DisEnableControls(bool)
 end
 
 function UIMenu:InstructionalButtons(bool)
-    if bool ~= nil then
+    if bool then
         self.Settings.InstrucitonalButtons = tobool(bool)
     end
 end
@@ -2678,7 +2678,7 @@ function UIMenu:CalculateItemHeight()
     local ItemOffset = 0 + self.Subtitle.ExtraY - 37
     for i = self.Pagination.Min + 1, self.Pagination.Max do
         local Item = self.Items[i]
-        if Item ~= nil then
+        if Item then
             ItemOffset = ItemOffset + self:CalculateItemHeightOffset(Item)
         end
     end
@@ -2850,12 +2850,12 @@ function UIMenu:DrawCalculations()
 end
 
 function UIMenu:Visible(bool)
-    if bool ~= nil then
+    if bool then
         self._Visible = tobool(bool)
         self.JustOpened = tobool(bool)
         self.Dirty = tobool(bool)
         self:UpdateScaleform()
-        if self.ParentMenu ~= nil or tobool(bool) == false then
+        if self.ParentMenu or tobool(bool) == false then
             return
         end
         if self.Settings.ResetCursorOnOpen then
@@ -3159,7 +3159,7 @@ end
 function UIMenu:GoBack()
     PlaySoundFrontend(-1, self.Settings.Audio.Back, self.Settings.Audio.Library, true)
     self:Visible(false)
-    if self.ParentMenu ~= nil then
+    if self.ParentMenu then
         self.ParentMenu:Visible(true)
         self.OnMenuChanged(self, self.ParentMenu, false)
         if self.Settings.ResetCursorOnOpen then
@@ -3259,7 +3259,7 @@ function UIMenu:Draw()
         self.Description.Text:Draw()
     end
 
-    if self.Items[CurrentSelection].Panels ~= nil then
+    if self.Items[CurrentSelection].Panels then
         if #self.Items[CurrentSelection].Panels ~= 0 then
             local PanelOffset = self:CaclulatePanelPosition(self.Items[CurrentSelection]:Description() ~= "")
             for index = 1, #self.Items[CurrentSelection].Panels do
@@ -3297,7 +3297,7 @@ function UIMenu:Draw()
         self.Extra.Down:Draw()
         self.ArrowSprite:Draw()
 
-        if self.PageCounter.Text ~= nil then
+        if self.PageCounter.Text then
             local Caption = self.PageCounter.PreText .. CurrentSelection .. " / " .. #self.Items
             self.PageCounter.Text:Text(Caption)
             self.PageCounter.Text:Draw()
@@ -3627,7 +3627,7 @@ function MenuPool:AddSubMenu(Menu, Text, Description, KeepPosition, KeepBanner)
             SubMenu = UIMenu.New(Menu.Title:Text(), Text)
         end
         if KeepBanner then
-            if Menu.Logo ~= nil then
+            if Menu.Logo then
                 SubMenu.Logo = Menu.Logo
             else
                 SubMenu.Logo = nil
@@ -3657,7 +3657,7 @@ function MenuPool:Remove()
 end
 
 function MenuPool:MouseEdgeEnabled(bool)
-    if bool ~= nil then
+    if bool then
         for _, Menu in pairs(self.Menus) do
             Menu.Settings.MouseEdgeEnabled = tobool(bool)
         end
@@ -3665,7 +3665,7 @@ function MenuPool:MouseEdgeEnabled(bool)
 end
 
 function MenuPool:ControlDisablingEnabled(bool)
-    if bool ~= nil then
+    if bool then
         for _, Menu in pairs(self.Menus) do
             Menu.Settings.ControlDisablingEnabled = tobool(bool)
         end
@@ -3673,7 +3673,7 @@ function MenuPool:ControlDisablingEnabled(bool)
 end
 
 function MenuPool:ResetCursorOnOpen(bool)
-    if bool ~= nil then
+    if bool then
         for _, Menu in pairs(self.Menus) do
             Menu.Settings.ResetCursorOnOpen = tobool(bool)
         end
@@ -3681,7 +3681,7 @@ function MenuPool:ResetCursorOnOpen(bool)
 end
 
 function MenuPool:MultilineFormats(bool)
-    if bool ~= nil then
+    if bool then
         for _, Menu in pairs(self.Menus) do
             Menu.Settings.MultilineFormats = tobool(bool)
         end
@@ -3689,7 +3689,7 @@ function MenuPool:MultilineFormats(bool)
 end
 
 function MenuPool:Audio(Attribute, Setting)
-    if Attribute ~= nil and Setting ~= nil then
+    if Attribute and Setting then
         for _, Menu in pairs(self.Menus) do
             if Menu.Settings.Audio[Attribute] then
                 Menu.Settings.Audio[Attribute] = Setting
@@ -3707,7 +3707,7 @@ function MenuPool:WidthOffset(offset)
 end
 
 function MenuPool:CounterPreText(str)
-    if str ~= nil then
+    if str then
         for _, Menu in pairs(self.Menus) do
             Menu.PageCounter.PreText = tostring(str)
         end
@@ -3715,7 +3715,7 @@ function MenuPool:CounterPreText(str)
 end
 
 function MenuPool:DisableInstructionalButtons(bool)
-    if bool ~= nil then
+    if bool then
         for _, Menu in pairs(self.Menus) do
             Menu.Settings.InstructionalButtons = tobool(bool)
         end
@@ -3723,7 +3723,7 @@ function MenuPool:DisableInstructionalButtons(bool)
 end
 
 function MenuPool:MouseControlsEnabled(bool)
-    if bool ~= nil then
+    if bool then
         for _, Menu in pairs(self.Menus) do
             Menu.Settings.MouseControlsEnabled = tobool(bool)
         end

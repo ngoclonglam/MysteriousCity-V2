@@ -278,14 +278,12 @@ CreateThread(function()
     while true do
         local sleep = 1000
         if LocalPlayer.state.isLoggedIn then
-            print('line 281')
             if ClosestSpike then
                 local ped = PlayerPedId()
                 local pos = GetEntityCoords(ped)
                 local dist = #(pos - SpawnedSpikes[ClosestSpike].coords)
                 if dist < 4 then
                     if not IsPedInAnyVehicle(PlayerPedId()) then
-                        print('line 288')
                         if PlayerJob.name == "police" and PlayerJob.onduty then
                             sleep = 0
                             DrawText3D(pos.x, pos.y, pos.z, Lang:t('info.delete_spike'))
