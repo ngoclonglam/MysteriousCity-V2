@@ -207,7 +207,6 @@ CreateThread(function()
 		end
 
 		if chatInputActivating then
-			print('line 209')
 			if not IsControlPressed(0, 245) then
 				SetNuiFocus(true)
 
@@ -216,7 +215,6 @@ CreateThread(function()
 		end
 
 		if chatLoaded then
-			print('line 219')
 			Wait(100)
 			local shouldBeHidden = false
 
