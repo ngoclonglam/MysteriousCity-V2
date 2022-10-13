@@ -239,7 +239,7 @@ Config.DisableWaterMarkTextAndLogo = false -- true - Disable watermark text and 
 Config.UseWaterMarkText = true -- if true text will be shown | if  false logo will be shown
 Config.WaterMarkText1 = "MYSTERIOUS" -- Top right server text
 Config.WaterMarkText2 = "CITY"  -- Top right server text
-Config.WaterMarkLogo = "https://cdn.discordapp.com/attachments/862018783391252500/967359920703942686/Frame_303.png" -- Logo url
+Config.WaterMarkLogo = "https://cdn.discordapp.com/attachments/987700392521527296/998846149094015026/logo2.png" -- Logo url
 Config.LogoWidth = "11.875rem"
 Config.LogoHeight = "3.313rem"
 Config.OnlinePlayers = false --Determines if display online players or nor
@@ -266,7 +266,7 @@ Config.CompassStreetnameClock = true -- true  show -- false hide
 Config.DefaultCruiseControlKey = "y" -- Default control key for cruise. Players can change the key according to their desire 
 Config.DefaultSeatbeltControlKey = "b" -- Default control key for seatbelt. Players can change the key according to their desire 
 Config.VehicleEngineToggleKey = "g" -- Default control key for toggle engine. Players can change the key according to their desire 
-Config.NitroKey = "X" -- Default control key for use nitro. Players can change the key according to their desire 
+Config.NitroKey = "," -- Default control key for use nitro. Players can change the key according to their desire 
 
 -------------------------------------------- Nitro --------------------------------------------
 Config.Nitro = false --- just html icon
@@ -367,12 +367,12 @@ Config.WhitelistedWeaponStress = {
 Config.AddStress = {
     ["on_shoot"] = {
         min = 1,
-        max = 3,
+        max = 2,
         enable = true,
     },
     ["on_fastdrive"] = {
         min = 1,
-        max = 3,
+        max = 2,
         enable = true,
     },
 }

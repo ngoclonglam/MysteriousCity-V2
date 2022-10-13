@@ -17,13 +17,15 @@ if Config.SqlKeybinding then
     -- Commands / Events --------------------------------------------------------------------------------
     -----------------------------------------------------------------------------------------------------
 
-    Citizen.CreateThread(function()
+    CreateThread(function()
         while true do
             if NetworkIsPlayerActive(PlayerId()) and not Initialized then
                 if not Initialized then
                     TriggerServerEvent("dp:ServerKeybindExist")
                     Wait(5000)
                 end
+            else
+                Wait(1000)
             end
 
             if not IsPedSittingInAnyVehicle(PlayerPedId()) then
@@ -38,8 +40,10 @@ if Config.SqlKeybinding then
                         Wait(1000)
                     end
                 end
+            else
+                Wait(1000)
             end
-            Citizen.Wait(1)
+            Wait(1)
         end
     end)
 
