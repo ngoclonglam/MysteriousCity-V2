@@ -176,7 +176,11 @@ CreateThread(function()
                             MultiplierAmount = 0
                         end
                     end
+                else
+                    Wait(50)
                 end
+            else
+                Wait(50)
             end
         end
         Wait(0)

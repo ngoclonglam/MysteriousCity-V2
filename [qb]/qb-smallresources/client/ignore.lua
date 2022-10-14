@@ -58,7 +58,7 @@ CreateThread(function()
 	SetMaxWantedLevel(0)
 end)
 
-if Config.IdleCamera then --Disable Idle Cinamatic Cam
+if Config.DisableIdleCamera then --Disable Idle Cinamatic Cam
 	DisableIdleCamera(true)
 end
 
@@ -81,13 +81,12 @@ CreateThread(function()
 		if inside then
 			print('Im inside Car Dealer')
 			while true do
-				ClearAreaOfPeds(-333.08, -918.05, 32.8, 1000.0, 1)
-				ClearAreaOfVehicles(-333.08, -918.05, 32.8, 1000.0, false, false, false, false, false, false)
-				Wait(1000)
+				ClearAreaOfPeds(-333.08, -918.05, 32.8, 200.0, 1)
+				ClearAreaOfVehicles(-333.08, -918.05, 32.8, 200.0, false, false, false, false, false, false)
 			end
 		else
 			print('Im outside Car Dealer')
-			return
+			Wait(1000)
 		end
 	end)
 
