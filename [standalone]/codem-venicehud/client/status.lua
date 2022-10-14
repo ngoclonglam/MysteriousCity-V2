@@ -3,7 +3,6 @@
 
 
 CreateThread(function()
-     local ped = PlayerPedId()
      while true do
          Wait(100)
          SetRadarZoom(1100)
