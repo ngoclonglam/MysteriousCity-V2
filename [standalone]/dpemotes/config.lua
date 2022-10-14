@@ -15,10 +15,10 @@ Config = {
     AllowedInCars = true,
     -- You can disable the menu here / change the keybind. It is currently set to F3
     MenuKeybindEnabled = true,
-    MenuKeybind = 'F5', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
+    MenuKeybind = 'F3', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     -- You can disable the Favorite emote keybinding here.
     FavKeybindEnabled = true,
-    FavKeybind = 'CAPITAL', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
+    FavKeybind = 'F4', -- Get the button string here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
     -- You can change the header image for the menu here
     -- Use a 512 x 128 image!
     -- Note this might cause an issue of the image getting stuck on peoples screens
@@ -48,7 +48,7 @@ Config = {
     -- If you don't like gta notifications, you can disable them here to have messages in the chat.
     NotificationsAsChatMessage = false,
     -- Used for few framework dependent things. Accepted values: "qb-core", false
-    Framework = false,
+    Framework = "qb-core",
     -- Used to enable or disable the search feature in the menu.
     Search = true,
     -- You can disable the Animal Emotes here.
