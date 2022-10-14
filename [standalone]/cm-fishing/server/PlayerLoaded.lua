@@ -12,7 +12,7 @@ AddEventHandler('esx:playerLoaded', function(src)
         ExecuteSql("INSERT INTO `codem-fishing` (`identifier`,`playername`) VALUES ('"..identifier.."','"..name.."')")
         ExecuteSql("INSERT INTO `codem-fishing-rewards` (`identifier`) VALUES ('"..identifier.."')")
         Wait(300)
-        local data = ExecuteSql("SELECT * FROM `codem-fishing`")
+        data = ExecuteSql("SELECT * FROM `codem-fishing`")
         for _,v in pairs(data) do
            fishingData[v.identifier] = v
         end
@@ -35,7 +35,7 @@ AddEventHandler('QBCore:Server:OnPlayerLoaded', function()
         ExecuteSql("INSERT INTO `codem-fishing` (`identifier`,`playername`) VALUES ('"..identifier.."','"..name.."')")
         ExecuteSql("INSERT INTO `codem-fishing-rewards` (`identifier`) VALUES ('"..identifier.."')")
         Wait(300)
-        local data = ExecuteSql("SELECT * FROM `codem-fishing`")
+        data = ExecuteSql("SELECT * FROM `codem-fishing`")
         for _,v in pairs(data) do
            fishingData[v.identifier] = v
         end
@@ -57,12 +57,11 @@ AddEventHandler('codem-fishing:sellitem', function(playeritems,totalprice)
    else
       local xPlayer = frameworkObject.Functions.GetPlayer(source)
       if xPlayer then
-         xPlayer.Functions.AddMoney('cash',tonumber(totalprice))
+         xPlayer.Functions.AddMoney('cash',tonumber(totalprice), 'Bán cá')
          for k ,v in pairs(playeritems) do
             xPlayer.Functions.RemoveItem (v.itemname, v.itemcount)
          end
       end
-
    end
 end)
 

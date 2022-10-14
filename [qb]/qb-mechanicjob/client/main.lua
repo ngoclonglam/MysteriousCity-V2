@@ -1087,9 +1087,10 @@ end)
 CreateThread(function()
     while true do
         Wait(1000)
-        if (IsPedInAnyVehicle(PlayerPedId(), false)) then
-            local veh = GetVehiclePedIsIn(PlayerPedId(),false)
-            if not IsThisModelABicycle(GetEntityModel(veh)) and GetPedInVehicleSeat(veh, -1) == PlayerPedId() then
+        local ped = PlayerPedId()
+        if (IsPedInAnyVehicle(ped, false)) then
+            local veh = GetVehiclePedIsIn(ped,false)
+            if not IsThisModelABicycle(GetEntityModel(veh)) and GetPedInVehicleSeat(veh, -1) == ped then
                 local engineHealth = GetVehicleEngineHealth(veh)
                 local bodyHealth = GetVehicleBodyHealth(veh)
                 local plate = QBCore.Functions.GetPlate(veh)
