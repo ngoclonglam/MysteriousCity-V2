@@ -61,6 +61,8 @@ CreateThread(function()
                     IsInFront = false
                 }
             end
+        else
+            Wait(500)
         end
     end
 end)

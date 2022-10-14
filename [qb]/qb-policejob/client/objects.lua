@@ -265,11 +265,14 @@ CreateThread(function()
                         if not IsVehicleTyreBurst(vehicle, tires[a].index, true) or IsVehicleTyreBurst(vehicle, tires[a].index, false) then
                             SetVehicleTyreBurst(vehicle, tires[a].index, false, 1000.0)
                         end
+                    else
+                        Wait(100)
                     end
                 end
+            else
+                Wait(100)
             end
         end
-
         Wait(3)
     end
 end)
@@ -299,6 +302,8 @@ CreateThread(function()
                         end
                     end
                 end
+            else
+                sleep = 500
             end
         end
         Wait(sleep)

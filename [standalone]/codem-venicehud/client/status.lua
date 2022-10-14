@@ -2,17 +2,17 @@
 
 
 
-Citizen.CreateThread(function()
+CreateThread(function()
      local ped = PlayerPedId()
      while true do
-         Citizen.Wait(100)
+         Wait(100)
          SetRadarZoom(1100)
      end
 end)
 
- Citizen.CreateThread(function()
+ CreateThread(function()
      while true do
-         Citizen.Wait(100)
+         Wait(100)
          SetBigmapActive(false, false)
      end
  end)
@@ -20,18 +20,19 @@ end)
 
 
 
- Citizen.CreateThread(function()
+ CreateThread(function()
     while true do
-        Citizen.Wait(1)
-        if GetEntityMaxHealth(PlayerPedId()) ~= 200 then
-            SetEntityMaxHealth(PlayerPedId(), 200)
-            SetEntityHealth(PlayerPedId(), 200)
+        Wait(1)
+        local ped = PlayerPedId()
+        if GetEntityMaxHealth(ped) ~= 200 then
+            SetEntityMaxHealth(ped, 200)
+            SetEntityHealth(ped, 200)
         end
     end
 end)
 
 
-Citizen.CreateThread(function()
+CreateThread(function()
     if Config.CarnameandStreetname then
     while true do
         HideHudComponentThisFrame(6) -- VEHICLE_NAME
@@ -43,7 +44,7 @@ Citizen.CreateThread(function()
         HideHudComponentThisFrame(21) -- 21 : HUD_COMPONENTS
         HideHudComponentThisFrame(22) -- 22 : HUD_WEAPONS
         DisplayAmmoThisFrame(false)
-        Citizen.Wait(4)
+        Wait(4)
     end
     end
 end)
