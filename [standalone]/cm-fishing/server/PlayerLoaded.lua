@@ -11,7 +11,7 @@ AddEventHandler('esx:playerLoaded', function(src)
     else
         ExecuteSql("INSERT INTO `codem-fishing` (`identifier`,`playername`) VALUES ('"..identifier.."','"..name.."')")
         ExecuteSql("INSERT INTO `codem-fishing-rewards` (`identifier`) VALUES ('"..identifier.."')")
-        Citizen.Wait(300)
+        Wait(300)
         local data = ExecuteSql("SELECT * FROM `codem-fishing`")
         for _,v in pairs(data) do
            fishingData[v.identifier] = v
@@ -34,7 +34,7 @@ AddEventHandler('QBCore:Server:OnPlayerLoaded', function()
     else
         ExecuteSql("INSERT INTO `codem-fishing` (`identifier`,`playername`) VALUES ('"..identifier.."','"..name.."')")
         ExecuteSql("INSERT INTO `codem-fishing-rewards` (`identifier`) VALUES ('"..identifier.."')")
-        Citizen.Wait(300)
+        Wait(300)
         local data = ExecuteSql("SELECT * FROM `codem-fishing`")
         for _,v in pairs(data) do
            fishingData[v.identifier] = v
@@ -109,7 +109,7 @@ end)
 
 
 
-Citizen.CreateThread(function()
+CreateThread(function()
     frameworkObject = GetFrameworkObject()
     if Config.Framework == 'esx' then
 
