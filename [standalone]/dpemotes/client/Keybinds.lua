@@ -17,7 +17,7 @@ if Config.SqlKeybinding then
     -- Commands / Events --------------------------------------------------------------------------------
     -----------------------------------------------------------------------------------------------------
 
-    CreateThread(function()
+    Citizen.CreateThread(function()
         while true do
             if NetworkIsPlayerActive(PlayerId()) and not Initialized then
                 if not Initialized then
@@ -39,7 +39,7 @@ if Config.SqlKeybinding then
                     end
                 end
             end
-            Wait(1)
+            Citizen.Wait(1)
         end
     end)
 
@@ -106,12 +106,12 @@ if Config.SqlKeybinding then
         if #args > 0 then
             local key = string.lower(args[1])
             local emote = string.lower(args[2])
-            if (Config.KeybindKeys[key]) then
-                if DP.Emotes[emote] then
+            if (Config.KeybindKeys[key]) ~= nil then
+                if DP.Emotes[emote] ~= nil then
                     TriggerServerEvent("dp:ServerKeybindUpdate", key, emote)
-                elseif DP.Dances[emote] then
+                elseif DP.Dances[emote] ~= nil then
                     TriggerServerEvent("dp:ServerKeybindUpdate", key, emote)
-                elseif DP.PropEmotes[emote] then
+                elseif DP.PropEmotes[emote] ~= nil then
                     TriggerServerEvent("dp:ServerKeybindUpdate", key, emote)
                 else
                     EmoteChatMessage("'" .. emote .. "' " .. Config.Languages[lang]['notvalidemote'] .. "")

@@ -82,25 +82,26 @@ end
 lang = Config.MenuLanguage
 
 function AddEmoteMenu(menu)
-    local submenu = _menuPool:AddSubMenu(menu, Config.Languages[lang]['emotes'], "", "", Menuthing)
+    local submenu = _menuPool:AddSubMenu(menu, Config.Languages[lang]['emotes'], "", "", Menuthing, Menuthing)
     if Config.Search then
         submenu:AddItem(NativeUI.CreateItem(Config.Languages[lang]['searchemotes'], ""))
         table.insert(EmoteTable, Config.Languages[lang]['searchemotes'])
     end
-    local dancemenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['danceemotes'], "", "", Menuthing)
+    local dancemenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['danceemotes'], "", "", Menuthing, Menuthing)
     local animalmenu
     if Config.AnimalEmotesEnabled then
-        animalmenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['animalemotes'], "", "", Menuthing)
+        animalmenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['animalemotes'], "", "", Menuthing, Menuthing)
         table.insert(EmoteTable, Config.Languages[lang]['animalemotes'])
     end
-    local propmenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['propemotes'], "", "", Menuthing)
+    local propmenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['propemotes'], "", "", Menuthing, Menuthing)
     table.insert(EmoteTable, Config.Languages[lang]['danceemotes'])
     table.insert(EmoteTable, Config.Languages[lang]['danceemotes'])
 
     if Config.SharedEmotesEnabled then
         sharemenu = _menuPool:AddSubMenu(submenu, Config.Languages[lang]['shareemotes'],
-        Config.Languages[lang]['shareemotesinfo'], "", Menuthing, Menuthing)
-        shareddancemenu = _menuPool:AddSubMenu(sharemenu, Config.Languages[lang]['sharedanceemotes'], "", "", Menuthing)
+            Config.Languages[lang]['shareemotesinfo'], "", Menuthing, Menuthing)
+        shareddancemenu = _menuPool:AddSubMenu(sharemenu, Config.Languages[lang]['sharedanceemotes'], "", "", Menuthing,
+            Menuthing)
         table.insert(ShareTable, 'none')
         table.insert(EmoteTable, Config.Languages[lang]['shareemotes'])
     end
@@ -215,14 +216,6 @@ function AddEmoteMenu(menu)
 
     if Config.AnimalEmotesEnabled then
         animalmenu.OnItemSelect = function(sender, item, index)
-            local hashSkinMale = GetHashKey("mp_m_freemode_01")
-            local hashSkinFemale = GetHashKey("mp_f_freemode_01")
-
-            if GetEntityModel(PlayerPedId()) == hashSkinMale then
-                return
-            elseif GetEntityModel(PlayerPedId()) == hashSkinFemale then
-                return
-            end
             EmoteMenuStart(AnimalTable[index], "animals")
         end
     end
@@ -339,7 +332,7 @@ if Config.Search then
                     if data == Config.Languages[lang]['rfavorite'] then 
                         FavoriteEmote = ""
                         ShowNotification(Config.Languages[lang]['rfavorite'], 2000)
-                        return
+                        return 
                     end
 
                     if favEnabled and IsControlPressed(0, 21) then
@@ -363,7 +356,7 @@ if Config.Search then
                             SimpleNotify(Config.Languages[lang]['sentrequestto'] .. GetPlayerName(target))
                         else
                             SimpleNotify(Config.Languages[lang]['nobodyclose'])
-                        end
+                        end   
                     end
                 end
 
@@ -477,8 +470,8 @@ function AddInfoMenu(menu)
     infomenu:AddItem(NativeUI.CreateItem(Config.Languages[lang]['suggestions'],
         Config.Languages[lang]['suggestionsinfo'
         ]))
-    infomenu:AddItem(NativeUI.CreateItem("Join the <font color=\"#3b8eea\">Discord</font>",
-        "<font color=\"#3b8eea\">https://discord.gg/sw3NwDq6C8</font>"))
+    infomenu:AddItem(NativeUI.CreateItem("Join the <font color=\"#00ceff\">Discord</font>",
+        "Join our official discord! 💬 <font color=\"#00ceff\">https://discord.gg/sw3NwDq6C8</font>"))
     infomenu:AddItem(NativeUI.CreateItem("Thanks ~o~DullPear~s~", "~o~DullPear~s~ for the original dpemotes ❤️"))
     infomenu:AddItem(NativeUI.CreateItem("Thanks <b>Kibook</b>",
         "<b>Kibook</b> for the addition of Animal Emotes 🐩 submenu."))
@@ -501,6 +494,8 @@ function AddInfoMenu(menu)
         "<font color=\"#C40A7D\">Natty3d</font> for the custom lollipop props 🍭."))
     infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#189FD0\">northsqrd</font>",
         "<font color=\"#189FD0\">northsqrd</font> for the search feature 🔎."))
+    infomenu:AddItem(NativeUI.CreateItem("Thanks <font color=\"#ff61a0\">amnilka#6468</font>",
+        "<font color=\"#ff61a0\">amnilka#6468</font> for the custom emotes ☺️."))
 
     infomenu:AddItem(NativeUI.CreateItem("Thanks to the community", "Translations, bug reports and moral support 🌐"))
 end

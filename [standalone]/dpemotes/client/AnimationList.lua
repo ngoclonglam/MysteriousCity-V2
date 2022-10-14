@@ -4,6 +4,7 @@
 DP = {}
 
 -- EXPRESSIONS --
+
 DP.Expressions = {
     ["Angry"] = {
         "Expression",
@@ -105,6 +106,7 @@ DP.Expressions = {
 
 
 --- WALKSTYLES ---
+
 DP.Walks = {
     -- The key shouldn't have any other uppercase letter than the first one!
     -- The first letter HAS to be uppercase!
@@ -383,10 +385,13 @@ DP.Walks = {
 --- SHARED EMOTES ---
 
 DP.Shared = {
+
     --[emotename] = {dictionary, animation, displayname, targetemotename, additionalanimationoptions} --
     -- You don't have to specify targetemotename; If you don't, it will just play the same animation on both.--
     -- targetemote is used for animations that have a corresponding animation to the other player, ie Carry and Be Carried --
     -- Emotes will work with either SyncOffset or Attachto. We can attach players either in front of us, to a specific bone, or either side of us. --
+	
+	
     ["handshake"] = {
         "mp_ped_interaction",
         "handshake_guy_a",
@@ -3971,7 +3976,9 @@ DP.AnimalEmotes = {
 
 
 --- EMOTES NO PROPS ---
+
 DP.Emotes = {
+
     ["dispenser"] = {
         "mini@sprunk",
         "plyr_buy_drink_pt1",
@@ -6775,6 +6782,33 @@ DP.Emotes = {
         "WORLD_HUMAN_MUSCLE_FLEX",
         "Flex"
     },
+    ["flex2"] = { -- Custom Emote By Frabi
+        "frabi@malepose@solo@firstsport",
+        "pose_sport_002",
+        "Flex 2",
+        AnimationOptions = {
+            EmoteLoop = true,
+			EmoteMoving = true, --- Allows us to flex while performing another animation 
+        }
+    },
+	 ["gympose"] = { -- Custom Emote By Frabi
+        "frabi@malepose@solo@firstsport",
+        "pose_sport_001",
+        "Gym Pose",
+        AnimationOptions = {
+		
+            EmoteLoop = true,
+        }
+   },
+	 ["gympose2"] = { -- Custom Emote By Frabi
+        "frabi@malepose@solo@firstsport",
+        "pose_sport_005",
+        "Gym Pose 2 - One Handed Push Up",
+        AnimationOptions = {
+		
+            EmoteLoop = true,
+        }
+    },
     ["guard"] = {
         "Scenario",
         "WORLD_HUMAN_GUARD_STAND",
@@ -7239,6 +7273,40 @@ DP.PropEmotes = {
             },
             EmoteLoop = true,
             EmoteMoving = true,
+        }
+    },
+	["vape"] = {
+        "amb@world_human_smoking@male@male_b@base",
+        "base",
+         "Vape",
+        AnimationOptions = {
+            Prop = 'ba_prop_battle_vape_01',
+            PropBone = 28422,
+            PropPlacement = {
+                -0.0290,
+                0.0070,
+                -0.0050,
+                41.9596,
+                40.0102,
+                 -62.7294
+            },
+            EmoteMoving = true,
+            EmoteLoop = true,
+            PtfxAsset = "core",
+            PtfxName = "exp_grd_bzgas_smoke",
+			PtfxNoProp = true,
+            PtfxPlacement = {
+                -0.0100,
+				0.0600,
+				0.6600,
+                0.0,
+                0.0,
+                0.0,
+                2.0
+            },
+            PtfxInfo = Config.Languages[Config.MenuLanguage]['vape'],
+            PtfxWait = 0,
+            PtfxCanHold = true,
         }
     },
     ["bong"] = {
@@ -7762,8 +7830,6 @@ DP.PropEmotes = {
             },
             EmoteLoop = true,
             EmoteMoving = false,
-            ---       PropPlacement = {-0.0, 0.03, -0.20, 5.0, 0.0, 0.0},
-            ---     F&B   L&R   U&D  R.F&B
         }
     },
     ["cup"] = {
@@ -9417,6 +9483,52 @@ DP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true,
         }
+     },
+	 ["weights3"] = { -- Custom Emote By Frabi
+        "frabi@malepose@solo@firstsport",
+        "pose_sport_004",
+        "Weights 3 - Pose",
+        AnimationOptions = {
+		Prop = 'prop_barbell_01',
+            PropBone = 28422,
+            PropPlacement = {
+                0.0660,
+				0.0100,
+				-0.0300,
+				90.0000,
+				90.0000,
+				-79.9999
+            },
+            EmoteLoop = true,
+         }
+    },
+	 ["weights4"] = { -- Custom Emote By Frabi
+        "frabi@malepose@solo@firstsport",
+        "pose_sport_003",
+        "Weights 4 - Pose",
+        AnimationOptions = {
+		Prop = 'prop_barbell_01', -- Left Wrist 
+            PropBone = 60309,
+            PropPlacement = {
+                0.0520,
+                -0.0010,
+                0.0131,
+                21.5428,
+                70.2098,
+				74.5019
+            },
+            SecondProp = 'prop_barbell_01', -- Right Wrist 
+            SecondPropBone = 28422,
+            SecondPropPlacement = {
+                0.0660,
+				0.0100,
+				-0.0300,
+				90.0000,
+				90.0000,
+				-79.9999
+            },
+            EmoteLoop = true,
+         }
     },
     ["fuel"] = {
         "weapons@misc@jerrycan@",
@@ -10361,6 +10473,63 @@ DP.PropEmotes = {
                 0.0,
                 0.0,
                 0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["pump3"] = {
+        "missfbi4prepp1",
+        "idle",
+        "Pumpkin 3",
+        AnimationOptions = {
+            Prop = "reh_prop_reh_lantern_pk_01a",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0010,
+				0.0660,
+				-0.0120,
+				171.9169,
+				179.8707,
+				-39.9860
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["pump4"] = {
+        "missfbi4prepp1",
+        "idle",
+        "Pumpkin 4",
+        AnimationOptions = {
+            Prop = "reh_prop_reh_lantern_pk_01b",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0010,
+				0.0660,
+				-0.0120,
+				171.9169,
+				179.8707,
+				-39.9860
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
+    ["pump5"] = {
+        "missfbi4prepp1",
+        "idle",
+        "Pumpkin 5",
+        AnimationOptions = {
+            Prop = "reh_prop_reh_lantern_pk_01c",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0010,
+				0.0660,
+				-0.0120,
+				171.9169,
+				179.8707,
+				-39.9860
             },
             EmoteLoop = true,
             EmoteMoving = true,
@@ -11785,6 +11954,25 @@ DP.PropEmotes = {
             EmoteMoving = true,
         }
     },
+    ["weedbucket"] = {
+        "anim@heists@box_carry@",
+        "idle",
+        "Weed Bucket",
+        AnimationOptions = {
+            Prop = "bkr_prop_weed_bucket_open_01a",
+            PropBone = 28422,
+            PropPlacement = {
+                0.0,
+                -0.1000,
+                -0.1800,
+                0.0,
+                0.0,
+                0.0
+            },
+            EmoteLoop = true,
+            EmoteMoving = true,
+        }
+    },
     ["lawnchair"] = {
         "timetable@ron@ig_5_p3",
         "ig_5_p3_base",
@@ -12690,7 +12878,7 @@ DP.PropEmotes = {
             EmoteLoop = true,
             EmoteMoving = true,
         }
-    },
+     },
     ["watchstripper2"] = {
         "amb@world_human_strip_watch_stand@male_c@base",
         "base",
@@ -12711,6 +12899,25 @@ DP.PropEmotes = {
         },
         AdultAnimation = true
     },
+    ["candyapple"] = { -- Custom Prop by hollywoodiownu
+        "anim@heists@humane_labs@finale@keycards", 
+        "ped_a_enter_loop", 
+        "Candy Apple", 
+        AnimationOptions = {
+    Prop = "apple_1",
+    PropBone = 18905,
+    PropPlacement = {
+        0.12, 
+        0.15,
+         0.0, 
+         -100.0, 
+         0.0, 
+         -12.0},
+    EmoteLoop = true,
+    EmoteMoving = true,
+    }
+},
+
 }
 
 -- Remove emotes if needed
