@@ -59,7 +59,7 @@ function clicksound() {
 
 
 
-window.addEventListener("message", function(event) {
+window.addEventListener("message", function (event) {
 	var item = event.data;
 	switch (item.type) {
 		case "OPEN_MENU":
@@ -95,10 +95,10 @@ window.addEventListener("message", function(event) {
 			app.SetLanguage(item.value)
 
 			break
-			case "UseDiscord":
+		case "UseDiscord":
 			app.setDiscord(item.value)
 			break;
-			case "useafkmode":
+		case "useafkmode":
 			app.setafkfarkm(item.value)
 			break;
 
@@ -166,14 +166,14 @@ const app = new Vue({
 		resourceName: '',
 		language: '',
 		maxxp: 0,
-		usediscord : false,
-		useafkfarm : false
+		usediscord: false,
+		useafkfarm: false
 	},
 	methods: {
-		setafkfarkm(val){
+		setafkfarkm(val) {
 			this.useafkfarm = val;
 		},
-		setDiscord(val){
+		setDiscord(val) {
 			this.usediscord = val;
 		},
 		SetLanguage(val) {
@@ -351,20 +351,20 @@ const app = new Vue({
 				//   this.baskettotalprice = parseInt(element.itemprice) + this.baskettotalprice
 				// });
 			} else if (val == 'itemsellpage') {
-				let deafultprice = 
-				$.post(`https://${this.resourceName}/action`, JSON.stringify({
-					action: 'sellitem'
-				}), (data) => {
+				let deafultprice =
+					$.post(`https://${this.resourceName}/action`, JSON.stringify({
+						action: 'sellitem'
+					}), (data) => {
 
 
-					this.playeritems = data
-					this.playeritems.forEach(element => {
-						
-						this.playertotalprice = parseInt(element.itemprice * element.itemcount) + this.playertotalprice
-					
+						this.playeritems = data
+						this.playeritems.forEach(element => {
+
+							this.playertotalprice = parseInt(element.itemprice * element.itemcount) + this.playertotalprice
+
+						});
+
 					});
-					
-				});
 
 			}
 
@@ -606,7 +606,7 @@ function StartGame() {
 	if (messageListener) {
 		window.removeEventListener(messageListener, "message");
 	}
-	(function() {
+	(function () {
 		let gameOver = false;
 
 		// --------------
@@ -817,7 +817,7 @@ function StartGame() {
 		);
 		events["touchend"] = window.addEventListener("touchend", indicatorInactive);
 
-		messageListener = window.addEventListener("message", function(event) {
+		messageListener = window.addEventListener("message", function (event) {
 			let data = event.data;
 			switch (data.type) {
 				case "keydown":
@@ -892,7 +892,7 @@ function StartGame() {
 	// Seaweed
 	// -------
 
-	(function() {
+	(function () {
 		let seaweed = [];
 		const canvas = document.querySelector('[data-element="seaweed"]');
 		canvas.width = canvas.clientWidth * 2;
@@ -957,7 +957,7 @@ function StartGame() {
 	// Reel line tension
 	// -----------------
 
-	(function() {
+	(function () {
 		let line = null;
 		const canvas = document.querySelector('[data-element="reel-line-tension"]');
 		canvas.width = canvas.clientWidth * 2;
@@ -1015,7 +1015,7 @@ function StartGame() {
 	// Bubbles
 	// -------
 
-	(function() {
+	(function () {
 		let bubbles = {};
 		let bubblesCreated = 0;
 		const canvas = document.querySelector('[data-element="bubbles"]');

@@ -195,13 +195,13 @@ end
 
 RegisterNetEvent('codem-fishing:UseRod')
 AddEventHandler('codem-fishing:UseRod', function(rodType)
-  
+
 if fishingReady then
    if not olta then
       olta = true
       TriggerEvent('codem-fishing:StartFishing', rodType)
       fishingRodHandler = GenerateFishingRod(PlayerPedId())
-      
+
       local rodData = GetRodData(currentRod)
       if rodData then
          exports["fishing-minigame"]:SetDifficulty(rodData.minigameDiff)
@@ -216,7 +216,7 @@ RegisterNetEvent('codem-fishing:UseBait')
 AddEventHandler('codem-fishing:UseBait', function(baitType)
 local baitData = GetBaitData(baitType)
 if currentSpot and baitData then
-   if not yem then 
+   if not yem then
       yem = true
       local found = false
       for _, v in pairs(currentSpot.fishQualityScaleTable) do

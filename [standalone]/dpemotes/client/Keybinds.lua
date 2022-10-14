@@ -24,8 +24,6 @@ if Config.SqlKeybinding then
                     TriggerServerEvent("dp:ServerKeybindExist")
                     Wait(5000)
                 end
-            else
-                Wait(1000)
             end
 
             if not IsPedSittingInAnyVehicle(PlayerPedId()) then
@@ -40,8 +38,6 @@ if Config.SqlKeybinding then
                         Wait(1000)
                     end
                 end
-            else
-                Wait(1000)
             end
             Wait(1)
         end
@@ -110,12 +106,12 @@ if Config.SqlKeybinding then
         if #args > 0 then
             local key = string.lower(args[1])
             local emote = string.lower(args[2])
-            if (Config.KeybindKeys[key]) ~= nil then
-                if DP.Emotes[emote] ~= nil then
+            if (Config.KeybindKeys[key]) then
+                if DP.Emotes[emote] then
                     TriggerServerEvent("dp:ServerKeybindUpdate", key, emote)
-                elseif DP.Dances[emote] ~= nil then
+                elseif DP.Dances[emote] then
                     TriggerServerEvent("dp:ServerKeybindUpdate", key, emote)
-                elseif DP.PropEmotes[emote] ~= nil then
+                elseif DP.PropEmotes[emote] then
                     TriggerServerEvent("dp:ServerKeybindUpdate", key, emote)
                 else
                     EmoteChatMessage("'" .. emote .. "' " .. Config.Languages[lang]['notvalidemote'] .. "")

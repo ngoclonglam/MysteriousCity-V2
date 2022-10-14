@@ -19,7 +19,7 @@
   margin: 0;
   box-sizing: border-box;
   padding: 0;
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: "gilroy";
 }
 
 body {
@@ -27,12 +27,12 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
 }
 
@@ -431,7 +431,7 @@ body {
   display: flex;
   flex-direction: column;
   margin-left: 5rem;
-  margin-top:3.6rem;
+  margin-top: 3.6rem;
   background: linear-gradient(180deg, rgba(1, 211, 224, 0.3) 37.5%, rgba(17, 20, 22, 0.3) 100%), linear-gradient(180deg, rgba(26, 26, 26, 0.75) 37.5%, rgba(17, 20, 22, 0.75) 100%);
   border-radius: 0.5rem;
 }
@@ -653,7 +653,7 @@ body {
 .menu-wrapper {
   width: 100%;
   height: 100%;
- 
+
   background-color: radial-gradient(163.47% 163.47% at -4.3% 65.19%, #181818 40.1%, #535353 95.31%);
   display: flex;
   align-items: center;
@@ -841,43 +841,45 @@ body {
   height: 8rem;
 
   margin-top: 0rem;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  align-content:flex-start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: flex-start;
 
 }
 
 .m-logo {
   width: 100%;
   height: 100%;
- margin-top:-3rem;
+  margin-top: -3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   align-content: flex-start;
- 
+
 }
 
 
 .m-logo h2 {
 
-  width:15rem;
-  margin-top:-3rem;
+  width: 15rem;
+  margin-top: -3rem;
   font-family: "futura";
   color: white;
-  margin-left:1rem;
-  width:100%;
-  text-align:center;
+  margin-left: 1rem;
+  width: 100%;
+  text-align: center;
   font-size: 24px;
   letter-spacing: 0.24em;
   text-shadow: 0px 1px 21px rgba(255, 255, 255, 0.7);
 }
-.m-logo h2 span{
+
+.m-logo h2 span {
   font-family: "futura";
-  margin-left:-1rem;
+  margin-left: -1rem;
 }
+
 .wiki-wrapper {
   width: 93%;
   height: 44.375rem;
@@ -940,16 +942,17 @@ body {
 }
 
 .spots-wrapper {
-  width: 90%;
+  width: 100%;
   height: 44.375rem;
   margin-top: 5rem;
   display: flex;
   align-items: center;
   position: relative;
-  
+
   justify-content: center;
- 
+
 }
+
 .testimage {
   width: 40%;
   height: 40%;
@@ -982,10 +985,10 @@ body {
 }
 
 .spots-swiper-container {
-  width: 85%;
-  margin-left:-20rem;
+  width: 100%;
+  position: absolute;
   overflow: hidden;
-
+  right: -3rem;
 }
 
 .spot-stars {
@@ -1103,7 +1106,7 @@ body {
 
 .swiper-next {
   position: absolute;
-  right: 12rem;
+  right: -2rem;
   z-index: 22222222;
   top: 50%;
   cursor: pointer;
@@ -1136,7 +1139,7 @@ body {
 
 .swiper-prev {
   position: absolute;
-    right: 12rem;
+  right: -2rem;
   z-index: 22222222;
   top: 50%;
   cursor: pointer;
@@ -1210,7 +1213,7 @@ body {
   color: white;
   letter-spacing: 0.175em;
   font-size: 1.25rem;
-  align-content:flex-start;
+  align-content: flex-start;
 
 
 
@@ -1222,14 +1225,15 @@ body {
   width: 80%;
 
   text-align: center;
-  
+
 }
+
 .market-wrapper-sellbutton h2:nth-child(2) {
 
   width: 80%;
 
   text-align: center;
-  
+
 }
 
 .market-wrapper-sellbutton2 {
@@ -1368,6 +1372,7 @@ body {
 
   z-index: -1;
 }
+
 .board-player-image img {
   width: 100%;
 
@@ -1432,7 +1437,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: start;
- 
+
 }
 
 .player-profile-left-page {
@@ -1462,7 +1467,7 @@ body {
 .player-profile-settings {
   position: absolute;
   width: 24rem;
- 
+
   height: 32rem;
 
   z-index: 1;
@@ -1471,7 +1476,7 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   align-content: flex-start;
-  
+
 
 }
 
@@ -1572,26 +1577,27 @@ body {
 
   width: 100%;
   height: 20%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin-top:-1.8rem;
- 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -1.8rem;
+
 
 }
-.player-profile-player-xpbar h2{
-  font-size:1.5rem;
-  color:white;
+
+.player-profile-player-xpbar h2 {
+  font-size: 1.5rem;
+  color: white;
 }
 
-.player-profile-player-xpbar h2 span{
-  font-size:1rem;
-  color:white;
+.player-profile-player-xpbar h2 span {
+  font-size: 1rem;
+  color: white;
 }
 
 .player-profile-player-xpbar-wid {
   position: relative;
-  max-width:100%;
+  max-width: 100%;
   height: 100%;
   background-color: #25D2D8;
   box-shadow: 0px 0px 17px rgba(37, 210, 216, 0.38);
@@ -1767,8 +1773,9 @@ body {
 
 
 }
-.background-fish img{
-  width:100%;
+
+.background-fish img {
+  width: 100%;
 
 
 }
@@ -1956,10 +1963,10 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 .wiki-fish-wrapper-fish-image img {
   width: 50%;
-  height:50%
-
+  height: 50%
 }
 
 .wiki-fish-wrapper-fish-name {
@@ -2258,7 +2265,7 @@ body {
 
   margin-top: 1rem;
   padding-top: 1rem;
-  margin-left:1rem;
+  margin-left: 1rem;
 
 
 }
