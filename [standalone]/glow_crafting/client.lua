@@ -3,6 +3,7 @@ local PlayerData = QBCore.Functions.GetPlayerData()
 
 local loadedBenches = false
 local craftingBenches = {}
+local craftingFakeBenches = {}
 local uiSetup = false
 local currentBenchId = nil
 local currentDefaultRecipes = {}
@@ -96,7 +97,7 @@ local function spawnObj(model, coords, heading)
     exports['qb-target']:AddTargetEntity(object, {
         options = { {
              icon = "fa-solid fa-hammer",
-             label = "Craft",
+             label = "Chế Tạo",
              action = function()
                 TriggerServerEvent("glow_crafting_sv:getWorkBenchData")
              end
@@ -108,9 +109,53 @@ local function spawnObj(model, coords, heading)
    return object
 end
 
+local function spawnObjFake(model, coords, heading) 
+    local modelHash = type(model) == 'string' and GetHashKey(model) or model
+    if not HasModelLoaded(modelHash) then
+        RequestModel(modelHash)
+        while not HasModelLoaded(modelHash) do
+            Wait(10)
+        end
+    end
+
+    local object = CreateObject(modelHash, coords.x, coords.y, coords.z - 1, false, false, false)
+    while not DoesEntityExist(object) do
+        Wait(10)
+    end
+
+    PlaceObjectOnGroundProperly(object)
+    SetEntityAsMissionEntity(object, true, true)
+    FreezeEntityPosition(object, true)
+    SetEntityHeading(object, heading - 180)
+
+
+    exports['qb-target']:AddTargetEntity(object, {
+        options = { {
+             icon = "fa-solid fa-hammer",
+             label = "Chế Tạo",
+             action = function()
+                QBCore.Functions.Notify('Chúc mừng bạn đã kiếm được một bàn chế tạo giả', 'success')
+             end
+        }
+        },
+        distance = 1.5
+   })
+
+   return object
+end
+
+
+local function loadFakeBenches()
+    if not loadedBenches then
+        for _, v in pairs(Config.fakeBenches) do
+            craftingFakeBenches[#craftingFakeBenches + 1] = spawnObjFake(Config.prop, v.coords, v.heading)
+        end
+    end
+end
+
 local function loadBenches()
     if not loadedBenches then
-        for k, v in pairs(Config.craftingBenches) do
+        for _, v in pairs(Config.craftingBenches) do
             craftingBenches[#craftingBenches + 1] = spawnObj(Config.prop, v.coords, v.heading)
         end
     end
@@ -199,12 +244,14 @@ end)
 AddEventHandler('onResourceStart', function(resourceName)
     if (GetCurrentResourceName() ~= resourceName) then return end
     loadBenches()
+    loadFakeBenches()
 end)
 
 RegisterNetEvent('QBCore:Client:OnPlayerLoaded', function()
     Wait(2000)
     PlayerData = QBCore.Functions.GetPlayerData()
     loadBenches()
+    loadFakeBenches()
 end)
 
 RegisterNetEvent('QBCore:Client:OnPlayerUnload', function()
@@ -220,7 +267,11 @@ end)
 AddEventHandler('onResourceStop', function(resourceName)
     if resourceName == GetCurrentResourceName() then
          for _, prop in pairs(craftingBenches) do
-              DeleteObject(prop)
+            DeleteObject(prop)
+         end
+
+         for _, prop in pairs(Config.fakeBenches) do
+            DeleteObject(prop)
          end
     end
 end)
