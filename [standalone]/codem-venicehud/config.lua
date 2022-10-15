@@ -4,8 +4,8 @@ Config = {}
 Config.Framework = "newqb" -- newqb, oldqb, esx
 Config.Mysql = "oxmysql" -- mysql-async, ghmattimysql, oxmysql
 Config.Voice = "pma" -- mumble, saltychat, pma
-Config.DefaultHud = "venicehud" -- Default hud when player first login avaliable huds [venicehud, malibuhud, belairhud]
-Config.DefaultCarHud = "vertexhud" -- Default hud when player first login avaliable huds [vertexhud, mayhemhud, perspecthud]
+Config.DefaultHud = "malibuhud" -- Default hud when player first login avaliable huds [venicehud, malibuhud, belairhud]
+Config.DefaultCarHud = "mayhemhud" -- Default hud when player first login avaliable huds [vertexhud, mayhemhud, perspecthud]
 Config.EnableDynamicStatusFirstJoin = false -- Enable dynamic status first join
 Config.DefaultSpeedUnit = "kmh" -- Default speed unit when player first login avaliable speed units [kmh, mph]
 Config.HudSettingsCommand = 'hud' -- Command for open hud settings
@@ -206,13 +206,19 @@ Config.Locale = {
     ["HUD"] = 'HUD',
     ["STYLE_SELECTOR"] = 'Style Selector',
     ["DISABLED"] = 'Not active',
+
+
+
+
+
+
 }
 
 
 -------------------------------------------- Settings hud --------------------------------------------
 Config.HelperTextEnable = false  --- true enable --- false disable
 Config.HelperText = {
-    ['phone'] = 'Phone',['phonepress'] = 'M',
+    ['phone'] = 'Phone',['phonepress'] = 'Mysql',
     ['inventory'] = 'Inventory', ['inventorypress'] = 'TAB',
     ['menu'] = 'Menu',['menupress'] = 'F3',
     ['mic'] = 'Mic',['micpress'] = 'N',
@@ -266,7 +272,7 @@ Config.CompassStreetnameClock = true -- true  show -- false hide
 Config.DefaultCruiseControlKey = "y" -- Default control key for cruise. Players can change the key according to their desire 
 Config.DefaultSeatbeltControlKey = "b" -- Default control key for seatbelt. Players can change the key according to their desire 
 Config.VehicleEngineToggleKey = "g" -- Default control key for toggle engine. Players can change the key according to their desire 
-Config.NitroKey = "," -- Default control key for use nitro. Players can change the key according to their desire 
+Config.NitroKey = "X" -- Default control key for use nitro. Players can change the key according to their desire 
 
 -------------------------------------------- Nitro --------------------------------------------
 Config.Nitro = false --- just html icon

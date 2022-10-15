@@ -40,6 +40,44 @@ function loadESXMoneyAndJob()
     end
 end
 
+RegisterNetEvent('codem-venicehud:job')
+AddEventHandler('codem-venicehud:job', function()
+    local breakLoop = false
+    while true do
+        if frameworkObject then
+            if frameworkObject.GetPlayerData() then
+                while frameworkObject.GetPlayerData().job == nil do
+                    Wait(0)
+                end
+                SendNUIMessage({
+                    type = "update_job",
+                    joblabel = frameworkObject.GetPlayerData().job.label,
+                    grade_label = frameworkObject.GetPlayerData().job.grade_label
+                })
+                frameworkObject.TriggerServerCallback("codem-venicehud:GetMoney", function(cash)
+                    SendNUIMessage({
+                        type = "update_money",
+                        money = cash
+                    })
+                    lastCash = cash
+                end, "cash")
+                frameworkObject.TriggerServerCallback("codem-venicehud:GetMoney", function(bank)
+                    SendNUIMessage({
+                        type = "update_bank",
+                        money = bank
+                    })
+                    lastBank = bank
+                    breakLoop = true
+                end, "bank")
+                if breakLoop then
+                    return
+                end
+            end
+        end
+        Wait(0)
+    end
+
+end)
 
 CreateThread(function()
     while not response do
@@ -57,11 +95,10 @@ CreateThread(function()
                 local Player = frameworkObject.Functions.GetPlayerData()
                 if Player then
                     if Player.job then
-                        print(Player.job.gradelabel)
                         SendNUIMessage({
                             type = "update_job",
                             joblabel = Player.job.label,
-                            grade_label = Player.job.gradelabel
+                            grade_label = Player.job.grade.name
                         })
                     end
                     if Player.money then
@@ -87,8 +124,6 @@ CreateThread(function()
         end
     end
 end)
-
-
 
 RegisterNetEvent("es:addedMoney")
 AddEventHandler("es:addedMoney", function(a, b, m)
@@ -132,7 +167,7 @@ AddEventHandler("QBCore:Player:SetPlayerData", function(data)
     SendNUIMessage({
         type = "update_job",
         joblabel = data.job.label,
-        grade_label = data.job.gradelabel
+        grade_label = data.job.grade.name
     })
 end)
 

@@ -2,7 +2,7 @@ if Config.UseStress then
     local stress = 0
     RegisterNetEvent('hud:client:UpdateStress', function(newStress) -- Add this event with adding stress elsewhere
         while not response do
-            Citizen.Wait(0)
+            Wait(0)
         end
         stress = newStress
         SendNUIMessage({ type="set_status", statustype = "stress", value = newStress})
@@ -250,10 +250,10 @@ AddEventHandler('hospital:client:RespawnAtHospital', function()
     TriggerServerEvent('hud:server:RelieveStress', 10000)
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
     if Config.RemoveStress["on_swimming"].enable then
         while true do
-            Citizen.Wait(10000)
+            Wait(10000)
             if IsPedSwimming(playerPed) then
                 local val = math.random(Config.RemoveStress["on_swimming"].min, Config.RemoveStress["on_swimming"].max)
                 TriggerServerEvent('hud:server:RelieveStress', val)
@@ -262,10 +262,10 @@ Citizen.CreateThread(function()
     end
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
     if Config.RemoveStress["on_running"].enable then
         while true do
-            Citizen.Wait(10000)
+            Wait(10000)
             if IsPedRunning(playerPed) then
                 local val = math.random(Config.RemoveStress["on_running"].min, Config.RemoveStress["on_running"].max)
                 TriggerServerEvent('hud:server:RelieveStress', val)
