@@ -83,6 +83,7 @@ CreateThread(function()
 			while true do
 				ClearAreaOfPeds(-333.08, -918.05, 32.8, 200.0, 1)
 				ClearAreaOfVehicles(-333.08, -918.05, 32.8, 200.0, false, false, false, false, false, false)
+				Wait(0)
 			end
 		else
 			print('Im outside Car Dealer')
