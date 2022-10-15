@@ -8,6 +8,8 @@
         "GiveWeaponToPed",
         "SetPedAmmo",
         "SetCurrentPedWeapon",
-        "json"
+        "json",
+        "AddEventHandler",
+        "RegisterNetEvent"
     ]
 }
