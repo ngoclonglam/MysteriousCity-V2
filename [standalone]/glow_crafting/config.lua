@@ -7,7 +7,7 @@ Config.craftingBenches = {
 }
 
 --[[
-Make sure to change the image path to your inventory image file. Default is lj-inventory, you can change it to qb-inventory by doing this example below:
+Make sure to change the image path to your inventory image file. Default is qb-inventory, you can change it to qb-inventory by doing this example below:
     https://cfx-nui-qb-inventory/html/images/radio.png
 ]]
 
@@ -17,14 +17,14 @@ Config.defaultRecipes = {
     radio = {
         item = "radio",
         label = "Radio",
-        image = "https://cfx-nui-lj-inventory/html/images/radio.png",
+        image = "https://cfx-nui-qb-inventory/html/images/radio.png",
         isAttachment = false,
         threshold = 0,
         points = 1,
         components = {
-            {item = "aluminum", label = "Aluminum", amount = 10, image = "https://cfx-nui-lj-inventory/html/images/aluminum.png"},
-            {item = "rubber", label = "Rubber", amount = 10, image = "https://cfx-nui-lj-inventory/html/images/rubber.png"},
-            {item = "plastic", label = "Plastic", amount = 10, image = "https://cfx-nui-lj-inventory/html/images/plastic.png"},
+            {item = "aluminum", label = "Aluminum", amount = 10, image = "https://cfx-nui-qb-inventory/html/images/aluminum.png"},
+            {item = "rubber", label = "Rubber", amount = 10, image = "https://cfx-nui-qb-inventory/html/images/rubber.png"},
+            {item = "plastic", label = "Plastic", amount = 10, image = "https://cfx-nui-qb-inventory/html/images/plastic.png"},
         }
     },
 }
@@ -34,14 +34,14 @@ Config.blueprintRecipes = {
     advancedlockpick = {
         item = "advancedlockpick",
         label = "Advanced Lockpick",
-        image = "https://cfx-nui-lj-inventory/html/images/advancedlockpick.png",
+        image = "https://cfx-nui-qb-inventory/html/images/advancedlockpick.png",
         isAttachment = false,
         points = 1,
         components = {
-            {item = "aluminum", label = "Aluminum", amount = 10, image = "https://cfx-nui-lj-inventory/html/images/aluminum.png"},
-            {item = "rubber", label = "Rubber", amount = 10, image = "https://cfx-nui-lj-inventory/html/images/rubber.png"},
-            {item = "plastic", label = "Plastic", amount = 10, image = "https://cfx-nui-lj-inventory/html/images/plastic.png"},
+            {item = "aluminum", label = "Aluminum", amount = 10, image = "https://cfx-nui-qb-inventory/html/images/aluminum.png"},
+            {item = "rubber", label = "Rubber", amount = 10, image = "https://cfx-nui-qb-inventory/html/images/rubber.png"},
+            {item = "plastic", label = "Plastic", amount = 10, image = "https://cfx-nui-qb-inventory/html/images/plastic.png"},
         },
-        blueprintImage = "https://cfx-nui-lj-inventory/html/images/blueprint.png"
+        blueprintImage = "https://cfx-nui-qb-inventory/html/images/blueprint.png"
     },
 }
