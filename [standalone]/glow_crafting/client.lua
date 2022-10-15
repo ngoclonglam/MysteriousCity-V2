@@ -91,7 +91,7 @@ local function spawnObj(model, coords, heading)
     PlaceObjectOnGroundProperly(object)
     SetEntityAsMissionEntity(object, true, true)
     FreezeEntityPosition(object, true)
-    SetEntityHeading(object, heading - 180)
+    SetEntityHeading(object, heading)
 
 
     exports['qb-target']:AddTargetEntity(object, {
