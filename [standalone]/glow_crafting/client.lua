@@ -83,7 +83,7 @@ local function spawnObj(model, coords, heading)
         end
     end
 
-    object = CreateObject(modelHash, coords.x, coords.y, coords.z - 1, false, false, false)
+    local object = CreateObject(modelHash, coords.x, coords.y, coords.z - 1, false, false, false)
     while not DoesEntityExist(object) do
         Wait(10)
     end
@@ -118,7 +118,7 @@ local function spawnObjFake(model, coords, heading)
         end
     end
 
-    object2 = CreateObject(modelHash, coords.x, coords.y, coords.z - 1, false, false, false)
+    local object2 = CreateObject(modelHash, coords.x, coords.y, coords.z - 1, false, false, false)
     while not DoesEntityExist(object) do
         Wait(10)
     end
@@ -266,8 +266,13 @@ end)
 
 AddEventHandler('onResourceStop', function(resourceName)
     if resourceName == GetCurrentResourceName() then
-        DeleteObject(object)
-        DeleteObject(object2)
+        for _, prop in pairs(craftingBenches) do
+            DeleteObject(prop)
+        end
+
+        for _, prop in pairs(craftingFakeBenches) do
+            DeleteObject(prop)
+        end
         
     end
 end)
