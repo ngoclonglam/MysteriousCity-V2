@@ -80,6 +80,7 @@ CreateThread(function()
 		inside = isPointInside
 		if inside then
 			while true do
+				print('yes im inside')
 				ClearAreaOfPeds(-333.08, -918.05, 32.8, 200.0, 1)
 				ClearAreaOfVehicles(-333.08, -918.05, 32.8, 200.0, false, false, false, false, false, false)
 				Wait(5000)
