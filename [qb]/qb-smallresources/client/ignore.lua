@@ -78,11 +78,12 @@ CreateThread(function()
 
 	carDealer:onPlayerInOut(function(isPointInside)
 		inside = isPointInside
-		while inside do
-			print('Im inside Car Dealer')
-			ClearAreaOfPeds(-333.08, -918.05, 32.8, 200.0, 1)
-			ClearAreaOfVehicles(-333.08, -918.05, 32.8, 200.0, false, false, false, false, false, false)
-			Wait(5000)
+		if inside do
+			while true do
+				ClearAreaOfPeds(-333.08, -918.05, 32.8, 200.0, 1)
+				ClearAreaOfVehicles(-333.08, -918.05, 32.8, 200.0, false, false, false, false, false, false)
+				Wait(5000)
+			end
 		end
 
 		if not inside then Wait(1000) end
