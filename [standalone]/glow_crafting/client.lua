@@ -129,7 +129,7 @@ local function spawnObjFake(model, coords, heading)
     SetEntityHeading(object, heading - 180)
 
 
-    exports['qb-target']:AddTargetEntity(object, {
+    exports['qb-target']:AddTargetEntity(object2, {
         options = { {
              icon = "fa-solid fa-hammer",
              label = "Chế Tạo",
