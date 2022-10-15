@@ -134,7 +134,7 @@ local function spawnObjFake(model, coords, heading)
              icon = "fa-solid fa-hammer",
              label = "Chế Tạo",
              action = function()
-                QBCore.Functions.Notify('Chúc mừng bạn đã kiếm được một bàn chế tạo giả', 'success')
+                exports['okokNotify']:Alert('Chế Tạo', 'Bàn này là bàn giả đó, thật là ngu ngốc 😋', 5000, 'error')
              end
         }
         },

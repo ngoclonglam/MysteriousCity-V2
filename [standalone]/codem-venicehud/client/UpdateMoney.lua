@@ -22,7 +22,7 @@ function loadESXMoneyAndJob()
                         money = cash
                     })
                     lastCash = cash
-                end, "cash")
+                end, "cash")                
                 frameworkObject.TriggerServerCallback("codem-venicehud:GetMoney", function(bank)
                     SendNUIMessage({
                         type = "update_bank",
@@ -33,51 +33,13 @@ function loadESXMoneyAndJob()
                 end, "bank")
                 if breakLoop then
                     return
-                end
+                end 
             end
         end
         Wait(0)
     end
 end
 
-RegisterNetEvent('codem-venicehud:job')
-AddEventHandler('codem-venicehud:job', function()
-    local breakLoop = false
-    while true do
-        if frameworkObject then
-            if frameworkObject.GetPlayerData() then
-                while frameworkObject.GetPlayerData().job == nil do
-                    Wait(0)
-                end
-                SendNUIMessage({
-                    type = "update_job",
-                    joblabel = frameworkObject.GetPlayerData().job.label,
-                    grade_label = frameworkObject.GetPlayerData().job.grade_label
-                })
-                frameworkObject.TriggerServerCallback("codem-venicehud:GetMoney", function(cash)
-                    SendNUIMessage({
-                        type = "update_money",
-                        money = cash
-                    })
-                    lastCash = cash
-                end, "cash")
-                frameworkObject.TriggerServerCallback("codem-venicehud:GetMoney", function(bank)
-                    SendNUIMessage({
-                        type = "update_bank",
-                        money = bank
-                    })
-                    lastBank = bank
-                    breakLoop = true
-                end, "bank")
-                if breakLoop then
-                    return
-                end
-            end
-        end
-        Wait(0)
-    end
-
-end)
 
 CreateThread(function()
     while not response do
@@ -89,16 +51,17 @@ CreateThread(function()
     else
         Wait(1000)
         local breakLoop = false
-        while true do
+        while true do   
             Wait(0)
             if frameworkObject then
                 local Player = frameworkObject.Functions.GetPlayerData()
                 if Player then
                     if Player.job then
+                        print(Player.job.gradelabel)
                         SendNUIMessage({
                             type = "update_job",
                             joblabel = Player.job.label,
-                            grade_label = Player.job.grade.name
+                            grade_label = Player.job.gradelabel
                         })
                     end
                     if Player.money then
@@ -115,7 +78,7 @@ CreateThread(function()
 
                         breakLoop = true
                     end
-
+            
                     if breakLoop then
                         break
                     end
@@ -125,13 +88,15 @@ CreateThread(function()
     end
 end)
 
+
+
 RegisterNetEvent("es:addedMoney")
 AddEventHandler("es:addedMoney", function(a, b, m)
     SendNUIMessage({
         type = "update_money",
         money = m
     })
-
+  
 end)
 
 RegisterNetEvent("es:removedMoney")
@@ -167,7 +132,7 @@ AddEventHandler("QBCore:Player:SetPlayerData", function(data)
     SendNUIMessage({
         type = "update_job",
         joblabel = data.job.label,
-        grade_label = data.job.grade.name
+        grade_label = data.job.gradelabel
     })
 end)
 

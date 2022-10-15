@@ -3,16 +3,15 @@ Config = {}
 Config.prop = 'gr_prop_gr_bench_04b'
 
 Config.craftingBenches = {
-    {id = "testId", coords = vector3(2659.99, 3923.66, 42.17), heading = 140.76},
+    {id = "testId", coords = vector3(2659.99, 3923.66, 42.17), heading = 86.96},
 }
 
 Config.fakeBenches = {
-    {id = "testId", coords = vector3(101.12, 6616.57, 32.44), heading = 140.76},
-    {id = "testId", coords = vector3(308.67, -907.06, 29.29), heading = 140.76},
-    {id = "testId", coords = vector3(-174.81, 217.89, 89.9), heading = 140.76},
-    {id = "testId", coords = vector3(-21.94, -690.72, 244.25), heading = 140.76},
-    {id = "testId", coords = vector3(-305.52, -911.04, 40.04), heading = 140.76},
-    {id = "testId", coords = vector3(31.75, 3669.9, 40.44), heading = 140.76},
+    {id = "testId", coords = vector3(123.74, 6635.66, 31.87), heading = 135.93},
+    {id = "testId", coords = vector3(308.67, -907.06, 29.29), heading = 263.84},
+    {id = "testId", coords = vector3(-174.81, 217.89, 89.9), heading = 357.31},
+    {id = "testId", coords = vector3(-22.2, -691.94, 244.25), heading = 203.23},
+    {id = "testId", coords = vector3(22.21, 3652.23, 40.03), heading = 97.94},
     {id = "testId", coords = vector3(3290.1, 5196.75, 18.42), heading = 140.76},
 }
 
