@@ -2691,6 +2691,7 @@ var requiredItemOpen = false;
     };
 
     Inventory.Close = function() {
+        $("#dialog").dialog("close");
         $(".item-slot").css("border", "1px solid rgba(255, 255, 255, 0.1)");
         $(".ply-hotbar-inventory").css("display", "block");
         // $(".ply-iteminfo-container").css("display", "none");
