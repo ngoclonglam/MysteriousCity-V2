@@ -8,6 +8,7 @@ Config.EnableGamePoolDeleting = true    -- Set to false only when using old vers
 Config.JobVehicleModel = "trash"                -- Model of the company car
 Config.VehicleBackBone = "seat_dside_r1"        -- Bone used only when Config.UseTarget = false. 3D text is displayed on the coordinates of this bone telling us to put the bag in the trunk
 Config.VehicleBackBoneCenter = "brakelight_l"   -- Bone used only when Config.UseTarget = false. On the cords of this bone, a player walks up to throw the bag
+Config.PenaltyAmount = 500                      -- Penalty that is levied when a player finishes work without a company vehicle
 
 Config.Blips = { -- Here you can configure Company blip.
     [1] = {
@@ -142,6 +143,7 @@ Config.Lang = {
     ["error"] = "Có một vấn đề khi tham gia một đội, vui lòng thử lại sau.",
     ["kickedOut"] = "Bạn đã bị đuổi khỏi đội!",
     ["reward"] = "Bạn đã nhận được một khoản thanh toán là $",
-    ["RequireOneFriend"] = "Công việc này yêu cầu ít nhất một thành viên trong nhóm"
-
+    ["RequireOneFriend"] = "Công việc này yêu cầu ít nhất một thành viên trong nhóm",
+    ["penalty"] = "Bạn đã trả một khoản tiền phạt là ",
+    ["clientsPenalty"] = "Đội trưởng đã chấp nhận hình phạt, bạn không nhận được khoản thanh toán",
 }

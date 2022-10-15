@@ -55,7 +55,7 @@ Config.Locations = {                                            -- Here you can 
             vector3(804.57, 206.54, 81.2),
         },
         CurrentAction = 'finish_job',
-        CurrentActionMsg = 'Press ~INPUT_CONTEXT~ to ~y~store ~s~car.',
+        CurrentActionMsg = 'Bấm E để cất xe',
         type = 'duty',
         scale = {x = 3.0, y = 3.0, z = 3.0}
     },
@@ -67,7 +67,7 @@ Config.Lang = {
     -- Here you can changea all translations used in client.lua, and server.lua. Dont forget to translate it also under the HTML and JS file.
 
     -- Client
-    ["hostSuccess"] = "Xin chúc mừng, bây giờ hãy đợi đối tác của bạn sửa lỗi.",
+    ["hostSuccess"] = "Xin chúc mừng, bây giờ hãy đợi đồng đội của bạn sửa lỗi.",
     ["wrongCar"] = "Bạn phải ở trong xe công ty để lấy lại tiền cọc",
     ["AlreadyTaken"] = "Bạn hoặc ai đó trong nhóm đã lấy một chiếc xe của công ty trước đó!",
     ["nobodyAround"] = "Không có người xung quanh!",

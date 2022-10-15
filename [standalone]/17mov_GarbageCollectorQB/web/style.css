@@ -159,6 +159,17 @@ body {
     left: 50%;
 }
 
+.warningBox .flex3 {
+    margin-top: 1.5vh;
+}
+
+.warningBox .container {
+    border: 1.5px solid var(--layoutColor);
+    top: 50%;
+    left: 50%;
+    line-height: 1.9vh;
+}
+
 .inviteBox .partyHost {
     margin-top: 1vh;
     margin-bottom: 1vh;
@@ -210,5 +221,9 @@ body {
 }
 
 .tutorial {
+    display: none;
+}
+
+.warningBox {
     display: none;
 }

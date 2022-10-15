@@ -22,6 +22,8 @@ window.addEventListener('message', function (event) {
     if (action == "OpenWorkMenu") {
         $(".WorkMenu").fadeIn(250)
         shouldGoMainMenu = false
+    } else if (action == "openWarning") {
+        $(".warningBox").fadeIn(250)
     } else if (action == "hideCloakroom") {
         $("#Cloakroom").fadeOut(0)
     } else if (action == "ShowInviteBox") {
@@ -149,11 +151,19 @@ function reactRequest(boolean) {
     $.post(`https://${GetParentResourceName()}/requestReacted`, JSON.stringify({ boolean: boolean }));
 }
 
+function reactWarning(boolean) {
+    $(".warningBox").fadeOut(250)
+    FocusOff()
+    if (boolean)
+        $.post(`https://${GetParentResourceName()}/acceptWarning`);
+}
+
 function FocusOff() {
     $(".cloakroomMenu").fadeOut(250)
     $(".WorkMenu").fadeOut(250)
     $(".closestPlayers").fadeOut(250)
     $(".tutorial").fadeOut(250)
+    $(".warningBox").fadeOut(250)
     $.post(`https://${GetParentResourceName()}/focusOff`);
 }
 

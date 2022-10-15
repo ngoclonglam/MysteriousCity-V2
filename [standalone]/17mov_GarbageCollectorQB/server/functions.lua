@@ -17,3 +17,7 @@ end
 function Pay(source, amount)
     QBCore.Functions.GetPlayer(source).Functions.AddMoney("cash", amount)
 end
+
+function PayPenalty(source, amount)
+    QBCore.Functions.GetPlayer(source).Functions.RemoveMoney("cash", amount)
+end
