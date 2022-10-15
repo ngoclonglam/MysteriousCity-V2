@@ -109,7 +109,7 @@ end
 local function FormatWeaponAttachments(itemdata)
     local attachments = {}
     itemdata.name = itemdata.name:upper()
-    if itemdata.info.attachments ~= nil and next(itemdata.info.attachments) ~= nil then
+    if itemdata.info.attachments and next(itemdata.info.attachments) then
         for _, v in pairs(itemdata.info.attachments) do
             attachments[#attachments+1] = {
                 attachment = v.item,
@@ -653,7 +653,7 @@ RegisterCommand('inventory', function()
                 CurrentVehicle = nil
             else
                 local vehicle = QBCore.Functions.GetClosestVehicle()
-                if vehicle ~= 0 and vehicle ~= nil then
+                if vehicle ~= 0 and vehicle then
                     local pos = GetEntityCoords(ped)
 					          local dimensionMin, dimensionMax = GetModelDimensions(GetEntityModel(vehicle))
 					          local trunkpos = GetOffsetFromEntityInWorldCoords(vehicle, 0.0, (dimensionMin.y), 0.0)
@@ -846,14 +846,14 @@ RegisterNUICallback("CloseInventory", function()
         ClearPedTasks(PlayerPedId())
         return
     end
-    if CurrentVehicle ~= nil then
+    if CurrentVehicle then
         CloseTrunk()
         TriggerServerEvent("inventory:server:SaveInventory", "trunk", CurrentVehicle)
         CurrentVehicle = nil
-    elseif CurrentGlovebox ~= nil then
+    elseif CurrentGlovebox then
         TriggerServerEvent("inventory:server:SaveInventory", "glovebox", CurrentGlovebox)
         CurrentGlovebox = nil
-    elseif CurrentStash ~= nil then
+    elseif CurrentStash then
         TriggerServerEvent("inventory:server:SaveInventory", "stash", CurrentStash)
         CurrentStash = nil
     else
@@ -918,6 +918,47 @@ RegisterNUICallback("PlayDropFail", function(_, cb)
     cb('ok')
 end)
 
+RegisterNUICallback(
+    "GetNearPlayers",
+    function(data, cb)
+        local playerPed = PlayerPedId()
+        local players = QBCore.Functions.GetPlayersFromCoords(GetEntityCoords(playerPed), 3.0)
+        local foundPlayers = false
+        local elements = {}
+
+        for i = 1, #players, 1 do
+            if players[i] ~= PlayerId() then
+                foundPlayers = true
+
+                table.insert(
+                    elements,
+                    {
+                        label = GetPlayerName(players[i]),
+                        player = GetPlayerServerId(players[i])
+                    }
+                )
+            end
+        end
+
+        if not foundPlayers then
+            QBCore.Functions.Notify("Không có ai gần đó!", "error")
+        else
+            SendNUIMessage(
+                {
+                    action = "nearPlayers",
+                    foundAny = foundPlayers,
+                    players = elements,
+                    item = data.item,
+                    fromInventory = data.inventory,
+                    amount = data.amount
+                }
+            )
+        end
+
+        cb("ok")
+    end
+)
+
 RegisterNUICallback("GiveItem", function(data, cb)
     local player, distance = QBCore.Functions.GetClosestPlayer(GetEntityCoords(PlayerPedId()))
     if player ~= -1 and distance < 3 then
@@ -926,10 +967,10 @@ RegisterNUICallback("GiveItem", function(data, cb)
             SetCurrentPedWeapon(PlayerPedId(),'WEAPON_UNARMED',true)
             TriggerServerEvent("inventory:server:GiveItem", playerId, data.item.name, data.amount, data.item.slot)
         else
-            QBCore.Functions.Notify("You do not own this item!", "error")
+            QBCore.Functions.Notify("Bạn không sở hữu vật phẩm này!", "error")
         end
     else
-        QBCore.Functions.Notify("No one nearby!", "error")
+        QBCore.Functions.Notify("Không ai ở gần!", "error")
     end
     cb('ok')
 end)
@@ -940,13 +981,13 @@ end)
 CreateThread(function()
     while true do
         local sleep = 100
-        if DropsNear ~= nil then
+        if DropsNear then
 			local ped = PlayerPedId()
 			local closestDrop = nil
 			local closestDistance = nil
             for k, v in pairs(DropsNear) do
 
-                if DropsNear[k] ~= nil then
+                if DropsNear[k] then
                     if Config.UseItemDrop then
                         if not v.isDropShowing then
                             CreateItemDrop(k)
@@ -956,7 +997,7 @@ CreateThread(function()
                         DrawMarker(20, v.coords.x, v.coords.y, v.coords.z, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.3, 0.15, 120, 10, 20, 155, false, false, false, 1, false, false, false)
                     end
 
-					local coords = (v.object ~= nil and GetEntityCoords(v.object)) or vector3(v.coords.x, v.coords.y, v.coords.z)
+					local coords = (v.object and GetEntityCoords(v.object)) or vector3(v.coords.x, v.coords.y, v.coords.z)
 					local distance = #(GetEntityCoords(ped) - coords)
 					if distance < 2 and (not closestDistance or distance < closestDistance) then
 						closestDrop = k
@@ -978,10 +1019,10 @@ end)
 
 CreateThread(function()
     while true do
-        if Drops ~= nil and next(Drops) ~= nil then
+        if Drops and next(Drops) then
             local pos = GetEntityCoords(PlayerPedId(), true)
             for k, v in pairs(Drops) do
-                if Drops[k] ~= nil then
+                if Drops[k] then
                     local dist = #(pos - vector3(v.coords.x, v.coords.y, v.coords.z))
                     if dist < Config.MaxDropViewDistance then
                         DropsNear[k] = v
