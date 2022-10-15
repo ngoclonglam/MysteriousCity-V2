@@ -50,9 +50,9 @@ exports("HasItem", HasItem)
 
 RegisterNUICallback('showBlur', function()
     Wait(50)
-    TriggerEvent("lj-inventory:client:showBlur")
+    TriggerEvent("qb-inventory:client:showBlur")
 end) 
-RegisterNetEvent("lj-inventory:client:showBlur", function()
+RegisterNetEvent("qb-inventory:client:showBlur", function()
     Wait(50)
     showBlur = not showBlur
 end)
@@ -634,7 +634,7 @@ RegisterCommand('closeinv', function()
     closeInventory()
 end, false)
 
-RegisterNetEvent("lj-inventory:client:closeinv", function()
+RegisterNetEvent("qb-inventory:client:closeinv", function()
     closeInventory()
 end)
 
@@ -777,7 +777,7 @@ for i = 1, 6 do
     RegisterKeyMapping('slot' .. i, 'Uses the item in slot ' .. i, 'keyboard', i)
 end
 
-RegisterNetEvent('lj-inventory:client:giveAnim', function()
+RegisterNetEvent('qb-inventory:client:giveAnim', function()
     LoadAnimDict('mp_common')
 	TaskPlayAnim(PlayerPedId(), 'mp_common', 'givetake1_b', 8.0, 1.0, -1, 16, 0, 0, 0, 0)
 end)
@@ -917,6 +917,47 @@ RegisterNUICallback("PlayDropFail", function(_, cb)
     PlaySound(-1, "Place_Prop_Fail", "DLC_Dmod_Prop_Editor_Sounds", 0, 0, 1)
     cb('ok')
 end)
+
+RegisterNUICallback(
+    "GetNearPlayers",
+    function(data, cb)
+        local playerPed = PlayerPedId()
+        local players = QBCore.Functions.GetPlayersFromCoords(GetEntityCoords(playerPed), 3.0)
+        local foundPlayers = false
+        local elements = {}
+
+        for i = 1, #players, 1 do
+            if players[i] ~= PlayerId() then
+                foundPlayers = true
+
+                table.insert(
+                    elements,
+                    {
+                        label = GetPlayerName(players[i]),
+                        player = GetPlayerServerId(players[i])
+                    }
+                )
+            end
+        end
+
+        if not foundPlayers then
+            QBCore.Functions.Notify("Không có ai gần đó!", "error")
+        else
+            SendNUIMessage(
+                {
+                    action = "nearPlayers",
+                    foundAny = foundPlayers,
+                    players = elements,
+                    item = data.item,
+                    fromInventory = data.inventory,
+                    amount = data.amount
+                }
+            )
+        end
+
+        cb("ok")
+    end
+)
 
 RegisterNUICallback("GiveItem", function(data, cb)
     local player, distance = QBCore.Functions.GetClosestPlayer(GetEntityCoords(PlayerPedId()))

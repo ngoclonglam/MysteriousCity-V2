@@ -10,18 +10,18 @@
 * [qb-drugs](https://github.com/qbcore-framework/qb-drugs)
 * [qb-shops](https://github.com/qbcore-framework/qb-shops)
 
-# How to install lj-inventory (Latest QBCore Update)
+# How to install qb-inventory (Latest QBCore Update)
 * Download source files from github
 * Make sure you have latest updated [qb-core](https://github.com/qbcore-framework/qb-core)
 * Make sure you have latest updated [qb-smallresources](https://github.com/qbcore-framework/qb-smallresources)
 * Make sure you have latest updated [qb-weapons](https://github.com/qbcore-framework/qb-weapons)
 * Drag source files into your resources folder
-* Rename folder from `lj-inventory-main` to `lj-inventory`
-* Replace all qb-inventory to lj-inventory. 
+* Rename folder from `qb-inventory-main` to `qb-inventory`
+* Replace all qb-inventory to qb-inventory. 
 
 # Key Features
 * ALL IMAGES FOLLOW THE SAME DIMENSIONS
-* Easy Photoshop guideline template for creating custom images within lj-inventory
+* Easy Photoshop guideline template for creating custom images within qb-inventory
 * Custom brand logo above option buttons
 * Options menu
 * Help box 
@@ -51,5 +51,5 @@ Inventory Trunk
 
 
 # Credits
-* loljoshie for [original version](https://github.com/loljoshie/lj-inventory)
+* loljoshie for [original version](https://github.com/loljoshie/qb-inventory)
 
