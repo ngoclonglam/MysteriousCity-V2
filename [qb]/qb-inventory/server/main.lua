@@ -1745,7 +1745,7 @@ RegisterNetEvent('inventory:server:SetInventoryData', function(fromInventory, to
 				exports['qb-traphouse']:AddHouseItem(traphouseId, toSlot, itemInfo["name"], fromAmount, fromItemData.info, src)
 			end
 		else
-			TriggerClientEvent("QBCore:Notify", src, "Item doesn't exist??", "error")
+			TriggerClientEvent("QBCore:Notify", src, "Vật phẩm không tồn tại", "error")
 		end
 	elseif QBCore.Shared.SplitStr(fromInventory, "-")[1] == "itemshop" then
 		local shopType = QBCore.Shared.SplitStr(fromInventory, "-")[2]
@@ -1762,22 +1762,36 @@ RegisterNetEvent('inventory:server:SetInventoryData', function(fromInventory, to
 					itemData.info.quality = 100
 					AddItem(src, itemData.name, 1, toSlot, itemData.info)
 					TriggerClientEvent('qb-drugs:client:updateDealerItems', src, itemData, 1)
-					QBCore.Functions.Notify(src, itemInfo["label"] .. " bought!", "success")
+					QBCore.Functions.Notify(src, "Bạn đã mua " .. itemInfo["label"], "success")
 					TriggerEvent("qb-log:server:CreateLog", "dealers", "Dealer item bought", "green", "**"..GetPlayerName(src) .. "** bought a " .. itemInfo["label"] .. " for $"..price)
 				else
-					QBCore.Functions.Notify(src, "You don\'t have enough cash..", "error")
+					QBCore.Functions.Notify(src, "Bạn không có đủ tiền mặt trong người..", "error")
 				end
 			else
 				if Player.Functions.RemoveMoney("cash", price, "dealer-item-bought") then
 					AddItem(src, itemData.name, fromAmount, toSlot, itemData.info)
 					TriggerClientEvent('qb-drugs:client:updateDealerItems', src, itemData, fromAmount)
-					QBCore.Functions.Notify(src, itemInfo["label"] .. " bought!", "success")
+					QBCore.Functions.Notify(src, "Bạn đã mua " .. itemInfo["label"], "success")
 					TriggerEvent("qb-log:server:CreateLog", "dealers", "Dealer item bought", "green", "**"..GetPlayerName(src) .. "** bought a " .. itemInfo["label"] .. "  for $"..price)
 				else
-					QBCore.Functions.Notify(src, "You don't have enough cash..", "error")
+					QBCore.Functions.Notify(src, "Bạn không có đủ tiền mặt trong người..", "error")
 				end
 			end
+		elseif QBCore.Shared.SplitStr(shopType, "_")[1] == "hospital" then
+			local balance = exports['qb-management']:GetAccount('ambulance')
+			if balance > 0 then
+				exports['qb-management']:RemoveMoney('ambulance', price)
+				TriggerClientEvent('QBCore:Notify', src, 'Tiền đã được trừ vào quỹ bệnh viện', 'success')
+				-- TriggerEvent("qb-bossmenu:server:removeAccountMoney", 'ambulance', price)
+				Player.Functions.AddItem(itemData.name, fromAmount, toSlot, itemData.info)
+			else
+				TriggerClientEvent('QBCore:Notify', src, 'Qũy bệnh viên đã hết', 'error')
+                TriggerClientEvent("inventory:client:CloseInventory", src)
+			end
 		elseif QBCore.Shared.SplitStr(shopType, "_")[1] == "Itemshop" then
+			if QBCore.Shared.SplitStr(shopType, "_")[2] == "bar" then
+				exports['qb-management']:AddMoney('vu', price)
+			end
 			if Player.Functions.RemoveMoney("cash", price, "itemshop-bought-item") then
                 if QBCore.Shared.SplitStr(itemData.name, "_")[1] == "weapon" then
                     itemData.info.serie = tostring(QBCore.Shared.RandomInt(2) .. QBCore.Shared.RandomStr(3) .. QBCore.Shared.RandomInt(1) .. QBCore.Shared.RandomStr(2) .. QBCore.Shared.RandomInt(3) .. QBCore.Shared.RandomStr(4))
@@ -1785,7 +1799,7 @@ RegisterNetEvent('inventory:server:SetInventoryData', function(fromInventory, to
                 end
 				AddItem(src, itemData.name, fromAmount, toSlot, itemData.info)
 				TriggerClientEvent('qb-shops:client:UpdateShop', src, QBCore.Shared.SplitStr(shopType, "_")[2], itemData, fromAmount)
-				QBCore.Functions.Notify(src, itemInfo["label"] .. " bought!", "success")
+				QBCore.Functions.Notify(src, "Bạn đã mua " .. itemInfo["label"], "success")
 				TriggerEvent("qb-log:server:CreateLog", "shops", "Shop item bought", "green", "**"..GetPlayerName(src) .. "** bought a " .. itemInfo["label"] .. " for $"..price)
 			elseif bankBalance >= price then
 				Player.Functions.RemoveMoney("bank", price, "itemshop-bought-item")
@@ -1795,23 +1809,23 @@ RegisterNetEvent('inventory:server:SetInventoryData', function(fromInventory, to
                 end
 				AddItem(src, itemData.name, fromAmount, toSlot, itemData.info)
 				TriggerClientEvent('qb-shops:client:UpdateShop', src, QBCore.Shared.SplitStr(shopType, "_")[2], itemData, fromAmount)
-				QBCore.Functions.Notify(src, itemInfo["label"] .. " bought!", "success")
+				QBCore.Functions.Notify(src, "Bạn đã mua " .. itemInfo["label"], "success")
 				TriggerEvent("qb-log:server:CreateLog", "shops", "Shop item bought", "green", "**"..GetPlayerName(src) .. "** bought a " .. itemInfo["label"] .. " for $"..price)
 			else
-				QBCore.Functions.Notify(src, "You don't have enough cash..", "error")
+				QBCore.Functions.Notify(src, "Bạn không có đủ tiền mặt trong người..", "error")
 			end
 		else
 			if Player.Functions.RemoveMoney("cash", price, "unkown-itemshop-bought-item") then
 				AddItem(src, itemData.name, fromAmount, toSlot, itemData.info)
-				QBCore.Functions.Notify(src, itemInfo["label"] .. " bought!", "success")
+				QBCore.Functions.Notify(src, "Bạn đã mua " .. itemInfo["label"], "success")
 				TriggerEvent("qb-log:server:CreateLog", "shops", "Shop item bought", "green", "**"..GetPlayerName(src) .. "** bought a " .. itemInfo["label"] .. " for $"..price)
 			elseif bankBalance >= price then
 				Player.Functions.RemoveMoney("bank", price, "unkown-itemshop-bought-item")
 				AddItem(src, itemData.name, fromAmount, toSlot, itemData.info)
-				QBCore.Functions.Notify(src, itemInfo["label"] .. " bought!", "success")
+				QBCore.Functions.Notify(src, "Bạn đã mua " .. itemInfo["label"], "success")
 				TriggerEvent("qb-log:server:CreateLog", "shops", "Shop item bought", "green", "**"..GetPlayerName(src) .. "** bought a " .. itemInfo["label"] .. " for $"..price)
 			else
-				TriggerClientEvent('QBCore:Notify', src, "You don\'t have enough cash..", "error")
+				TriggerClientEvent('QBCore:Notify', src, "Bạn không có đủ tiền mặt trong người..", "error")
 			end
 		end
 	elseif fromInventory == "crafting" then
@@ -1881,7 +1895,7 @@ RegisterNetEvent('inventory:server:SetInventoryData', function(fromInventory, to
 				end
 			end
 		else
-			TriggerClientEvent("QBCore:Notify", src, "Item doesn't exist??", "error")
+			TriggerClientEvent("QBCore:Notify", src, "Vật phẩm không tồn tại", "error")
 		end
 	end
 end)

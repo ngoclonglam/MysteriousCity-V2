@@ -678,9 +678,49 @@ RegisterCommand('inventory', function()
             end
 
             if CurrentVehicle then -- Trunk
+                local model = GetEntityModel(curVeh)
                 local vehicleClass = GetVehicleClass(curVeh)
                 local maxweight
                 local slots
+
+                if model == 65402552 then
+                    maxweight = 150000
+                    slots = 50
+                    goto next
+                elseif model == GetHashKey('everon') then
+                    maxweight = 250000
+                    slots = 50
+                    goto next
+                elseif model == GetHashKey('dubsta3') then
+                    maxweight = 300000
+                    slots = 50
+                    goto next
+                elseif model == GetHashKey('mule5') then
+                    maxweight = 500000
+                    slots = 100
+                    goto next
+                elseif model == GetHashKey('caracara2') then
+                    maxweight = 180000
+                    slots = 50
+                    goto next
+                elseif model == GetHashKey('bmws19') then
+                    maxweight = 60000
+                    slots = 50
+                    goto next
+                elseif model == GetHashKey('gxrx7') then
+                    maxweight = 90000
+                    slots = 50
+                    goto next
+                elseif model == GetHashKey('dinghy') then
+                    maxweight = 120000
+                    slots = 50
+                    goto next
+                elseif model == GetHashKey('mazdaanime') then
+                    maxweight = 90000
+                    slots = 50
+                    goto next
+                end
+
                 if vehicleClass == 0 then
                     maxweight = 38000
                     slots = 30
@@ -730,6 +770,9 @@ RegisterCommand('inventory', function()
                     maxweight = 60000
                     slots = 35
                 end
+
+                ::next::
+
                 local other = {
                     maxweight = maxweight,
                     slots = slots,
