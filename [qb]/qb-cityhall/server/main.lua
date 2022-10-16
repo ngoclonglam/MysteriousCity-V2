@@ -1,13 +1,26 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 local availableJobs = {
-    ["trucker"] = "Trucker",
+    -- ["trucker"] = "Trucker",
     ["taxi"] = "Taxi",
-    ["tow"] = "Tow Truck",
-    ["reporter"] = "News Reporter",
-    ["garbage"] = "Garbage Collector",
-    ["bus"] = "Bus Driver",
-    ["hotdog"] = "Hot Dog Stand"
+    -- ["tow"] = "Tow Truck",
+    -- ["reporter"] = "News Reporter",
+    -- ["garbage"] = "Garbage Collector",
+    -- ["bus"] = "Bus Driver",
+    -- ["hotdog"] = "Hot Dog Stand"
 }
+
+-- Exports
+
+local function AddCityJob(jobName, label)
+    if availableJobs[jobName] then
+        return false, "already added"
+    else
+        availableJobs[jobName] = label
+        return true, "success"
+    end
+end
+
+exports('AddCityJob', AddCityJob)
 
 -- Functions
 
