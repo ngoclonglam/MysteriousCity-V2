@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div class="counter">Progress: <span style="color:var(--layoutColor)">0%</span></div>
+    <div class="counter">MỤC TIÊU: <span style="color:var(--layoutColor)">0%</span></div>
     
     <div class="WorkMenu">
         <div class="container">
@@ -23,8 +23,8 @@
                 </div>
 
                 <div class="flex2">
-                    <div class="button" onclick="startJob()">Start Working</div>
-                    <div class="button" onclick="cloakroom()" id="Cloakroom">Cloakroom</div>
+                    <div class="button" onclick="startJob()">Làm Việc</div>
+                    <div class="button" onclick="cloakroom()" id="Cloakroom">Thay Đồ</div>
                 </div>
             </div>
         </div>
@@ -32,11 +32,11 @@
     
     <div class="cloakroomMenu">
         <div class="container">
-            <div class="containerTittle">Cloakroom</div>
+            <div class="containerTittle">Thay Đồ</div>
             <div class="containerInside">
                 <div class="flex2">
-                    <div onclick="workClothes()" class="button" style="margin-top: 1vh;"><i class="fa-solid fa-business-time"></i> <div>Work Clothes</div></div>
-                    <div onclick="citizenClothes()" class="button"><i class="fa-solid fa-user-tie"></i><div>Citizen Clothes</div></div>
+                    <div onclick="workClothes()" class="button" style="margin-top: 1vh;"><i class="fa-solid fa-business-time"></i> <div>Đồ Làm Việc</div></div>
+                    <div onclick="citizenClothes()" class="button"><i class="fa-solid fa-user-tie"></i><div>Đồ Thường</div></div>
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
 
     <div class="closestPlayers">
         <div class="container">
-            <div class="containerTittle">NEARBY PLAYERS</div>
+            <div class="containerTittle">NGƯỜI CHƠI GẦN ĐÓ</div>
             <div class="containerInside">
                 <div class="flex2">
                 </div>
@@ -55,14 +55,14 @@
     <div class="inviteBox">
         <div class="container">
             <div class="containerInside">
-                You have received an invitation to join the team from
+                Bạn đã nhận được lời mời tham gia nhóm từ
                 <div class="flex">
                     <div class="partyHost"><i class="fa-regular fa-user"></i><span id="inviteUser"></span></div>
                 </div>
     
                 <div class="flex3">
-                    <div class="button2" onclick="reactRequest(true)">Accept</div>
-                    <div class="button2"onclick="reactRequest(false)">Decline</div>
+                    <div class="button2" onclick="reactRequest(true)">Chấp Nhận</div>
+                    <div class="button2"onclick="reactRequest(false)">Từ Chối</div>
                 </div>
             </div>
         </div>

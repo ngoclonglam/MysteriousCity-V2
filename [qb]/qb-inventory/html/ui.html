@@ -26,11 +26,11 @@
           });
         </script>
       </head>
-    <body style="background-color: rgba(0, 0, 0, 0); font-family: 'Roboto', sans-serif !important;">
+    <body style="background-color: rgba(0, 0, 0, 0); font-family: 'Montserrat Alternates', sans-serif !important;">
         <div id="qbcore-inventory">
             <div class="inventory-info">
                 <div class="player-inv-info">
-                    <span id="player-inv-label">Player</span><br>
+                    <span id="player-inv-label">Người Chơi</span><br>
                     <!-- <img class="weight-img" src="images/weight.png"> -->
                         <div>
                             <div id="progressbar">
@@ -61,11 +61,11 @@
                         <!-- <img class="brand-logo" src="./images/lj-symbol.svg"></img> -->
                         <input type="number" id="item-amount" class="inv-option-item" min=1 max="10000" placeholder="Amount" pattern="[0-9]" onfocus="this.value=''" placeholder="" oninput="validity.valid||(value='');"></input>                        <div class="inv-option-item" id="item-use"><p>Use</p></div>
                         <!-- <img class="inv-option-hand" id= "item-use" src="images/hand-1.png"> -->
-                        <div class="inv-option-item" id="item-give"><p>Give</p></div>
-                        <div class="inv-option-item" id="inv-close"><p>Close</p></div>
+                        <div class="inv-option-item" id="item-give"><p>Cho</p></div>
+                        <div class="inv-option-item" id="inv-close"><p>Đóng</p></div>
                         <div class="combine-option-container">
-                            <div class="btn-combine CombineItem"><p>Combine</p></div>
-                            <div class="btn-combine SwitchItem"><p>Switch</p></div>
+                            <div class="btn-combine CombineItem"><p>Chế</p></div>
+                            <div class="btn-combine SwitchItem"><p>Chuyển</p></div>
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                   <q-dialog v-model="options">
                     <q-card>
                       <q-card-section>
-                        <div class="text-h6">Options</div>
+                        <div class="text-h6">Tùy Chọn</div>
                       </q-card-section>
               
                       <q-card-section class="q-pt-none">
@@ -106,8 +106,8 @@
                                 <q-checkbox dark v-on:click="select($event)" v-model="showblur" color="checkbox"></q-checkbox>
                             </q-item-section>
                             <q-item-section>
-                                <q-item-label class="text-check">Show Background Blur</q-item-label>
-                                <q-item-label caption>Disabling this will remove the background blur effect while inside your inventory.</q-item-label>
+                                <q-item-label class="text-check">Hiển Thị Nền Mờ</q-item-label>
+                                <q-item-label caption>Vô hiệu hóa điều này sẽ loại bỏ hiệu ứng mờ trong túi đồ của bạn</q-item-label>
                             </q-item-section>
                             </q-item>
                         </div>
@@ -126,44 +126,44 @@
                       </q-card-section>
               
                       <q-card-section class="q-pt-none">
-                        To move a full stack make sure the <b>AMOUNT FIELD</b> is empty. You can type the specific <b>NUMBER AMOUNT</b> for how much you would like to move. To <b>USE</b> an item, drag it into the middle option titled "USE" or you can <b>DOUBLE CLICK</b>. The <b>AMOUNT FIELD</b> will NOT reset when you close your inventory, so make sure you get in the habit of clearing the number!
+                        Để chuyển hết số lượng đồ thì hãy để trống chỗ số lượng <b>SỐ LƯỢNG</b>. Bạn có thể nhập số lượng chính xác <b>Số Lượng</b> để sử dụng vật phẩm. Để <b>SỬ DỤNG</b> vật phẩm, kéo nó vào chữ "DÙNG" hoặc có thể <b>NHẦN 2 LẦN</b>. Chỗ <b>SỐ LƯỢNG</b> sẽ không có được làm mới khi đóng túi đồ, nên hãy nhớ xóa nó trước khi đóng!
                       </q-card-section>
 
                       <q-card-section>
-                        <div class="text-h6">Middle Options:</div>
+                        <div class="text-h6">Tùy Chọn Giữa:</div>
                       </q-card-section>
 
                       <q-card-section class="q-pt-none">
                         <ul>
-                            <li>Use: Drag item to this button to use that item</li>
-                            <li>Give: Give item to other citizens around you</li>
-                            <li>Combine: Combine certain items together</li>
-                            <li>Switch: Switch current item</li>
-                            <li>Attachments: When you have items you can attach to your weapons</li>
-                            <li>Close: Another way to close the inventory</li>
+                            <li>Dùng: Kéo vật phẩm vào nút này để sử dụng vật phẩm</li>
+                            <li>Cho: Đưa vật phẩm cho người chơi gần bạn</li>
+                            <li>Chế: Kết hợp các vật phẩm với nhau</li>
+                            <li>Chuyển: Chuyển đổi vật phẩm hiện tại</li>
+                            <li>Phụ Kiện: Khi bạn có vật phẩm, bạn có thể gắn vào vũ khí của mình</li>
+                            <li>Đóng: Một cách khác để đóng túi đồ</li>
                         </ul>
                       </q-card-section>
 
                       <q-card-section>
-                        <div class="text-h6">Keybinds (default):</div>
+                        <div class="text-h6">Nút (mặc định):</div>
                       </q-card-section>
 
                       <q-card-section class="q-pt-none">
                         <ul>
-                            <li>Left Click: Normal drag</li>
-                            <li>Right Click: Drop item or move single item storage</li>
-                            <li>Double Click: Use Item</li>
-                            <li>Number 0-9: Will input the typed number</li>
-                            <li>BACKSPACE Key: Will set <b>AMOUNT</b> to blank/move entire item stack</li>
+                            <li>Chuột Trái: Kéo bình thường</li>
+                            <li>Chuột Phải: Bỏ vật phẩm hoặc di chuyển vật phẩm vào kho</li>
+                            <li>Nhấn 2 Lần: Sử dụng vật phẩm</li>
+                            <li>Số 0-9: Sẽ nhập số được đánh máy</li>
+                            <li>Nút BACKSPACE: Sẽ đặt <b>SỐ LƯỢNG</b> về trống hoặc di chuyển toàn bộ ngăn xếp vật phẩm</li>
                         </ul>
                       </q-card-section>
 
                       <q-card-section>
-                        <div class="text-h6">Shops:</div>
+                        <div class="text-h6">Cửa Hàng:</div>
                       </q-card-section>
                       
                       <q-card-section class="q-pt-none">
-                        Put in the <b>AMOUNT</b> you want to buy in the <b>AMOUNT FIELD</b> and then drag the shop item into your inventory
+                        Ghi <b>SỐ LƯỢNG</b> bạn muốn mua vào ô <b>SỐ LƯỢNG</b> và kéo vào trong túi đồ của bạn
                       </q-card-section>
                     </q-card>
                   </q-dialog>
@@ -174,7 +174,7 @@
         <div class="weapon-attachments-container">
             <div class="weapon-attachments-container-title">Pistol | <span style="font-size: 2vh;">9mm</span></div>
             <div class="weapon-attachments-container-description">This is a water gun yaay ...</div>
-            <div class="weapon-attachments-container-details"><span style="font-weight: bold; letter-spacing: .1vh;">Serial Number</span><br> 12345678<br><br><span style="font-weight: bold; letter-spacing: .1vh;">Durability</span> <div class="weapon-attachments-container-detail-durability"><div class="weapon-attachments-container-detail-durability-total"></div></div></div>
+            <div class="weapon-attachments-container-details"><span style="font-weight: bold; letter-spacing: .1vh;">Số Seri</span><br> 12345678<br><br><span style="font-weight: bold; letter-spacing: .1vh;">Durability</span> <div class="weapon-attachments-container-detail-durability"><div class="weapon-attachments-container-detail-durability-total"></div></div></div>
             <img src="./attachment_images/weapon_pistol.png" class="weapon-attachments-container-image">
 
             <div class="weapon-attachments-title"><span style="font-weight: bold; letter-spacing: .1vh;">Attachments</span></div>
@@ -183,7 +183,7 @@
 
             <div class="weapon-attachments-remove"><i class="fas fa-trash"></i></div>
 
-            <div class="weapon-attachments-back"><p>RETURN</p></div>
+            <div class="weapon-attachments-back"><p>TRỞ VỀ</p></div>
         </div>
         <div class="itemboxes-container"></div>
         <div class="itembox-container template"></div>

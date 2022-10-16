@@ -97,7 +97,7 @@ body {
     left: 4vh;
     font-size: 1.1vh;
     color: white;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
 }
 
 .phone-currentcall-contact {
@@ -106,7 +106,7 @@ body {
     left: 4vh;
     font-size: 1vh;
     color: rgba(255, 255, 255, 0.7);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
 }
 
 .phone-frame {
@@ -231,7 +231,7 @@ body {
     width: 20%;
     text-align: center;
     float: left;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     color: white;
     transition: .3s;
 }
@@ -246,7 +246,7 @@ body {
     width: 25%;
     text-align: center;
     float: left;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     color: white;
     transition: .1s;
 }
@@ -327,7 +327,7 @@ body {
     top: 1vh;
     left: 4.5vh;
     font-size: 1.1vh;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     color: #ffffff;
 }
 
@@ -336,7 +336,7 @@ body {
     top: 2.7vh;
     left: 4.5vh;
     font-size: 1vh;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     color: rgb(255, 255, 255);
     width: 16vh;
     overflow: hidden;
@@ -398,7 +398,7 @@ body {
     left: 7.5vh;
     font-size: 1.5vh;
     color: white;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
 }
 
 .screen-notification-content {
@@ -407,7 +407,7 @@ body {
     left: 7.5vh;
     font-size: 1.2vh;
     color: white;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     height: 3.5vh;
     width: 26vh;
     overflow: hidden;
@@ -428,7 +428,7 @@ body {
     left: 7.5vh;
     font-size: 1.5vh;
     color: white;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
 }
 
 .call-notifications-content {
@@ -437,7 +437,7 @@ body {
     left: 7.5vh;
     font-size: 1.2vh;
     color: white;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     height: 3.5vh;
     width: 26vh;
     overflow: hidden;
@@ -454,7 +454,7 @@ body {
     line-height: 2vh;
     background: #d63031;
     border-radius: 50%;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     font-size: 1.1vh;
 }
 

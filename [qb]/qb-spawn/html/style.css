@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
 #app {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
 }
 
 .spawn-locations {
@@ -62,7 +62,7 @@
 }
 
 .spawn_locations-header > p {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     letter-spacing: 1px;
     font-weight: bold;
     position: relative;

@@ -80,12 +80,12 @@ Config.Lang = {
     ["quit"] = "Bạn đã rời khỏi đội",
     ["cantSpawnVeh"] = "Chỗ lấy xe đã có xe khác",
     ["nobodyNearby"] = "Không có ai ở gần",
-    ["TargetCoords"] = "Deliverer Destination",
-    ["deliverParcel"] = "Deliver the Parcel",
-    ["takeParcel"] = "Take the parcel",
-    ["wait"] = "Now wait for someone to open the door",
-    ["missingParcel"] = "You don't have a package with you. Take it from the car",
-    ["spawnPointBusy"] = "The car's spawn site is occupied",
+    ["TargetCoords"] = "Điểm Đến Giao Hàng",
+    ["deliverParcel"] = "Cung Cấp Bưu Kiện",
+    ["takeParcel"] = "Lấy bưu kiện",
+    ["wait"] = "Bây giờ đợi ai đó đến và mở cửa",
+    ["missingParcel"] = "Bạn không có gói hàng ở đó, hãy ra xe và lấy",
+    ["spawnPointBusy"] = "Chỗ lấy xe đang có người dùng",
 
     -- Server
     ["isAlreadyHost"] = "Người chơi này dẫn dắt đội của bạn",
@@ -95,10 +95,10 @@ Config.Lang = {
     ["InviteDeclined"] = "Lời mời của bạn đã bị từ chối.",
     ["InviteAccepted"] = "Lời mời của bạn đã được chấp nhận!",
     ["error"] = "Có một vấn đề khi tham gia một đội, vui lòng thử lại sau.",
-    ["kickedOut"] = "You've been kicked out of the team!",
+    ["kickedOut"] = "Bạn đã bị đuổi khỏi đội!",
     ["reward"] = "Bạn đã nhận được một khoản thanh toán là $",
     ["RequireOneFriend"] = "Công việc này yêu cầu ít nhất một thành viên trong nhóm",
-    ["dontHaveReqItem"] = "You do not have the required item to start work"
+    ["dontHaveReqItem"] = "Bạn không có vật phẩm yêu cầu để bắt đầu công việc"
 
 }
 

@@ -27,7 +27,7 @@
 #menu_heading
 {
     text-align: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     text-transform: uppercase;
     font-size: 18pt;
     font-weight: 400;
@@ -42,7 +42,7 @@
 #menu_subheading
 {
     text-align: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     text-transform: uppercase;
     font-size: 12pt;
     font-weight: 300;
@@ -61,7 +61,7 @@
     margin: 0px;
     padding: 0px;
     
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     text-transform: uppercase;
     font-size: 14pt;
     font-style: normal;
@@ -102,7 +102,7 @@
 #menu_status
 {
     text-align: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     text-transform: uppercase;
     font-size: 12pt;
     font-weight: 400;

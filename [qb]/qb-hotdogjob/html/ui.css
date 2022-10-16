@@ -26,7 +26,7 @@ body {
     line-height: 4vh;
     font-size: 1.5vh;
     color: white;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
 }
 
 .hotdogs-stocks {
@@ -55,7 +55,7 @@ body {
     position: absolute;
     left: 3.7vh;
     line-height: 2.69vh;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     font-size: 1.1vh;
 }
 
@@ -63,7 +63,7 @@ body {
     position: absolute;
     right: 1.5vh;
     line-height: 2.69vh;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     font-size: 1.1vh;
     color: white;
     float: left;
@@ -79,7 +79,7 @@ body {
 #my-level {
     position: absolute;
     font-size: 1vh;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     color: white;
     bottom: 1.2vh;
     margin: 0 auto;

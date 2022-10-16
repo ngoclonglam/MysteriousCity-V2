@@ -123,7 +123,7 @@
     position: relative;
     top: 9px;
     left: 35px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     color: rgb(255, 255, 255);
     font-size: 13px;   
 }
@@ -132,14 +132,14 @@
     position: relative;
     top: 9px;
     left: 70px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     color: rgb(255, 255, 255);
     font-size: 13px;   
 }
 
 #welcome-text {
     float: right;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
 	font-weight: bold;
     margin-top: 15px;
     margin-right: 15px;
@@ -153,7 +153,7 @@
 #contract-header-text {
     position: relative;
     top: 13px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     color: black;
 	font-weight: bold;
     font-size: 24px;
@@ -162,14 +162,14 @@
 #contract-information-text {
     position: relative;
     top: 20px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     color: rgb(0, 0, 0);
     font-size: 24px;
 }
 
 .property-info-text {
     position: relative;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     font-size: 15px;
     margin-left: 5px;
     top: 3px;
@@ -186,7 +186,7 @@
 
 .property-info-info {
     position: relative;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     font-size: 13px;
     margin-left: 5px;
     top: 12px;
@@ -198,7 +198,7 @@
 }
 /*Decorations*/
 #decorate { 
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     display: none;
     width: 100vw;
     height: 100vh;
@@ -253,7 +253,7 @@
 .header-btn > p {
     color: white;
     line-height: 4.5vh;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     text-transform: uppercase;
     font-size: 12px;
     letter-spacing: 0.1vh;
@@ -284,7 +284,7 @@
 .footer-btn > p {
     color: white;
     line-height: 4.5vh;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     text-transform: uppercase;
     font-size: 12px;
     letter-spacing: 0.1vh;
@@ -313,7 +313,7 @@
 
 #decorate-keys > li {
     color: white;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     font-size: 11px;
     margin-top: 18px;
     font-weight: bold;
@@ -357,7 +357,7 @@
 #decorate-item-name {
     position: absolute;
     color: rgb(243, 243, 243);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     padding-top: 10px;
     padding-left: 10px;
     letter-spacing: 0.1vh;
@@ -367,7 +367,7 @@
 #decorate-item-category {
     position: absolute;
     color: rgb(251, 251, 251);
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     padding-top: 35px;
     padding-left: 10px;
     letter-spacing: 0.1vh;
@@ -394,23 +394,23 @@
 }
 
 .object-select-label {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
 	font-weight: bold;
 	color: #FFFFFF;
 }
 
 .select-object {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
 	border-radius: 0px!important;
 }
 
 .select-object:focus {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
 	border: none!important;
 }
 
 .btn-spawnobj {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
 	border-radius: 0px!important;
 	color: #FFFFFF;
 	background: #9e1818;
@@ -493,7 +493,7 @@
 
 #cam-label {
     position: absolute;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     font-size: 2.5vh;
     padding: 8vh;
     text-transform: uppercase;
@@ -503,7 +503,7 @@
 
 #cam-type {
     position: absolute;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     font-size: 2.5vh;
     padding: 8vh;
     top: 4vh;
@@ -516,7 +516,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     font-size: 2vh;
     padding: 8vh;
     text-transform: uppercase;

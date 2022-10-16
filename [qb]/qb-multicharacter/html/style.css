@@ -53,7 +53,7 @@
     text-align: center;
     font-size: 2vh;
     margin-top: 3.1vh;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     letter-spacing: .1vh;
     font-weight: 900;
     color: #ededed;
@@ -69,7 +69,7 @@
     width: 100%;
     height: 7vh;
     margin-top: 1.25vh;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     border-bottom: 4px solid #74aa3200;
     transition: .1s linear;
     border-radius: .3vh;
@@ -88,7 +88,7 @@
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: .1vh;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
 }
 
 .cid {
@@ -110,7 +110,7 @@
     position: relative;
     color: #ededed;
     font-size: 1.5vh;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     flex: 0 0 60%;
     padding-left: 10px;
 }
@@ -220,12 +220,12 @@
     position: absolute;
     width: 33vh;
     padding: 30px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     color: #ededed;
     background-color: rgb(27 33 49 / 95%);
     border-radius: 5px;
     box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
@@ -251,7 +251,7 @@
     text-align: left;
     font-size: 2vh!important;
     line-height: 29px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     font-weight: 900;
     text-transform: uppercase;
     overflow: visible !important;
@@ -291,7 +291,7 @@
     margin-right: auto;
     left: 32px;
     padding: 30px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     background-color: #161923f2;
     border-radius: 5px;
     box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
@@ -357,7 +357,7 @@ select {
     max-width: 100%;
     padding: 4px;
     border-radius: .3vh;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     text-align-last: center;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -417,7 +417,7 @@ input[type="date"]::-webkit-clear-button {
     line-height: 4vh;
     color: #ededed;
     text-transform: uppercase;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     font-size: 2vh;
     font-weight: 900;
 }
@@ -438,7 +438,7 @@ input[type="date"]::-webkit-clear-button {
 .loading-container > p {
     color: white;
     margin-top: 1vh;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     text-shadow: 1px 1px 0px #00000085;
 }
 

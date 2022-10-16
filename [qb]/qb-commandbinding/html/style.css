@@ -36,7 +36,7 @@ body {
     color: white;
     font-weight: 900;
     font-size: 2vh;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     letter-spacing: 0.15vh;
     text-transform: uppercase;
 }
@@ -72,7 +72,7 @@ input[type="text"] {
     /* padding-left: 1vh; */
     font-weight: bold;
     font-size: 1vh;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     letter-spacing: 0.1vh;
     text-transform: uppercase;
     color: rgb(255, 255, 255);
@@ -81,7 +81,7 @@ input[type="text"] {
 .command::-webkit-input-placeholder {
     font-weight: bold;
     font-size: 1vh;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     letter-spacing: 0.1vh;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.75);
@@ -111,7 +111,7 @@ input[type="text"] {
     /* padding-left: 1vh; */
     font-weight: bold;
     font-size: 1vh;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     letter-spacing: 0.1vh;
     text-transform: uppercase;
     color: rgb(255, 255, 255);
@@ -120,7 +120,7 @@ input[type="text"] {
 .argument::-webkit-input-placeholder {
     font-weight: bold;
     font-size: 1vh;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     letter-spacing: 0.1vh;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.75);
@@ -147,7 +147,7 @@ input[type="text"] {
     line-height: 5vh;
     font-weight: bold;
     font-size: 1.2vh;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     letter-spacing: 0.1vh;
     text-transform: uppercase;
     background: rgba(37, 37, 37, 0.418);
@@ -170,7 +170,7 @@ input[type="text"] {
     color: white;
     font-weight: bold;
     font-size: 1.4vh;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     letter-spacing: 0.1vh;
     text-transform: uppercase;
 }

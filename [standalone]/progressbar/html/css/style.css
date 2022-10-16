@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 html {
     overflow: hidden;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
 }
 
 body {
@@ -17,7 +17,7 @@ body {
     display: none;
     z-index: 5;
     color: #fff;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
     width: 15%;
     position: fixed;
     bottom: 12.65%;
@@ -44,7 +44,7 @@ body {
     color: #ffffff;
     z-index: 10;
     font-weight: bold;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
 }
 
 .progress-bar-container {
