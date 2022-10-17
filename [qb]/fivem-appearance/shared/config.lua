@@ -650,7 +650,27 @@ Config.ClothingRooms = {
             minZ = 30.69 - 1.5,
             maxZ = 30.69 + 1.5,
         }
-    }
+    },
+    {
+        job = "mechanic",
+        coords = vector4(458.55, -997.85, 30.69, 77.19),
+        width = 3,
+        length = 3,
+        zone = {
+            shape = {
+                vector2(460.41918945312, -993.11444091797),
+                vector2(449.39508056641, -993.60614013672),
+                vector2(449.88696289062, -990.23779296875),
+                vector2(450.97882080078, -989.71411132812),
+                vector2(451.0325012207, -987.89904785156),
+                vector2(453.47863769531, -987.76928710938),
+                vector2(454.35513305664, -988.46459960938),
+                vector2(460.4231262207, -987.94573974609)
+            },
+            minZ = 30.69 - 1.5,
+            maxZ = 30.69 + 1.5,
+        }
+    },
 }
 
 
@@ -1004,7 +1024,52 @@ Config.Outfits = {
                 grades = {3, 4},
             }
         }
-    }
+    },
+    ["mechanic"] = {
+        ["male"] = {
+            {
+                name = "Nhân Viên",
+                outfitData = {
+                    ["arms"] = {item = 88, texture = 0}, -- Arms
+                    ["t-shirt"] = {item = 89, texture = 0}, -- T-Shirt
+                    ["torso2"] = {item = 66, texture = 0}, -- Jackets
+                    ["vest"] = {item = 0, texture = 0}, -- Vest
+                    ["decals"] = {item = 0, texture = 0}, -- Decals
+                    ["accessory"] = {item = 0, texture = 0}, -- Neck
+                    ["bag"] = {item = 0, texture = 0}, -- Bag
+                    ["pants"] = {item = 39, texture = 0}, -- Pants
+                    ["shoes"] = {item = 24, texture = 0}, -- Shoes
+                    ["mask"] = {item = 0, texture = 0}, -- Mask
+                    ["hat"] = {item = 0, texture = 0}, -- Hat
+                    ["glass"] = {item = 0, texture = 0}, -- Glasses
+                    ["ear"] = {item = 0, texture = 0} -- Ear accessories
+                },
+                grades = {1, 2, 3, 4},
+            },
+        },
+        ["female"] = {
+            {
+                name = "T-Shirt",
+                outfitData = {
+                    ["arms"] = {item = 109, texture = 0}, -- Arms
+                    ["t-shirt"] = {item = 159, texture = 0}, -- T-Shirt
+                    ["torso2"] = {item = 258, texture = 0}, -- Jackets
+                    ["vest"] = {item = 0, texture = 0}, -- Vest
+                    ["decals"] = {item = 66, texture = 0}, -- Decals
+                    ["accessory"] = {item = 97, texture = 0}, -- Neck
+                    ["bag"] = {item = 0, texture = 0}, -- Bag
+                    ["pants"] = {item = 99, texture = 0}, -- Pants
+                    ["shoes"] = {item = 55, texture = 0}, -- Shoes
+                    ["mask"] = {item = 121, texture = 0}, -- Mask
+                    ["hat"] = {item = 121, texture = 0}, -- Hat
+                    ["glass"] = {item = 0, texture = 0}, -- Glasses
+                    ["ear"] = {item = 0, texture = 0} -- Ear accessories
+                },
+                grades = {1, 2, 3, 4},
+            },
+
+        }
+    },
 }
 
 Config.InitialPlayerClothes = {
