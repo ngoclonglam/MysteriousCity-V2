@@ -324,7 +324,7 @@ end)
 function OpenShop(config, isPedMenu, shopType)
     QBCore.Functions.TriggerCallback("fivem-appearance:server:hasMoney", function(hasMoney, money)
         if not hasMoney and not isPedMenu then
-            QBCore.Functions.Notify("Not enough cash. Need $" .. money, "error")
+            QBCore.Functions.Notify("Không đủ tiền mặt cần $" .. money, "error")
             return
         end
 
@@ -335,7 +335,7 @@ function OpenShop(config, isPedMenu, shopType)
                 end
                 TriggerServerEvent('fivem-appearance:server:saveAppearance', appearance)
             else
-                QBCore.Functions.Notify("Cancelled Customization")
+                QBCore.Functions.Notify("Hủy bỏ")
             end
         end, config)
     end, shopType)
@@ -401,7 +401,7 @@ RegisterNetEvent('fivem-appearance:client:saveOutfit', function()
             end
 
             if outfitExists then
-                QBCore.Functions.Notify("Outfit with this name already exists.", "error")
+                QBCore.Functions.Notify("Trang phục với tên này đã tồn tại.", "error")
                 return
             end
 
@@ -779,7 +779,7 @@ RegisterNetEvent("fivem-appearance:client:changeOutfit", function(data)
                 ResetRechargeMultipliers()
             else
                 QBCore.Functions.Notify(
-                    "Something went wrong. The outfit that you're trying to change to, does not have a base appearance.",
+                    "Có gì đó đã sai, trang phục mà bạn đang cố gắng thay đổi, không có vẻ ngoài cơ bản.",
                     "error")
                 failed = true
             end
@@ -833,12 +833,12 @@ end)
 
 RegisterNetEvent("fivem-appearance:client:DeleteManagementOutfit", function(id)
     TriggerServerEvent("fivem-appearance:server:deleteManagementOutfit", id)
-    QBCore.Functions.Notify('Outfit Deleted', 'error')
+    QBCore.Functions.Notify('Trang phục bị xóa', 'error')
 end)
 
 RegisterNetEvent('fivem-appearance:client:deleteOutfit', function(id)
     TriggerServerEvent('fivem-appearance:server:deleteOutfit', id)
-    QBCore.Functions.Notify('Outfit Deleted', 'error')
+    QBCore.Functions.Notify('Trang phục bị xóa', 'error')
 end)
 
 RegisterNetEvent('fivem-appearance:client:openJobOutfitsMenu', function(outfitsToShow)

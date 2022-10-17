@@ -1040,9 +1040,9 @@ Config.Outfits = {
                     ["pants"] = {item = 39, texture = 0}, -- Pants
                     ["shoes"] = {item = 24, texture = 0}, -- Shoes
                     ["mask"] = {item = 0, texture = 0}, -- Mask
-                    ["hat"] = {item = 0, texture = 0}, -- Hat
-                    ["glass"] = {item = 0, texture = 0}, -- Glasses
-                    ["ear"] = {item = 0, texture = 0} -- Ear accessories
+                    ["hat"] = {item = -1, texture = 0}, -- Hat
+                    ["glass"] = {item = -1, texture = 0}, -- Glasses
+                    ["ear"] = {item = -1, texture = 0} -- Ear accessories
                 },
                 grades = {1, 2, 3, 4},
             },
