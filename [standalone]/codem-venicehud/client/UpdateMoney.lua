@@ -6,7 +6,7 @@ local lastBank = nil
 function loadESXMoneyAndJob()
     local breakLoop = false
     while true do
-        if frameworkObject then
+        if frameworkObject ~= nil then
             if frameworkObject.GetPlayerData() then
                 while frameworkObject.GetPlayerData().job == nil do
                     Wait(0)
@@ -22,7 +22,7 @@ function loadESXMoneyAndJob()
                         money = cash
                     })
                     lastCash = cash
-                end, "cash")                
+                end, "cash")
                 frameworkObject.TriggerServerCallback("codem-venicehud:GetMoney", function(bank)
                     SendNUIMessage({
                         type = "update_bank",
@@ -33,7 +33,7 @@ function loadESXMoneyAndJob()
                 end, "bank")
                 if breakLoop then
                     return
-                end 
+                end
             end
         end
         Wait(0)
@@ -51,20 +51,20 @@ CreateThread(function()
     else
         Wait(1000)
         local breakLoop = false
-        while true do   
+        while true do
             Wait(0)
-            if frameworkObject then
+            if frameworkObject ~= nil then
                 local Player = frameworkObject.Functions.GetPlayerData()
                 if Player then
-                    if Player.job then
-                        print(Player.job.gradelabel)
+                    if Player.job ~= nil then
+                        print(json.encode(Player.job))
                         SendNUIMessage({
                             type = "update_job",
                             joblabel = Player.job.label,
                             grade_label = Player.job.gradelabel
                         })
                     end
-                    if Player.money then
+                    if Player.money ~= nil then
                         SendNUIMessage({
                             type = "update_money",
                             money = Player.money.cash
@@ -78,7 +78,7 @@ CreateThread(function()
 
                         breakLoop = true
                     end
-            
+
                     if breakLoop then
                         break
                     end
@@ -96,7 +96,7 @@ AddEventHandler("es:addedMoney", function(a, b, m)
         type = "update_money",
         money = m
     })
-  
+
 end)
 
 RegisterNetEvent("es:removedMoney")
