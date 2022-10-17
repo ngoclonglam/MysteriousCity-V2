@@ -1168,7 +1168,7 @@ QBCore.Commands.Add("setmetadata", "Set Player Metadata (God)", {}, false, funct
     end
 end, "god")
 
-QBCore.Commands.Add('bill', 'Bill A Player', {{name = 'id', help = 'Player ID'}, {name = 'amount', help = 'Fine Amount'}}, false, function(source, args)
+QBCore.Commands.Add('bill', 'Bill A Player', {{name = 'id', help = 'ID Người chơi'}, {name = 'amount', help = 'Fine Amount'}}, false, function(source, args)
     local biller = QBCore.Functions.GetPlayer(source)
     local billed = QBCore.Functions.GetPlayer(tonumber(args[1]))
     local amount = tonumber(args[2])

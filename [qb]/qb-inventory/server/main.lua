@@ -2100,7 +2100,7 @@ QBCore.Commands.Add("randomitems", "Give Random Items (God Only)", {}, false, fu
 	end
 end, "god")
 
-QBCore.Commands.Add('clearinv', 'Clear Players Inventory (Admin Only)', { { name = 'id', help = 'Player ID' } }, false, function(source, args)
+QBCore.Commands.Add('clearinv', 'Clear Players Inventory (Admin Only)', { { name = 'id', help = 'ID Người chơi' } }, false, function(source, args)
     local playerId = args[1] ~= '' and tonumber(args[1]) or source
     local Player = QBCore.Functions.GetPlayer(playerId)
     if Player then

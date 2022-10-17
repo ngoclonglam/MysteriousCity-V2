@@ -346,7 +346,7 @@ QBCore.Commands.Add('staffchat', Lang:t("commands.staffchat_message"), {{name='m
     TriggerClientEvent('qb-admin:client:SendStaffChat', -1, GetPlayerName(source), msg)
 end, 'admin')
 
-QBCore.Commands.Add('givenuifocus', Lang:t("commands.nui_focus"), {{name='id', help='Player id'}, {name='focus', help='Set focus on/off'}, {name='mouse', help='Set mouse on/off'}}, true, function(_, args)
+QBCore.Commands.Add('givenuifocus', Lang:t("commands.nui_focus"), {{name='id', help='ID Người chơi'}, {name='focus', help='Set focus on/off'}, {name='mouse', help='Set mouse on/off'}}, true, function(_, args)
     local playerid = tonumber(args[1])
     local focus = args[2]
     local mouse = args[3]

@@ -103,7 +103,7 @@ local Translations = {
         setgang = {
             help = 'Määra mängija grupeeringu (ainult administraator)',
             params = {
-                id = { name = 'id', help = 'Player ID' },
+                id = { name = 'id', help = 'ID Người chơi' },
                 gang = { name = 'tase', help = 'Grupeeringu nimi' },
                 grade = { name = 'tase', help = 'Grupeeringu tase' },
             },

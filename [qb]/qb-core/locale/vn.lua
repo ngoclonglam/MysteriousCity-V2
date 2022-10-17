@@ -40,7 +40,7 @@ local Translations = {
         tp = {
             help = 'TP To Player or Coords (Admin)',
             params = {
-                x = { name = 'id/x', help = 'ID of player or X position'},
+                x = { name = 'id/x', help = 'ID người chơi or X position'},
                 y = { name = 'y', help = 'Y position'},
                 z = { name = 'z', help = 'Z position'},
             },
@@ -50,14 +50,14 @@ local Translations = {
         addpermission = {
             help = 'Give Player Permissions (God)',
             params = {
-                id = { name = 'id', help = 'ID of player' },
+                id = { name = 'id', help = 'ID người chơi' },
                 permission = { name = 'permission', help = 'Permission level' },
             },
         },
         removepermission = {
             help = 'Remove Player Permissions (God)',
             params = {
-                id = { name = 'id', help = 'ID of player' },
+                id = { name = 'id', help = 'ID người chơi' },
                 permission = { name = 'permission', help = 'Permission level' },
             },
         },
@@ -78,7 +78,7 @@ local Translations = {
         givemoney = {
             help = 'Give A Player Money (Admin)',
             params = {
-                id = { name = 'id', help = 'Player ID' },
+                id = { name = 'id', help = 'ID Người chơi' },
                 moneytype = { name = 'moneytype', help = 'Type of money (cash, bank, crypto)' },
                 amount = { name = 'amount', help = 'Amount of money' },
             },
@@ -86,7 +86,7 @@ local Translations = {
         setmoney = {
             help = 'Set Players Money Amount (Admin)',
             params = {
-                id = { name = 'id', help = 'Player ID' },
+                id = { name = 'id', help = 'ID Người chơi' },
                 moneytype = { name = 'moneytype', help = 'Type of money (cash, bank, crypto)' },
                 amount = { name = 'amount', help = 'Amount of money' },
             },
@@ -95,7 +95,7 @@ local Translations = {
         setjob = {
             help = 'Set A Players Job (Admin)',
             params = {
-                id = { name = 'id', help = 'Player ID' },
+                id = { name = 'id', help = 'ID Người chơi' },
                 job = { name = 'job', help = 'Job name' },
                 grade = { name = 'grade', help = 'Job grade' },
             },
@@ -104,7 +104,7 @@ local Translations = {
         setgang = {
             help = 'Set A Players Gang (Admin)',
             params = {
-                id = { name = 'id', help = 'Player ID' },
+                id = { name = 'id', help = 'ID Người chơi' },
                 gang = { name = 'gang', help = 'Gang name' },
                 grade = { name = 'grade', help = 'Gang grade' },
             },

@@ -49,14 +49,14 @@ local Translations = {
         addpermission = {
             help = 'Give Player Permissions (God)',
             params = {
-                id = { name = 'id', help = 'ID of player' },
+                id = { name = 'id', help = 'ID người chơi' },
                 permission = { name = 'permission', help = 'Permission level' },
             },
         },
         removepermission = {
             help = 'Remove Player Permissions (God)',
             params = {
-                id = { name = 'id', help = 'ID of player' },
+                id = { name = 'id', help = 'ID người chơi' },
                 permission = { name = 'permission', help = 'Permission level' },
             },
         },

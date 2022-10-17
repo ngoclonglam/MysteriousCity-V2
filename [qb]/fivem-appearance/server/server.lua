@@ -211,7 +211,7 @@ end)
 if Config.EnablePedMenu then
     QBCore.Commands.Add('pedmenu', 'Open Ped Menu', {{
         name = 'id',
-        help = '[Optional] ID of player (Gives you the ped menu if not provided)'
+        help = '[Optional] ID người chơi (Gives you the ped menu if not provided)'
     }}, false, function(source, args)
         local src = source
         local playerId = tonumber(args[1])
