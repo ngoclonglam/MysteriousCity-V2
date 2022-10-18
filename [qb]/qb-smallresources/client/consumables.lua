@@ -361,6 +361,18 @@ RegisterNetEvent('consumables:client:UseParachute', function()
     end)
 end)
 
+RegisterNetEvent('qb-smallresources:client:resetEffects', function()
+    local ped = PlayerPedId()
+    StopScreenEffect("DrugsMichaelAliensFightIn")
+    StopScreenEffect("DrugsMichaelAliensFight")
+    StopScreenEffect("DrugsMichaelAliensFightOut")
+    ClearTimecycleModifier()
+    ResetScenarioTypesEnabled()
+    ResetPedMovementClipset(ped, 0)
+    SetPedIsDrunk(ped, false)
+    SetPedMotionBlur(ped, false)
+end)
+
 RegisterNetEvent('consumables:client:ResetParachute', function()
     if ParachuteEquiped then
         EquipParachuteAnim()
