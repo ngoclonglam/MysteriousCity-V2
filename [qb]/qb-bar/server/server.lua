@@ -140,6 +140,5 @@ RegisterNetEvent('qb-bar:server:makeFruit', function()
     if not Player then return end
 
     Player.Functions.RemoveItem('cherry', 2)
-    Player.Functions.RemoveItem('orange', 5)
     Player.Functions.AddItem('traicay', 1)
 end)
