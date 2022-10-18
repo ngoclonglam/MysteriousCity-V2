@@ -51,22 +51,18 @@ Config.Item = {
         'orange',
         'coffeee'
     },
-
     ['beer'] = {
         'wheat',
         'bean',
         'cherry'
     },
-
     ['chicken'] = {
         'packaged_chicken'
     },
-
     ['fruit'] = {
         'cherry',
         'orange'
     },
-
     ['slice'] = {
         'bluegill',
         'silverymonnow',
@@ -75,7 +71,6 @@ Config.Item = {
         'whitefish',
         'cruciancarp',
     },
-
     ['supvica'] = {
         'vica'
     }

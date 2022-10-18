@@ -10,10 +10,10 @@ end
 
 if Config.AllowStaffsToClearEveryonesChat then
 	RegisterCommand(Config.ClearEveryonesChatCommand, function(source, args, rawCommand)
-		local xPlayer = QBCore.Functions.GetPlayer(source)
+		-- local xPlayer = QBCore.Functions.GetPlayer(source)
 		local time = os.date(Config.DateFormat)
 
-		if isAdmin(xPlayer) then
+		if isAdmin(source) then
 			TriggerClientEvent('chat:client:ClearChat', -1)
 			TriggerClientEvent('chat:addMessage', -1, {
 				template = '<div class="chat-message system"><i class="fas fa-cog"></i> <b><span style="color: #df7b00">SYSTEM</span>&nbsp;<span style="font-size: 14px; color: #e1e1e1;">{0}</span></b><div style="margin-top: 5px; font-weight: 300;">The chat has been cleared!</div></div>',
@@ -31,7 +31,7 @@ if Config.EnableStaffCommand then
 		local time = os.date(Config.DateFormat)
 		local playerName = xPlayer.PlayerData.charinfo.firstname..' '..xPlayer.PlayerData.charinfo.lastname
 
-		if isAdmin(xPlayer) then
+		if isAdmin(source) then
 			TriggerClientEvent('chat:addMessage', -1, {
 				template = '<div class="chat-message staff"><i class="fas fa-shield-alt"></i> <b><span style="color: #1ebc62">[STAFF] {0}</span>&nbsp;<span style="font-size: 14px; color: #e1e1e1;">{2}</span></b><div style="margin-top: 5px; font-weight: 300;">{1}</div></div>',
 				args = { playerName, message, time }
@@ -48,7 +48,7 @@ if Config.EnableStaffOnlyCommand then
 		local time = os.date(Config.DateFormat)
 		local playerName = xPlayer.PlayerData.charinfo.firstname..' '..xPlayer.PlayerData.charinfo.lastname
 
-		if isAdmin(xPlayer) then
+		if isAdmin(source) then
 			showOnlyForAdmins(function(admins)
 				TriggerClientEvent('chat:addMessage', admins, {
 					template = '<div class="chat-message staffonly"><i class="fas fa-eye-slash"></i> <b><span style="color: #1ebc62">[STAFF ONLY] {0}</span>&nbsp;<span style="font-size: 14px; color: #e1e1e1;">{2}</span></b><div style="margin-top: 5px; font-weight: 300;">{1}</div></div>',
@@ -116,8 +116,8 @@ if Config.EnableTwitchCommand then
 end
 
 function twitchPermission(id)
-	for i, a in ipairs(Config.TwitchList) do
-		for x, b in ipairs(GetPlayerIdentifiers(id)) do
+	for _, a in ipairs(Config.TwitchList) do
+		for _, b in ipairs(GetPlayerIdentifiers(id)) do
 			if string.lower(b) == string.lower(a) then
 				return true
 			end
@@ -144,8 +144,8 @@ if Config.EnableYoutubeCommand then
 end
 
 function youtubePermission(id)
-	for i, a in ipairs(Config.YoutubeList) do
-		for x, b in ipairs(GetPlayerIdentifiers(id)) do
+	for _, a in ipairs(Config.YoutubeList) do
+		for _, b in ipairs(GetPlayerIdentifiers(id)) do
 			if string.lower(b) == string.lower(a) then
 				return true
 			end
@@ -175,7 +175,7 @@ if Config.EnablePoliceCommand then
 		local message = rawCommand:sub(length + 1)
 		local time = os.date(Config.DateFormat)
 		local playerName = xPlayer.PlayerData.charinfo.firstname..' '..xPlayer.PlayerData.charinfo.lastname
-		local job = xPlayer.job.name
+		local job = xPlayer.PlayerData.job.name
 
 		if job == Config.PoliceJobName then
 			TriggerClientEvent('chat:addMessage', -1, {
@@ -193,7 +193,7 @@ if Config.EnableAmbulanceCommand then
 		local message = rawCommand:sub(length + 1)
 		local time = os.date(Config.DateFormat)
 		local playerName = xPlayer.PlayerData.charinfo.firstname..' '..xPlayer.PlayerData.charinfo.lastname
-		local job = xPlayer.job.name
+		local job = xPlayer.PlayerData.job.name
 
 		if job == Config.AmbulanceJobName then
 			TriggerClientEvent('chat:addMessage', -1, {
@@ -215,7 +215,7 @@ if Config.EnableOOCCommand then
 	end)
 end
 
-function isAdmin(xPlayer)
+function isAdmin(source)
 	for _, v in ipairs(Config.StaffGroups) do
 		local tbl = QBCore.Functions.GetPermission(xPlayer)
 		-- if QBCore.Functions.GetPermission(xPlayer) == v then

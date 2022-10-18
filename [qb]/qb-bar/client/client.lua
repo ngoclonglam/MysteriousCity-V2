@@ -214,7 +214,7 @@ end)
 RegisterNetEvent('qb-bar:client:openFridge', function()
     TriggerEvent("inventory:client:SetCurrentStash", "MythBar")
     TriggerServerEvent("inventory:server:OpenInventory", "stash", "MythBar", {
-        maxweight = 300000,
+        maxweight = 3000000,
         slots = 40,
     })
 end)
