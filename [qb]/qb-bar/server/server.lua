@@ -97,7 +97,7 @@ RegisterNetEvent('qb-bar:server:makeSlice', function()
 
     if not Player then return end
 
-    for _, v in pairs(Config.Items['slice']) do
+    for _, v in pairs(Config.Item['slice']) do
         Player.Functions.RemoveItem(v, 1)
     end
     Player.Functions.AddItem('vica', 1)
