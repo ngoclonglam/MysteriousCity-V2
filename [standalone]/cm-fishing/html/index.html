@@ -21,19 +21,19 @@
                 <div class="fishing-button-icon">
                     <img src="./images/arrow-down.png">
                 </div>
-                <p class="fishing-button-text">Câu Cá</p>
+                <p class="fishing-button-text">Catch Fish</p>
             </div>
             <div class="fishing-button">
                 <div class="fishing-button-icon">
                     <p>G</p>
                 </div>
-                <p class="fishing-button-text">Quăng Cần Câu...</p>
+                <p class="fishing-button-text">Swing the rod...</p>
             </div>
             <div class="fishing-button">
                 <div class="fishing-button-icon">
                     <p>X</p>
                 </div>
-                <p class="fishing-button-text">Hủy Câu Cá...</p>
+                <p class="fishing-button-text">Cancel Fishing...</p>
             </div>
             <div class="fishing-button-progress">
                 <p class="fishing-button-progress-text">{{fishingProgressText}}</p>
@@ -51,10 +51,10 @@
                             <img src="./images/nopp.png" v-if="data.playerimage == '0'" />
                             <img v-bind:src="data.playerimage" v-else />
                         </div>
-                        <h2 @click="newPage('profile')">Mr.{{data.playername}}</h2>
+                        <h2 @click="newPage('profile')">Mrs.{{data.playername}}</h2>
                         <h3>Lv.{{data.level}}</h3>
                     </div>
-                    <div class="welcome-fishing">MYSTERIOUS CITY</div>
+                    <div class="welcome-fishing">Welcome to fishing</div>
                     <div class="menu-wrapper-left-page-button">
                         <div class="menu-wrapper-left-page-button-in" @click="newPage('wiki')">
                             <div class="wiki-buton-bg"
@@ -90,22 +90,23 @@
                 <div class="menu-wrapper-middle-page">
                     <div class="top-header">
                         <div class="m-logo"> <img src="./images/m-logo.png" alt="">
-                            <h2>{{language["FISHIN"]}} </h2>
+                            <h2>{{language["FISHIN"]}} <span>{{language["FISHING"]}}</span></h2>
+
                         </div>
                     </div>
                     <div class="searchbar"
                         v-if="page == 'wiki' || page == 'wikicommon' || page == 'wikiuncommon' || page == 'wikirare' || page == 'wikilegendary'|| page == 'wikiepic'|| page == 'wikiall' || page == 'other'">
                         <div class="searchbaricon"> <img src="./images/icon-search.png" alt=""> </div> <input
-                            type="text" placeholder="Tìm kiếm.." v-model="search">
+                            type="text" placeholder="Search wiki" v-model="search">
                     </div>
                     <div class="searchbarplayer" v-if="page == 'board'">
                         <div class="searchbaricon"> <img src="./images/icon-search.png" alt=""> </div> <input
-                            type="text" placeholder="Tìm người chơi.." v-model="searchplayer">
+                            type="text" placeholder="Search player.." v-model="searchplayer">
                     </div>
                     <div class="searchbarplayer"
                         v-if="page == 'marketbuyin' ||  page == 'buymarketinall' ||  page == 'buymarketinroads' ||  page == 'buymarketinbaits'">
                         <div class="searchbaricon"> <img src="./images/icon-search.png" alt=""> </div> <input
-                            type="text" placeholder="Tìm vật phẩm.." v-model="search">
+                            type="text" placeholder="Search item.." v-model="search">
                     </div>
                     <div class="mainspot" v-if="page == 'main' && nearSpot">
                         <div class="mainspot-wrapper">
@@ -132,7 +133,7 @@
                                     <h2 class="mainspot-main-text2">{{nearSpot.spotQuality}}</h2>
                                     <h2 class="mainspot-main-text">{{language["AFKCATCHMIN"]}} <span> 1 </span>
                                         {{language["AFKCATCHMINUTE"]}}</h2>
-                                    <h2 class="mainspot-main-text2"><span> {{nearSpot.afkCatchInMinute}} </span> mỗi phút
+                                    <h2 class="mainspot-main-text2"><span> {{nearSpot.afkCatchInMinute}} </span> per mn
                                     </h2>
                                     <h2 class="mainspot-main-text">{{language["FISHQUALITYSCALE"]}} </h2>
                                     <h2 class="mainspot-main-text2">{{nearSpot.fishQualityScale}}</h2>
@@ -984,12 +985,12 @@
                                                         <p class="spot-feature-val">{{spot.location}}</p>
                                                     </div>
                                                     <div class="spot-feature">
-                                                        <p class="spot-feature-name">Đánh Giá</p>
+                                                        <p class="spot-feature-name">Spot Quality</p>
                                                         <p class="spot-feature-val">{{spot.spotQuality}}</p>
                                                     </div>
                                                     <div class="spot-feature">
                                                         <p class="spot-feature-name">{{language["AFKCATCHMIN1MIN"]}}</p>
-                                                        <p class="spot-feature-val">{{spot.afkCatchInMinute}} mỗi phút
+                                                        <p class="spot-feature-val">{{spot.afkCatchInMinute}} per mn
                                                         </p>
                                                     </div>
                                                     <div class="spot-feature">

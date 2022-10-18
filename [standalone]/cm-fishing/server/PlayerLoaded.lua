@@ -11,8 +11,8 @@ AddEventHandler('esx:playerLoaded', function(src)
     else
         ExecuteSql("INSERT INTO `codem-fishing` (`identifier`,`playername`) VALUES ('"..identifier.."','"..name.."')")
         ExecuteSql("INSERT INTO `codem-fishing-rewards` (`identifier`) VALUES ('"..identifier.."')")
-        Wait(300)
-        data = ExecuteSql("SELECT * FROM `codem-fishing`")
+        Citizen.Wait(300)
+        local data = ExecuteSql("SELECT * FROM `codem-fishing`")
         for _,v in pairs(data) do
            fishingData[v.identifier] = v
         end
@@ -34,8 +34,8 @@ AddEventHandler('QBCore:Server:OnPlayerLoaded', function()
     else
         ExecuteSql("INSERT INTO `codem-fishing` (`identifier`,`playername`) VALUES ('"..identifier.."','"..name.."')")
         ExecuteSql("INSERT INTO `codem-fishing-rewards` (`identifier`) VALUES ('"..identifier.."')")
-        Wait(300)
-        data = ExecuteSql("SELECT * FROM `codem-fishing`")
+        Citizen.Wait(300)
+        local data = ExecuteSql("SELECT * FROM `codem-fishing`")
         for _,v in pairs(data) do
            fishingData[v.identifier] = v
         end
@@ -57,11 +57,12 @@ AddEventHandler('codem-fishing:sellitem', function(playeritems,totalprice)
    else
       local xPlayer = frameworkObject.Functions.GetPlayer(source)
       if xPlayer then
-         xPlayer.Functions.AddMoney('cash',tonumber(totalprice), 'Bán cá')
+         xPlayer.Functions.AddMoney('cash',tonumber(totalprice))
          for k ,v in pairs(playeritems) do
             xPlayer.Functions.RemoveItem (v.itemname, v.itemcount)
          end
       end
+
    end
 end)
 
@@ -105,10 +106,41 @@ else
 end
 end)
 
+function itemcallback()
+    frameworkObject = GetFrameworkObject()
+    if Config.Framework == 'esx' then
+    frameworkObject.RegisterServerCallback('codem-fishing:GetItems', function(source, cb)
+        local xPlayer = frameworkObject.GetPlayerFromId(source)
+        if xPlayer then
+           local items = {}
+           for _,v in pairs(xPlayer.getInventory()) do
+              if tonumber(v.count) > 0 then
+                 table.insert(items, v)
+              end
+           end
+           cb(items)
+        else
+           cb(false)
+        end
+        end)
+    else
+
+        frameworkObject.Functions.CreateCallback('codem-fishing:GetItems', function(source, cb)
+            local xPlayer = frameworkObject.Functions.GetPlayer(source)
+            if xPlayer then
+               cb(xPlayer.PlayerData.items)
+            else
+               cb(false)
+            end
+         end)
+
+    end
+
+end
 
 
 
-CreateThread(function()
+Citizen.CreateThread(function()
     frameworkObject = GetFrameworkObject()
     if Config.Framework == 'esx' then
 

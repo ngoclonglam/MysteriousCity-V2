@@ -52,6 +52,7 @@ server_scripts {
 	'server/main.lua',
 	'server/PlayerLoaded.lua',
 	'GetFrameworkObject.lua',
+	'@async/async.lua', -- MYSQL ASYNC
 	'@mysql-async/lib/MySQL.lua',  -- MYSQL ASYNC
 }
 dependencies {
