@@ -58,8 +58,7 @@ Config.Item = {
         'packaged_chicken'
     },
     ['fruit'] = {
-        'cherry',
-        'orange'
+        'cherry'
     },
     ['slice'] = {
         'bluegill',

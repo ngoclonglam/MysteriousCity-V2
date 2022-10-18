@@ -1,5 +1,4 @@
 local QBCore = exports['qb-core']:GetCoreObject()
-local calon = ''
 
 QBCore.Functions.CreateCallback('qb-bar:server:checkItem', function(source, cb, type)
     local src = source
@@ -7,12 +6,10 @@ QBCore.Functions.CreateCallback('qb-bar:server:checkItem', function(source, cb, 
     if type == "whiskey" then
         for _, v in pairs(Config.Item['whiskey']) do
             local item = xPlayer.Functions.GetItemByName(v)
-
-            if not item and item.amount >= 40 then
-                cb(false)
-                break
-            else
+            if item and item.amount >= 40 then
                 cb(true)
+            else
+                return cb(false)
             end
         end
     elseif type == "beer" then
@@ -57,8 +54,8 @@ QBCore.Functions.CreateCallback('qb-bar:server:checkItem', function(source, cb, 
     --             have = true
     --         end
     --     end
-        
-    --     if have then print ('yes') cb(true) else print('false') cb(false) end
+
+    --     if have then print ('yes') cb(true) else print('false') return cb(false) end
     elseif type == "slice" then
         for _, v in pairs(Config.Item['slice']) do
             local item = xPlayer.Functions.GetItemByName(v)
