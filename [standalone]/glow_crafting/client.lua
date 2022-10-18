@@ -119,14 +119,14 @@ local function spawnObjFake(model, coords, heading)
     end
 
     local object2 = CreateObject(modelHash, coords.x, coords.y, coords.z - 1, false, false, false)
-    while not DoesEntityExist(object) do
+    while not DoesEntityExist(object2) do
         Wait(10)
     end
 
-    PlaceObjectOnGroundProperly(object)
-    SetEntityAsMissionEntity(object, true, true)
-    FreezeEntityPosition(object, true)
-    SetEntityHeading(object, heading)
+    PlaceObjectOnGroundProperly(object2)
+    SetEntityAsMissionEntity(object2, true, true)
+    FreezeEntityPosition(object2, true)
+    SetEntityHeading(object2, heading)
 
 
     exports['qb-target']:AddTargetEntity(object2, {
@@ -273,6 +273,5 @@ AddEventHandler('onResourceStop', function(resourceName)
         for _, prop in pairs(craftingFakeBenches) do
             DeleteObject(prop)
         end
-
     end
 end)
