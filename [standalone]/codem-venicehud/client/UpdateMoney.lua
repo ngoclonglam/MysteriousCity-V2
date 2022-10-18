@@ -9,7 +9,7 @@ function loadESXMoneyAndJob()
         if frameworkObject ~= nil then
             if frameworkObject.GetPlayerData() then
                 while frameworkObject.GetPlayerData().job == nil do
-                    Wait(0)
+                    Citizen.Wait(0)
                 end
                 SendNUIMessage({
                     type = "update_job",
@@ -22,7 +22,7 @@ function loadESXMoneyAndJob()
                         money = cash
                     })
                     lastCash = cash
-                end, "cash")
+                end, "cash")                
                 frameworkObject.TriggerServerCallback("codem-venicehud:GetMoney", function(bank)
                     SendNUIMessage({
                         type = "update_bank",
@@ -33,35 +33,73 @@ function loadESXMoneyAndJob()
                 end, "bank")
                 if breakLoop then
                     return
-                end
+                end 
             end
         end
-        Wait(0)
+        Citizen.Wait(0)
     end
 end
 
+RegisterNetEvent('codem-venicehud:job')
+AddEventHandler('codem-venicehud:job', function()
+    local breakLoop = false
+    while true do
+        if frameworkObject ~= nil then
+            if frameworkObject.GetPlayerData() then
+                while frameworkObject.GetPlayerData().job == nil do
+                    Citizen.Wait(0)
+                end
+                SendNUIMessage({
+                    type = "update_job",
+                    joblabel = frameworkObject.GetPlayerData().job.label,
+                    grade_label = frameworkObject.GetPlayerData().job.grade_label
+                })
+                frameworkObject.TriggerServerCallback("codem-venicehud:GetMoney", function(cash)
+                    SendNUIMessage({
+                        type = "update_money",
+                        money = cash
+                    })
+                    lastCash = cash
+                end, "cash")                
+                frameworkObject.TriggerServerCallback("codem-venicehud:GetMoney", function(bank)
+                    SendNUIMessage({
+                        type = "update_bank",
+                        money = bank
+                    })
+                    lastBank = bank
+                    breakLoop = true
+                end, "bank")
+                if breakLoop then
+                    return
+                end 
+            end
+        end
+        Citizen.Wait(0)
+    end
 
-CreateThread(function()
+end)
+
+Citizen.CreateThread(function()
     while not response do
-        Wait(0)
+        Citizen.Wait(0)
     end
     if Config.Framework == "esx" then
-        Wait(1000)
+        Citizen.Wait(1000)
         loadESXMoneyAndJob()
     else
-        Wait(1000)
+        Citizen.Wait(1000)
         local breakLoop = false
-        while true do
-            Wait(0)
+        while true do   
+            Citizen.Wait(0)
             if frameworkObject ~= nil then
                 local Player = frameworkObject.Functions.GetPlayerData()
+                print(json.encode(Player))
                 if Player then
                     if Player.job ~= nil then
-                        print(json.encode(Player.job))
                         SendNUIMessage({
                             type = "update_job",
                             joblabel = Player.job.label,
-                            grade_label = Player.job.gradelabel
+                            grade_label = Player.job.grade.name
                         })
                     end
                     if Player.money ~= nil then
@@ -78,7 +116,7 @@ CreateThread(function()
 
                         breakLoop = true
                     end
-
+            
                     if breakLoop then
                         break
                     end
@@ -88,15 +126,13 @@ CreateThread(function()
     end
 end)
 
-
-
 RegisterNetEvent("es:addedMoney")
 AddEventHandler("es:addedMoney", function(a, b, m)
     SendNUIMessage({
         type = "update_money",
         money = m
     })
-
+  
 end)
 
 RegisterNetEvent("es:removedMoney")
@@ -132,7 +168,7 @@ AddEventHandler("QBCore:Player:SetPlayerData", function(data)
     SendNUIMessage({
         type = "update_job",
         joblabel = data.job.label,
-        grade_label = data.job.gradelabel
+        grade_label = data.job.grade.name
     })
 end)
 
