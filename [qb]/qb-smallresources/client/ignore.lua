@@ -21,7 +21,7 @@ CreateThread(function() -- all these should only need to be called once
 		StartAudioScene("CHARACTER_CHANGE_IN_SKY_SCENE")
 	end
 	SetAudioFlag("PoliceScannerDisabled", true)
-	SetGarbageTrucks(false)	
+	SetGarbageTrucks(false)
 	SetCreateRandomCops(false)
 	SetCreateRandomCopsNotOnScenarios(false)
 	SetCreateRandomCopsOnScenarios(false)
@@ -62,34 +62,34 @@ if Config.DisableIdleCamera then --Disable Idle Cinamatic Cam
 	DisableIdleCamera(true)
 end
 
-CreateThread(function()
-	local inside = false
-	local carDealer = PolyZone:Create({
-		vector2(-363.85711669922, -862.86657714844),
-		vector2(-364.35104370118, -970.29016113282),
-		vector2(-316.8046875, -986.37463378906),
-		vector2(-268.66345214844, -886.1801147461)
-	  }, {
-		name = "CarDealer",
-		minZ = 31.080614089966,
-		maxZ = 32.73040008545,
-		debugPoly = false
-	})
+-- CreateThread(function()
+-- 	local inside = false
+-- 	local carDealer = PolyZone:Create({
+-- 		vector2(-363.85711669922, -862.86657714844),
+-- 		vector2(-364.35104370118, -970.29016113282),
+-- 		vector2(-316.8046875, -986.37463378906),
+-- 		vector2(-268.66345214844, -886.1801147461)
+-- 	  }, {
+-- 		name = "CarDealer",
+-- 		minZ = 31.080614089966,
+-- 		maxZ = 32.73040008545,
+-- 		debugPoly = false
+-- 	})
 
-	carDealer:onPlayerInOut(function(isPointInside)
-		inside = isPointInside
-		if inside then
-			ClearAreaOfPeds(-333.08, -918.05, 32.8, 200.0, 1)
-			ClearAreaOfVehicles(-333.08, -918.05, 32.8, 200.0, false, false, false, false, false, false)
-		end
-	end)
+-- 	carDealer:onPlayerInOut(function(isPointInside)
+-- 		inside = isPointInside
+-- 		if inside then
+-- 			ClearAreaOfPeds(-333.08, -918.05, 32.8, 200.0, 1)
+-- 			ClearAreaOfVehicles(-333.08, -918.05, 32.8, 200.0, false, false, false, false, false, false)
+-- 		end
+-- 	end)
 
-	-- while true do
-	-- 	ClearAreaOfPeds(-333.08, -918.05, 32.8, 100.0, 1)
-	-- 	ClearAreaOfVehicles(-333.08, -918.05, 32.8, 100.0, false, false, false, false, false, false)
-	-- 	Wait(1000)
-	-- end
-end)
+-- 	-- while true do
+-- 	-- 	ClearAreaOfPeds(-333.08, -918.05, 32.8, 100.0, 1)
+-- 	-- 	ClearAreaOfVehicles(-333.08, -918.05, 32.8, 100.0, false, false, false, false, false, false)
+-- 	-- 	Wait(1000)
+-- 	-- end
+-- end)
 
 CreateThread(function()
     while true do
