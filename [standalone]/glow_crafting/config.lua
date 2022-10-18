@@ -7,12 +7,12 @@ Config.craftingBenches = {
 }
 
 Config.fakeBenches = {
-    {id = "fakeId1", coords = vector3(123.74, 6635.66, 31.87), heading = 305.76},
+    {id = "fakeId1", coords = vector3(123.74, 6635.66, 31.87), heading = 130.69},
     {id = "fakeId2", coords = vector3(308.67, -907.06, 29.29), heading = 263.84},
-    {id = "fakeId3", coords = vector3(-174.81, 217.89, 89.9), heading = 357.31},
+    {id = "fakeId3", coords = vector3(-174.85, 218.75, 89.9), heading = 357.31},
     {id = "fakeId4", coords = vector3(-22.2, -691.94, 244.25), heading = 203.23},
     {id = "fakeId5", coords = vector3(22.21, 3652.23, 40.03), heading = 97.94},
-    {id = "fakeId6", coords = vector3(3290.1, 5196.75, 18.42), heading = 140.76},
+    {id = "fakeId6", coords = vector3(3290.1, 5196.75, 18.42), heading = 7.86},
 }
 
 --[[
