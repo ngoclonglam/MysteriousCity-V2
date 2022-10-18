@@ -653,7 +653,7 @@ Config.ClothingRooms = {
     },
     {
         job = "mechanic",
-        coords = vector4(-313.02, -130.01, 38.01, 254.23),
+        coords = vector4(-313.02, -130.01, 39.01, 254.23),
         width = 3,
         length = 3,
         zone = {

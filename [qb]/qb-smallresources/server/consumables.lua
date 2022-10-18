@@ -107,6 +107,10 @@ QBCore.Commands.Add("resetarmor", "Resets Vest (Police Only)", {}, false, functi
     end
 end)
 
+QBCore.Commands.Add('reseteffect', 'Hồi phục trạng thái bình thường', {}, false, function(source, args)
+    TriggerClientEvent("qb-smallresources:client:resetEffects", source)
+end, "god")
+
 QBCore.Functions.CreateUseableItem("binoculars", function(source)
     TriggerClientEvent("binoculars:Toggle", source)
 end)
