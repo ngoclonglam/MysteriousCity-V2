@@ -120,8 +120,6 @@ RegisterNetEvent('qb-bar:server:makeBeer', function()
     if not Player then return end
 
     Player.Functions.RemoveItem('wheat', 20)
-    Player.Functions.RemoveItem('bean', 20)
-    Player.Functions.RemoveItem('cherry', 20)
     Player.Functions.AddItem('beer', 5)
 end)
 

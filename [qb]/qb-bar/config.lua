@@ -52,9 +52,7 @@ Config.Item = {
         'coffeee'
     },
     ['beer'] = {
-        'wheat',
-        'bean',
-        'cherry'
+        'wheat'
     },
     ['chicken'] = {
         'packaged_chicken'
