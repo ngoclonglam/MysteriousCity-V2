@@ -64,7 +64,9 @@ Config.Locations = {                    -- Here u can change all of the base job
 Config.SpawnPoint = vector4(163.3, -2263.33, 0.11, 268.86)  -- Vehicle spawn point
 
 Config.Clothes = {
+
     -- Here you can configure clothes. More information on: https://docs.fivem.net/natives/?_0xD4F7B05C. Under this link you can see what id means what component.
+
     male = {
         components = {{["component_id"] = 1, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 3, ["texture"] = 0, ["drawable"] = 8},{["component_id"] = 4, ["texture"] = 0, ["drawable"] = 94},{["component_id"] = 5, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 6, ["texture"] = 0, ["drawable"] = 67},{["component_id"] = 7, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 8, ["texture"] = 0, ["drawable"] = 15},{["component_id"] = 9, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 10, ["texture"] = 0, ["drawable"] = 0},{["component_id"] = 11, ["texture"] = 0, ["drawable"] = 243},}    },
 
@@ -84,16 +86,16 @@ Config.Lang = {
     ["kicked"] = "Bạn đã đuổi %s khỏi nhóm của bạn",
     ["alreadyWorking"] = "Đầu tiên, hoàn thành đơn đặt hàng trước.",
     ["quit"] = "Bạn đã rời khỏi đội",
-    ["cantSpawnVeh"] = "The boat spawn site is occupied.",
+    ["cantSpawnVeh"] = "Chỗ lấy thuyền đã bị sử dụng.",
     ["nobodyNearby"] = "Không có ai ở gần",
-    ["newTarget"] = "The treasure has been found or the boss has indicated a new location",
-    ["treasureBlipName"] = "Treasure Location",
-    ["collectTreasure"] = "Collect Treasure",
-    ["dropAnchor"] = "Drop or Lift Anchor",
-    ["anchorNotifytrue"] = "The anchor has been dropped",
-    ["anchorNotifyfalse"] = "The anchor has been raised",
-    ["wrongCar"] = "This is not ur starting boat!",
-    ["treasure"] = "Treasure Location",
+    ["newTarget"] = "Kho báu đã được tìm thấy hoặc ông chủ đã chỉ ra một địa điểm mới",
+    ["treasureBlipName"] = "Kho Báu",
+    ["collectTreasure"] = "Lấy Kho Báu",
+    ["dropAnchor"] = "Thả hoặc nâng neo",
+    ["anchorNotifytrue"] = "Neo đã được bỏ xuống",
+    ["anchorNotifyfalse"] = "Neo đã được nâng lên",
+    ["wrongCar"] = "Đây không phải là chiếc thuyền bắt đầu của bạn!",
+    ["treasure"] = "Kho Báu",
 
     -- Server
     ["isAlreadyHost"] = "Người chơi này dẫn dắt đội của bạn",
@@ -103,10 +105,10 @@ Config.Lang = {
     ["InviteDeclined"] = "Lời mời của bạn đã bị từ chối.",
     ["InviteAccepted"] = "Lời mời của bạn đã được chấp nhận!",
     ["error"] = "Có một vấn đề khi tham gia một đội, vui lòng thử lại sau.",
-    ["kickedOut"] = "You've been kicked out of the divers team!",
+    ["kickedOut"] = "Bạn đã bị đuổi khỏi đội thợ lặn!",
     ["reward"] = "Bạn đã nhận được một khoản thanh toán là $",
     ["RequireOneFriend"] = "Công việc này yêu cầu ít nhất một thành viên trong nhóm",
-    ["yourTeamWon"] = "Your team has found a treasure. Head to the base and complete the work to get paid, or keep searching!",
+    ["yourTeamWon"] = "Nhóm của bạn đã tìm thấy một kho báu, đi đến căn cứ và hoàn thành công việc để được trả tiền, hoặc tiếp tục tìm kiếm!",
 
 }
 
@@ -117,18 +119,13 @@ Config.TreasureLocations = {
     vector3(1815.49768, -2954.997, -45.5570831),
     vector3(1864.00513, -2943.36328, -45.1559143),
     vector3(2087.157, -3039.93726, -47.4239426),
-    vector3(2166.04224, -3070.95752, -145.361755),
     vector3(2193.7627, -3127.48364, -94.57767),
-    vector3(2503.39526, -2754.87427, -162.442566),
     vector3(2378.85034, -2499.71631, -35.8349953),
     vector3(2627.7478, -2413.352, -54.75626),
     vector3(2626.367, -2423.33521, -55.3033142),
     vector3(2846.15332, -2222.815, -41.333744),
     vector3(2859.74365, -1891.47119, -34.197506),
     vector3(2984.12964, -1498.41418, -27.9075184),
-    vector3(3124.37476, -1181.52063, -208.080933),
-    vector3(3263.53076, -1033.86633, -184.082245),
-    vector3(3255.163, -821.7711, -146.9506),
     vector3(3177.29468, -581.065247, -127.739563),
     vector3(3281.40527, -402.4866, -117.204651),
     vector3(3299.69238, -406.8575, -124.827339),

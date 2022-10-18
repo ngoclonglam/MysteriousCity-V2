@@ -22,6 +22,10 @@ window.addEventListener('message', function (event) {
     if (action == "OpenWorkMenu") {
         $(".WorkMenu").fadeIn(250)
         shouldGoMainMenu = false
+    } else if (action == "showDepthWarning") {
+        $(".depthWarning").fadeIn(250)
+    } else if (action == "hideDepthWarning") {
+        $(".depthWarning").fadeOut(250)
     } else if (action == "hideCloakroom") {
         $("#Cloakroom").fadeOut(0)
     } else if (action == "ShowInviteBox") {
