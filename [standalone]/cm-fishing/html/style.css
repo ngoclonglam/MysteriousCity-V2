@@ -16,13 +16,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap');
 
-* {
-  margin: 0;
-  box-sizing: border-box;
-  padding: 0;
-  font-family: 'Montserrat Alternates', sans-serif;
-}
-
 body {
 
   width: 100vw;
