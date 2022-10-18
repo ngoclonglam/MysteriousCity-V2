@@ -1,25 +1,26 @@
 @font-face {
   src: url('./fonts/Gilroy-ExtraBold.otf') format("OpenType");
-  font-family: "gilroy";
+  font-family: 'Montserrat Alternates', sans-serif;
 }
 
 @font-face {
   src: url('./fonts/Gilroy-Light.otf') format("OpenType");
-  font-family: "gilroy-light";
+  font-family: 'Montserrat Alternates', sans-serif;
 }
 
 
 @font-face {
   src: url('./fonts/Futura_SC_T_OT_Book_Regular.otf') format("OpenType");
-  font-family: "futura";
+  font-family: 'Montserrat Alternates', sans-serif;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&display=swap');
 
 * {
   margin: 0;
   box-sizing: border-box;
   padding: 0;
-  font-family: "gilroy";
+  font-family: 'Montserrat Alternates', sans-serif;
 }
 
 body {
@@ -367,7 +368,7 @@ body {
 }
 
 .fishing-button-icon p {
-  font-family: 'gilroy-light';
+  font-family: 'Montserrat Alternates', sans-serif;
   font-style: normal;
   font-weight: 800;
   font-size: 0.625rem;
@@ -388,7 +389,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'gilroy-light';
+  font-family: 'Montserrat Alternates', sans-serif;
   font-style: normal;
   font-weight: 800;
   font-size: 0.625rem;
@@ -411,7 +412,7 @@ body {
 }
 
 .fishing-button-progress-text {
-  font-family: 'gilroy-light';
+  font-family: 'Montserrat Alternates', sans-serif;
   font-style: normal;
   font-weight: 800;
   font-size: 0.625rem;
@@ -446,7 +447,7 @@ body {
 }
 
 .achievement-header-text {
-  font-family: 'gilroy';
+  font-family: 'Montserrat Alternates', sans-serif;
   font-style: normal;
   font-weight: 800;
   font-size: 1rem;
@@ -493,7 +494,7 @@ body {
 
 .achievement-reward {
   margin-top: 1.75rem;
-  font-family: 'gilroy';
+  font-family: 'Montserrat Alternates', sans-serif;
   font-style: normal;
   font-weight: 800;
   font-size: 0.75rem;
@@ -510,7 +511,7 @@ body {
 .achievement-claim-button {
   position: absolute;
   left: 0;
-  font-family: 'gilroy';
+  font-family: 'Montserrat Alternates', sans-serif;
   font-style: normal;
   font-weight: 800;
   font-size: 1rem;
@@ -638,7 +639,7 @@ body {
 
 .achievenments-header-text {
   margin-left: .5rem;
-  font-family: 'gilroy';
+  font-family: 'Montserrat Alternates', sans-serif;
   font-style: normal;
   font-weight: 800;
   font-size: 1.5rem;
@@ -865,7 +866,7 @@ body {
 
   width: 15rem;
   margin-top: -3rem;
-  font-family: "futura";
+  font-family: 'Montserrat Alternates', sans-serif;
   color: white;
   margin-left: 1rem;
   width: 100%;
@@ -876,7 +877,7 @@ body {
 }
 
 .m-logo h2 span {
-  font-family: "futura";
+  font-family: 'Montserrat Alternates', sans-serif;
   margin-left: -1rem;
 }
 
@@ -1004,7 +1005,7 @@ body {
 }
 
 .spot-name {
-  font-family: "gilroy";
+  font-family: 'Montserrat Alternates', sans-serif;
   font-style: normal;
   font-weight: 800;
   font-size: 1.25rem;
@@ -1019,7 +1020,7 @@ body {
 }
 
 .spot-location {
-  font-family: "gilroy";
+  font-family: 'Montserrat Alternates', sans-serif;
   font-style: normal;
   font-weight: 800;
   font-size: 0.9375rem;
@@ -1032,7 +1033,7 @@ body {
 }
 
 .spot-desc {
-  font-family: "gilroy-light";
+  font-family: 'Montserrat Alternates', sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 0.75rem;
@@ -1045,7 +1046,7 @@ body {
 }
 
 .spot-feature-name {
-  font-family: "gilroy";
+  font-family: 'Montserrat Alternates', sans-serif;
   font-style: normal;
   font-weight: 800;
   font-size: 1.25rem;
@@ -1058,7 +1059,7 @@ body {
 }
 
 .spot-feature-val {
-  font-family: "gilroy-light";
+  font-family: 'Montserrat Alternates', sans-serif;
   font-style: normal;
   font-weight: 300;
   font-size: 0.875rem;
@@ -1124,7 +1125,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'gilroy';
+  font-family: 'Montserrat Alternates', sans-serif;
   font-style: normal;
   font-weight: 800;
   font-size: 1.5rem;
@@ -2538,7 +2539,7 @@ body {
   color: white;
   font-size: 0.8rem;
   width: 23.6875rem;
-  font-family: 'gilroy-light';
+  font-family: 'Montserrat Alternates', sans-serif;
   margin-top: 0.6rem;
   margin-left: 1rem;
   letter-spacing: 0.05em;
@@ -2576,7 +2577,7 @@ body {
   color: white;
   height: 3rem;
   margin-right: 1rem;
-  font-family: 'gilroy-light';
+  font-family: 'Montserrat Alternates', sans-serif;
   font-size: 1rem;
   display: flex;
   font-size: 0.8rem;

@@ -1,7 +1,7 @@
 
 Config = {}
 Config.Framework = 'newqb' -- esx - oldqb - newqb
-Config.Mysql = 'mysql-async' -- mysql-async, ghmattimysql, oxmysql
+Config.Mysql = 'oxmysql' -- mysql-async, ghmattimysql, oxmysql
 Config.DefaultImage = 'https://cdn.discordapp.com/attachments/983471660684423240/1018885207358705674/defaultimage.png'
 
 
@@ -10,19 +10,19 @@ Config.DefaultImage = 'https://cdn.discordapp.com/attachments/983471660684423240
 Config.MenuOpenKey = 38  -- [E] Keys Reference : https://docs.fivem.net/docs/game-references/controls/
 Config.CancelKey = 120 -- [X] Keys Reference : https://docs.fivem.net/docs/game-references/controls/
 Config.UseBotToken = true
-Config.BotToken = "ODg3MDcwNDkxOTA5Njg1MjU5.Gj_vYu.lcFBhuPcDhunYZuPCjDWygaFmfhqj0VLwGXzXM"
+Config.BotToken = "OTk5NzIwODQ5OTI4MDkzNzk3.GFSiUx.7qpzx9ZBZRggyMTr3qXKWwFXn4tHCqOwy225JQ"
 Config.EnableAFKMode = true
 
 Config.Fish = {
         -- COMMON CATEGORY
-        {itemname = 'bluegill',              xp = 5, name = 'Bluegill',                  sell = true, category = 'common',   price = 3},
-        {itemname = 'goldentrout',           xp = 5, name = 'Golden Trout',              sell = true, category = 'common',   price = 3},
-        {itemname = 'silverymonnow',         xp = 5, name = 'Silvery Monnow',            sell = true, category = 'common',   price = 3},
-        {itemname = 'strippedbass',          xp = 5, name = 'Stripped Bass',             sell = true, category = 'common',   price = 3},
-        {itemname = 'tench',                 xp = 5, name = 'Tench',                     sell = true, category = 'common',   price = 3},
-        {itemname = 'whitefish',             xp = 5, name = 'White Fish',                sell = true, category = 'common',   price = 3},
-        {itemname = 'crappie',               xp = 5, name = 'Crappie',                   sell = true, category = 'common',   price = 3},
-        {itemname = 'cruciancarp',           xp = 5, name = 'Crucian Carp',              sell = true, category = 'common',   price = 3},
+        {itemname = 'bluegill',              xp = 5, name = 'Cá Mang Xanh',              sell = true, category = 'common',   price = 120},
+        {itemname = 'goldentrout',           xp = 5, name = 'Cá Hồi Vàng',               sell = true, category = 'common',   price = 120},
+        {itemname = 'silverymonnow',         xp = 5, name = 'Cá Chim Khoang',            sell = true, category = 'common',   price = 120},
+        {itemname = 'strippedbass',          xp = 5, name = 'Cá Vược',                   sell = true, category = 'common',   price = 120},
+        {itemname = 'tench',                 xp = 5, name = 'Cá Chép Nhớt',              sell = true, category = 'common',   price = 120},
+        {itemname = 'whitefish',             xp = 5, name = 'Cá Trắng',                  sell = true, category = 'common',   price = 120},
+        {itemname = 'crappie',               xp = 5, name = 'Cá Crappie',                sell = true, category = 'common',   price = 120},
+        {itemname = 'cruciancarp',           xp = 5, name = 'Cá Chép Diếc',              sell = true, category = 'common',   price = 120},
         -- UNCOMMON CATEGORY--------------   ------------------------------        ---------------------
         {itemname = 'bluebackherring',       xp = 10, name = 'Blueback Herring',         sell = true, category = "uncommon", price = 4},
         {itemname = 'bulltrout',             xp = 10, name = 'Bull Trout',               sell = true, category = "uncommon", price = 4},
@@ -53,191 +53,191 @@ Config.Fish = {
 
 
         --------------------------- BAITS ------------------------                       sell = false  -- do not change
-        {itemname = 'spoonlurebait',    baitLevel = 1,  fishQualityScale = {'common'},   sell = false, name = 'Spoon Lure Bait',  category = "baits", price = 5, stars = 1, baitsuse = true},
-        {itemname = 'threesidedbait',   baitLevel = 2,  fishQualityScale = {'uncommon'}, sell = false, name = 'Three Sided Bait', category = "baits", price = 5, stars = 2, baitsuse = true},
-        {itemname = 'tailfishbait',     baitLevel = 3,  fishQualityScale = {'rare'},     sell = false, name = 'Tail Fish Bait',   category = "baits", price = 5, stars = 3, baitsuse = true},
-        {itemname = 'doublehookbait',   baitLevel = 4,  fishQualityScale = {'legendary'},sell = false, name = 'Double Hook Bait', category = "baits", price = 5, stars = 4, baitsuse = true},
-        {itemname = 'triplehooksbait',  baitLevel = 5,  fishQualityScale = {'epic'},     sell = false, name = 'Triple Hook Bait', category = "baits", price = 5, stars = 5, baitsuse = true},
+        {itemname = 'spoonlurebait',    baitLevel = 1,  fishQualityScale = {'common'},    sell = false, name = 'Mồi thìa lượn',  category = "baits", price = 10, stars = 1, baitsuse = true},
+        {itemname = 'threesidedbait',   baitLevel = 2,  fishQualityScale = {'uncommon'},  sell = false, name = 'Mồi ba mặt', category = "baits", price = 10, stars = 2, baitsuse = true},
+        {itemname = 'tailfishbait',     baitLevel = 3,  fishQualityScale = {'rare'},      sell = false, name = 'Mồi đuôi cá',   category = "baits", price = 10, stars = 3, baitsuse = true},
+        {itemname = 'doublehookbait',   baitLevel = 4,  fishQualityScale = {'legendary'}, sell = false, name = 'Móc móc đôi', category = "baits", price = 10, stars = 4, baitsuse = true},
+        {itemname = 'triplehooksbait',  baitLevel = 5,  fishQualityScale = {'epic'},      sell = false, name = 'Mồi ba móc', category = "baits", price = 10, stars = 5, baitsuse = true},
 
 
         --------------------------- RODS ------------------------                          sell = false  -- do not change
-        {itemname = 'woodenrod',       minigameDiff = 'veryHard',  name = 'Wooden Rod',        sell = false, category = "rods", price = 3, stars = 1, minlevel = 10, use = true},
-        {itemname = 'slimmaterialrod', minigameDiff = 'hard',      name = 'Slim Material Rod', sell = false, category = "rods", price = 4, stars = 2, minlevel = 20, use = true},
-        {itemname = 'danishrod',       minigameDiff = 'medium',    name = 'Danish Rod',        sell = false, category = "rods", price = 8, stars = 3, minlevel = 30, use = true},
-        {itemname = 'koidrod',         minigameDiff = 'easy',      name = 'Koi Rod',           sell = false, category = "rods", price = 15,stars = 4, minlevel = 40, use = true},
-        {itemname = 'finewood',        minigameDiff = 'veryEasy',  name = 'Finewood Rod',      sell = false, category = "rods", price = 25,stars = 5, minlevel = 50, use = true},
+        {itemname = 'woodenrod',       minigameDiff = 'veryHard',  name = 'Cần Gỗ Mun',         sell = false, category = "rods", price = 1000,   stars = 1, minlevel = 10, use = true},
+        {itemname = 'slimmaterialrod', minigameDiff = 'hard',      name = 'Cần Lông Bạc',       sell = false, category = "rods", price = 5000,   stars = 2, minlevel = 20, use = true},
+        {itemname = 'danishrod',       minigameDiff = 'medium',    name = 'Cần Cá Đuối',        sell = false, category = "rods", price = 10000,  stars = 3, minlevel = 30, use = true},
+        {itemname = 'koidrod',         minigameDiff = 'easy',      name = 'Cần Thần Koi',       sell = false, category = "rods", price = 50000,  stars = 4, minlevel = 40, use = true},
+        {itemname = 'finewood',        minigameDiff = 'veryEasy',  name = 'Cần Phượng Hoàng',   sell = false, category = "rods", price = 100000, stars = 5, minlevel = 50, use = true},
 }
 
 
 Config.RequiredXP = {
     [1] = 1000,
-    [2] = 1500,
-    [3] = 2000,
-    [4] = 2500,
-    [5] = 3000,
-    [6] = 3500,
-    [7] = 4000,
-    [8] = 4500,
-    [9] = 5000,
-    [10] = 5500,
-    [11] = 6000,
-    [12] = 6500,
-    [13] = 7000,
-    [14] = 7500,
-    [15] = 8000,
-    [16] = 8500,
-    [17] = 9000,
-    [18] = 9500,
-    [19] = 10000,
-    [20] = 10500,
-    [21] = 11000,
-    [22] = 11500,
-    [23] = 12000,
-    [24] = 12500,
-    [25] = 13000,
-    [26] = 13500,
-    [27] = 14000,
-    [28] = 14500,
-    [29] = 15000,
-    [30] = 15500,
-    [31] = 16000,
-    [32] = 16500,
-    [33] = 17000,
-    [34] = 17500,
-    [35] = 18000,
-    [36] = 18500,
-    [37] = 19000,
-    [38] = 19500,
-    [39] = 20000,
-    [40] = 20500,
-    [41] = 21000,
-    [42] = 21500,
-    [43] = 22000,
-    [44] = 22500,
-    [45] = 23000,
-    [46] = 23500,
-    [47] = 24000,
-    [48] = 24500,
-    [49] = 25000,
-    [50] = 25500,
+    [2] = 2000,
+    [3] = 3000,
+    [4] = 4000,
+    [5] = 5000,
+    [6] = 6500,
+    [7] = 8000,
+    [8] = 9500,
+    [9] = 11000,
+    [10] = 13000,
+    [11] = 15000,
+    [12] = 17000,
+    [13] = 19000,
+    [14] = 21000,
+    [15] = 23000,
+    [16] = 26000,
+    [17] = 29900,
+    [18] = 32000,
+    [19] = 35000,
+    [20] = 38000,
+    [21] = 42000,
+    [22] = 46000,
+    [23] = 50000,
+    [24] = 54000,
+    [25] = 58000,
+    [26] = 63000,
+    [27] = 68000,
+    [28] = 73000,
+    [29] = 78000,
+    [30] = 83000,
+    [31] = 89000,
+    [32] = 95000,
+    [33] = 110000,
+    [34] = 170000,
+    [35] = 230000,
+    [36] = 300000,
+    [37] = 370000,
+    [38] = 440000,
+    [39] = 510000,
+    [40] = 580000,
+    [41] = 650000,
+    [42] = 720000,
+    [43] = 790000,
+    [44] = 860000,
+    [45] = 930000,
+    [46] = 1100000,
+    [47] = 1180000,
+    [48] = 1260000,
+    [49] = 1340000,
+    [50] = 1500000,
 }
 
 Config.Draw = {
     ["enabled"]  =  true ,
-    ["textmarket"] = '[E] To Sell fish',
+    ["textmarket"] = '[E] Để bán cá',
 }
 
 Config.FishingRestaurant = {
-    ["name"] = "Fish Restaurant",
+    ["name"] = "Bán Cá",
     ["blip"] = {
         ["sprite"] = 628,
         ["color"] = 3
     },
     ["ped"] = {
         ["model"] = 0xED0CE4C6,
-        ["position"] = vector3(-1038.4545898438, -1397.0551757813, 4.5),
-        ["heading"] = 75.0
+        ["position"] = vector3(2044.9, 3987.35, 32.24),
+        ["heading"] = 356.81
     }
 }
 
 Config.Spots = {
 
-        {
-            id = "del_perro",
-            blipName = "Del Perro Pier",
-            spotLvlStars = 1,
-            bgimage = 'delperro.png',
-            requiredLvl = 0,
-            coords = vector3(-1847.1, -1250.8, 8.61577),
-            location = "Pasific Ocean",
-            statement = "Del Perro Pier is, as its name suggests, located in Del Perro, Los Santos. It is mainly accessed through Red Desert Avenue. Del Perro Pier is renowned for its bright, vivid colors that shine at night, giving the surrounding beaches a sort of vibe.",
-            spotQuality = "Standart",
-            afkCatchInMinute = 1, --min
-            fishQualityScale = "Common",
-            fishQualityScaleTable = {'common'},
+    {
+        id = "del_perro",
+        blipName = "Del Perro Pier",
+        spotLvlStars = 1,
+        bgimage = 'delperro.png',
+        requiredLvl = 0,
+        coords = vector3(-1847.1, -1250.8, 8.61577),
+        location = "Thái Bình Dương",
+        statement = "Del Perro Pier, như tên gọi của nó, nằm ở Del Perro, Los Santos.Nó chủ yếu được truy cập thông qua Đại lộ Sa mạc Đỏ. Del Perro Pier nổi tiếng với những màu sắc tươi sáng, sống động, tỏa sáng vào ban đêm, mang đến cho các bãi biển xung quanh một sự rung cảm.",
+        spotQuality = "Tiêu Chuẩn",
+        afkCatchInMinute = 1,
+        fishQualityScale = "Phổ thông",
+        fishQualityScaleTable = {'common'},
 
-        },
+    },
 
-        {
-            id = "chumash",
-            blipName = "Chumash Family Pier",
-            spotLvlStars = 2,
-            bgimage = 'chumash.png',
-            requiredLvl = 10,
-            coords = vector3(-3427.9, 966.576, 8.34668),
+    {
+        id = "chumash",
+        blipName = "Chumash Family Pier",
+        spotLvlStars = 2,
+        bgimage = 'chumash.png',
+        requiredLvl = 10,
+        coords = vector3(-3427.9, 966.576, 8.34668),
 
-            location = "Alamo Sea",
-            statement = "The Chumash Historic Family Pier is located in the heart of Chumash, which is accessible from Barbareno Road. A staple icon of the area, the boardwalk is lined with white fencing.",
-            spotQuality = "Normal",
-            afkCatchInMinute = 3, --min
-            fishQualityScale = "Common - Uncommon",
-            fishQualityScaleTable = {'common', 'uncommon'},
+        location = "Biển Chumash",
+        statement = "Cầu tàu gia đình lịch sử Chumash nằm ở trung tâm của Chumash, có thể truy cập từ đường Barbareno. Một biểu tượng chủ yếu của khu vực, Boardwalk được lót bằng hàng rào trắng.",
+        spotQuality = "Phổ Biến",
+        afkCatchInMinute = 1,
+        fishQualityScale = "Phổ thông - không phổ biến",
+        fishQualityScaleTable = {'common', 'uncommon'},
 
-        },
+    },
 
-        {
-            id = "procopio",
-            blipName = "Procopio Beach Pier",
-            spotLvlStars = 3,
-            bgimage = 'procopio.png',
-            requiredLvl = 20,--min
-            coords = vector3(-278.01, 6638.32, 8.61577),
+    {
+        id = "procopio",
+        blipName = "Procopio Beach Pier",
+        spotLvlStars = 3,
+        bgimage = 'procopio.png',
+        requiredLvl = 20,
+        coords = vector3(-278.00, 6638.32, 8.61577),
 
-            location = "Alamo Sea",
-            statement = "Procopio Beach is a beach in Grand Theft Auto V and Grand Theft Auto Online, located in northern Blaine County, east of Paleto Bay. It is located off the Great Ocean Highway and is located east of the Procopio Promenade.",
-            spotQuality = "Good",
-            afkCatchInMinute = 4,
-            fishQualityScale = "Common - Rare",
-            fishQualityScaleTable = {'common', 'rare'},
+        location = "Biển Procopio",
+        statement = "Biển Procopio là một bãi biển ở Grand Theft Auto V và Grand Theft Auto Online, nằm ở phía bắc Hạt Blaine, phía đông của Vịnh Paleto. Nó nằm ngoài đường cao tốc đại dương và nằm ở phía đông của Promenade Procopio.",
+        spotQuality = "Tốt",
+        afkCatchInMinute = 1,
+        fishQualityScale = "Phổ thông - Hiếm",
+        fishQualityScaleTable = {'common', 'rare'},
 
-        },
-        {
-            id = "millars",
-            blipName = "Millars Fishery",
-            spotLvlStars = 4,
-            bgimage = 'millars.png',
-            requiredLvl = 30,
-            coords = vector3(-1612.5, 5262.59, 3.97410),
+    },
+    {
+        id = "millars",
+        blipName = "Millars Fishery",
+        spotLvlStars = 4,
+        bgimage = 'millars.png',
+        requiredLvl = 30,
+        coords = vector3(-1612.5, 5262.59, 3.97410),
 
-            location = "Alamo Sea",
-            statement = "A group of businesses located at a pier on the north shore of the Alamo -Sea at the western edge of the settlement of Galilee, including the boatshop and a related fishing charter/commercial fishery Millars Fishery.",
-            spotQuality = "Very Good",
-            afkCatchInMinute = 4,--min
-            fishQualityScale = "Uncommon - Rare",
-            fishQualityScaleTable = {'uncommon', 'rare'},
-        },
+        location = "Biển Alamo",
+        statement = "Một nhóm các doanh nghiệp nằm ở một bến tàu trên bờ phía bắc của Alamo-Sea ở rìa phía tây của khu định cư của Galilee, bao gồm Boatshop và một nghề đánh bắt cá/nghề cá thương mại liên quan.",
+        spotQuality = "Rất Tốt",
+        afkCatchInMinute = 1,
+        fishQualityScale = "Không phổ biến - Quý hiếm",
+        fishQualityScaleTable = {'uncommon', 'rare'},
+    },
 
-        {
-            id = "califida",
-            blipName = "Califida Rd",
-            spotLvlStars = 4.5,
-            bgimage = 'califida.png',
-            requiredLvl = 40,
-            coords = vector3(1298.87, 4216.70, 33.9086),
+    {
+        id = "califida",
+        blipName = "Califida Rd",
+        spotLvlStars = 4.5,
+        bgimage = 'califida.png',
+        requiredLvl = 40,
+        coords = vector3(1298.87, 4216.70, 33.9086),
 
-            location = "Alamo Sea",
-            statement = "The Alamo Sea is the largest body of water located on the San Andreas mainland. It is fed by agricultural runoff from nearby Grapeseed and drains into the Pacific Ocean via Cassidy Creek and the Zancudo River..",
-            spotQuality = "Legendary",
-            afkCatchInMinute = 5,--min
-            fishQualityScale = "Uncommon - Legendary",
-            fishQualityScaleTable = {'common', 'legendary'},
+        location = "Biển Alamo",
+        statement = "Biển Alamo là vùng nước lớn nhất nằm trên lục địa San Andreas.Nó được nuôi dưỡng bởi dòng chảy nông nghiệp từ những quả nho gần đó và cống vào Thái Bình Dương qua Cassidy Creek và sông Zancudo ..",
+        spotQuality = "Huyền thoại",
+        afkCatchInMinute = 1,
+        fishQualityScale = "Không phổ biến - Huyền thoại",
+        fishQualityScaleTable = {'common', 'legendary'},
 
-        },
-        {
-            id = "whitesea",
-            blipName = "White Sea Fishing Spot",
-            spotLvlStars = 5,
-            bgimage = 'whitesea.png',
-            requiredLvl = 50,
-            coords = vector3(-1518.7, 1509.42, 111.624),
+    },
+    {
+        id = "whitesea",
+        blipName = "White Sea Fishing Spot",
+        spotLvlStars = 5,
+        bgimage = 'whitesea.png',
+        requiredLvl = 50,
+        coords = vector3(-1518.7, 1509.42, 111.624),
 
-            location = "Zancudo River",
-            statement = "The center is located on Tongva Drive in Tongva Valley, Los Santos County right next to a stream which eventually feeds into the Zancudo River.",
-            spotQuality = "Epic",
-            afkCatchInMinute = 5,--min
-            fishQualityScale = "Rare - Epic",
-            fishQualityScaleTable = {'rare', 'epic'},
-        },
+        location = "Sông Zancudo",
+        statement = "Trung tâm nằm trên Tongva Drive ở Thung lũng Tongva, Hạt Los Santos ngay bên cạnh một con suối cuối cùng ăn vào sông Zancudo.",
+        spotQuality = "Sử thi",
+        afkCatchInMinute = 1,
+        fishQualityScale = "Hiếm - Sử thi",
+        fishQualityScaleTable = {'rare', 'epic'},
+    },
 
 
 }
@@ -323,63 +323,63 @@ Config.Achievenments = {
 
 
 Config.Locale = {
-    ["WIKI"] = 'WIKI',
-    ["BOARD"] = 'BOARD',
-    ["MARKET"] = 'MARKET',
-    ["SPOTS"] = 'SPOTS',
-    ["FISHIN"] = 'FISHIN',
-    ["FISHING"] = 'G',
-    ["LOCATION"] = 'Location',
-    ["SPOTQUALITY"] = 'Spot Quality',
-    ["AFKCATCHMIN"] = 'AFK Catch in',
-    ["AFKCATCHMINUTE"] = 'Minute',
-    ["FISHQUALITYSCALE"] = 'Fish Quality Scale',
-    ["ENABLEAFKMODE"] = 'Enable AFK Mode',
-    ["CATCHFISH"] = 'CATCH FISH',
-    ["LOWLEVEL"] = 'Low level',
-    ["AFKCATCHMIN1MIN"] = 'AFK Catch in 1 min',
-    ["ALL"] = 'All',
-    ["COMMON"] = 'Common',
-    ["UNCOMMON"] = 'Uncommon',
-    ["RARE"] = 'Rare',
-    ["LEGANDARY"] = 'Legandary',
-    ["EPIC"] = 'Epic',
-    ["RODS"] = 'Rods',
-    ["BAITS"] = 'Baits',
+    ["WIKI"] = 'TỪ ĐIỂN',
+    ["BOARD"] = 'BẢNG',
+    ["MARKET"] = 'CHỢ',
+    ["SPOTS"] = 'ĐIỂM CÂU',
+    ["FISHIN"] = 'CÂU CÁ',
+    -- ["FISHING"] = 'G',
+    ["LOCATION"] = 'Địa Điểm',
+    ["SPOTQUALITY"] = 'Chất Lượng',
+    ["AFKCATCHMIN"] = 'AFK trong',
+    ["AFKCATCHMINUTE"] = 'Phút',
+    ["FISHQUALITYSCALE"] = 'Chất Lượng Cá',
+    ["ENABLEAFKMODE"] = 'Bật Chế Độ AFK',
+    ["CATCHFISH"] = 'CÂU CÁ',
+    ["LOWLEVEL"] = 'Level Thấp',
+    ["AFKCATCHMIN1MIN"] = 'AFK',
+    ["ALL"] = 'TẤT CẢ',
+    ["COMMON"] = 'Phổ thông',
+    ["UNCOMMON"] = 'Không phổ biến',
+    ["RARE"] = 'Quý hiếm',
+    ["LEGANDARY"] = 'Huyền thoại',
+    ["EPIC"] = 'Sử thi',
+    ["RODS"] = 'Cần Câu',
+    ["BAITS"] = 'Mồi',
 
-    ["CARD"] = 'Card',
-    ["TOTAL"] = 'Total',
-    ["PAYVIACASH"] = 'Pay via cash',
-    ["PAYVIACARD"] = 'Pay via card',
-    ["SELL"] = 'Sell',
-    ["BUY"] = 'Buy',
+    ["CARD"] = 'Thẻ',
+    ["TOTAL"] = 'Tổng cộng',
+    ["PAYVIACASH"] = 'Thanh toán tiền mặt',
+    ["PAYVIACARD"] = 'Thanh toán qua thẻ',
+    ["SELL"] = 'Bán',
+    ["BUY"] = 'Mua',
 
-    ["DELETETOCARD"] = 'Delete to Card',
-    ["ADDTOCARD"] = 'Add to Card',
-    ["BUYSTUFFS"] = 'Buy Stufss',
-    ["FROMMARKET"] = 'from marketplace',
-    ["SELLYOURSTUFF"] = 'Sell your stuff',
-    ["TOMARKETPLACE"] = 'to marketplace',
+    ["DELETETOCARD"] = 'Xóa giỏ hàng',
+    ["ADDTOCARD"] = 'Thâm vào giỏ hàng',
+    ["BUYSTUFFS"] = 'Mua Đồ',
+    ["FROMMARKET"] = 'Từ Chợ',
+    ["SELLYOURSTUFF"] = 'Bán đồ',
+    ["TOMARKETPLACE"] = 'Cho Chợ',
 
-    ["MARKLOCATION"] = 'Mark Location on map',
-    ["CHANGEPROFILE"] = 'Change Profile Photo',
-    ["DISCORDPHOTO"] = 'Use Discord Profile Photo',
+    ["MARKLOCATION"] = 'Đánh Dấu',
+    ["CHANGEPROFILE"] = 'Đổi Avatar',
+    ["DISCORDPHOTO"] = 'Sử Dụng Avatar Discord',
 
-    ["DELETEPROFILE"] = 'Delete Photo',
+    ["DELETEPROFILE"] = 'Xóa Ảnh',
 
-    ["ACHIEVEMENTS"] = 'Achievements',
-    ["CLAIM"] = 'Claim',
-    ["AWARD"] = 'Award Received',
-    ["ACHIEVEMENTSLOCKED"] = 'Achievement Locked',
+    ["ACHIEVEMENTS"] = 'Thành Tích',
+    ["CLAIM"] = 'Nhận',
+    ["AWARD"] = 'Đã Nhận',
+    ["ACHIEVEMENTSLOCKED"] = 'THÀNH TÍCH CHƯA MỞ',
 
     -- Javascript Notify
 
-    ["ADDBASKET"] = 'Added to cart.',
-    ["REMOVEDBASKET"] = 'Removed from cart.',
-    ["PURCHASED"] = 'Purchased.',
-    ["ENOUGHMONEY"] = 'Not enough money.',
-    ["AWARDS"] = 'Award has been received.',
-    ["PHOTO"] = 'Photo updated',
+    ["ADDBASKET"] = 'Thêm vào giỏ',
+    ["REMOVEDBASKET"] = 'Bỏ khỏi giỏ',
+    ["PURCHASED"] = 'Đã mua',
+    ["ENOUGHMONEY"] = 'Không đủ tiền',
+    ["AWARDS"] = 'Giải thưởng đã được nhận.',
+    ["PHOTO"] = 'Đã cập nhật ảnh',
 }
 
 
@@ -418,75 +418,71 @@ end
 
 Config.Notifications = { -- Notifications
     ["rodtostart"] = {
-        message = 'Use a rod to start fishing',
+        message = 'Sử dụng cần câu để câu cá',
         type = "success",
     },
     ["usedbait"] = {
-        message = 'You used a bait',
+        message = 'Hãy sử dụng mồi',
         type = "success",
     },
     ["thisspot"] = {
-        message = 'You can t use this bait on this spot',
-        type = "success",
+        message = 'Không thể dùng mồi này ở tại điểm này',
+        type = "error",
     },
     ["notwater"] = {
-        message = 'You are not near water',
-        type = "success",
+        message = 'Bạn không ở gần mặt nước',
+        type = "error",
     },
 
     ["waitingbait"] = {
-        message = 'Waiting to bait the rod...',
+        message = 'Đang gắn mồi câu...',
         type = "success",
     },
     ["waitinginput"] = {
-        message = 'Waiting for input...',
+        message = 'Đang chờ bấm nút...',
         type = "success",
     },
     ["waitingfish"] = {
-        message = 'Waiting for fish...',
+        message = 'Đang chờ con cá...',
         type = "success",
     },
     ["youcaught"] = {
-        message = 'You Caught',
+        message = 'Bạn đã câu cá thành công',
         type = "success",
     },
     ["escaped"] = {
-        message = 'Fish Escaped',
-        type = "success",
+        message = 'Cá đã chạy mất tiêu',
+        type = "error",
     },
     ["fishingrod"] = {
-        message = 'No fishing rod.',
-        type = "success",
+        message = 'Bạn không có cần câu',
+        type = "errro",
     },
     ["inventory"] = {
-        message = 'Inventory is checked.',
+        message = 'Đang kiểm tra túi đồ',
         type = "success",
     },
     ["bait"] = {
-        message = 'Fish food is gone.',
+        message = 'Đã hết mồi câu',
         type = "success",
     },
     ["checkspot"] = {
-        message = 'Checking fishing spot...',
+        message = 'Kiểm tra điểm câu cá ...',
         type = "success",
     },
     ["notonline"] = {
-        message = 'Player not online...',
-        type = "success",
+        message = 'Người chơi không trực tuyến...',
+        type = "error",
     },
 
     ["rods"] = {
-        message = 'Has a fishing rod...',
+        message = 'Có cần câu...',
         type = "success",
     },
     ["BAITSOFF"] = {
-        message = 'Has a fishing baits.',
+        message = 'Có mồi câu cá.',
         type = "success",
     },
-
-
-
-
 }
 
 function GetIdentifier(source)

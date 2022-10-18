@@ -11,8 +11,8 @@ AddEventHandler('esx:playerLoaded', function(src)
     else
         ExecuteSql("INSERT INTO `codem-fishing` (`identifier`,`playername`) VALUES ('"..identifier.."','"..name.."')")
         ExecuteSql("INSERT INTO `codem-fishing-rewards` (`identifier`) VALUES ('"..identifier.."')")
-        Citizen.Wait(300)
-        local data = ExecuteSql("SELECT * FROM `codem-fishing`")
+        Wait(300)
+        data = ExecuteSql("SELECT * FROM `codem-fishing`")
         for _,v in pairs(data) do
            fishingData[v.identifier] = v
         end
@@ -34,8 +34,8 @@ AddEventHandler('QBCore:Server:OnPlayerLoaded', function()
     else
         ExecuteSql("INSERT INTO `codem-fishing` (`identifier`,`playername`) VALUES ('"..identifier.."','"..name.."')")
         ExecuteSql("INSERT INTO `codem-fishing-rewards` (`identifier`) VALUES ('"..identifier.."')")
-        Citizen.Wait(300)
-        local data = ExecuteSql("SELECT * FROM `codem-fishing`")
+        Wait(300)
+        data = ExecuteSql("SELECT * FROM `codem-fishing`")
         for _,v in pairs(data) do
            fishingData[v.identifier] = v
         end
@@ -50,15 +50,15 @@ AddEventHandler('codem-fishing:sellitem', function(playeritems,totalprice)
       local xPlayer = frameworkObject.GetPlayerFromId(source)
       if xPlayer then
          xPlayer.addMoney(tonumber(totalprice))
-         for k ,v in pairs(playeritems) do
+         for _ ,v in pairs(playeritems) do
             xPlayer.removeInventoryItem(v.itemname, v.itemcount)
          end
       end
    else
       local xPlayer = frameworkObject.Functions.GetPlayer(source)
       if xPlayer then
-         xPlayer.Functions.AddMoney('cash',tonumber(totalprice))
-         for k ,v in pairs(playeritems) do
+         xPlayer.Functions.AddMoney('cash',tonumber(totalprice), 'Bán cá')
+         for _ ,v in pairs(playeritems) do
             xPlayer.Functions.RemoveItem (v.itemname, v.itemcount)
          end
       end
@@ -140,7 +140,7 @@ end
 
 
 
-Citizen.CreateThread(function()
+CreateThread(function()
     frameworkObject = GetFrameworkObject()
     if Config.Framework == 'esx' then
 
