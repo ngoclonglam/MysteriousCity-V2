@@ -10,7 +10,7 @@ QBCore.Functions.CreateCallback('qb-bar:server:checkItem', function(source, cb, 
             if item and item.amount >= 40 then
                 cb(true)
             else
-                cb(false)
+                return cb(false)
             end
         end
     elseif type == "beer" then
@@ -19,7 +19,7 @@ QBCore.Functions.CreateCallback('qb-bar:server:checkItem', function(source, cb, 
             if item and item.amount >= 20 then
                 cb(true)
             else
-                cb(false)
+                return cb(false)
             end
         end
     elseif type == "chicken" then
@@ -28,7 +28,7 @@ QBCore.Functions.CreateCallback('qb-bar:server:checkItem', function(source, cb, 
             if item and item.amount >= 1 then
                 cb(true)
             else
-                cb(false)
+                return cb(false)
             end
         end
     elseif type == "fruit" then
@@ -37,7 +37,7 @@ QBCore.Functions.CreateCallback('qb-bar:server:checkItem', function(source, cb, 
             if item and item.amount >= 2 then
                 cb(true)
             else
-                cb(false)
+             return cb(false)
             end
         end
     -- elseif type == "slice" then
@@ -63,7 +63,7 @@ QBCore.Functions.CreateCallback('qb-bar:server:checkItem', function(source, cb, 
             if item and item.amount >= 1 then
                 cb(true)
             else
-                cb(false)
+                return cb(false)
             end
         end
     elseif type == "supvica" then
@@ -76,7 +76,7 @@ QBCore.Functions.CreateCallback('qb-bar:server:checkItem', function(source, cb, 
             if item and item.amount >= 1 then
                 cb(true)
             else
-                cb(false)
+                return cb(false)
             end
         end
     end
