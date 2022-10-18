@@ -46,8 +46,8 @@ Config = {
             cb() -- successfuly set balls on table
         end)
     ]]
-    PayForSettingBalls = false,
-    BallSetupCost = nil, -- for example: "$1" or "$200" - any text
+    PayForSettingBalls = true,
+    BallSetupCost = 200, -- for example: "$1" or "$200" - any text
 
     --[[
         You can integrate pool cue into your system with

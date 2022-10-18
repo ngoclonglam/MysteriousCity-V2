@@ -1,3 +1,4 @@
+local QBCore = exports['qb-core']:GetCoreObject()
 t97628106={}
 t42754446={}
 
@@ -10,6 +11,11 @@ _G["RegisterCommand"]("showrcorepool", function(source)
         t87881393(t97628106)
     end 
 end ,((t50123168==t63781372)==(t3209680==t78796249)))
+
+AddEventHandler('rcore_pool:payForPool', function(playerServerId, cb)
+        print("This should be replaced by deducting money from " .. playerServerId)
+        cb() -- successfuly set balls on table
+end)
 
 RegisterNetEvent("rcore_pool:setTableState")
 AddEventHandler("rcore_pool:setTableState",function(t41778860)

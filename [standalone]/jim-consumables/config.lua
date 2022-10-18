@@ -69,7 +69,7 @@ Config = {
 			armor = 0,									-- Amount of armor to add
 			type = "food",								-- Type: "alcohol" / "drink" / "food"
 			stats = {
-				hunger = 40,								-- The hunger/thirst stats of the item, if not found in the items.lua
+				hunger = 30,								-- The hunger/thirst stats of the item, if not found in the items.lua
 				thirst = 0,								-- The hunger/thirst stats of the item, if not found in the items.lua
 			},
 		},
@@ -81,9 +81,8 @@ Config = {
 			armor = 0,									-- Amount of armor to add
 			type = "food",								-- Type: "alcohol" / "drink" / "food"
 			stats = {
-				effect = "reset",
 				hunger = 20,								-- The hunger/thirst stats of the item, if not found in the items.lua
-				thirst = 0,								-- The hunger/thirst stats of the item, if not found in the items.lua
+				thirst = 20,								-- The hunger/thirst stats of the item, if not found in the items.lua
 			},
 		},
 		["supvica"] = {
@@ -95,8 +94,8 @@ Config = {
 			type = "food",								-- Type: "alcohol" / "drink" / "food"
 			stats = {
 				effect = "reset",
-				hunger = 20,								-- The hunger/thirst stats of the item, if not found in the items.lua
-				thirst = 20,								-- The hunger/thirst stats of the item, if not found in the items.lua
+				hunger = 50,								-- The hunger/thirst stats of the item, if not found in the items.lua
+				thirst = 50,								-- The hunger/thirst stats of the item, if not found in the items.lua
 			},
 		},
 
