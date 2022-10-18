@@ -20,6 +20,7 @@ end)
 
 RegisterNetEvent('qb-bar:client:makeAlcohol', function(data)
     QBCore.Functions.TriggerCallback('qb-bar:server:checkItem', function(result)
+        
         if result then
             QBCore.Functions.Progressbar("makeBeer", Lang:t('progress.make_whiskey'), 10000, false, true, {
                 disableMovement = true,
