@@ -8,12 +8,11 @@ QBCore.Functions.CreateCallback('qb-bar:server:checkItem', function(source, cb, 
         for _, v in pairs(Config.Item['whiskey']) do
             local item = xPlayer.Functions.GetItemByName(v)
 
-            if item and item.amount >= 40 then
-                print('check to this post')
-                cb(true)
+            if not item and item.amount >= 40 then
+                cb(false)
+                break
             else
-                print('to this post')
-                return cb(false)
+                cb(true)
             end
         end
     elseif type == "beer" then
