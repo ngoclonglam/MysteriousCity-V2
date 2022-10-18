@@ -7,9 +7,8 @@ Config.DateFormat = '%H:%M' -- To change the date format check this website - ht
 -- [Staff Groups]
 
 Config.StaffGroups = {
-	'superadmin',
+	'god',
 	'admin',
-	'mod'
 }
 
 --------------------------------
