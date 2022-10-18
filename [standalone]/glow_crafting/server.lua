@@ -19,7 +19,7 @@ validateDB()
 local function fetchCraftingBenches()
     MySQL.query('SELECT * FROM crafting_benches', function(results)
         if #results > 0 then
-            for k, v in pairs(results) do 
+            for k, v in pairs(results) do
                 craftingBenches[v.benchId] = {blueprints = json.decode(v.blueprints)}
             end
         end
@@ -52,7 +52,7 @@ end
 local function blueprintUsed(src, craftItem)
     local closestBench = getClosestBench(src)
     if closestBench then
-        
+
         if Config.blueprintRecipes[craftItem] then
             local bench = craftingBenches[closestBench]
             if bench then
@@ -62,7 +62,7 @@ local function blueprintUsed(src, craftItem)
                         return false
                     end
                 end
-                
+
                 if (#bench.blueprints < 5) then
                     bench.blueprints[#bench.blueprints + 1] = craftItem
                     MySQL.update('UPDATE crafting_benches SET blueprints = ? WHERE benchId = ?', {json.encode(bench.blueprints), closestBench})
@@ -127,7 +127,7 @@ QBCore.Functions.CreateCallback('glow_crafting_sv:discardBlueprint', function(so
 
                 table.remove(craftingBenches[benchId].blueprints, index)
 
-                MySQL.update('UPDATE crafting_benches SET blueprints = ? WHERE benchId = ?', {json.encode(craftingBenches[benchId].blueprints), benchId})                
+                MySQL.update('UPDATE crafting_benches SET blueprints = ? WHERE benchId = ?', {json.encode(craftingBenches[benchId].blueprints), benchId})
                 cb(true)
 
                 break
@@ -149,10 +149,10 @@ RegisterNetEvent("glow_crafting_sv:attemptCraft", function(benchId, itemToCraft,
 
     local rep = Player.PlayerData.metadata.craftingrep
     local attachmentRep = Player.PlayerData.metadata.attachmentcraftingrep
-    
+
     local isAttachment = false
     local points = 0
-    
+
     local hasRecipe = false
     local components = nil
     local itemName = nil
@@ -172,11 +172,14 @@ RegisterNetEvent("glow_crafting_sv:attemptCraft", function(benchId, itemToCraft,
             end
         end
     else
+        
         local craftData = Config.defaultRecipes[itemToCraft]
+        print('craftdata', craftData)
+        print('itemToCraft', itemToCraft)
         hasRecipe = true
         points = craftData.points
         isAttachment = craftData.isAttachment
-    
+
         if isAttachment then
             if attachmentRep < craftData.threshold then
                 return
@@ -186,7 +189,7 @@ RegisterNetEvent("glow_crafting_sv:attemptCraft", function(benchId, itemToCraft,
                 return
             end
         end
-        
+
         components = craftData.components
         itemName = craftData.label
     end
@@ -229,7 +232,7 @@ RegisterNetEvent("glow_crafting_sv:attemptCraft", function(benchId, itemToCraft,
         else
             local playerComponents = {}
             local maxCraft = nil
-            
+
             for _, component in ipairs(components) do
                 local minAmountNeeded = component.amount
                 if Player.Functions.GetItemByName(component.item) then
@@ -255,7 +258,7 @@ RegisterNetEvent("glow_crafting_sv:attemptCraft", function(benchId, itemToCraft,
             if Player.Functions.AddItem(itemToCraft, maxCraft) then
                 for _, v in ipairs(playerComponents) do
                     Player.Functions.RemoveItem(v.item, v.requiredPerCraft * maxCraft)
-                end 
+                end
 
                 if isAttachment then
                     Player.Functions.SetMetaData("attachmentcraftingrep", attachmentRep + (points * maxCraft))

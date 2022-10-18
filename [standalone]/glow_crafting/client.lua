@@ -223,7 +223,7 @@ RegisterNetEvent("glow_crafting_cl:openCraftingBench", function(craftingBenchDat
             default = defaultRecipes
         })
     end
-        
+
     openCraftingMenu()
 end)
 
@@ -235,7 +235,7 @@ RegisterNetEvent("glow_crafting_cl:increasedRep", function(craftingRep, attachme
             action = "displayNewRecipes",
             recipes = newUnlocks
         })
-        
+
         currentDefaultRecipes = recipes
         QBCore.Functions.Notify('New recipe unlocked', 'success')
     end
@@ -273,6 +273,6 @@ AddEventHandler('onResourceStop', function(resourceName)
         for _, prop in pairs(craftingFakeBenches) do
             DeleteObject(prop)
         end
-        
+
     end
 end)
