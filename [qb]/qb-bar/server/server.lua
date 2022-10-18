@@ -40,23 +40,27 @@ QBCore.Functions.CreateCallback('qb-bar:server:checkItem', function(source, cb, 
                 cb(false)
             end
         end
-    elseif type == "slice" then
-        local have = false
-        for _, v in pairs(Config.Item['slice']) do
-            local item = xPlayer.Functions.GetItemByName(v)
-            if item and v == 'killerwhalemeat' then
-                calon = 'killerwhalemeat'
-                have = true
-            elseif item and v == 'tigersharkmeat' then
-                calon = 'tigersharkmeat'
-                have = true
-            elseif item and v == 'stingraymeat' then
-                calon = 'stingraymeat'
-                have = true
-            end
-        end
+    -- elseif type == "slice" then
+    --     local have = false
+    --     for _, v in pairs(Config.Item['slice']) do
+    --         local item = xPlayer.Functions.GetItemByName(v)
+    --         if item and v == 'killerwhalemeat' then
+    --             calon = 'killerwhalemeat'
+    --             have = true
+    --         elseif item and v == 'tigersharkmeat' then
+    --             calon = 'tigersharkmeat'
+    --             have = true
+    --         elseif item and v == 'stingraymeat' then
+    --             calon = 'stingraymeat'
+    --             have = true
+    --         end
+    --     end
         
-        if have then print ('yes') cb(true) else print('false') cb(false) end
+    --     if have then print ('yes') cb(true) else print('false') cb(false) end
+    elseif type == "slice" then
+        for _, v in pairs(Config.Item['slice']) do
+            
+        end
     elseif type == "supvica" then
         local package = xPlayer.Functions.GetItemByName('packaged_chicken')
 
