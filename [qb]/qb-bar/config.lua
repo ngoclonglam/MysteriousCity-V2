@@ -68,9 +68,12 @@ Config.Item = {
     },
 
     ['slice'] = {
-        'killerwhalemeat',
-        'stingraymeat',
-        'tigersharkmeat'
+        'bluegill',
+        'silverymonnow',
+        'goldentrout',
+        'strippedbass',
+        'whitefish',
+        'cruciancarp',
     },
 
     ['supvica'] = {

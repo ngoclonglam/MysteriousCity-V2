@@ -59,7 +59,12 @@ QBCore.Functions.CreateCallback('qb-bar:server:checkItem', function(source, cb, 
     --     if have then print ('yes') cb(true) else print('false') cb(false) end
     elseif type == "slice" then
         for _, v in pairs(Config.Item['slice']) do
-            
+            local item = xPlayer.Functions.GetItemByName(v)
+            if item and item.amount >= 1 then
+                cb(true)
+            else
+                cb(false)
+            end
         end
     elseif type == "supvica" then
         local package = xPlayer.Functions.GetItemByName('packaged_chicken')
@@ -92,7 +97,9 @@ RegisterNetEvent('qb-bar:server:makeSlice', function()
 
     if not Player then return end
 
-    Player.Functions.RemoveItem(calon, 1)
+    for _, v in pairs(Config.Items['slice']) do
+        Player.Functions.RemoveItem(v, 1)
+    end
     Player.Functions.AddItem('vica', 1)
 end)
 
