@@ -6,7 +6,7 @@ Config.DropWeapon = false
 Config.ProbabilityWeapon = 70
 Config.ProbabilityLucky = 10
 
-Config.SpawmZombie = {
+Config.SpawnZombie = {
     coords = vector3(1000.68, 3148.44, 39.8)
 }
 
