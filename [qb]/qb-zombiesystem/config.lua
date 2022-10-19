@@ -1,5 +1,6 @@
 Config = {}
 
+Config.Halloween = true
 Config.ZombieDrop = true
 Config.ZombieAmount = 10
 Config.DropWeapon = false

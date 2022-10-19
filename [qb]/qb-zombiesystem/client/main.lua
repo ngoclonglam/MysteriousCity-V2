@@ -16,7 +16,13 @@ local walks = {
 
 -- Functions -- 
 function SpawnZombie()
+    AddRelationshipGroup("zombie")
+    SetRelationshipBetweenGroups(0, GetHashKey("zombie"), GetHashKey("zombie"))
+	SetRelationshipBetweenGroups(5, GetHashKey("zombie"), GetHashKey("PLAYER"))
+	SetRelationshipBetweenGroups(5, GetHashKey("PLAYER"), GetHashKey("zombie"))
+
 	while #entitys < Config.ZombieAmount do
+        print('spawn')
 		Wait(1)
         EntityModel = Models[math.random(1, #Models)]
 		EntityModel = string.upper(EntityModel)
@@ -134,7 +140,7 @@ function GetCoordZPlants(x, y)
 			return z
 		end
 	end
-	return 53.85
+	return 39.94
 end
 
 local function pickupDead(data)
@@ -154,6 +160,7 @@ local function pickupDead(data)
 		local model = GetEntityModel(data.zomb)
         SetEntityAsNoLongerNeeded(data.zomb)
 		SetModelAsNoLongerNeeded(model)
+        DeleteEntity(data.zomb)
 		table.remove(entitys, data.key)
         takeGun()
 		TriggerServerEvent('qb-zombie:server:takeDead')
@@ -161,40 +168,43 @@ local function pickupDead(data)
 		ClearPedSecondaryTask(player)
 	end) -- Cancel
 end
+
 -- Threads
-CreateThread(function()
-    while true do
-        local hour = GetClockHours()
-        if hour < Config.TimeStart and hour > Config.TimeEnd then
-            Wait(10000)
-        else
-            SpawnZombie()
-            for _, zomb in pairs(entitys) do
-                local playerCoords = GetEntityCoords(PlayerPedId())
-                local zomCoords = GetEntityCoords(zomb)
-                if #(playerCoords - zomCoords) < 0.6 then
-                    if IsPedRagdoll(zomb, 1) ~= 1 then
-                        if not IsPedGettingUp(zomb) then
-							RequestAnimDict("misscarsteal4@actor")
-							TaskPlayAnim(zomb,"misscarsteal4@actor","stumble",1.0, 1.0, 500, 9, 1.0, 0, 0, 0)
-							local playerPed = PlayerPedId()
-							local maxHealth = GetEntityMaxHealth(playerPed)
-							local health = GetEntityHealth(playerPed)
-							local newHealth = math.min(maxHealth, math.floor(health - maxHealth / 8))
-							SetEntityHealth(playerPed, newHealth)
-							Wait(2000)
-							TaskGoToEntity(zomb, playerPed, -1, 0.0, 1.0, 1073741824, 0)
-							--TaskGoStraightToCoord(entity, playerX, playerY, playerZ, 1.0, 0, 0,0)
-						end
+if Config.Halloween then
+    CreateThread(function()
+        while true do
+            local hour = GetClockHours()
+            if hour < Config.TimeStart and hour > Config.TimeEnd then
+                Wait(10000)
+            else
+                SpawnZombie()
+                for _, zomb in pairs(entitys) do
+                    local playerCoords = GetEntityCoords(PlayerPedId())
+                    local zomCoords = GetEntityCoords(zomb)
+                    if #(playerCoords - zomCoords) < 0.6 then
+                        if IsPedRagdoll(zomb, 1) ~= 1 then
+                            if not IsPedGettingUp(zomb) then
+                                RequestAnimDict("misscarsteal4@actor")
+                                TaskPlayAnim(zomb,"misscarsteal4@actor","stumble",1.0, 1.0, 500, 9, 1.0, 0, 0, 0)
+                                local playerPed = PlayerPedId()
+                                local maxHealth = GetEntityMaxHealth(playerPed)
+                                local health = GetEntityHealth(playerPed)
+                                local newHealth = math.min(maxHealth, math.floor(health - maxHealth / 8))
+                                SetEntityHealth(playerPed, newHealth)
+                                Wait(2000)
+                                TaskGoToEntity(zomb, playerPed, -1, 0.0, 1.0, 1073741824, 0)
+                                --TaskGoStraightToCoord(entity, playerX, playerY, playerZ, 1.0, 0, 0,0)
+                            end
+                        end
+                    else
+                        Wait(500)
                     end
-                else
-                    Wait(500)
                 end
             end
+            Wait(1)
         end
-        Wait(1)
-    end
-end)
+    end)
+end
 
 if Config.ZombieDrop then
     CreateThread(function()
