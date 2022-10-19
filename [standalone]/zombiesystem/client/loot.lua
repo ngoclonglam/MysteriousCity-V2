@@ -1,10 +1,5 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
-RegisterNetEvent('esx:playerLoaded')
-AddEventHandler('esx:playerLoaded', function(xPlayer)
-	PlayerData = xPlayer
-end)
-
 objects = {}
 
 if Config.ObjectDropLoot then
@@ -12,7 +7,7 @@ if Config.ObjectDropLoot then
 	    while true do
 	        Wait(0)
 	        for k,v in pairs(Config.ObjectsLoot) do
-		        	local player = GetPlayerPed(-1)
+		        	local player = PlayerPedId()
 		        	local distanceobject = 2.2
 		            local obj = GetClosestObjectOfType(GetEntityCoords(player).x, GetEntityCoords(player).y, GetEntityCoords(player).z, distanceobject, v, false, true ,true)
 		            local distance = GetDistanceBetweenCoords(GetEntityCoords(player), GetEntityCoords(obj), true)
@@ -30,7 +25,7 @@ if Config.ObjectDropLoot then
 		            if IsControlJustReleased(0, 38) then
 		                if not objects[obj] then
 
-		                    SetCurrentPedWeapon(GetPlayerPed(-1), 0xA2719263, true)
+		                    SetCurrentPedWeapon(PlayerPedId(), 0xA2719263, true)
 		                    RequestAnimDict("anim@amb@clubhouse@tutorial@bkr_tut_ig3@")
 							while not HasAnimDictLoaded("anim@amb@clubhouse@tutorial@bkr_tut_ig3@") do
 								Wait(10)
@@ -43,12 +38,12 @@ if Config.ObjectDropLoot then
 
 							if randomChance > 0 and randomChance < Config.ProbabilityWeaponLootObject then
 								local randomAmmo = math.random(1, 30)
-								GiveWeaponToPed(GetPlayerPed(-1), randomWeapon, randomAmmo, true, false)
+								GiveWeaponToPed(PlayerPedId(), randomWeapon, randomAmmo, true, false)
 								ESX.ShowNotification('You found ' .. randomWeapon)
 							elseif randomChance >= Config.ProbabilityWeaponLootObject and randomChance < Config.ProbabilityMoneyLootObject then
-								TriggerServerEvent('esx_zombiesystem:moneyloot')
+								TriggerServerEvent('qb-zombie:moneyloot')
 							elseif randomChance >= Config.ProbabilityMoneyLootObject and randomChance < Config.ProbabilityItemLootObject then
-								TriggerServerEvent('esx_zombiesystem:itemloot', randomItem)
+								TriggerServerEvent('qb-zombie:itemloot', randomItem)
 							elseif randomChance >= Config.ProbabilityItemLootObject and randomChance < 100 then
 								ESX.ShowNotification('You not found nothing')
 							end

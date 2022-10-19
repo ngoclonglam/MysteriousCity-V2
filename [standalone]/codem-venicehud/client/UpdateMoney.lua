@@ -14,7 +14,7 @@ function loadESXMoneyAndJob()
                 SendNUIMessage({
                     type = "update_job",
                     joblabel = frameworkObject.GetPlayerData().job.label,
-                    grade_label = frameworkObject.GetPlayerData().job.grade_label
+                    grade_label = frameworkObject.GetPlayerData().job.grade.name
                 })
                 frameworkObject.TriggerServerCallback("codem-venicehud:GetMoney", function(cash)
                     SendNUIMessage({
@@ -52,7 +52,7 @@ AddEventHandler('codem-venicehud:job', function()
                 SendNUIMessage({
                     type = "update_job",
                     joblabel = frameworkObject.GetPlayerData().job.label,
-                    grade_label = frameworkObject.GetPlayerData().job.grade_label
+                    grade_label = frameworkObject.GetPlayerData().job.grade.level
                 })
                 frameworkObject.TriggerServerCallback("codem-venicehud:GetMoney", function(cash)
                     SendNUIMessage({

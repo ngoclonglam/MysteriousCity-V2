@@ -761,7 +761,7 @@ end)
 
 RegisterNetEvent("t1ger_drugs:harvestWeed", function(data)
 	TaskStartScenarioInPlace(player, "world_human_gardener_plant", 0, false)
-	QBCore.Functions.Progressbar("pick_cherry", "Hái Cần..", 5000, false, true, {
+	QBCore.Functions.Progressbar("pick_weed", "Hái Cần..", 5000, false, true, {
 		disableMovement = true,
 		disableCarMovement = true,
 		disableMouse = false,

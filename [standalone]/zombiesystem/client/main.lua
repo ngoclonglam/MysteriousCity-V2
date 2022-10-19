@@ -1,16 +1,4 @@
-ESX = nil
-
-CreateThread(function()
-	while ESX == nil do
-		TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
-		Wait(0)
-	end
-end)
-
-RegisterNetEvent('esx:playerLoaded')
-AddEventHandler('esx:playerLoaded', function(xPlayer)
-	PlayerData = xPlayer
-end)
+local QBCore = exports['qb-core']:GetCoreObject()
 
 local Models = {
 	"A_F_M_Beach_01",

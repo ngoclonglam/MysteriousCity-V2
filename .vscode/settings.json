@@ -10,6 +10,13 @@
         "SetCurrentPedWeapon",
         "json",
         "AddEventHandler",
-        "RegisterNetEvent"
+        "RegisterNetEvent",
+        "DeleteObject",
+        "GetCurrentResourceName",
+        "Wait",
+        "GetEntityCoords",
+        "vector3",
+        "GetGroundZFor_3dCoord",
+        "CreateThread"
     ]
 }
