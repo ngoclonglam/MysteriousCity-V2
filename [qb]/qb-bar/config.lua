@@ -65,8 +65,6 @@ Config.Item = {
         'silverymonnow',
         'goldentrout',
         'strippedbass',
-        'whitefish',
-        'cruciancarp',
     },
     ['supvica'] = {
         'vica'
