@@ -239,3 +239,10 @@ if Config.ZombieDrop then
         end
     end)
 end
+
+AddEventHandler('onResourceStop', function() 
+    for i, v in pairs(entitys) do
+        DeleteEntity(v)
+        table.remove(entitys, i)
+    end
+end)
