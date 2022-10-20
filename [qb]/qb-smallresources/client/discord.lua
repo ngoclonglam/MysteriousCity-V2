@@ -1,29 +1,35 @@
 -- To Set This Up visit https://forum.cfx.re/t/how-to-updated-discord-rich-presence-custom-image/157686
 
 local QBCore = exports['qb-core']:GetCoreObject()
+local appid = 999720849928093797
 
 CreateThread(function()
+    StartAudioScene("CHARACTER_CHANGE_IN_SKY_SCENE")
+	AddTextEntry('FE_THDR_GTAO', 'Mysterious City')
+    AddTextEntry('PM_SCR_MAP', 'Bản Đồ')
+    AddTextEntry('PM_SCR_GAM', 'Thoát Game')
     while true do
         -- This is the Application ID (Replace this with you own)
-        SetDiscordAppId()
+        SetDiscordAppId(appid)
 
         -- Here you will have to put the image name for the "large" icon.
-        SetDiscordRichPresenceAsset('logo_name')
+        SetDiscordRichPresenceAsset('logo_large')
 
         -- (11-11-2018) New Natives:
 
         -- Here you can add hover text for the "large" icon.
-        SetDiscordRichPresenceAssetText('This is a lage icon with text')
+        SetDiscordRichPresenceAssetText('Thành Phố Bí Ẩn')
 
         -- Here you will have to put the image name for the "small" icon.
-        SetDiscordRichPresenceAssetSmall('logo_name')
+        SetDiscordRichPresenceAssetSmall('logo_small')
 
         -- Here you can add hover text for the "small" icon.
-        SetDiscordRichPresenceAssetSmallText('This is a lsmall icon with text')
+        SetDiscordRichPresenceAssetSmallText('Mysterious Cityy')
 
-        QBCore.Functions.TriggerCallback('smallresources:server:GetCurrentPlayers', function(result)
-            SetRichPresence('Players: '..result..'/64')
-        end)
+        local PlayerData = QBCore.Functions.GetPlayerData()
+        local name =  PlayerData.charinfo.lastname .. PlayerData.charinfo.firstname
+
+        SetRichPresence(name .. " - ID [" .. GetPlayerServerId() .. "]")
 
         -- (26-02-2021) New Native:
 
@@ -32,8 +38,8 @@ CreateThread(function()
             First paramater is the button index (0 or 1), second is the title and
             last is the url (this has to start with "fivem://connect/" or "https://")
         ]]--
-        SetDiscordRichPresenceAction(0, "First Button!", "fivem://connect/localhost:30120")
-        SetDiscordRichPresenceAction(1, "Second Button!", "fivem://connect/localhost:30120")
+        SetDiscordRichPresenceAction(0, "Tham gia Discord!", "https://discord.gg/SCHEwKQxQ8")
+        SetDiscordRichPresenceAction(1, "Tham gia Thành Phố!", "https://cfx.re/join/aqxrez")
 
         -- It updates every minute just in case.
         Wait(60000)
