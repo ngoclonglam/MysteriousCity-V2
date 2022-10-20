@@ -31,7 +31,7 @@ function HandleStore()
 
    local storeBlip = AddBlipForCoord(storeData["ped"]["position"])
    SetBlipSprite(storeBlip, storeData["blip"]["sprite"])
-   SetBlipScale(storeBlip, 1.0)
+   SetBlipScale(storeBlip, storeData["blip"]["size"])
    SetBlipColour(storeBlip, storeData["blip"]["color"])
    SetBlipAsShortRange(storeBlip, true)
    BeginTextCommandSetBlipName("STRING")

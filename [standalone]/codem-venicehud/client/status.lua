@@ -20,9 +20,9 @@ end)
 
 
  CreateThread(function()
-    local ped = PlayerPedId()
     while true do
         Wait(1)
+        local ped = PlayerPedId()
         if GetEntityMaxHealth(ped) ~= 200 then
             SetEntityMaxHealth(ped, 200)
             SetEntityHealth(ped, 200)

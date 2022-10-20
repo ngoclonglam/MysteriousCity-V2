@@ -34,7 +34,7 @@ function ShowHelpNotification(msg)
     EndTextCommandDisplayHelp(0, false, true, -1)
 end
 
-function ChangeClothes(type)
+function ChangeClothes(type) 
     RequestAnimDict("clothingshirt")
     while not HasAnimDictLoaded("clothingshirt") do Citizen.Wait(0) end
 
@@ -53,7 +53,7 @@ function ChangeClothes(type)
                 SetPedComponentVariation(PlayerPed, v["component_id"], v["drawable"], v["texture"], 0)
             end
         end
-    else
+    else 
         -- Choose Here your default skin manager script
         TriggerEvent('fivem-appearance:client:reloadSkin')
         

@@ -28,6 +28,7 @@ files {
 shared_script{
 	'config.lua',
 	'GetFrameworkObject.lua',
+
 }
 
 

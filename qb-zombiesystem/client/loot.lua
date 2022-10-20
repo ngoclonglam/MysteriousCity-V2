@@ -84,7 +84,7 @@ if Config.Time then
         while true do
             local hour = GetClockHours()
             if hour < Config.TimeStart and hour > Config.TimeEnd then
-                Wait(60000)
+                Wait(1000)
             else
                 TriggerServerEvent('qb-zombie:server:startWeather')
                 loadPumpkin()

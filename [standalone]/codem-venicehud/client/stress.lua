@@ -23,7 +23,7 @@ if Config.UseStress then
                 local ped = playerPed
                 if IsPedInAnyVehicle(ped, false) then
                     local speed = GetEntitySpeed(GetVehiclePedIsIn(ped, false)) * speedMultiplier
-                    local stressSpeed = 150
+                    local stressSpeed = 130
                     if speed >= stressSpeed then
                         TriggerServerEvent('hud:server:GainStress', math.random(Config.AddStress["on_fastdrive"].min, Config.AddStress["on_fastdrive"].max))
                     end

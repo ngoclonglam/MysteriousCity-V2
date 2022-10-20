@@ -131,7 +131,8 @@ Config.FishingRestaurant = {
     ["name"] = "Bán Cá",
     ["blip"] = {
         ["sprite"] = 628,
-        ["color"] = 3
+        ["color"] = 3,
+        ["size"] = 0.8,
     },
     ["ped"] = {
         ["model"] = 0xED0CE4C6,

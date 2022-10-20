@@ -218,7 +218,7 @@ Config.Locale = {
 -------------------------------------------- Settings hud --------------------------------------------
 Config.HelperTextEnable = false  --- true enable --- false disable
 Config.HelperText = {
-    ['phone'] = 'Phone',['phonepress'] = 'Mysql',
+    ['phone'] = 'Phone',['phonepress'] = 'M',
     ['inventory'] = 'Inventory', ['inventorypress'] = 'TAB',
     ['menu'] = 'Menu',['menupress'] = 'F3',
     ['mic'] = 'Mic',['micpress'] = 'N',
@@ -226,7 +226,7 @@ Config.HelperText = {
 -------------------------------------------- general text hud --------------------------------------------
 
 Config.ShowMenu = {
-    ['showid'] = false,
+    ['showid'] = true,
     ['showonline'] = false,
     ['showmoney'] = true,
     ['showjob'] = true,
@@ -245,7 +245,7 @@ Config.DisableWaterMarkTextAndLogo = false -- true - Disable watermark text and 
 Config.UseWaterMarkText = true -- if true text will be shown | if  false logo will be shown
 Config.WaterMarkText1 = "MYSTERIOUS" -- Top right server text
 Config.WaterMarkText2 = "CITY"  -- Top right server text
-Config.WaterMarkLogo = "https://cdn.discordapp.com/attachments/987700392521527296/998846149094015026/logo2.png" -- Logo url
+Config.WaterMarkLogo = "https://cdn.discordapp.com/attachments/862018783391252500/967359920703942686/Frame_303.png" -- Logo url
 Config.LogoWidth = "11.875rem"
 Config.LogoHeight = "3.313rem"
 Config.OnlinePlayers = false --Determines if display online players or nor
@@ -416,40 +416,40 @@ Config.RemoveStress = { -- You can set here amounts by your desire
 
 Config.Notifications = { -- Notifications
     ["stress_gained"] = {
-        message = 'Getting Stressed',
+        message = 'Bị căng thẳng',
         type = "error",
     },
     ["stress_relive"] = {
-        message =  'You Are Relaxing',
+        message =  'Bạn đang thư giãn',
         type = "success",
     },
     ["took_off_seatbelt"] = {
         type = "error",
-        message = "You took off seatbelt.",
+        message = "Bạn đã cởi dây an toàn.",
     },
     ["took_seatbelt"] = {
         type = "success",
-        message = "You took seatbelt.",
+        message = "Bạn đã thắt dây an toàn.",
     },
     ["cruise_actived"] = {
         type = "success",
-        message = "Cruise activated.",
+        message = "Kiểm soát tốc đỗ đã được bật.",
     },
     ["cruise_disabled"] = {
         type = "error",
-        message = "Cruise disabled.",
+        message = "Kiểm soát tốc độ đã tắt.",
     },
     ["spam"] = {
         type = "error",
-        message = "Please wait for a few seconds.",
+        message = "Vui lòng đợi trong vài giây.",
     },
     ["engine_on"] = {
         type = "success",
-        message = "Engine is on.",
+        message = "Động cơ đang bật.",
     },
     ["engine_off"] = {
         type = "success",
-        message = "Engine is off.",
+        message = "Động cơ đã tắt.",
     },
     ["cant_install_nitro"] = {
         type = "error",
@@ -457,15 +457,15 @@ Config.Notifications = { -- Notifications
     },
     ["no_veh_nearby"] = {
         type = "error",
-        message = "No vehicle nearby.",
+        message = "Không có xe gần đó.",
     },
     ["cash_display"] = {
         type = "success",
-        message = "You have $%s in your pocket.",
+        message = "Bạn có $%s trong túi.",
     },
     ["bank_display"] = {
         type = "success",
-        message = "You have $%s in your bank.",
+        message = "Bạn có $%s trong ngân hàng.",
     },
 }
 
@@ -488,10 +488,10 @@ end
 
 
 
-Citizen.CreateThread(function()
+CreateThread(function()
     frameworkObject = GetFrameworkObject()
     Config.GetStatus = function()
-        Citizen.Wait(100)
+        Wait(100)
         while true do
                 if Config.Framework == "newqb" or Config.Framework == "oldqb"  then
 
@@ -530,7 +530,7 @@ Citizen.CreateThread(function()
                     end)
                 end
 
-            Citizen.Wait(7000)
+            Wait(7000)
         end
     end
 

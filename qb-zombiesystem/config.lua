@@ -37,11 +37,12 @@ Config.ObjectSpawn = {
     {coords = vector3(0.0, 0.0, 0.0)}
 }
 
-Config.Weathwer = "HALLOWEEN"
+Config.Weather = "HALLOWEEN"
 
-Config.TimeSpawn = true
-Config.TimeStart = 18
-Config.TimeEnd = 6
+
+Config.Time = true
+Config.TimeStart = 21
+Config.TimeEnd = 7
 
 Config.Blackout = false
 Config.MuteAmbience = true

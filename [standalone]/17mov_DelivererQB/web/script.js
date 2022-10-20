@@ -36,7 +36,7 @@ window.addEventListener('message', function (event) {
         $(".partyContainer").empty()
         $(".WorkMenu .flex").empty()
         $(".WorkMenu .flex").append('<div class="partyChild childHost" id="' + Number(1+1) + '" plyId="' + myId + ' onclick="Kick(' + myId + ')"><div class="partyHost"><i class="fa-regular fa-user"></i>' + myName + '</div></div>')
-        for (i = 0; i < 3; i++) {
+        for (i = 0; i < 1; i++) {
             $(".partyContainer").append('<div class="partyChild" onclick="Invite()"><div class="freeSlot"><i class="fa-solid fa-user-plus"></i></div></div>')
         }
     } else if (action == "refreshMugs") {
@@ -56,7 +56,7 @@ window.addEventListener('message', function (event) {
             }
         }
 
-        for (i = 0; i < 4-added; i++) {
+        for (i = 0; i < 2-added; i++) {
             $(".partyContainer").append('<div class="partyChild" onclick="Invite()"><div class="freeSlot"><i class="fa-solid fa-user-plus"></i></div></div>')
         }
     } else if (action == "HostStatusUpdate") {
