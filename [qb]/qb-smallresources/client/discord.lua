@@ -29,7 +29,7 @@ CreateThread(function()
         local PlayerData = QBCore.Functions.GetPlayerData()
         local name =  PlayerData.charinfo.lastname .. PlayerData.charinfo.firstname
 
-        SetRichPresence(name .. " - ID [" .. GetPlayerServerId() .. "]")
+        SetRichPresence(name .. " - ID [" .. GetPlayerServerId() .. "] - Mysterious City")
 
         -- (26-02-2021) New Native:
 
