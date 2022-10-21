@@ -2,18 +2,18 @@ local oldProximity = 0.0
 
 local prop = "v_ilev_fos_mic"
 
-function string.starts(String,Start)    
-    return string.sub(String,1,string.len(Start))==Start 
+function string.starts(String,Start)
+    return string.sub(String,1,string.len(Start))==Start
 end
 CreateThread(function()
-    for k, v in pairs(Config.MicrophoneZones) do
+    for _, v in pairs(Config.MicrophoneZones) do
         exports["ps-zones"]:CreateBoxZone("microphone_"..v.name, v.coords, v.length, v.width, v.data)
     end
 end)
 
-Citizen.CreateThread(function()
+CreateThread(function()
 	while true do
-		Citizen.Wait(7)
+		Wait(7)
         inRange = false
         local ped = PlayerPedId()
         local pos = GetEntityCoords(ped)
@@ -23,7 +23,7 @@ Citizen.CreateThread(function()
                 if dist <= 150.0 then
                     if v.obj == nil then
                         local obj = CreateObject(GetHashKey(prop), vector3(v.coords.x, v.coords.y, v.coords.z - 1.0), false)
-                        if v.data.heading ~= nil then
+                        if v.data.heading then
                             SetEntityHeading(obj, v.heading)
                         end
                         FreezeEntityPosition(obj, true)
@@ -39,7 +39,7 @@ Citizen.CreateThread(function()
         end
 
 		if not inRange then
-			Citizen.Wait(500)
+			Wait(500)
 		end
 	end
 end)
