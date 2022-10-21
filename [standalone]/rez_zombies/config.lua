@@ -49,7 +49,7 @@ Config.PedModels = {
 	"a_m_m_mexcntry_01",
 	"a_m_m_fatlatin_01",
 	"a_m_m_salton_02",
-	"csb_ramp_hic",	
+	"csb_ramp_hic",
 }
 
 Config.HordeLocations = {
