@@ -3,7 +3,7 @@ local PlayerData = {}
 local CurrentCops = 0
 local isOpen = false
 local callSign = ""
-local tablet = 0
+local tabletObj = nil
 local tabletDict = "amb@code_human_in_bus_passenger_idles@female@tablet@base"
 local tabletAnim = "base"
 local tabletProp = `prop_cs_tablet`
@@ -58,6 +58,14 @@ AddEventHandler('onResourceStart', function(resourceName)
     callSign = PlayerData.metadata.callsign
 end)
 
+AddEventHandler('onResourceStop', function(resourceName)
+	if (GetCurrentResourceName() ~= resourceName) then return end
+    ClearPedSecondaryTask(PlayerPedId())
+    SetEntityAsMissionEntity(tabletObj)
+    DetachEntity(tabletObj, true, false)
+    DeleteObject(tabletObj)
+end)
+
 --====================================================================================
 ------------------------------------------
 --                Functions             --
@@ -78,7 +86,7 @@ RegisterCommand('mdt', function()
     end
 end, false)
 
-Citizen.CreateThread(function()
+CreateThread(function()
     TriggerEvent('chat:addSuggestion', '/mdt', 'Open the emergency services MDT', {})
 end)
 
@@ -86,13 +94,13 @@ local function doAnimation()
     if not isOpen then return end
     -- Animation
     RequestAnimDict(tabletDict)
-    while not HasAnimDictLoaded(tabletDict) do Citizen.Wait(100) end
+    while not HasAnimDictLoaded(tabletDict) do Wait(100) end
     -- Model
     RequestModel(tabletProp)
-    while not HasModelLoaded(tabletProp) do Citizen.Wait(100) end
+    while not HasModelLoaded(tabletProp) do Wait(100) end
 
     local plyPed = PlayerPedId()
-    local tabletObj = CreateObject(tabletProp, 0.0, 0.0, 0.0, true, true, false)
+    tabletObj = CreateObject(tabletProp, 0.0, 0.0, 0.0, true, true, false)
     local tabletBoneIndex = GetPedBoneIndex(plyPed, tabletBone)
 
     AttachEntityToEntity(tabletObj, plyPed, tabletBoneIndex, tabletOffset.x, tabletOffset.y, tabletOffset.z, tabletRot.x, tabletRot.y, tabletRot.z, true, false, false, false, 2, true)
@@ -108,7 +116,7 @@ local function doAnimation()
 
 
         ClearPedSecondaryTask(plyPed)
-        Citizen.Wait(250)
+        Wait(250)
         DetachEntity(tabletObj, true, false)
         DeleteEntity(tabletObj)
     end)
@@ -259,7 +267,7 @@ RegisterNUICallback("searchProfiles", function(data, cb)
         p:resolve(result)
     end, data.name)
 
-    local data = Citizen.Await(p)
+    local data = Await(p)
 
     cb(data)
 end)
@@ -293,7 +301,7 @@ RegisterNUICallback("getProfileData", function(data, cb)
         QBCore.Functions.TriggerCallback('mdt:server:GetProfileData', function(result)
             p:resolve(result)
         end, data)
-        return Citizen.Await(p)
+        return Await(p)
     end
     local pP = nil
     local result = getProfileDataPromise(id)
@@ -304,7 +312,7 @@ RegisterNUICallback("getProfileData", function(data, cb)
         QBCore.Functions.TriggerCallback('qb-phone:server:MeosGetPlayerHouses', function(result)
             pP:resolve(result)
         end, data)
-        return Citizen.Await(pP)
+        return Await(pP)
     end
     local propertiesResult = getProfileProperties(id)
     result.properties = propertiesResult
@@ -537,7 +545,7 @@ RegisterNUICallback("searchVehicles", function(data, cb)
         p:resolve(result)
     end, data.name)
 
-    local result = Citizen.Await(p)
+    local result = Await(p)
     for i=1, #result do
         local vehicle = result[i]
         local mods = json.decode(result[i].mods)
