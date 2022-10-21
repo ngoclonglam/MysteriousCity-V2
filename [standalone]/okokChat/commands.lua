@@ -217,7 +217,7 @@ end
 
 function isAdmin(source)
 	for _, v in ipairs(Config.StaffGroups) do
-		local tbl = QBCore.Functions.GetPermission(xPlayer)
+		local tbl = QBCore.Functions.GetPermission(source)
 		-- if QBCore.Functions.GetPermission(xPlayer) == v then
 		if tbl[v] then
 			return true

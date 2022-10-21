@@ -16,7 +16,7 @@ local Garages = Garages or {}
 local function GetOnlineStatus(number)
     local Target = QBCore.Functions.GetPlayerByPhone(number)
     local retval = false
-    if Target ~= nil then
+    if Target then
         retval = true
     end
     return retval
@@ -50,7 +50,7 @@ function QBPhone.AddMentionedTweet(citizenid, TweetData)
 end
 
 function QBPhone.SetPhoneAlerts(citizenid, app, alerts)
-    if citizenid ~= nil and app ~= nil then
+    if citizenid and app then
         if AppAlerts[citizenid] == nil then
             AppAlerts[citizenid] = {}
             if AppAlerts[citizenid][app] == nil then
@@ -216,8 +216,8 @@ end
 
 QBCore.Functions.CreateCallback('qb-phone:server:GetCallState', function(source, cb, ContactData)
     local Target = QBCore.Functions.GetPlayerByPhone(ContactData.number)
-    if Target ~= nil then
-        if Calls[Target.PlayerData.citizenid] ~= nil then
+    if Target then
+        if Calls[Target.PlayerData.citizenid] then
             if Calls[Target.PlayerData.citizenid].inCall then
                 print("false, true")
                 cb(false, true)
@@ -238,7 +238,7 @@ end)
 QBCore.Functions.CreateCallback('qb-phone:server:GetPhoneData', function(source, cb)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-    if Player ~= nil then
+    if Player then
         local PhoneData = {
             Applications = {},
             PlayerContacts = {},
@@ -258,7 +258,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetPhoneData', function(source,
 
         local result = MySQL.query.await('SELECT * FROM player_contacts WHERE citizenid = ? ORDER BY name ASC', {Player.PlayerData.citizenid})
         local Contacts = {}
-        if result[1] ~= nil then
+        if result[1] then
             for k, v in pairs(result) do
                 v.status = GetOnlineStatus(v.number)
             end
@@ -267,14 +267,14 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetPhoneData', function(source,
         end
 
         local invoices = MySQL.query.await('SELECT * FROM phone_invoices WHERE citizenid = ?', {Player.PlayerData.citizenid})
-        if invoices[1] ~= nil then
+        if invoices[1] then
             for k, v in pairs(invoices) do
                 local Ply = QBCore.Functions.GetPlayerByCitizenId(v.sender)
-                if Ply ~= nil then
+                if Ply then
                     v.number = Ply.PlayerData.charinfo.phone
                 else
                     local res = MySQL.query.await('SELECT * FROM players WHERE citizenid = ?', {v.sender})
-                    if res[1] ~= nil then
+                    if res[1] then
                         res[1].charinfo = json.decode(res[1].charinfo)
                         v.number = res[1].charinfo.phone
                     else
@@ -286,7 +286,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetPhoneData', function(source,
         end
 
         local garageresult = MySQL.query.await('SELECT * FROM player_vehicles WHERE citizenid = ?', {Player.PlayerData.citizenid})
-        if garageresult[1] ~= nil then
+        if garageresult[1] then
             for k, v in pairs(garageresult) do
                 local vehicleModel = v.vehicle
                 if (QBCore.Shared.Vehicles[vehicleModel] ~= nil) and (Garages[v.garage] ~= nil) then
@@ -300,32 +300,32 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetPhoneData', function(source,
         end
 
         local messages = MySQL.query.await('SELECT * FROM phone_messages WHERE citizenid = ?', {Player.PlayerData.citizenid})
-        if messages ~= nil and next(messages) ~= nil then
+        if messages and next(messages) then
             PhoneData.Chats = messages
         end
 
-        if AppAlerts[Player.PlayerData.citizenid] ~= nil then
+        if AppAlerts[Player.PlayerData.citizenid] then
             PhoneData.Applications = AppAlerts[Player.PlayerData.citizenid]
         end
 
-        if MentionedTweets[Player.PlayerData.citizenid] ~= nil then
+        if MentionedTweets[Player.PlayerData.citizenid] then
             PhoneData.MentionedTweets = MentionedTweets[Player.PlayerData.citizenid]
         end
 
-        if Hashtags ~= nil and next(Hashtags) ~= nil then
+        if Hashtags and next(Hashtags) then
             PhoneData.Hashtags = Hashtags
         end
 
         local Tweets = MySQL.query.await('SELECT * FROM phone_tweets WHERE `date` > NOW() - INTERVAL ? hour', {Config.TweetDuration})
 
-        if Tweets ~= nil and next(Tweets) ~= nil then
+        if Tweets and next(Tweets) then
             PhoneData.Tweets = Tweets
         end
 
         local mails = MySQL.query.await('SELECT * FROM player_mails WHERE citizenid = ? ORDER BY `date` ASC', {Player.PlayerData.citizenid})
-        if mails[1] ~= nil then
+        if mails[1] then
             for k, v in pairs(mails) do
-                if mails[k].button ~= nil then
+                if mails[k].button then
                     mails[k].button = json.decode(mails[k].button)
                 end
             end
@@ -333,7 +333,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetPhoneData', function(source,
         end
 
         local transactions = MySQL.query.await('SELECT * FROM crypto_transactions WHERE citizenid = ? ORDER BY `date` ASC', {Player.PlayerData.citizenid})
-        if transactions[1] ~= nil then
+        if transactions[1] then
             for _, v in pairs(transactions) do
                 PhoneData.CryptoTransactions[#PhoneData.CryptoTransactions+1] = {
                     TransactionTitle = v.title,
@@ -342,7 +342,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetPhoneData', function(source,
             end
         end
         local images = MySQL.query.await('SELECT * FROM phone_gallery WHERE citizenid = ? ORDER BY `date` DESC',{Player.PlayerData.citizenid})
-        if images ~= nil and next(images) ~= nil then
+        if images and next(images) then
             PhoneData.Images = images
         end
         cb(PhoneData)
@@ -374,7 +374,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:PayInvoice', function(source, c
     TriggerEvent("qb-bossmenu:server:addAccountMoney", society, amount)
     MySQL.query('DELETE FROM phone_invoices WHERE id = ?', {invoiceId})
     local invoices = MySQL.query.await('SELECT * FROM phone_invoices WHERE citizenid = ?', {Ply.PlayerData.citizenid})
-    if invoices[1] ~= nil then
+    if invoices[1] then
         Invoices = invoices
     end
     cb(true, Invoices)
@@ -385,7 +385,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:DeclineInvoice', function(sourc
     local Ply = QBCore.Functions.GetPlayer(source)
     MySQL.query('DELETE FROM phone_invoices WHERE id = ?', {invoiceId})
     local invoices = MySQL.query.await('SELECT * FROM phone_invoices WHERE citizenid = ?', {Ply.PlayerData.citizenid})
-    if invoices[1] ~= nil then
+    if invoices[1] then
         Invoices = invoices
     end
     cb(true, Invoices)
@@ -397,10 +397,10 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetContactPictures', function(s
 
         local query = '%' .. v.number .. '%'
         local result = MySQL.query.await('SELECT * FROM players WHERE charinfo LIKE ?', {query})
-        if result[1] ~= nil then
+        if result[1] then
             local MetaData = json.decode(result[1].metadata)
 
-            if MetaData.phone.profilepicture ~= nil then
+            if MetaData.phone.profilepicture then
                 v.picture = MetaData.phone.profilepicture
             else
                 v.picture = "default"
@@ -416,7 +416,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetContactPicture', function(so
     local query = '%' .. Chat.number .. '%'
     local result = MySQL.query.await('SELECT * FROM players WHERE charinfo LIKE ?', {query})
     local MetaData = json.decode(result[1].metadata)
-    if MetaData.phone.profilepicture ~= nil then
+    if MetaData.phone.profilepicture then
         Chat.picture = MetaData.phone.profilepicture
     else
         Chat.picture = "default"
@@ -430,9 +430,9 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetPicture', function(source, c
     local Picture = nil
     local query = '%' .. number .. '%'
     local result = MySQL.query.await('SELECT * FROM players WHERE charinfo LIKE ?', {query})
-    if result[1] ~= nil then
+    if result[1] then
         local MetaData = json.decode(result[1].metadata)
-        if MetaData.phone.profilepicture ~= nil then
+        if MetaData.phone.profilepicture then
             Picture = MetaData.phone.profilepicture
         else
             Picture = "default"
@@ -462,12 +462,12 @@ QBCore.Functions.CreateCallback('qb-phone:server:FetchResult', function(source, 
         ApaData[v.citizenid] = ApartmentData[k]
     end
     local result = MySQL.query.await(query)
-    if result[1] ~= nil then
+    if result[1] then
         for k, v in pairs(result) do
             local charinfo = json.decode(v.charinfo)
             local metadata = json.decode(v.metadata)
             local appiepappie = {}
-            if ApaData[v.citizenid] ~= nil and next(ApaData[v.citizenid]) ~= nil then
+            if ApaData[v.citizenid] and next(ApaData[v.citizenid]) then
                 appiepappie = ApaData[v.citizenid]
             end
             searchData[#searchData+1] = {
@@ -495,13 +495,13 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetVehicleSearchResults', funct
     local query = '%' .. search .. '%'
     local result = MySQL.query.await('SELECT * FROM player_vehicles WHERE plate LIKE ? OR citizenid = ?',
         {query, search})
-    if result[1] ~= nil then
+    if result[1] then
         for k, v in pairs(result) do
             local player = MySQL.query.await('SELECT * FROM players WHERE citizenid = ?', {result[k].citizenid})
-            if player[1] ~= nil then
+            if player[1] then
                 local charinfo = json.decode(player[1].charinfo)
                 local vehicleInfo = QBCore.Shared.Vehicles[result[k].vehicle]
-                if vehicleInfo ~= nil then
+                if vehicleInfo then
                     searchData[#searchData+1] = {
                         plate = result[k].plate,
                         status = true,
@@ -521,7 +521,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetVehicleSearchResults', funct
             end
         end
     else
-        if GeneratedPlates[search] ~= nil then
+        if GeneratedPlates[search] then
             searchData[#searchData+1] = {
                 plate = GeneratedPlates[search].plate,
                 status = GeneratedPlates[search].status,
@@ -552,9 +552,9 @@ end)
 QBCore.Functions.CreateCallback('qb-phone:server:ScanPlate', function(source, cb, plate)
     local src = source
     local vehicleData = {}
-    if plate ~= nil then
+    if plate then
         local result = MySQL.query.await('SELECT * FROM player_vehicles WHERE plate = ?', {plate})
-        if result[1] ~= nil then
+        if result[1] then
             local player = MySQL.query.await('SELECT * FROM players WHERE citizenid = ?', {result[1].citizenid})
             local charinfo = json.decode(player[1].charinfo)
             vehicleData = {
@@ -563,7 +563,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:ScanPlate', function(source, cb
                 owner = charinfo.firstname .. " " .. charinfo.lastname,
                 citizenid = result[1].citizenid
             }
-        elseif GeneratedPlates ~= nil and GeneratedPlates[plate] ~= nil then
+        elseif GeneratedPlates and GeneratedPlates[plate] then
             vehicleData = GeneratedPlates[plate]
         else
             local ownerInfo = GenerateOwnerName()
@@ -600,18 +600,18 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetGarageVehicles', function(so
     local Vehicles = {}
     local result = MySQL.query.await('SELECT * FROM player_vehicles WHERE citizenid = ?',
         {Player.PlayerData.citizenid})
-    if result[1] ~= nil then
+    if result[1] then
         for k, v in pairs(result) do
             local VehicleData = QBCore.Shared.Vehicles[v.vehicle]
             local VehicleGarage = "None"
-            if v.garage ~= nil then
+            if v.garage then
                 if GetGarageNamephone(v.garage) then
                     if Garages[v.garage] or GangGarages[v.garage] or JobGarages[v.garage] then
-                        if Garages[v.garage] ~= nil then
+                        if Garages[v.garage] then
                             VehicleGarage = Garages[v.garage]["label"]
-                        elseif GangGarages[v.garage] ~= nil then
+                        elseif GangGarages[v.garage] then
                             VehicleGarage = GangGarages[v.garage]["label"]
-                        elseif JobGarages[v.garage] ~= nil then
+                        elseif JobGarages[v.garage] then
                             VehicleGarage = JobGarages[v.garage]["label"]
                         end
                     end
@@ -663,9 +663,9 @@ end)
 
 QBCore.Functions.CreateCallback('qb-phone:server:HasPhone', function(source, cb)
     local Player = QBCore.Functions.GetPlayer(source)
-    if Player ~= nil then
+    if Player then
         local HasPhone = Player.Functions.GetItemByName("phone")
-        if HasPhone ~= nil then
+        if HasPhone then
             cb(true)
         else
             cb(false)
@@ -687,10 +687,10 @@ QBCore.Functions.CreateCallback('qb-phone:server:CanTransferMoney', function(sou
     if (Player.PlayerData.money.bank - amount) >= 0 then
         local query = '%"account":"' .. iban .. '"%'
         local result = MySQL.query.await('SELECT * FROM players WHERE charinfo LIKE ?', {query})
-        if result[1] ~= nil then
+        if result[1] then
             local Reciever = QBCore.Functions.GetPlayerByCitizenId(result[1].citizenid)
             Player.Functions.RemoveMoney('bank', amount)
-            if Reciever ~= nil then
+            if Reciever then
                 Reciever.Functions.AddMoney('bank', amount)
             else
                 local RecieverMoney = json.decode(result[1].money)
@@ -708,7 +708,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetCurrentLawyers', function(so
     local Lawyers = {}
     for k, v in pairs(QBCore.Functions.GetPlayers()) do
         local Player = QBCore.Functions.GetPlayer(v)
-        if Player ~= nil then
+        if Player then
             if (Player.PlayerData.job.name == "lawyer" or Player.PlayerData.job.name == "realestate" or
                 Player.PlayerData.job.name == "mechanic" or Player.PlayerData.job.name == "taxi" or
                 Player.PlayerData.job.name == "police" or Player.PlayerData.job.name == "ambulance" or
@@ -735,7 +735,7 @@ RegisterNetEvent('qb-phone:server:AddAdvert', function(msg, url)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local CitizenId = Player.PlayerData.citizenid
-    if Adverts[CitizenId] ~= nil then
+    if Adverts[CitizenId] then
         Adverts[CitizenId].message = msg
         Adverts[CitizenId].name = "@" .. Player.PlayerData.charinfo.firstname .. "" .. Player.PlayerData.charinfo.lastname
         Adverts[CitizenId].number = Player.PlayerData.charinfo.phone
@@ -761,7 +761,7 @@ end)
 RegisterNetEvent('qb-phone:server:SetCallState', function(bool)
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
-    if Calls[Ply.PlayerData.citizenid] ~= nil then
+    if Calls[Ply.PlayerData.citizenid] then
         Calls[Ply.PlayerData.citizenid].inCall = bool
     else
         Calls[Ply.PlayerData.citizenid] = {}
@@ -775,9 +775,9 @@ RegisterNetEvent('qb-phone:server:RemoveMail', function(MailId)
     MySQL.query('DELETE FROM player_mails WHERE mailid = ? AND citizenid = ?', {MailId, Player.PlayerData.citizenid})
     SetTimeout(100, function()
         local mails = MySQL.query.await('SELECT * FROM player_mails WHERE citizenid = ? ORDER BY `date` ASC', {Player.PlayerData.citizenid})
-        if mails[1] ~= nil then
+        if mails[1] then
             for k, v in pairs(mails) do
-                if mails[k].button ~= nil then
+                if mails[k].button then
                     mails[k].button = json.decode(mails[k].button)
                 end
             end
@@ -798,9 +798,9 @@ RegisterNetEvent('qb-phone:server:sendNewMail', function(mailData)
     SetTimeout(200, function()
         local mails = MySQL.query.await('SELECT * FROM player_mails WHERE citizenid = ? ORDER BY `date` DESC',
             {Player.PlayerData.citizenid})
-        if mails[1] ~= nil then
+        if mails[1] then
             for k, v in pairs(mails) do
-                if mails[k].button ~= nil then
+                if mails[k].button then
                     mails[k].button = json.decode(mails[k].button)
                 end
             end
@@ -824,9 +824,9 @@ RegisterNetEvent('qb-phone:server:sendNewMailToOffline', function(citizenid, mai
         SetTimeout(200, function()
             local mails = MySQL.query.await(
                 'SELECT * FROM player_mails WHERE citizenid = ? ORDER BY `date` ASC', {Player.PlayerData.citizenid})
-            if mails[1] ~= nil then
+            if mails[1] then
                 for k, v in pairs(mails) do
-                    if mails[k].button ~= nil then
+                    if mails[k].button then
                         mails[k].button = json.decode(mails[k].button)
                     end
                 end
@@ -852,9 +852,9 @@ RegisterNetEvent('qb-phone:server:sendNewEventMail', function(citizenid, mailDat
     end
     SetTimeout(200, function()
         local mails = MySQL.query.await('SELECT * FROM player_mails WHERE citizenid = ? ORDER BY `date` ASC', {citizenid})
-        if mails[1] ~= nil then
+        if mails[1] then
             for k, v in pairs(mails) do
-                if mails[k].button ~= nil then
+                if mails[k].button then
                     mails[k].button = json.decode(mails[k].button)
                 end
             end
@@ -869,9 +869,9 @@ RegisterNetEvent('qb-phone:server:ClearButtonData', function(mailId)
     MySQL.query('UPDATE player_mails SET button = ? WHERE mailid = ? AND citizenid = ?', {'', mailId, Player.PlayerData.citizenid})
     SetTimeout(200, function()
         local mails = MySQL.query.await('SELECT * FROM player_mails WHERE citizenid = ? ORDER BY `date` ASC', {Player.PlayerData.citizenid})
-        if mails[1] ~= nil then
+        if mails[1] then
             for k, v in pairs(mails) do
-                if mails[k].button ~= nil then
+                if mails[k].button then
                     mails[k].button = json.decode(mails[k].button)
                 end
             end
@@ -883,7 +883,7 @@ end)
 RegisterNetEvent('qb-phone:server:MentionedPlayer', function(firstName, lastName, TweetMessage)
     for k, v in pairs(QBCore.Functions.GetPlayers()) do
         local Player = QBCore.Functions.GetPlayer(v)
-        if Player ~= nil then
+        if Player then
             if (Player.PlayerData.charinfo.firstname == firstName and Player.PlayerData.charinfo.lastname == lastName) then
                 QBPhone.SetPhoneAlerts(Player.PlayerData.citizenid, "twitter")
                 QBPhone.AddMentionedTweet(Player.PlayerData.citizenid, TweetMessage)
@@ -892,7 +892,7 @@ RegisterNetEvent('qb-phone:server:MentionedPlayer', function(firstName, lastName
                 local query1 = '%' .. firstName .. '%'
                 local query2 = '%' .. lastName .. '%'
                 local result = MySQL.query.await('SELECT * FROM players WHERE charinfo LIKE ? AND charinfo LIKE ?', {query1, query2})
-                if result[1] ~= nil then
+                if result[1] then
                     local MentionedTarget = result[1].citizenid
                     QBPhone.SetPhoneAlerts(MentionedTarget, "twitter")
                     QBPhone.AddMentionedTweet(MentionedTarget, TweetMessage)
@@ -906,7 +906,7 @@ RegisterNetEvent('qb-phone:server:CallContact', function(TargetData, CallId, Ano
     local src = source
     local Ply = QBCore.Functions.GetPlayer(src)
     local Target = QBCore.Functions.GetPlayerByPhone(TargetData.number)
-    if Target ~= nil then
+    if Target then
         TriggerClientEvent('qb-phone:client:GetCalled', Target.PlayerData.source, Ply.PlayerData.charinfo.phone, CallId, AnonymousCall)
     end
 end)
@@ -927,7 +927,7 @@ RegisterNetEvent('qb-phone:server:BillingEmail', function(data, paid)
 end)
 
 RegisterNetEvent('qb-phone:server:UpdateHashtags', function(Handle, messageData)
-    if Hashtags[Handle] ~= nil and next(Hashtags[Handle]) ~= nil then
+    if Hashtags[Handle] and next(Hashtags[Handle]) then
         Hashtags[Handle].messages[#Hashtags[Handle].messages+1] = messageData
     else
         Hashtags[Handle] = {
@@ -975,15 +975,15 @@ RegisterNetEvent('qb-phone:server:TransferMoney', function(iban, amount)
 
     local query = '%' .. iban .. '%'
     local result = MySQL.query.await('SELECT * FROM players WHERE charinfo LIKE ?', {query})
-    if result[1] ~= nil then
+    if result[1] then
         local reciever = QBCore.Functions.GetPlayerByCitizenId(result[1].citizenid)
 
-        if reciever ~= nil then
+        if reciever then
             local PhoneItem = reciever.Functions.GetItemByName("phone")
             reciever.Functions.AddMoney('bank', amount, "phone-transfered-from-" .. sender.PlayerData.citizenid)
             sender.Functions.RemoveMoney('bank', amount, "phone-transfered-to-" .. reciever.PlayerData.citizenid)
 
-            if PhoneItem ~= nil then
+            if PhoneItem then
                 TriggerClientEvent('qb-phone:client:TransferMoney', reciever.PlayerData.source, amount,
                     reciever.PlayerData.money.bank)
             end
@@ -1025,11 +1025,11 @@ RegisterNetEvent('qb-phone:server:UpdateMessages', function(ChatMessages, ChatNu
     local SenderData = QBCore.Functions.GetPlayer(src)
     local query = '%' .. ChatNumber .. '%'
     local Player = MySQL.query.await('SELECT * FROM players WHERE charinfo LIKE ?', {query})
-    if Player[1] ~= nil then
+    if Player[1] then
         local TargetData = QBCore.Functions.GetPlayerByCitizenId(Player[1].citizenid)
-        if TargetData ~= nil then
+        if TargetData then
             local Chat = MySQL.query.await('SELECT * FROM phone_messages WHERE citizenid = ? AND number = ?', {SenderData.PlayerData.citizenid, ChatNumber})
-            if Chat[1] ~= nil then
+            if Chat[1] then
                 MySQL.query('UPDATE phone_messages SET messages = ? WHERE citizenid = ? AND number = ?', {json.encode(ChatMessages), TargetData.PlayerData.citizenid, SenderData.PlayerData.charinfo.phone})
                 MySQL.query('UPDATE phone_messages SET messages = ? WHERE citizenid = ? AND number = ?', {json.encode(ChatMessages), SenderData.PlayerData.citizenid, TargetData.PlayerData.charinfo.phone})
                 TriggerClientEvent('qb-phone:client:UpdateMessages', TargetData.PlayerData.source, ChatMessages, SenderData.PlayerData.charinfo.phone, false)
@@ -1040,7 +1040,7 @@ RegisterNetEvent('qb-phone:server:UpdateMessages', function(ChatMessages, ChatNu
             end
         else
             local Chat = MySQL.query.await('SELECT * FROM phone_messages WHERE citizenid = ? AND number = ?', {SenderData.PlayerData.citizenid, ChatNumber})
-            if Chat[1] ~= nil then
+            if Chat[1] then
                 MySQL.query('UPDATE phone_messages SET messages = ? WHERE citizenid = ? AND number = ?', {json.encode(ChatMessages), Player[1].citizenid, SenderData.PlayerData.charinfo.phone})
                 Player[1].charinfo = json.decode(Player[1].charinfo)
                 MySQL.query('UPDATE phone_messages SET messages = ? WHERE citizenid = ? AND number = ?', {json.encode(ChatMessages), SenderData.PlayerData.citizenid, Player[1].charinfo.phone})
@@ -1061,7 +1061,7 @@ RegisterNetEvent('qb-phone:server:AddRecentCall', function(type, data)
     local label = Hour .. ":" .. Minute
     TriggerClientEvent('qb-phone:client:AddRecentCall', src, data, label, type)
     local Trgt = QBCore.Functions.GetPlayerByPhone(data.number)
-    if Trgt ~= nil then
+    if Trgt then
         TriggerClientEvent('qb-phone:client:AddRecentCall', Trgt.PlayerData.source, {
             name = Ply.PlayerData.charinfo.firstname .. " " .. Ply.PlayerData.charinfo.lastname,
             number = Ply.PlayerData.charinfo.phone,
@@ -1072,14 +1072,14 @@ end)
 
 RegisterNetEvent('qb-phone:server:CancelCall', function(ContactData)
     local Ply = QBCore.Functions.GetPlayerByPhone(ContactData.TargetData.number)
-    if Ply ~= nil then
+    if Ply then
         TriggerClientEvent('qb-phone:client:CancelCall', Ply.PlayerData.source)
     end
 end)
 
 RegisterNetEvent('qb-phone:server:AnswerCall', function(CallData)
     local Ply = QBCore.Functions.GetPlayerByPhone(CallData.TargetData.number)
-    if Ply ~= nil then
+    if Ply then
         TriggerClientEvent('qb-phone:client:AnswerCall', Ply.PlayerData.source)
     end
 end)
@@ -1173,7 +1173,7 @@ QBCore.Commands.Add('bill', 'Bill A Player', {{name = 'id', help = 'ID Người 
     local billed = QBCore.Functions.GetPlayer(tonumber(args[1]))
     local amount = tonumber(args[2])
     if biller.PlayerData.job.name == "police" or biller.PlayerData.job.name == 'ambulance' or biller.PlayerData.job.name == 'mechanic' then
-        if billed ~= nil then
+        if billed then
             if biller.PlayerData.citizenid ~= billed.PlayerData.citizenid then
                 if amount and amount > 0 then
                     MySQL.insert(
@@ -1211,7 +1211,7 @@ end)
 RegisterNetEvent('qb-pings:server:acceptping', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-    if Pings[src] ~= nil then
+    if Pings[src] then
         TriggerClientEvent('qb-pings:client:AcceptPing', src, Pings[src], QBCore.Functions.GetPlayer(Pings[src].sender))
         TriggerClientEvent('QBCore:Notify', Pings[src].sender, Player.PlayerData.charinfo.firstname.." "..Player.PlayerData.charinfo.lastname.." accepted your ping request!")
         Pings[src] = nil
@@ -1223,7 +1223,7 @@ end)
 RegisterNetEvent('qb-pings:server:denyping', function()
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-    if Pings[src] ~= nil then
+    if Pings[src] then
         TriggerClientEvent('QBCore:Notify', Pings[src].sender, "Your ping request has been rejected...", "error")
         TriggerClientEvent('QBCore:Notify', src, "You turned down the ping...", "success")
         Pings[src] = nil
@@ -1239,9 +1239,9 @@ RegisterNetEvent('qb-pings:server:SendPing', function(id)
     local ped = GetPlayerPed(id)
     local coords = GetEntityCoords(ped)
 
-    if Target ~= nil then
+    if Target then
         local OtherItem = Target.Functions.GetItemByName("phone")
-        if OtherItem ~= nil then
+        if OtherItem then
             TriggerClientEvent('QBCore:Notify', src, "You have requested the location of "..Target.PlayerData.charinfo.firstname.." "..Target.PlayerData.charinfo.lastname)
             Pings[id] = {
                 coords = coords,
@@ -1456,7 +1456,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetHasBills_debt', function(sou
     local Ply = QBCore.Functions.GetPlayer(src)
     local Debt = MySQL.query.await('SELECT * FROM phone_debt WHERE citizenid = ?', {Ply.PlayerData.citizenid})
     Wait(400)
-    if Debt[1] ~= nil then
+    if Debt[1] then
         cb(Debt)
     end
 end)
@@ -1513,7 +1513,7 @@ RegisterNetEvent('qb-phone:server:documents_Save_Note_As', function(data)
     elseif data.Type == "Update" then
         local ID = tonumber(data.ID)
         local Note = MySQL.query.await('SELECT * FROM phone_note WHERE id = ?', {ID})
-        if Note[1] ~= nil then
+        if Note[1] then
             MySQL.query('DELETE FROM phone_note WHERE id = ?', {ID})
             MySQL.insert('INSERT INTO phone_note (citizenid, title,  text, lastupdate) VALUES (?, ?, ?, ?)',{Ply.PlayerData.citizenid, data.Title, data.Text, data.Time})
             TriggerClientEvent('QBCore:Notify', src, 'Note Updated', 'success')
@@ -1532,7 +1532,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetNote_for_Documents_app', fun
     local Ply = QBCore.Functions.GetPlayer(src)
     local Note = MySQL.query.await('SELECT * FROM phone_note WHERE citizenid = ?', {Ply.PlayerData.citizenid})
     Wait(400)
-    if Note[1] ~= nil then
+    if Note[1] then
         cb(Note)
     end
 end)
