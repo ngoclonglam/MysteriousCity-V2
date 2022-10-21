@@ -58,7 +58,7 @@ end)
 
 AddEventHandler('onResourceStop', function(resource)
 	if (GetCurrentResourceName() ~= resource) then return end
-    for k, v in pairs(Config.MicrophoneZones) do
+    for _, v in pairs(Config.MicrophoneZones) do
         if v.obj then
             DeleteEntity(v.obj)
             v.obj = nil
