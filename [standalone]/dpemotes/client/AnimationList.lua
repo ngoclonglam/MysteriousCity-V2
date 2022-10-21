@@ -390,8 +390,8 @@ DP.Shared = {
     -- You don't have to specify targetemotename; If you don't, it will just play the same animation on both.--
     -- targetemote is used for animations that have a corresponding animation to the other player, ie Carry and Be Carried --
     -- Emotes will work with either SyncOffset or Attachto. We can attach players either in front of us, to a specific bone, or either side of us. --
-	
-	
+
+
     ["handshake"] = {
         "mp_ped_interaction",
         "handshake_guy_a",
@@ -983,6 +983,18 @@ DP.Shared = {
             EmoteMoving = false,
             EmoteDuration = 10000,
             SyncOffsetFront = 0.08
+        }
+    },
+    ["megaphone"] = {
+        "amb@world_human_mobile_film_shocking@female@base",
+        "base",
+        "Megaphone",
+        AnimationOptions = {
+            Prop = 'prop_megaphone_01',
+            PropBone = 28422,
+            PropPlacement = {0.0, 0.0, 0.0, 0.0, 0.0, 80.0},
+            EmoteLoop = true,
+            EmoteMoving = true,
         }
     },
     ["coupleanim"] = {
@@ -6796,7 +6808,7 @@ DP.Emotes = {
         "pose_sport_001",
         "Gym Pose",
         AnimationOptions = {
-		
+
             EmoteLoop = true,
         }
    },
@@ -6805,7 +6817,7 @@ DP.Emotes = {
         "pose_sport_005",
         "Gym Pose 2 - One Handed Push Up",
         AnimationOptions = {
-		
+
             EmoteLoop = true,
         }
     },
@@ -12900,18 +12912,18 @@ DP.PropEmotes = {
         AdultAnimation = true
     },
     ["candyapple"] = { -- Custom Prop by hollywoodiownu
-        "anim@heists@humane_labs@finale@keycards", 
-        "ped_a_enter_loop", 
-        "Candy Apple", 
+        "anim@heists@humane_labs@finale@keycards",
+        "ped_a_enter_loop",
+        "Candy Apple",
         AnimationOptions = {
     Prop = "apple_1",
     PropBone = 18905,
     PropPlacement = {
-        0.12, 
+        0.12,
         0.15,
-         0.0, 
-         -100.0, 
-         0.0, 
+         0.0,
+         -100.0,
+         0.0,
          -12.0},
     EmoteLoop = true,
     EmoteMoving = true,

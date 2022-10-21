@@ -488,6 +488,9 @@ QBShared.Items = {
 	-- Rename card
 	["renamecard"]			= {["name"] = "renamecard",			["label"] = "Thẻ Đổi Tên",		["weight"] = 200,	["type"] = "item",	["image"] = "renamecard.png",		["unique"] = true,	["useable"] = true,		["shouldClose"] = true,		["combinable"] = nil,   ["description"] = "Thay tên đổi họ"},
 
+	-- Micro Phone
+	["megaphone"]						= {["name"] = "megaphone",			["label"] = "Megaphone",		["weight"] = 2000,	["type"] = "item",	["image"] = "megaphone.png",	["unique"] = true,	["useable"] = true,	["shouldClose"] = false,	["combinable"] = nil,	   ["description"] = "Loa dùng để thông báo với người dân."},
+
 	-- Codem Fishing
 	['strippedbass'] = {
 		['name'] = 'strippedbass',
