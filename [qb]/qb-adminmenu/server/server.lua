@@ -317,7 +317,7 @@ end, 'admin')
 
 QBCore.Commands.Add('admincar', Lang:t("commands.save_vehicle_garage"), {}, false, function(source, _)
     TriggerClientEvent('qb-admin:client:SaveCar', source)
-end, 'admin')
+end, 'god')
 
 QBCore.Commands.Add('announce', Lang:t("commands.make_announcement"), {}, false, function(_, args)
     local msg = table.concat(args, ' ')
@@ -331,7 +331,7 @@ end, 'admin')
 
 QBCore.Commands.Add('admin', Lang:t("commands.open_admin"), {}, false, function(source, _)
     TriggerClientEvent('qb-admin:client:openMenu', source)
-end, 'admin')
+end, 'god')
 
 QBCore.Commands.Add('report', Lang:t("info.admin_report"), {{name='message', help='Message'}}, true, function(source, args)
     local src = source

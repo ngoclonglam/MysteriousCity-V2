@@ -185,7 +185,7 @@ end, 'admin')
 
 QBCore.Commands.Add('car', Lang:t("command.car.help"), {{ name = Lang:t("command.car.params.model.name"), help = Lang:t("command.car.params.model.help") }}, true, function(source, args)
     TriggerClientEvent('QBCore:Command:SpawnVehicle', source, args[1])
-end, 'admin')
+end, 'god')
 
 QBCore.Commands.Add('dv', Lang:t("command.dv.help"), {}, false, function(source)
     TriggerClientEvent('QBCore:Command:DeleteVehicle', source)

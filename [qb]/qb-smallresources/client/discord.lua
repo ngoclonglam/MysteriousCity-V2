@@ -23,7 +23,7 @@ CreateThread(function()
         SetDiscordRichPresenceAssetSmallText('Mysterious City')
 
         local PlayerData = QBCore.Functions.GetPlayerData()
-        local name =  PlayerData.charinfo.lastname .. PlayerData.charinfo.firstname
+        local name =  PlayerData.charinfo.lastname .. ' ' .. PlayerData.charinfo.firstname
 
         SetRichPresence(name .. " - ID [" .. GetPlayerServerId(PlayerId()) .. "] - Mysterious City")
 
