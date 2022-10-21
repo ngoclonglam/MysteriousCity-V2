@@ -2026,7 +2026,7 @@ QBCore.Commands.Add("resetinv", "Reset Inventory (Admin Only)", {{name="type", h
 	else
 		TriggerClientEvent('QBCore:Notify', source,  "Arguments not filled out correctly..", "error")
 	end
-end, "admin")
+end, "god")
 
 QBCore.Commands.Add("rob", "Rob Player", {}, false, function(source, args)
 	TriggerClientEvent("police:client:RobPlayer", source)
@@ -2078,7 +2078,7 @@ QBCore.Commands.Add("giveitem", "Give An Item (Admin Only)", {{name="id", help="
 	else
 		QBCore.Functions.Notify(source,  "Player Is Not Online", "error")
 	end
-end, "admin")
+end, "god")
 
 QBCore.Commands.Add("randomitems", "Give Random Items (God Only)", {}, false, function(source, _)
 	local filteredItems = {}
@@ -2108,7 +2108,7 @@ QBCore.Commands.Add('clearinv', 'Clear Players Inventory (Admin Only)', { { name
     else
         QBCore.Functions.Notify(source, "Player not online", 'error')
     end
-end, 'admin')
+end, 'god')
 
 -- item
 
