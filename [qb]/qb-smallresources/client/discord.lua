@@ -34,8 +34,8 @@ CreateThread(function()
             First paramater is the button index (0 or 1), second is the title and
             last is the url (this has to start with "fivem://connect/" or "https://")
         ]]--
-        SetDiscordRichPresenceAction(0, "Tham gia Discord!", "https://discord.gg/SCHEwKQxQ8")
-        SetDiscordRichPresenceAction(1, "Tham gia Thành Phố!", "https://cfx.re/join/aqxrez")
+        SetDiscordRichPresenceAction(0, "Vào Discord!", "https://discord.gg/SCHEwKQxQ8")
+        SetDiscordRichPresenceAction(1, "Vào Thành Phố!", "https://cfx.re/join/aqxrez")
 
         -- It updates every minute just in case.
         Wait(60000)
