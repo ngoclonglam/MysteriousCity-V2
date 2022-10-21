@@ -628,7 +628,7 @@ QBCore.Functions.CreateCallback('qb-phone:server:GetGarageVehicles', function(so
             end
 
             local vehdata = {}
-            if VehicleData["brand"] ~= nil then
+            if VehicleData["brand"] then
                 vehdata = {
                     fullname = VehicleData["brand"] .. " " .. VehicleData["name"],
                     brand = VehicleData["brand"],
