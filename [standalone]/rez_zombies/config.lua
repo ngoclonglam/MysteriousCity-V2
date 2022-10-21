@@ -5,8 +5,8 @@ Config = {
    EnableZombieSounds = true, --REQUIRES XSOUND
    ZombieSoundLink = 'https://www.youtube.com/watch?v=_UOFBNr2ijY&t=16s&ab_channel=D0ct0rrR1cht0f3n-YT', --MUST BE NON COPYRIGHT
    ShootingDetection = 180,
-   RunningDetection = 25,
-   OtherDetection = 2.0,
+   RunningDetection = 35,
+   OtherDetection = 10.0,
 
    MutantDamage = 50,
    ZombieDamage = 30,
@@ -16,13 +16,13 @@ Config = {
    AnimationDic = 'melee@unarmed@streamed_core_fps',
    Animation = 'ground_attack_0_psycho',
 
-   MaxZombiesNight = 100, --CAREFUL, IF YOU SET THIS TOO HIGH IT WILL CAUSE CRASHES!
-   MaxZombiesDay = 10, --CAREFUL, IF YOU SET THIS TOO HIGH IT WILL CAUSE CRASHES!
+   MaxZombiesNight = 200, --CAREFUL, IF YOU SET THIS TOO HIGH IT WILL CAUSE CRASHES!
+   MaxZombiesDay = 50, --CAREFUL, IF YOU SET THIS TOO HIGH IT WILL CAUSE CRASHES!
    EnableMutants = true
 }
 
 Config.ZombieSpawnZones = {
-   {x = 2488.44, y = 3766.55, z = 41.88, radius = 200},
+   {x = 2488.44, y = 3766.55, z = 41.88, radius = 300},
 }
 
 Config.MutantModels = {
