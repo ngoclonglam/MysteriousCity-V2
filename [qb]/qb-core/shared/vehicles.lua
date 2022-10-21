@@ -5473,15 +5473,6 @@ QBShared.Vehicles = {
 		['hash'] = `cullinan`,
 		['shop'] = 'pdm',
 	},
-	['terzo'] = {
-		['name'] = 'Terzo Lambo',
-		['brand'] = 'Lambo',
-		['model'] = 'terzo',
-		['price'] = 45000000000,
-		['category'] = 'mod',
-		['hash'] = `terzo`,
-		['shop'] = 'pdm',
-	},
 	['aperta'] = {
 		['name'] = 'Aperta Monster',
 		['brand'] = 'Honda',

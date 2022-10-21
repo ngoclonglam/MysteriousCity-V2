@@ -1,6 +1,6 @@
 Config = {}
 
-Config.Showzone = true
+Config.Showzone = false
 
 Config.MicrophoneZones = {
     [1] = {
