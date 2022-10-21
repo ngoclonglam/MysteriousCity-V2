@@ -4,10 +4,6 @@ local QBCore = exports['qb-core']:GetCoreObject()
 local appid = 999720849928093797
 
 CreateThread(function()
-    StartAudioScene("CHARACTER_CHANGE_IN_SKY_SCENE")
-	AddTextEntry('FE_THDR_GTAO', 'Mysterious City')
-    AddTextEntry('PM_SCR_MAP', 'Bản Đồ')
-    AddTextEntry('PM_SCR_GAM', 'Thoát Game')
     while true do
         -- This is the Application ID (Replace this with you own)
         SetDiscordAppId(appid)
@@ -24,7 +20,7 @@ CreateThread(function()
         SetDiscordRichPresenceAssetSmall('logo_small')
 
         -- Here you can add hover text for the "small" icon.
-        SetDiscordRichPresenceAssetSmallText('Mysterious Cityy')
+        SetDiscordRichPresenceAssetSmallText('Mysterious City')
 
         local PlayerData = QBCore.Functions.GetPlayerData()
         local name =  PlayerData.charinfo.lastname .. PlayerData.charinfo.firstname
