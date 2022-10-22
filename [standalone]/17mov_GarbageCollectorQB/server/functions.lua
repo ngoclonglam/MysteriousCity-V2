@@ -7,8 +7,8 @@ function GetPlayerIdentity(source)
         Wait(100)
     end
 
-    return xPlayer.PlayerData.charinfo.firstname .. " " .. xPlayer.PlayerData.charinfo.lastname 
-end     
+    return xPlayer.PlayerData.charinfo.firstname .. " " .. xPlayer.PlayerData.charinfo.lastname
+end
 
 function Notify(source, msg)
     TriggerClientEvent("QBCore:Notify", source, msg)

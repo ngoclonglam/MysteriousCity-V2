@@ -9,6 +9,7 @@ Config.JobVehicleModel = "trash"                -- Model of the company car
 Config.VehicleBackBone = "seat_dside_r1"        -- Bone used only when Config.UseTarget = false. 3D text is displayed on the coordinates of this bone telling us to put the bag in the trunk
 Config.VehicleBackBoneCenter = "brakelight_l"   -- Bone used only when Config.UseTarget = false. On the cords of this bone, a player walks up to throw the bag
 Config.PenaltyAmount = 500                      -- Penalty that is levied when a player finishes work without a company vehicle
+Config.DeleteVehicleWithPenalty = false         -- Delete Vehicle even if its not company veh
 
 Config.Blips = { -- Here you can configure Company blip.
     [1] = {
@@ -118,32 +119,32 @@ Config.Lang = {
 
     -- Here you can changea all translations used in client.lua, and server.lua. Dont forget to translate it also under the HTML and JS file.
 
-    -- Client
-    ["no_permission"] = "Chỉ có người chủ nhóm mới có thể làm!",
-    ["keybind"] = 'Garbage Marker Interaction',
-    ["too_far"] = "Nhóm của bạn đang làm việc, nhưng bạn ở quá xa trụ sở chính. Bạn vẫn có thể tham gia cùng họ.",
-    ["kicked"] = "Bạn đã đuổi %s khỏi nhóm của bạn",
-    ["alreadyWorking"] = "Đầu tiên, hoàn thành đơn đặt hàng trước.",
-    ["quit"] = "Bạn đã rời khỏi đội",
-    ["pickGarbage"] = "Nhặc rác lên",
-    ["putGarbage"] = "Bỏ rác vào xe",
-    ["cantSpawnVeh"] = "Chỗ lấy xe đã có xe khác",
-    ["full"] = "Xe rác đã đầy",
-    ["wrongCar"] = "Xe rác này không phải của bạn",
-    ["CarNeeded"] = "Bạn cần xe rác để hoàn thành công việc này",
-    ["nobodyNearby"] = "Không có ai ở gần",
-
-    -- Server
-    ["isAlreadyHost"] = "Người chơi này dẫn dắt đội của bạn",
-    ["isBusy"] = "Người chơi này đã thuộc về một đội khác.",
-    ["hasActiveInvite"] = "Người chơi này đã có một lời mời từ ai đó.",
-    ["HaveActiveInvite"] = "Bạn đã có một lời mời để tham gia nhóm.",
-    ["InviteDeclined"] = "Lời mời của bạn đã bị từ chối.",
-    ["InviteAccepted"] = "Lời mời của bạn đã được chấp nhận!",
-    ["error"] = "Có một vấn đề khi tham gia một đội, vui lòng thử lại sau.",
-    ["kickedOut"] = "Bạn đã bị đuổi khỏi đội!",
-    ["reward"] = "Bạn đã nhận được một khoản thanh toán là $",
-    ["RequireOneFriend"] = "Công việc này yêu cầu ít nhất một thành viên trong nhóm",
-    ["penalty"] = "Bạn đã trả một khoản tiền phạt là ",
-    ["clientsPenalty"] = "Đội trưởng đã chấp nhận hình phạt, bạn không nhận được khoản thanh toán",
-}
+     -- Client
+     ["no_permission"] = "Chỉ có người chủ nhóm mới có thể làm!",
+     ["keybind"] = 'Garbage Marker Interaction',
+     ["too_far"] = "Nhóm của bạn đang làm việc, nhưng bạn ở quá xa trụ sở chính. Bạn vẫn có thể tham gia cùng họ.",
+     ["kicked"] = "Bạn đã đuổi %s khỏi nhóm của bạn",
+     ["alreadyWorking"] = "Đầu tiên, hoàn thành đơn đặt hàng trước.",
+     ["quit"] = "Bạn đã rời khỏi đội",
+     ["pickGarbage"] = "Nhặc rác lên",
+     ["putGarbage"] = "Bỏ rác vào xe",
+     ["cantSpawnVeh"] = "Chỗ lấy xe đã có xe khác",
+     ["full"] = "Xe rác đã đầy",
+     ["wrongCar"] = "Xe rác này không phải của bạn",
+     ["CarNeeded"] = "Bạn cần xe rác để hoàn thành công việc này",
+     ["nobodyNearby"] = "Không có ai ở gần",
+ 
+     -- Server
+     ["isAlreadyHost"] = "Người chơi này dẫn dắt đội của bạn",
+     ["isBusy"] = "Người chơi này đã thuộc về một đội khác.",
+     ["hasActiveInvite"] = "Người chơi này đã có một lời mời từ ai đó.",
+     ["HaveActiveInvite"] = "Bạn đã có một lời mời để tham gia nhóm.",
+     ["InviteDeclined"] = "Lời mời của bạn đã bị từ chối.",
+     ["InviteAccepted"] = "Lời mời của bạn đã được chấp nhận!",
+     ["error"] = "Có một vấn đề khi tham gia một đội, vui lòng thử lại sau.",
+     ["kickedOut"] = "Bạn đã bị đuổi khỏi đội!",
+     ["reward"] = "Bạn đã nhận được một khoản thanh toán là $",
+     ["RequireOneFriend"] = "Công việc này yêu cầu ít nhất một thành viên trong nhóm",
+     ["penalty"] = "Bạn đã trả một khoản tiền phạt là ",
+     ["clientsPenalty"] = "Đội trưởng đã chấp nhận hình phạt, bạn không nhận được khoản thanh toán",
+ }

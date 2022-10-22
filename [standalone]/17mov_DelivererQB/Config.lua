@@ -9,6 +9,7 @@ Config.VehicleSearchingScenario = "prop_human_parking_meter"        -- Scenario 
 Config.VehicleDeposit = 1500                                        -- Deposit for the car collected at the time of pulling out, and refunded when returning the car
 Config.Price = 300                                                  -- 100$ per one delivery
 Config.splitReward = true                                           -- If it is true, the payout is: (Config.Price * deliveries) / PartyCount, if false then: (Config.Price * deliveries)
+Config.BlockHostFromWorking = true                                  -- Means that if players are working in group, then the host only can drive veh, parntner needs to deliver. Set to false if you want also host to be able to deliver
 
 Config.Blips = {                                                    -- Here you can configure Company blip.
     [1] = {
@@ -71,36 +72,36 @@ Config.Lang = {
 
     -- Here you can changea all translations used in client.lua, and server.lua. Dont forget to translate it also under the HTML and JS file.
 
-    -- Client
-    ["no_permission"] = "Chỉ có người chủ nhóm mới có thể làm!",
-    ["keybind"] = 'Marker Interaction',
-    ["too_far"] = "Nhóm của bạn đang làm việc, nhưng bạn ở quá xa trụ sở chính. Bạn vẫn có thể tham gia cùng họ.",
-    ["kicked"] = "Bạn đã đuổi %s khỏi nhóm của bạn",
-    ["alreadyWorking"] = "Đầu tiên, hoàn thành đơn đặt hàng trước.",
-    ["quit"] = "Bạn đã rời khỏi đội",
-    ["cantSpawnVeh"] = "Chỗ lấy xe đã có xe khác",
-    ["nobodyNearby"] = "Không có ai ở gần",
-    ["TargetCoords"] = "Điểm Đến Giao Hàng",
-    ["deliverParcel"] = "Cung Cấp Bưu Kiện",
-    ["takeParcel"] = "Lấy bưu kiện",
-    ["wait"] = "Bây giờ đợi ai đó đến và mở cửa",
-    ["missingParcel"] = "Bạn không có gói hàng ở đó, hãy ra xe và lấy",
-    ["spawnPointBusy"] = "Chỗ lấy xe đang có người dùng",
-
-    -- Server
-    ["isAlreadyHost"] = "Người chơi này dẫn dắt đội của bạn",
-    ["isBusy"] = "Người chơi này đã thuộc về một đội khác.",
-    ["hasActiveInvite"] = "Người chơi này đã có một lời mời từ ai đó.",
-    ["HaveActiveInvite"] = "Bạn đã có một lời mời để tham gia nhóm.",
-    ["InviteDeclined"] = "Lời mời của bạn đã bị từ chối.",
-    ["InviteAccepted"] = "Lời mời của bạn đã được chấp nhận!",
-    ["error"] = "Có một vấn đề khi tham gia một đội, vui lòng thử lại sau.",
-    ["kickedOut"] = "Bạn đã bị đuổi khỏi đội!",
-    ["reward"] = "Bạn đã nhận được một khoản thanh toán là $",
-    ["RequireOneFriend"] = "Công việc này yêu cầu ít nhất một thành viên trong nhóm",
-    ["dontHaveReqItem"] = "Bạn không có vật phẩm yêu cầu để bắt đầu công việc"
-
-}
+     -- Client
+     ["no_permission"] = "Chỉ có người chủ nhóm mới có thể làm!",
+     ["keybind"] = 'Marker Interaction',
+     ["too_far"] = "Nhóm của bạn đang làm việc, nhưng bạn ở quá xa trụ sở chính. Bạn vẫn có thể tham gia cùng họ.",
+     ["kicked"] = "Bạn đã đuổi %s khỏi nhóm của bạn",
+     ["alreadyWorking"] = "Đầu tiên, hoàn thành đơn đặt hàng trước.",
+     ["quit"] = "Bạn đã rời khỏi đội",
+     ["cantSpawnVeh"] = "Chỗ lấy xe đã có xe khác",
+     ["nobodyNearby"] = "Không có ai ở gần",
+     ["TargetCoords"] = "Điểm Đến Giao Hàng",
+     ["deliverParcel"] = "Cung Cấp Bưu Kiện",
+     ["takeParcel"] = "Lấy bưu kiện",
+     ["wait"] = "Bây giờ đợi ai đó đến và mở cửa",
+     ["missingParcel"] = "Bạn không có gói hàng ở đó, hãy ra xe và lấy",
+     ["spawnPointBusy"] = "Chỗ lấy xe đang có người dùng",
+ 
+     -- Server
+     ["isAlreadyHost"] = "Người chơi này dẫn dắt đội của bạn",
+     ["isBusy"] = "Người chơi này đã thuộc về một đội khác.",
+     ["hasActiveInvite"] = "Người chơi này đã có một lời mời từ ai đó.",
+     ["HaveActiveInvite"] = "Bạn đã có một lời mời để tham gia nhóm.",
+     ["InviteDeclined"] = "Lời mời của bạn đã bị từ chối.",
+     ["InviteAccepted"] = "Lời mời của bạn đã được chấp nhận!",
+     ["error"] = "Có một vấn đề khi tham gia một đội, vui lòng thử lại sau.",
+     ["kickedOut"] = "Bạn đã bị đuổi khỏi đội!",
+     ["reward"] = "Bạn đã nhận được một khoản thanh toán là $",
+     ["RequireOneFriend"] = "Công việc này yêu cầu ít nhất một thành viên trong nhóm",
+     ["dontHaveReqItem"] = "Bạn không có vật phẩm yêu cầu để bắt đầu công việc"
+ 
+ }
 
 -- Homes Locations:
 

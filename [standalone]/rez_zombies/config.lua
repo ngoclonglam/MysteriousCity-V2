@@ -8,7 +8,7 @@ Config = {
    RunningDetection = 25,
    OtherDetection = 2.0,
 
-   MutantDamage = 50,
+   MutantDamage = 30,
    ZombieDamage = 10,
 
    TimeInbetweenHordes = 1200000, -- IN MS

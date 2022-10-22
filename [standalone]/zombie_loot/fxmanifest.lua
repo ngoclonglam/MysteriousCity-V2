@@ -10,7 +10,7 @@ client_scripts {
     'client/*.lua'
 }
 
-sever_scripts {
+server_scripts {
     'server/*.lua'
 }
 

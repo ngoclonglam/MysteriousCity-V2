@@ -9,7 +9,7 @@ function SetVehicle(vehicle)
     TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(vehicle))
 end
 
-function onBagDetach(entity) 
+function onBagDetach(entity)
     -- Here u can do some custom events on bag detach
 end
 
@@ -17,7 +17,7 @@ function PrepeareVehicle()
     -- Before Vehicle spawn
 end
 
-function onBagPickup(entity) 
+function onBagPickup(entity)
     -- Another function for devs
 end
 
@@ -42,7 +42,7 @@ function ShowHelpNotification(msg)
     EndTextCommandDisplayHelp(0, false, true, -1)
 end
 
-function ChangeClothes(type) 
+function ChangeClothes(type)
     RequestAnimDict("clothingshirt")
     while not HasAnimDictLoaded("clothingshirt") do Citizen.Wait(0) end
 
@@ -61,10 +61,10 @@ function ChangeClothes(type)
                 SetPedComponentVariation(PlayerPed, v["component_id"], v["drawable"], v["texture"], 0)
             end
         end
-    else 
+    else
         -- Choose Here your default skin manager script
         TriggerEvent('fivem-appearance:client:reloadSkin')
-        
+
         -- QBCore.Functions.TriggerCallback('fivem-appearance:getPlayerSkin', function(appearance)
         --     for k,v in pairs(appearance.components) do
         --         SetPedComponentVariation(PlayerPed, v["component_id"], v["drawable"], v["texture"], 0)
