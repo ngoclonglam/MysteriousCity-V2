@@ -2932,7 +2932,7 @@
           </div>
 
 
-          <div class="belairmodesettingspageboxs1" :style="belairhudhungerall" v-if="enablehudsettings['belairhudthunger']">
+          <div class="belairmodesettingspageboxs1" :style="belairhudhungerall" v-if="enablehudsettings['belairhudhunger']">
 
             <div class="belairmodehungersvg">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 16 15" fill="none">
@@ -2950,14 +2950,14 @@
             <h2>{{language["HUNGER"]}}</h2>
           </div>
 
-          <div class="belairhudnewborder" v-if="hudColors['belairhud'] && enablehudsettings['belairhudthunger']"
+          <div class="belairhudnewborder" v-if="hudColors['belairhud'] && enablehudsettings['belairhudhunger']"
             :style="{ 'border' : '2px solid ' + hudColors['belairhud'].hunger }">
             <input type="text" class="colorinput" data-type="hunger" data-coloris @close="OnChangeColor" />
             <img src="./images/colorpicker.png" alt="" @click="ColorInput" v-if="hudColors['belairhud']"
               :style="{ 'background-color' : hudColors['belairhud'].hunger }">
           </div>
 
-          <div class="belairmodesettingspageboxs11" :style="belairhudhungerall" v-if="enablehudsettings['belairhudthunger']">
+          <div class="belairmodesettingspageboxs11" :style="belairhudhungerall" v-if="enablehudsettings['belairhudhunger']">
 
 
             <div class="belairmodehungersvg2">

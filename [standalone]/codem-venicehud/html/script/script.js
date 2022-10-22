@@ -365,10 +365,14 @@ const app = new Vue({
 
         },
         SetFuel(fuel) {
+           
+          
             this.fuel = fuel
             if (this.secilencarhud == 'vertexhud') {
-
+                if (this.carhudColors['vertexhud']) {              
+                // loadProgress('#vertexhudcarfuel', this.carhudColors['vertexhud'].gas, this.fuel / 100)
                 loadProgress('#vertexhudcarfuel', this.carhudColors['vertexhud'].gas, this.fuel / 100)
+            }
             } else if (this.secilencarhud == 'perspecthud') {
                 loadProgress('#perspecthudcarfuel', this.carhudColors['perspecthud'].gas, this.fuel / 100)
                 // perspecthudcarfuel.animate(this.fuel / 100);
@@ -857,6 +861,8 @@ const app = new Vue({
                 perspecthudcarhealth.destroy();
                 perspecthudcarhealth = null;
             }
+           
+           
             if (mayhemhudnitro) {
                 mayhemhudnitro.destroy();
                 mayhemhudnitro = null;
@@ -872,11 +878,12 @@ const app = new Vue({
                 loadProgress('#mayhemhudcarhealth', this.carhudColors['mayhemhud'].health, this.engineHealth.toFixed(0) / 1000)
                 loadProgress('#mayhemhudcarfuel', this.carhudColors['mayhemhud'].gas, this.fuel / 100)
             }
-            if (this.carhudColors['vertexhud']) {
-                loadProgress('#mayhemhudcarfuel', this.carhudColors['vertexhud'].gas, this.fuel / 100)
+            if (this.fuel != 0 && this.carhudColors['vertexhud'] ) {
+                
+                 loadProgress('#vertexhudcarfuel', this.carhudColors['vertexhud'].gas, this.fuel / 100)
                 loadProgress('#vertexhudcarhalth', this.carhudColors['vertexhud'].health, this.engineHealth.toFixed(0) / 1000)
             }
-
+           
 
             if (this.hudColors['malibuhud']) {
 
@@ -2685,15 +2692,22 @@ function loadProgress(id, colors, val) {
             }
             mayhemhudcarfuel.animate(val);
         }
-        if (id == '#vertexhudcarfuel') {
-            if (! vertexhudcarfuel) {
-                vertexhudcarfuel = new ProgressBar.Path('#vertexhudcarfuel', {
-                    easing: 'easeInOut',
-                    duration: 1400
-                });
-                vertexhudcarfuel.animate(val)
-            }
-        }
+         if (id == '#vertexhudcarfuel') {
+     
+         
+             if (vertexhudcarfuel ) {
+              
+                vertexhudcarfuel = null;
+                }
+             if (! vertexhudcarfuel ) {
+                 vertexhudcarfuel = new ProgressBar.Path('#vertexhudcarfuel', {
+                    
+                     duration: 0
+                 });
+              
+                 vertexhudcarfuel.animate(val)
+             }
+         }
         if (id == "#vertexhudcarhalth") {
 
             if (! vertexhudcarhalth) {
@@ -2868,6 +2882,8 @@ var venicehudonwalkhungerbar = new ProgressBar.Path('#venicehudonwalkhungerbar',
 
 var venicehudonwalkstaminabar = new ProgressBar.Path('#venicehudonwalkstaminabar', {duration: 300});
 var venicehudonwalklungsbar = new ProgressBar.Path('#venicehudonwalklungsbar', {duration: 300});
+
+
 
 
 var malibuhudmicrophonebar = new ProgressBar.Circle('#malibuhudmicrophonebar', {

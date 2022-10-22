@@ -18,7 +18,7 @@ AddEventHandler('esx:playerLoaded', function(src)
      TriggerClientEvent('codem-venicehud:UpdateNitroData', src, nitro)
      TriggerClientEvent('codem-venicehud:Loaded', src)
      TriggerClientEvent('codem-totalplayers',-1,#players)
-     TriggerClientEvent('codem-venicehud:job',src)
+ 
 end)
 
 
@@ -39,7 +39,7 @@ AddEventHandler('QBCore:Server:OnPlayerLoaded', function()
       TriggerClientEvent('codem-venicehud:UpdateNitroData', src, nitro)
       TriggerClientEvent('codem-venicehud:Loaded', src)
       TriggerClientEvent('codem-totalplayers',-1,#players)
-      TriggerClientEvent('codem-venicehud:job',src)
+ 
 
  end)
 

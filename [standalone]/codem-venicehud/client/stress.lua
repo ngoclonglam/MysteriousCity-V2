@@ -3,8 +3,8 @@ if Config.UseStress then
     RegisterNetEvent('hud:client:UpdateStress', function(newStress) -- Add this event with adding stress elsewhere
         while not response do
             Wait(0)
-        end
-        stress = newStress
+        end          
+        stress = newStress        
         SendNUIMessage({ type="set_status", statustype = "stress", value = newStress})
     end)
     function IsWhitelistedWeaponStress(weapon)
@@ -23,7 +23,7 @@ if Config.UseStress then
                 local ped = playerPed
                 if IsPedInAnyVehicle(ped, false) then
                     local speed = GetEntitySpeed(GetVehiclePedIsIn(ped, false)) * speedMultiplier
-                    local stressSpeed = 130
+                    local stressSpeed = 140
                     if speed >= stressSpeed then
                         TriggerServerEvent('hud:server:GainStress', math.random(Config.AddStress["on_fastdrive"].min, Config.AddStress["on_fastdrive"].max))
                     end
@@ -31,9 +31,9 @@ if Config.UseStress then
              Wait(10000)
             end
         end
-
+     
     end)
-
+    
     CreateThread(function() -- Shooting
         if Config.AddStress["on_shoot"].enable  then
             while true do
@@ -52,24 +52,24 @@ if Config.UseStress then
             end
 
         end
-
+   
     end)
-
+    
     CreateThread(function()
         while true do
             local ped = playerPed
             if stress >= 100 then
-
+    
                 local ShakeIntensity = GetShakeIntensity(stress)
                 local FallRepeat = math.random(2, 4)
                 local RagdollTimeout = (FallRepeat * 1750)
                 ShakeGameplayCam('SMALL_EXPLOSION_SHAKE', ShakeIntensity)
                 SetFlash(0, 0, 500, 3000, 500)
-
+    
                 if not IsPedRagdoll(ped) and IsPedOnFoot(ped) and not IsPedSwimming(ped) then
                     SetPedToRagdollWithFall(ped, RagdollTimeout, RagdollTimeout, 1, GetEntityForwardVector(ped), 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
                 end
-
+    
                 Wait(500)
                 for i=1, FallRepeat, 1 do
                     Wait(750)
@@ -87,7 +87,7 @@ if Config.UseStress then
             Wait(GetEffectInterval(stress))
         end
     end)
-
+    
     function GetShakeIntensity(stresslevel)
         local retval = 0.05
         local Intensity = {
@@ -127,7 +127,7 @@ if Config.UseStress then
         end
         return retval
     end
-
+    
     function GetEffectInterval(stresslevel)
         local EffectInterval = {
             [1] = {
@@ -165,7 +165,7 @@ if Config.UseStress then
         end
         return retval
     end
-
+    
 end
 
 
@@ -241,12 +241,12 @@ AddEventHandler('esx_basicneeds:onDrink', function()
     end
 end)
 
-AddEventHandler('esx:onPlayerDeath', function()
+AddEventHandler('esx:onPlayerDeath', function() 
     TriggerServerEvent('hud:server:RelieveStress', 10000)
 end)
 
 RegisterNetEvent('hospital:client:RespawnAtHospital')
-AddEventHandler('hospital:client:RespawnAtHospital', function()
+AddEventHandler('hospital:client:RespawnAtHospital', function() 
     TriggerServerEvent('hud:server:RelieveStress', 10000)
 end)
 
