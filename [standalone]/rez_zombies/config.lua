@@ -22,7 +22,10 @@ Config = {
 }
 
 Config.ZombieSpawnZones = {
-   {x = 2488.44, y = 3766.55, z = 41.88, radius = 300},
+	{x = -326.84, y = -884.69, z = 31.07, radius = 300},
+	{x = 142.56, y = -715.37, z = 33.13, radius = 300},
+	{x = 277.81, y = -1210.21, z = 29.3, radius = 300},
+    {x = 2488.44, y = 3766.55, z = 41.88, radius = 300},
 }
 
 Config.MutantModels = {
