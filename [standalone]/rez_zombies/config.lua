@@ -8,16 +8,16 @@ Config = {
    RunningDetection = 35,
    OtherDetection = 10.0,
 
-   MutantDamage = 20,
-   ZombieDamage = 10,
+   MutantDamage = 50,
+   ZombieDamage = 30,
 
    TimeInbetweenHordes = 60000 * 30, -- IN MS
 
    AnimationDic = 'melee@unarmed@streamed_core_fps',
    Animation = 'ground_attack_0_psycho',
 
-   MaxZombiesNight = 50, --CAREFUL, IF YOU SET THIS TOO HIGH IT WILL CAUSE CRASHES!
-   MaxZombiesDay = 20, --CAREFUL, IF YOU SET THIS TOO HIGH IT WILL CAUSE CRASHES!
+   MaxZombiesNight = 20, --CAREFUL, IF YOU SET THIS TOO HIGH IT WILL CAUSE CRASHES!
+   MaxZombiesDay = 10, --CAREFUL, IF YOU SET THIS TOO HIGH IT WILL CAUSE CRASHES!
    EnableMutants = true
 }
 
