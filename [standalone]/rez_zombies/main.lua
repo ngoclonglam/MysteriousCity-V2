@@ -70,7 +70,8 @@ local function searchItem(entity)
 end
 
 CreateThread(function()
-    print('check')
+    print('check1')
+    while true do print('check')
     exports['qb-target']:AddTargetModel(Config.MutantModels, {
         options = {
             {

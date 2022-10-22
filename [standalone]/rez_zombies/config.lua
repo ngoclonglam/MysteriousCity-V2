@@ -4,9 +4,9 @@ Config = {
    DisableHumanPupulation = true,
    EnableZombieSounds = true, --REQUIRES XSOUND
    ZombieSoundLink = 'https://www.youtube.com/watch?v=_UOFBNr2ijY&t=16s&ab_channel=D0ct0rrR1cht0f3n-YT', --MUST BE NON COPYRIGHT
-   ShootingDetection = 180,
-   RunningDetection = 35,
-   OtherDetection = 10.0,
+   ShootingDetection = 100,
+   RunningDetection = 25,
+   OtherDetection = 5.0,
 
    MutantDamage = 50,
    ZombieDamage = 30,
@@ -16,7 +16,7 @@ Config = {
    AnimationDic = 'melee@unarmed@streamed_core_fps',
    Animation = 'ground_attack_0_psycho',
 
-   MaxZombiesNight = 30, --CAREFUL, IF YOU SET THIS TOO HIGH IT WILL CAUSE CRASHES!
+   MaxZombiesNight = 15, --CAREFUL, IF YOU SET THIS TOO HIGH IT WILL CAUSE CRASHES!
    MaxZombiesDay = 5, --CAREFUL, IF YOU SET THIS TOO HIGH IT WILL CAUSE CRASHES!
    EnableMutants = true
 }
