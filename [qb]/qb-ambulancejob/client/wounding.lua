@@ -36,6 +36,8 @@ end
 
 RegisterNetEvent('hospital:client:UseIfaks', function()
     local ped = PlayerPedId()
+    local wait = false
+    if wait then return QBCore.Functions.Notify('Bạn phải đợi 3 giây để xài tiếp', 'error') end
     QBCore.Functions.Progressbar("use_bandage", Lang:t('progress.ifaks'), 3000, false, true, {
         disableMovement = false,
         disableCarMovement = false,
@@ -49,6 +51,10 @@ RegisterNetEvent('hospital:client:UseIfaks', function()
         StopAnimTask(ped, "mp_suicide", "pill", 1.0)
         TriggerServerEvent("hospital:server:removeIfaks")
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["ifaks"], "remove")
+        wait = true
+        SetTimeout(6000, function()
+            wait = false
+        end)
         TriggerServerEvent('hud:server:RelieveStress', math.random(12, 24))
         SetEntityHealth(ped, GetEntityHealth(ped) + 10)
         onPainKillers = true

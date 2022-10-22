@@ -40,6 +40,14 @@ Config.Products = {
             type = "item",
             slot = 4,
         },
+        [5] = {
+            name = "ifaks",
+            price = 150,
+            amount = 50,
+            info = {},
+            type = "item",
+            slot = 5,
+        },
         -- [5] = {
         --     name = "beer",
         --     price = 50,
