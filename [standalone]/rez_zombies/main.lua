@@ -70,8 +70,6 @@ local function searchItem(entity)
 end
 
 CreateThread(function()
-    print('check1')
-    while true do print('check')
     exports['qb-target']:AddTargetModel(Config.MutantModels, {
         options = {
             {
@@ -79,7 +77,7 @@ CreateThread(function()
                 label = "Kiếm đồ",
                 action = function(entity)
                     searchEpic(entity)
-                end,
+                end
             },
         },
         distance = 2.5,
@@ -92,9 +90,13 @@ CreateThread(function()
                 label = "Kiếm đồ",
                 action = function(entity)
                     searchItem(entity)
-                end,
+                end
             },
         },
         distance = 2.5,
     })
+    while true do
+        print('check')
+        Wait(500)
+    end
 end)
