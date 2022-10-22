@@ -20,6 +20,7 @@ CreateThread(function()
                         }, {}, {}, function() -- Done
                             local lucky = math.random(1, 100)
                             local ammo = math.random(36, 48)
+                            print('lucky', lucky)
                             if lucky <= 40 then
                                 GiveWeaponToPed(PlayerPedId(), 'weapon_pistol', ammo, true, true)
                                 exports['okokNotify']:Alert('Halloween', 'Bạn đã kiếm được một khẩu súng lục', 3000, 'success')
@@ -59,6 +60,7 @@ CreateThread(function()
                         }, {}, {}, function() -- Done
                             local lucky = math.random(1, 100)
                             local ammo = math.random(12, 24)
+                            print('lucky', lucky)
                             if lucky <= 20 then
                                 GiveWeaponToPed(PlayerPedId(), 'weapon_pistol', ammo, true, true)
                                 exports['okokNotify']:Alert('Halloween', 'Bạn đã kiếm được một khẩu súng lục', 3000, 'success')
