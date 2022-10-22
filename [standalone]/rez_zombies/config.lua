@@ -11,19 +11,19 @@ Config = {
    MutantDamage = 50,
    ZombieDamage = 30,
 
-   TimeInbetweenHordes = 60000 * 30, -- IN MS
+   TimeInbetweenHordes = 60000 * 60, -- IN MS
 
    AnimationDic = 'melee@unarmed@streamed_core_fps',
    Animation = 'ground_attack_0_psycho',
 
-   MaxZombiesNight = 20, --CAREFUL, IF YOU SET THIS TOO HIGH IT WILL CAUSE CRASHES!
-   MaxZombiesDay = 10, --CAREFUL, IF YOU SET THIS TOO HIGH IT WILL CAUSE CRASHES!
+   MaxZombiesNight = 30, --CAREFUL, IF YOU SET THIS TOO HIGH IT WILL CAUSE CRASHES!
+   MaxZombiesDay = 5, --CAREFUL, IF YOU SET THIS TOO HIGH IT WILL CAUSE CRASHES!
    EnableMutants = true
 }
 
 Config.ZombieSpawnZones = {
 	{x = -326.84, y = -884.69, z = 31.07, radius = 300},
-	{x = 142.56, y = -715.37, z = 33.13, radius = 300},
+	{x = 120.51, y = -703.54, z = 33.12, radius = 300},
 	{x = 277.81, y = -1210.21, z = 29.3, radius = 300},
     {x = 2488.44, y = 3766.55, z = 41.88, radius = 300},
 }
