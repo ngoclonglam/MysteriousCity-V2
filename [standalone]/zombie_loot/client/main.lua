@@ -26,6 +26,7 @@ CreateThread(function()
                                 exports['okokNotify']:Alert('Halloween', 'Bạn đã kiếm được một khẩu súng lục', 3000, 'success')
                             end
                             TriggerServerEvent("zombie_loot:server:lootItem", 'epic')
+                            print('entity', entity)
                             ClearPedSecondaryTask(PlayerPedId())
                             local model = GetEntityModel(entity)
                             SetEntityAsNoLongerNeeded(model)
@@ -55,7 +56,7 @@ CreateThread(function()
                             disableCombat = true,
                         }, {
                             animDict = "random@domestic",
-                            animName = "pickup_low",
+                            anim = "pickup_low",
                             flags = 16
                         }, {}, {}, function() -- Done
                             local lucky = math.random(1, 100)
@@ -67,6 +68,7 @@ CreateThread(function()
                             end
                             TriggerServerEvent("zombie_loot:server:lootItem", 'normal')
                             ClearPedSecondaryTask(PlayerPedId())
+                            print('entity', entity)
                             local model = GetEntityModel(entity)
                             SetEntityAsNoLongerNeeded(model)
                             SetModelAsNoLongerNeeded(entity)
