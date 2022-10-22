@@ -1,12 +1,11 @@
 -- To Set This Up visit https://forum.cfx.re/t/how-to-updated-discord-rich-presence-custom-image/157686
 
 local QBCore = exports['qb-core']:GetCoreObject()
-local appid = 999720849928093797
 
 CreateThread(function()
     while true do
         -- This is the Application ID (Replace this with you own)
-        SetDiscordAppId(appid)
+        SetDiscordAppId(999720849928093797)
 
         -- Here you will have to put the image name for the "large" icon.
         SetDiscordRichPresenceAsset('logo_large')
