@@ -1,5 +1,5 @@
 if Config.CheckForUpdates then
-    Citizen.CreateThread(function()
+    CreateThread(function()
         updatePath = "/TayMcKenzieNZ/dpemotes"
         resourceName = "dp Emotes (" .. GetCurrentResourceName() .. ")"
         PerformHttpRequest("https://raw.githubusercontent.com" .. updatePath .. "/master/version", checkVersion, "GET")
@@ -18,6 +18,8 @@ end)
 function checkVersion(err, responseText, headers)
     curVersion = LoadResourceFile(GetCurrentResourceName(), "version")
 
+    print('tonumber(curVersion)', tonumber(curVersion))
+    print('tonumber(responseText)', tonumber(responseText))
     if curVersion ~= responseText and tonumber(curVersion) < tonumber(responseText) then
         updateavail = true
         print("\n^1----------------------------------------------------------------------------------^7")

@@ -21,6 +21,8 @@ Config = {
    EnableMutants = true
 }
 
+Config.prop = 'prop_veg_crop_03_pump'
+
 Config.ZombieSpawnZones = {
 	{x = -326.84, y = -884.69, z = 31.07, radius = 300},
 	{x = 120.51, y = -703.54, z = 33.12, radius = 300},

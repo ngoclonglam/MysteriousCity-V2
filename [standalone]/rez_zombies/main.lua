@@ -1,4 +1,15 @@
 local QBCore = exports['qb-core']:GetCoreObject()
+local pumpkins = {}
+
+local function spawnObj(prop, coords)
+
+end
+
+local function loadPumpkin()
+    for _, v in pairs(Config.Pumpkins) do
+        pumpkins[#pumpkins+1] = spawnObj(Config.prop, v.coords)
+    end
+end
 
 local function searchEpic(model)
     if IsEntityDead(model) then
@@ -20,7 +31,7 @@ local function searchEpic(model)
             SetEntityAsNoLongerNeeded(entity)
             SetModelAsNoLongerNeeded(model)
             DeleteEntity(entity)
-            if lucky >= 20 then
+            if lucky <= 20 then
                 GiveWeaponToPed(PlayerPedId(), 'weapon_pistol', ammo, true, true)
                 exports['okokNotify']:Alert('Halloween', 'Bạn đã lấy được một cây súng lục', 3000, 'success')
             end
@@ -49,7 +60,7 @@ local function searchItem(entity)
             SetEntityAsNoLongerNeeded(model)
             SetModelAsNoLongerNeeded(entity)
             DeleteEntity(model)
-            if lucky >= 40 then
+            if lucky <= 40 then
                 GiveWeaponToPed(PlayerPedId(), 'weapon_pistol', ammo, true, true)
                 exports['okokNotify']:Alert('Halloween', 'Bạn đã lấy được một cây súng lục', 3000, 'success')
             end
@@ -59,6 +70,7 @@ local function searchItem(entity)
 end
 
 CreateThread(function()
+    print('check')
     exports['qb-target']:AddTargetModel(Config.MutantModels, {
         options = {
             {
