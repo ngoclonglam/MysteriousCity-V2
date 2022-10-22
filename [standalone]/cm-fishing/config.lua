@@ -15,14 +15,14 @@ Config.EnableAFKMode = true
 
 Config.Fish = {
         -- COMMON CATEGORY
-        {itemname = 'bluegill',              xp = 5, name = 'Cá Mang Xanh',              sell = true, category = 'common',   price = 120},
-        {itemname = 'goldentrout',           xp = 5, name = 'Cá Hồi Vàng',               sell = true, category = 'common',   price = 120},
-        {itemname = 'silverymonnow',         xp = 5, name = 'Cá Chim Khoang',            sell = true, category = 'common',   price = 120},
+        {itemname = 'bluegill',              xp = 5, name = 'Cá Mang Xanh',              sell = true, category = 'common',   price = 95},
+        {itemname = 'goldentrout',           xp = 5, name = 'Cá Hồi Vàng',               sell = true, category = 'common',   price = 95},
+        {itemname = 'silverymonnow',         xp = 5, name = 'Cá Chim Khoang',            sell = true, category = 'common',   price = 60},
         {itemname = 'strippedbass',          xp = 5, name = 'Cá Vược',                   sell = true, category = 'common',   price = 120},
-        {itemname = 'tench',                 xp = 5, name = 'Cá Chép Nhớt',              sell = true, category = 'common',   price = 120},
-        {itemname = 'whitefish',             xp = 5, name = 'Cá Trắng',                  sell = true, category = 'common',   price = 120},
-        {itemname = 'crappie',               xp = 5, name = 'Cá Crappie',                sell = true, category = 'common',   price = 120},
-        {itemname = 'cruciancarp',           xp = 5, name = 'Cá Chép Diếc',              sell = true, category = 'common',   price = 120},
+        {itemname = 'tench',                 xp = 5, name = 'Cá Chép Nhớt',              sell = true, category = 'common',   price = 95},
+        {itemname = 'whitefish',             xp = 5, name = 'Cá Trắng',                  sell = true, category = 'common',   price = 185},
+        {itemname = 'crappie',               xp = 5, name = 'Cá Crappie',                sell = true, category = 'common',   price = 95},
+        {itemname = 'cruciancarp',           xp = 5, name = 'Cá Chép Diếc',              sell = true, category = 'common',   price = 60},
         -- UNCOMMON CATEGORY--------------   ------------------------------        ---------------------
         {itemname = 'bluebackherring',       xp = 10, name = 'Blueback Herring',         sell = true, category = "uncommon", price = 4},
         {itemname = 'bulltrout',             xp = 10, name = 'Bull Trout',               sell = true, category = "uncommon", price = 4},
