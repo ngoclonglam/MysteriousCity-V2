@@ -1,3 +1,5 @@
+Config = {}
+
 Config.MutantModels = {
 	'creature01',
 }
