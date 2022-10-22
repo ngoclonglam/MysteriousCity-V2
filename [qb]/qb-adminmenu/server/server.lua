@@ -331,7 +331,7 @@ end, 'admin')
 
 QBCore.Commands.Add('admin', Lang:t("commands.open_admin"), {}, false, function(source, _)
     TriggerClientEvent('qb-admin:client:openMenu', source)
-end, 'god')
+end, 'admin')
 
 QBCore.Commands.Add('report', Lang:t("info.admin_report"), {{name='message', help='Message'}}, true, function(source, args)
     local src = source
