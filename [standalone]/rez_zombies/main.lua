@@ -89,8 +89,4 @@ CreateThread(function()
         },
         distance = 2.5,
     })
-    while true do
-        print('check')
-        Wait(500)
-    end
 end)
