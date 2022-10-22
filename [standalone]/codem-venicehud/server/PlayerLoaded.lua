@@ -1,6 +1,6 @@
 RegisterNetEvent('esx:playerLoaded')
 AddEventHandler('esx:playerLoaded', function(src)
-  
+
     local identifier = GetIdentifier(src)
     local players = GetPlayers()
     CheckPreferencesExist(identifier)
@@ -18,7 +18,7 @@ AddEventHandler('esx:playerLoaded', function(src)
      TriggerClientEvent('codem-venicehud:UpdateNitroData', src, nitro)
      TriggerClientEvent('codem-venicehud:Loaded', src)
      TriggerClientEvent('codem-totalplayers',-1,#players)
- 
+
 end)
 
 
@@ -39,7 +39,7 @@ AddEventHandler('QBCore:Server:OnPlayerLoaded', function()
       TriggerClientEvent('codem-venicehud:UpdateNitroData', src, nitro)
       TriggerClientEvent('codem-venicehud:Loaded', src)
       TriggerClientEvent('codem-totalplayers',-1,#players)
- 
+
 
  end)
 
@@ -59,10 +59,10 @@ if Config.EnableCashAndBankCommands then
         if Config.Framework == "esx" then
             local xPlayer = frameworkObject.GetPlayerFromId(tonumber(source))
             local cashamount = xPlayer.getMoney()
-        
+
             TriggerClientEvent('codem-venicehud:ShowAccounts2', source, 'cash', cashamount)
         else
-          
+
             local Player = frameworkObject.Functions.GetPlayer(tonumber(source))
             local cashamount = Player.PlayerData.money.cash
             TriggerClientEvent('codem-venicehud:ShowAccounts2', source, 'cash', cashamount)
@@ -71,7 +71,7 @@ if Config.EnableCashAndBankCommands then
     RegisterCommand(Config.BankCommand, function(source)
         if Config.Framework == "esx" then
             local xPlayer = frameworkObject.GetPlayerFromId(tonumber(source))
-           
+
             local bankamount = xPlayer.getAccount('bank')
             if bankamount then
                 TriggerClientEvent('codem-venicehud:ShowAccounts2', source, 'bank', bankamount.money)
