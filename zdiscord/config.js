@@ -47,7 +47,7 @@ const DiscordAdminRoleId = "987102823034544258";
 const DiscordGodRoleId = "987102106529988699";
 
 // DISCORD BOT STATUS
-const EnableBotStatusMessages = true;
+const EnableBotStatusMessages = false;
 const BotStatusMessages = [
     "{servername}",
     "{playercount} người chơi",

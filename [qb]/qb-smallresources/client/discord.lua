@@ -24,6 +24,7 @@ CreateThread(function()
         local PlayerData = QBCore.Functions.GetPlayerData()
         local name =  PlayerData.charinfo.lastname .. ' ' .. PlayerData.charinfo.firstname
 
+        print('check Discord 1')
         SetRichPresence(name .. " - ID [" .. GetPlayerServerId(PlayerId()) .. "] - Mysterious City")
 
         -- (26-02-2021) New Native:
@@ -33,6 +34,7 @@ CreateThread(function()
             First paramater is the button index (0 or 1), second is the title and
             last is the url (this has to start with "fivem://connect/" or "https://")
         ]]--
+        print('check Discord')
         SetDiscordRichPresenceAction(0, "Vào Discord!", "https://discord.gg/SCHEwKQxQ8")
         SetDiscordRichPresenceAction(1, "Vào Thành Phố!", "https://cfx.re/join/aqxrez")
 
