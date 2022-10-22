@@ -16,8 +16,8 @@ Config = {
    AnimationDic = 'melee@unarmed@streamed_core_fps',
    Animation = 'ground_attack_0_psycho',
 
-   MaxZombiesNight = 80, --CAREFUL, IF YOU SET THIS TOO HIGH IT WILL CAUSE CRASHES!
-   MaxZombiesDay = 30, --CAREFUL, IF YOU SET THIS TOO HIGH IT WILL CAUSE CRASHES!
+   MaxZombiesNight = 50, --CAREFUL, IF YOU SET THIS TOO HIGH IT WILL CAUSE CRASHES!
+   MaxZombiesDay = 20, --CAREFUL, IF YOU SET THIS TOO HIGH IT WILL CAUSE CRASHES!
    EnableMutants = true
 }
 
