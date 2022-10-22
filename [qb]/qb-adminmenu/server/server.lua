@@ -532,7 +532,6 @@ CreateThread(function()
                 citizenid = ped.PlayerData.citizenid,
                 sources = GetPlayerPed(ped.PlayerData.source),
                 sourceplayer = ped.PlayerData.source
-
             }
         end
         -- Sort players list by source ID (1,2,3,4,5, etc) --
