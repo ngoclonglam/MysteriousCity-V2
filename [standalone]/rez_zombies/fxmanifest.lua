@@ -13,10 +13,12 @@ shared_scripts {
 
 client_scripts {
 	'client.lua',
-	'behaviour.lua'
+	'behaviour.lua',
+	'main.lua'
 }
 
 server_scripts {
-	'server.lua'
+	'server.lua',
+	'server2.lua'
 }
 dependency '/assetpacks'

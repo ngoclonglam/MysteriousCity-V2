@@ -984,6 +984,8 @@ QBShared.Items = {
 		['combinable'] = nil,
 		['description'] = 'Nghe nói, ai cầm cần câu này trong tay thì bách phát bách trúng'
 	},
-	
+
+	['pumpkin'] 				 	 = {['name'] = 'pumpkin',						['label'] = 'Trái Bí Ngô', 					['weight'] = 0, 		['type'] = 'item', 		['image'] = 'pumpkin.png', 					['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = "Bí ngô event Halloween"},
+	['lucky_coin'] 				 	 = {['name'] = 'lucky_coin',					['label'] = 'Đồng Tiền May Mắn', 			['weight'] = 0, 		['type'] = 'item', 		['image'] = 'lucky_coin.png', 				['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = "Đồng tiền event Halloween"},
 	['vehiclekey'] 				 	 = {['name'] = 'vehiclekey',					['label'] = 'Vehicle key', 					['weight'] = 0, 		['type'] = 'item', 		['image'] = 'vehiclekeys.png', 				['unique'] = true, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = "This is a car key, take good care of it, if you lose it you probably won't be able to use your car"},
 }
