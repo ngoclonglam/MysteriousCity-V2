@@ -2,6 +2,8 @@ local QBCore = exports['qb-core']:GetCoreObject()
 
 CreateThread(function()
     for _, v in pairs(Config.Blip) do
+        print('v.coords', v.coords)
+        print('v.radius', v.radius)
         local blip = AddBlipForRadius(v.coords, v.radius)
         SetBlipColour(blip, 1)
         SetBlipAlpha(blip, 128)
