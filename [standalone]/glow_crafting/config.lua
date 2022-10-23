@@ -37,6 +37,17 @@ Config.defaultRecipes = {
             {item = "leather", label = "Da Thuộc", amount = 10, image = "https://cfx-nui-qb-inventory/html/images/leather.png"},
         }
     },
+    giaygoiqua = {
+        item = "giaygoiqua",
+        label = "Giấy Gói Qùa",
+        image = "https://cfx-nui-qb-inventory/html/images/giaygoiqua.png",
+        isAttachment = false,
+        threshold = 0,
+        points = 1,
+        components = {
+            {item = "plastic", label = "Nhựa", amount = 10, image = "https://cfx-nui-qb-inventory/html/images/plastic.png"},
+        }
+    },
     halloween_gift = {
         item = "halloween_gift",
         label = "Hộp Qùa Halloween",
@@ -45,8 +56,8 @@ Config.defaultRecipes = {
         threshold = 0,
         points = 1,
         components = {
-            {item = "plastic", label = "Nhựa", amount = 40, image = "https://cfx-nui-qb-inventory/html/images/plastic.png"},
-            {item = "pumpkin", label = "Bí Ngô", amount = 2, image = "https://cfx-nui-qb-inventory/html/images/pumpkin.png"},
+            {item = "giaygoiqua", label = "Giấy Gói Qùa", amount = 2, image = "https://cfx-nui-qb-inventory/html/images/giaygoiqua.png"},
+            {item = "pumpkin", label = "Bí Ngô", amount = 1, image = "https://cfx-nui-qb-inventory/html/images/pumpkin.png"},
         }
     }
 }
