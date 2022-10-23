@@ -2,17 +2,18 @@ local QBCore = exports['qb-core']:GetCoreObject()
 
 CreateThread(function()
     for _, v in pairs(Config.Blip) do
-        print('v.coords', v.coords)
-        print('v.radius', v.radius)
         local blip = AddBlipForRadius(v.coords, v.radius)
+        SetBlipHighDetail(blip, true)
         SetBlipColour(blip, 1)
         SetBlipAlpha(blip, 128)
+        SetBlipAsShortRange(blip, true)
     end
 
     for _, v in pairs(Config.Blip) do
         local blip = AddBlipForCoord(v.coords.x, v.coords.y, v.coords.z)
         SetBlipSprite(blip, 84)
         SetBlipDisplay(blip, 4)
+        SetBlipScale(blip, 0.7)
         SetBlipColour(blip, 1)
         SetBlipAsShortRange(blip, true)
         BeginTextCommandSetBlipName("STRING")
