@@ -22,7 +22,7 @@ Config = {
 }
 
 Config.ZombieSpawnZones = {
-   {x = 974.72, y = 2373.92, z = 52.31, radius = 500},
+   {x = 3548.68, y = 3724.13, z = 37.35, radius = 500},
    {x = -286.98, y = -850.34, z = 31.76, radius = 300},
    {x = -1274.91, y = -1531.46, z = 4.31, radius = 300},
    {x = -1979.91, y = 3005.98, z = 32.81, radius = 500},
@@ -39,8 +39,8 @@ Config.PedModels = {
 	"a_m_y_stwhi_01",
 	"a_m_y_stlat_01",
 	"a_m_y_methhead_01",
-	"a_m_y_genstreet_02",
-	"a_m_y_genstreet_01",
+	-- "a_m_y_genstreet_02",
+	-- "a_m_y_genstreet_01",
 	"a_m_m_skidrow_01",
 	"a_m_m_polynesian_01",
 	"a_m_m_mexcntry_01",

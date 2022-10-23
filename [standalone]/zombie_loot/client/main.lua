@@ -1,4 +1,84 @@
 local QBCore = exports['qb-core']:GetCoreObject()
+local pumpkins = {}
+
+local function lootItem(item)
+    QBCore.Functions.Progressbar("loot_item", 'Tìm kiếm đồ..', 3000, false, true, {
+        disableMovement = true,
+        disableCarMovement = true,
+        disableMouse = true,
+        disableCombat = true,
+    }, {
+        animDict = "random@domestic",
+        animName = "pickup_low",
+        flags = 16
+    }, {}, {}, function() -- Done
+        local lucky = math.random(1, 100)
+        local ammo = math.random(30, 40)
+        if lucky <= 10 then
+            GiveWeaponToPed(PlayerPedId(), 'weapon_pistol', ammo, true, true)
+            exports['okokNotify']:Alert('Halloween', 'Bạn đã kiếm được một khẩu súng lục', 3000, 'success')
+        end
+        TriggerServerEvent("zombie_loot:server:lootItem", 'pumpkin')
+        ClearPedSecondaryTask(PlayerPedId())
+        SetEntityAsNoLongerNeeded(item)
+        DeleteEntity(item)
+    end, function() -- Cancel
+        QBCore.Functions.Notify("Hủy bỏ", "error")
+    end)
+end
+
+local function spawnObj(model, coords, heading)
+    local modelHash = type(model) == 'string' and GetHashKey(model) or model
+    if not HasModelLoaded(modelHash) then
+        RequestModel(modelHash)
+        while not HasModelLoaded(modelHash) do
+            Wait(10)
+        end
+    end
+
+    local object = CreateObject(modelHash, coords.x, coords.y, coords.z - 1, false, false, false)
+    while not DoesEntityExist(object) do
+        Wait(10)
+    end
+
+    PlaceObjectOnGroundProperly(object)
+    SetEntityAsMissionEntity(object, true, true)
+    FreezeEntityPosition(object, true)
+    SetEntityHeading(object, heading)
+
+
+    exports['qb-target']:AddTargetEntity(object, {
+        options = { {
+             icon = "fa-solid fa-hammer",
+             label = "Lụm bí ngô",
+             action = function(entity)
+                lootItem(entity)
+             end
+        }
+        },
+        distance = 1.5
+   })
+
+   return object
+end
+
+local function loadPumpkin()
+    for _, v in pairs(Config.Pumpkin) do
+        pumpkins[#pumpkins+1] = spawnObj(Config.Prop, v.coords, v.heading)
+    end
+end
+
+CreateThread(function()
+    loadPumpkin()
+    Wait(60000 * 60)
+    for _, prop in pairs(pumpkins) do
+        DeleteObject(prop)
+        Wait(500)
+    end
+    pumpkins = {}
+    Wait(5000)
+    loadPumpkin()
+end)
 
 CreateThread(function()
     for _, v in pairs(Config.Blip) do

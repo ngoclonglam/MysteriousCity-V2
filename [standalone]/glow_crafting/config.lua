@@ -4,7 +4,7 @@ Config.prop = 'gr_prop_gr_bench_04b'
 
 Config.craftingBenches = {
     {id = "ID1", coords = vector3(2659.99, 3923.66, 42.17), heading = 86.96},
-    {id = "ID2", coords = vector3(259.38, -779.89, 30.57), heading = 242.8}
+    {id = "ID2", coords = vector3(259.38, -779.89, 30.57), heading = 62.8}
 }
 
 Config.fakeBenches = {
