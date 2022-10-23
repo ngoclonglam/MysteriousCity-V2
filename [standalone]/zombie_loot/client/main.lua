@@ -3,8 +3,8 @@ local QBCore = exports['qb-core']:GetCoreObject()
 CreateThread(function()
     for _, v in pairs(Config.Blip) do
         local blip = AddBlipForRadius(v.coords, v.radius)
-        SetBlipColour(blip, 49)
-        SetBlipAlpha(blip, 75)
+        SetBlipColour(blip, 1)
+        SetBlipAlpha(blip, 128)
     end
 
     for _, v in pairs(Config.Blip) do
