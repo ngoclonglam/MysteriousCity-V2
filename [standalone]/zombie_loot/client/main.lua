@@ -1,7 +1,9 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 local pumpkins = {}
 
-local function lootItem(item)
+RegisterNetEvent('zombie_loot:client:lootItem', function(data)
+    local debug = true
+    if debug then return QBCore.Functions.Notify('Bí ngô đang bảo trì', 'error') end
     QBCore.Functions.Progressbar("loot_item", 'Tìm kiếm đồ..', 3000, false, true, {
         disableMovement = true,
         disableCarMovement = true,
@@ -20,12 +22,20 @@ local function lootItem(item)
         end
         TriggerServerEvent("zombie_loot:server:lootItem", 'pumpkin')
         ClearPedSecondaryTask(PlayerPedId())
-        SetEntityAsNoLongerNeeded(item)
-        DeleteEntity(item)
+        for _, v in pairs(pumpkins) do
+            if v == data.pumpkin then
+                print('v', v)
+                print('data.pumpkin', data.pumpkin)
+                SetEntityAsNoLongerNeeded(v)
+                DeleteEntity(v)
+                DeleteObject(v)
+                break
+            end
+        end
     end, function() -- Cancel
         QBCore.Functions.Notify("Hủy bỏ", "error")
     end)
-end
+end)
 
 local function spawnObj(model, coords, heading)
     local modelHash = type(model) == 'string' and GetHashKey(model) or model
@@ -48,13 +58,13 @@ local function spawnObj(model, coords, heading)
 
 
     exports['qb-target']:AddTargetEntity(object, {
-        options = { {
-             icon = "fa-solid fa-hammer",
-             label = "Lụm bí ngô",
-             action = function(entity)
-                lootItem(entity)
-             end
-        }
+        options = {
+            {
+                event = 'zombie_loot:client:lootItem',
+                pumpkin = object,
+                icon = "fa-solid fa-hammer",
+                label = "Lụm bí ngô",
+            }
         },
         distance = 1.5
    })
@@ -167,7 +177,6 @@ CreateThread(function()
                             ClearPedSecondaryTask(PlayerPedId())
                             SetEntityAsNoLongerNeeded(entity)
                             DeleteEntity(entity)
-                            DeleteEntity(model)
                         end, function() -- Cancel
                             QBCore.Functions.Notifsy("Hủy bỏ", "error")
                         end)
