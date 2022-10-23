@@ -1,6 +1,25 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
 CreateThread(function()
+    for _, v in pairs(Config.Blip) do
+        local blip = AddBlipForRadius(v.coords.x, v.coords.y, v.coords.z, v.radius)
+        SetBlipColour(blip, 49)
+        SetBlipAlpha(blip, 75)
+    end
+
+    for _, v in pairs(Config.Blip) do
+        local blip = AddBlipForCoord(v.coords.x, v.coords.y, v.coords.z)
+        SetBlipSprite(blip, 84)
+        SetBlipDisplay(blip, 4)
+        SetBlipColour(blip, 1)
+        SetBlipAsShortRange(blip, true)
+        BeginTextCommandSetBlipName("STRING")
+        AddTextComponentString("Vùng Nguy Hiểm")
+        EndTextCommandSetBlipName(blip)
+    end
+end)
+
+CreateThread(function()
     exports['qb-target']:AddTargetModel(Config.MutantModels, {
         options = {
             {

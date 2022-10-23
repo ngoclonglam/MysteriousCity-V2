@@ -3,7 +3,8 @@ Config = {}
 Config.prop = 'gr_prop_gr_bench_04b'
 
 Config.craftingBenches = {
-    {id = "testId", coords = vector3(2659.99, 3923.66, 42.17), heading = 86.96},
+    {id = "ID1", coords = vector3(2659.99, 3923.66, 42.17), heading = 86.96},
+    {id = "ID2", coords = vector3(259.38, -779.89, 30.57), heading = 242.8}
 }
 
 Config.fakeBenches = {
@@ -36,6 +37,18 @@ Config.defaultRecipes = {
             {item = "leather", label = "Da Thuộc", amount = 10, image = "https://cfx-nui-qb-inventory/html/images/leather.png"},
         }
     },
+    halloween_gift = {
+        item = "halloween_gift",
+        label = "Hộp Qùa Halloween",
+        image = "https://cfx-nui-qb-inventory/htmk/images/halloween_gift.png",
+        isAttachment = false,
+        threshold = 0,
+        points = 1,
+        components = {
+            {item = "plastic", label = "Nhựa", amount = 40, image = "https://cfx-nui-qb-inventory/html/images/plastic.png"},
+            {item = "pumpkin", label = "Bí Ngô", amount = 2, image = "https://cfx-nui-qb-inventory/html/images/pumpkin.png"},
+        }
+    }
 }
 
 --Recipes that are unlocked with blueprints
