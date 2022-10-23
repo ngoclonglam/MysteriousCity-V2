@@ -1,11 +1,11 @@
 Config = {}
 
 Config.Blip = {
-	{coords = vector3(974.72, 2373.92, 52.31), radius = 500},
-	{coords = vector3(148.32, -713.59, 33.13), radius = 300},
-	{coords = vector3(-1274.91, -1531.46, 4.31), radius = 300},
-	{coords = vector3(-1979.91, 3005.98, 32.81), radius = 500},
-	{coords = vector3(316.63, 2867.97, 43.5), radius = 500}
+	{coords = vector3(974.72, 2373.92, 52.31), radius = 500.0},
+	{coords = vector3(148.32, -713.59, 33.13), radius = 300.0},
+	{coords = vector3(-1274.91, -1531.46, 4.31), radius = 300.0},
+	{coords = vector3(-1979.91, 3005.98, 32.81), radius = 500.0},
+	{coords = vector3(316.63, 2867.97, 43.5), radius = 500.0}
 }
 
 Config.MutantModels = {
