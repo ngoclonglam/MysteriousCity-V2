@@ -10,10 +10,10 @@ Config.Gifts = {
     ["halloween_gift"] = {
         { type = "car", name = "pariah", luck = {min = 1, max = 1} },
         { type = "car", name = "scorcher", luck = {min = 2, max = 5} },
-        { type = "item", name = "renamecard", luck = {min = 6, max = 30} },
-        { type = "item", name = "phonecard", luck = {min = 31, max = 50} },
-        { type = "item", name = "carcard", luck = {min = 51, max = 70} },
-        { type = "money", amount = math.random(100, 500), luck = {min = 71, max = 200} },
+        { type = "item", name = "renamecard", luck = {min = 6, max = 17} },
+        { type = "item", name = "phonecard", luck = {min = 17, max = 27} },
+        { type = "item", name = "carcard", luck = {min = 28, max = 38} },
+        { type = "money", amount = math.random(100, 500), luck = {min = 39, max = 200} },
     },
     ["gift-common"] = {
         { type = "money", amount = 100000, luck = { min = 1, max = 100} }, -- luck number, min is 1 and max is 100
