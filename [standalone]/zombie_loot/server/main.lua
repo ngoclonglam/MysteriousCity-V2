@@ -15,7 +15,7 @@ RegisterNetEvent('zombie_loot:server:lootItem', function(Type)
             Player.Functions.AddItem('pumpkin', 1)
         else
             Player.Functions.AddMoney('cash', 100, 'Bí Ngô')
-            QBCore.Functions.Notify(source, 'Bạn không tìm được bí ngô, nhưng bạn đã tìm được ít tiền', 'success')
+            QBCore.Functions.Notify(source, 'Bạn không tìm được bí ngô, nhưng bạn đã tìm được $100', 'success')
         end
     elseif Type == "normal" then
         if lucky >= 50 then

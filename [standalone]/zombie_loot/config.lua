@@ -102,7 +102,18 @@ Config.Pumpkin = {
 	{coords = vector3(509.32, -1840.73, 27.88), heading = 135.05},
 	{coords = vector3(420.0, -1924.15, 25.63), heading = 38.86},
 	{coords = vector3(392.67, -1685.46, 29.28), heading = 227.65},
-	{coords = vector3(581.96, -1629.3, 25.95), heading = 49.79}
+	{coords = vector3(581.96, -1629.3, 25.95), heading = 49.79},
+	{coords = vector3(869.84, 15.16, 79.05), heading = 39.1},
+	{coords = vector3(756.47, 134.16, 78.66), heading = 250.11},
+	{coords = vector3(478.84, 56.82, 95.16), heading = 235.48},
+	{coords = vector3(519.07, 240.57, 104.91), heading = 338.69},
+	{coords = vector3(350.73, 173.12, 103.1), heading = 200.99},
+	{coords = vector3(223.75, 121.6, 102.84), heading = 246.75},
+	{coords = vector3(154.97, -218.37, 54.34), heading = 337.86},
+	{coords = vector3(-2.33, -425.28, 39.41), heading = 64.53},
+	{coords = vector3(-117.01, -603.68, 36.28), heading = 248.9},
+	{coords = vector3(-139.23, -798.74, 32.11), heading = 58.47},
+	{coords = vector3(248.94, -805.76, 31.25), heading = 63.25},
 }
 
 Config.Blip = {
