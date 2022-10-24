@@ -2,6 +2,8 @@
 
 local QBCore = exports['qb-core']:GetCoreObject()
 
+
+
 CreateThread(function()
     while true do
         -- This is the Application ID (Replace this with you own)
@@ -22,6 +24,10 @@ CreateThread(function()
         SetDiscordRichPresenceAssetSmallText('Mysterious City')
 
         local PlayerData = QBCore.Functions.GetPlayerData()
+        while not PlayerData do
+            PlayerData = QBCore.Functions.GetPlayerData()
+            Wait(500)
+        end
         local name =  PlayerData.charinfo.lastname .. ' ' .. PlayerData.charinfo.firstname
 
         print('check Discord 1')
