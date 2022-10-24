@@ -174,8 +174,8 @@ RegisterNetEvent("glow_crafting_sv:attemptCraft", function(benchId, itemToCraft,
     else
         
         local craftData = Config.defaultRecipes[itemToCraft]
-        print('craftdata', craftData)
-        print('itemToCraft', itemToCraft)
+        -- print('craftdata', craftData)
+        -- print('itemToCraft', itemToCraft)
         hasRecipe = true
         points = craftData.points
         isAttachment = craftData.isAttachment
