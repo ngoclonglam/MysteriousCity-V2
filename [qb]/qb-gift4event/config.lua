@@ -13,7 +13,7 @@ Config.Gifts = {
         { type = "item", name = "renamecard", luck = {min = 6, max = 17} },
         { type = "item", name = "phonecard", luck = {min = 17, max = 27} },
         { type = "item", name = "carcard", luck = {min = 28, max = 38} },
-        { type = "money", amount = math.random(1000, 5000), luck = {min = 39, max = 200} },
+        { type = "money", amount = math.random(2000, 6000), luck = {min = 39, max = 200} },
     },
     ["gift-common"] = {
         { type = "money", amount = 100000, luck = { min = 1, max = 100} }, -- luck number, min is 1 and max is 100
