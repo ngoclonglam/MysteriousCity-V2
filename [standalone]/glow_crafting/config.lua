@@ -56,8 +56,8 @@ Config.defaultRecipes = {
         threshold = 0,
         points = 1,
         components = {
-            {item = "giaygoiqua", label = "Giấy Gói Qùa", amount = 2, image = "https://cfx-nui-qb-inventory/html/images/giaygoiqua.png"},
-            {item = "pumpkin", label = "Bí Ngô", amount = 1, image = "https://cfx-nui-qb-inventory/html/images/pumpkin.png"},
+            {item = "giaygoiqua", label = "Giấy Gói Qùa", amount = 4, image = "https://cfx-nui-qb-inventory/html/images/giaygoiqua.png"},
+            {item = "pumpkin", label = "Bí Ngô", amount = 50, image = "https://cfx-nui-qb-inventory/html/images/pumpkin.png"},
         }
     }
 }

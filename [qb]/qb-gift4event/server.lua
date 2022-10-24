@@ -5,7 +5,7 @@ RegisterNetEvent('gift4event:server:Opened', function(item)
     local player = QBCore.Functions.GetPlayer(src)
 
     local data = {}
-    local luck = math.random(1, 100)
+    local luck = math.random(1, 200)
 
     for _, gift in ipairs(Config.Gifts[item.name]) do
         if gift.luck.min <= luck and gift.luck.max >= luck then
