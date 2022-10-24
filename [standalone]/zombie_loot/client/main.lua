@@ -27,7 +27,6 @@ RegisterNetEvent('zombie_loot:client:lootItem', function(data)
             if v == data.pumpkin then
                 DeleteObject(v)
                 table.remove(pumpkins, k)
-                DeleteObject(k)
                 break
             end
         end
@@ -185,4 +184,12 @@ CreateThread(function()
         },
         distance = 2.5,
     })
+end)
+
+AddEventHandler('onResourceStop', function(resourceName)
+    if resourceName == GetCurrentResourceName() then
+        for _, prop in pairs(pumpkins) do
+            DeleteObject(prop)
+        end
+    end
 end)
