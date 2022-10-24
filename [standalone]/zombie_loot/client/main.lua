@@ -27,7 +27,7 @@ RegisterNetEvent('zombie_loot:client:lootItem', function(data)
             if v == data.pumpkin then
                 print('v', v)
                 print('data.pumpkin', data.pumpkin)
-                DeleteObject(v)
+                DeleteObject(data.pumpkin)
                 table.remove(pumpkins, v)
                 break
             end
