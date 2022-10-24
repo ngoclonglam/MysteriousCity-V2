@@ -2,8 +2,8 @@ local QBCore = exports['qb-core']:GetCoreObject()
 local pumpkins = {}
 
 RegisterNetEvent('zombie_loot:client:lootItem', function(data)
-    local debug = true
-    if debug then return QBCore.Functions.Notify('Bí ngô đang bảo trì', 'error') end
+    -- local debug = true
+    -- if debug then return QBCore.Functions.Notify('Bí ngô đang bảo trì', 'error') end
     QBCore.Functions.Progressbar("loot_item", 'Tìm kiếm đồ..', 3000, false, true, {
         disableMovement = true,
         disableCarMovement = true,
@@ -23,12 +23,12 @@ RegisterNetEvent('zombie_loot:client:lootItem', function(data)
         TriggerServerEvent("zombie_loot:server:lootItem", 'pumpkin')
         ClearPedSecondaryTask(PlayerPedId())
         for _, v in pairs(pumpkins) do
+            print('v fisrt: ', v)
             if v == data.pumpkin then
                 print('v', v)
                 print('data.pumpkin', data.pumpkin)
-                SetEntityAsNoLongerNeeded(v)
-                DeleteEntity(v)
                 DeleteObject(v)
+                table.remove(pumpkins, v)
                 break
             end
         end
