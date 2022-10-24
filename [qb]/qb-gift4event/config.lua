@@ -8,8 +8,9 @@ Config.Gifts = {
         { type = "car", name = "minivan2", luck = { min = 181, max = 200} },
     },
     ["halloween_gift"] = {
-        { type = "car", name = "pariah", luck = {min = 1, max = 1} },
-        { type = "car", name = "scorcher", luck = {min = 2, max = 5} },
+        { type = "car", name = "elegy", luck = {min = 1, max = 1} },
+        { type = "car", name = "gb200", luck = {min = 2, max = 2} },
+        { type = "car", name = "scorcher", luck = {min = 3, max = 5} },
         { type = "item", name = "renamecard", luck = {min = 6, max = 17} },
         { type = "item", name = "phonecard", luck = {min = 17, max = 27} },
         { type = "item", name = "carcard", luck = {min = 28, max = 38} },
