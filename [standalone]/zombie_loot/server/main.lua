@@ -10,11 +10,11 @@ RegisterNetEvent('zombie_loot:server:lootItem', function(Type)
         TriggerClientEvent('okokNotify:Alert', source, "Hallowen", "Bạn đã kiếm được đồng xu may mắn", 3000, "success")
         TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items["lucky_coin"], 'add')
     elseif Type == "pumpkin" then
-        if lucky >= 50 then
+        if lucky >= 60 then
             TriggerClientEvent('inventory:client:ItemBox', source, QBCore.Shared.Items["pumpkin"], 'add')
             Player.Functions.AddItem('pumpkin', 1)
         else
-            Player.Functions.AddMoney('cash', 500, 'Bí Ngô')
+            Player.Functions.AddMoney('cash', 100, 'Bí Ngô')
             QBCore.Functions.Notify(source, 'Bạn không tìm được bí ngô, nhưng bạn đã tìm được ít tiền', 'success')
         end
     elseif Type == "normal" then
