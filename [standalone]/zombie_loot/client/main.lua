@@ -11,7 +11,7 @@ RegisterNetEvent('zombie_loot:client:lootItem', function(data)
         disableCombat = true,
     }, {
         animDict = "random@domestic",
-        animName = "pickup_low",
+        anim = "pickup_low",
         flags = 16
     }, {}, {}, function() -- Done
         local lucky = math.random(1, 100)
@@ -22,16 +22,9 @@ RegisterNetEvent('zombie_loot:client:lootItem', function(data)
         end
         TriggerServerEvent("zombie_loot:server:lootItem", 'pumpkin')
         ClearPedSecondaryTask(PlayerPedId())
-        for _, v in pairs(pumpkins) do
-            print('v fisrt: ', v)
-            if v == data.pumpkin then
-                print('v', v)
-                print('data.pumpkin', data.pumpkin)
-                DeleteObject(data.pumpkin)
-                table.remove(pumpkins, v)
-                break
-            end
-        end
+        print('test')
+        DeleteObject(data.pumpkin)
+        table.remove(pumpkins, data.pumpkin)
     end, function() -- Cancel
         QBCore.Functions.Notify("Hủy bỏ", "error")
     end)
