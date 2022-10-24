@@ -329,7 +329,7 @@ local function SetLocationBlip()
   SetBlipScale(RecycleBlip, 0.8)
   SetBlipAsShortRange(RecycleBlip, true)
   BeginTextCommandSetBlipName('STRING')
-  AddTextComponentString('Recycle Center')
+  AddTextComponentString('Tái Chế')
   EndTextCommandSetBlipName(RecycleBlip)
 end
 

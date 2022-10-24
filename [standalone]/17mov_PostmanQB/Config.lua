@@ -23,7 +23,7 @@ Config.Blips = {                                -- Here you can configure Compan
         Color = 44,
         Scale = 0.8,
         Pos = vector3(-232.16, -915.15, 32.31),
-        Label = 'Postman Job'
+        Label = 'Công Việc Đưa Thư'
     },
 }
 

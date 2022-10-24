@@ -17,7 +17,7 @@ Config.Blips = { -- Here you can configure Company blip.
         Color = 52,
         Scale = 0.8,
         Pos = vector3(-321.56, -1545.74, 30.01),
-        Label = 'Garbage Job'
+        Label = 'Công Việc Thu Rác'
     },
 }
 

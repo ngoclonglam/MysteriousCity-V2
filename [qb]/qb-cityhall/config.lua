@@ -11,7 +11,7 @@ Config.Cityhalls = {
             display = 4,
             scale = 0.65,
             colour = 0,
-            title = "City Services"
+            title = "Tòa Thị Chính"
         },
         licenses = {
             ["id_card"] = {
@@ -19,12 +19,12 @@ Config.Cityhalls = {
                 cost = 50000,
             },
             ["driver_license"] = {
-                label = "Driver License",
+                label = "Bằng Lái Xe",
                 cost = 70000,
                 metadata = "driver"
             },
             ["weaponlicense"] = {
-                label = "Weapon License",
+                label = "Giấy Phép Vũ Khí",
                 cost = 500000,
                 metadata = "weapon"
             },
@@ -41,7 +41,7 @@ Config.DrivingSchools = {
             display = 4,
             scale = 0.65,
             colour = 3,
-            title = "Driving School"
+            title = "Trường Học Lái Xe"
         },
         instructors = {
             "DJD56142",

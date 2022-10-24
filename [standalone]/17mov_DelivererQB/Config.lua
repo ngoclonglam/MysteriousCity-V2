@@ -17,7 +17,7 @@ Config.Blips = {                                                    -- Here you 
         Color = 48,
         Scale = 0.8,
         Pos = vector3(78.66, 111.75, 81.17),
-        Label = 'Deliverer Job'
+        Label = 'Công Việc Giao Hàng'
     },
 }
 

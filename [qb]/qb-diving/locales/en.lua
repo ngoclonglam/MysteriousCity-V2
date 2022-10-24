@@ -15,7 +15,7 @@ local Translations = {
     },
     info = {
         ["collecting_coral"] = "Collecting coral",
-        ["diving_area"] = "Diving Area",
+        ["diving_area"] = "Khu Vực Lặn",
         ["collect_coral"] = "Collect coral",
         ["collect_coral_dt"] = "[E] - Collect Coral",
         ["checking_pockets"] = "Checking Pockets To Sell Coral",

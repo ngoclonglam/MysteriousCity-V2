@@ -162,23 +162,23 @@ Config.Teleports = {
 
 Config.CarWash = { -- carwash
     [1] = {
-        ["label"] = "Hands Free Carwash",
+        ["label"] = "Rửa Xe Tự Động",
         ["coords"] = vector3(25.29, -1391.96, 29.33),
     },
     [2] = {
-        ["label"] = "Hands Free Carwash",
+        ["label"] = "Rửa Xe Tự Động",
         ["coords"] = vector3(174.18, -1736.66, 29.35),
     },
     [3] = {
-        ["label"] = "Hands Free Carwash",
+        ["label"] = "Rửa Xe Tự Động",
         ["coords"] = vector3(-74.56, 6427.87, 31.44),
     },
     [4] = {
-        ["label"] = "Hands Free Carwash",
+        ["label"] = "Rửa Xe Tự Động",
         ["coords"] = vector3(1363.22, 3592.7, 34.92),
     },
     [5] = {
-        ["label"] = "Hands Free Carwash",
+        ["label"] = "Rửa Xe Tự Động",
         ["coords"] = vector3(-699.62, -932.7, 19.01),
     }
 }

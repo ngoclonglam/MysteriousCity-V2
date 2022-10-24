@@ -34,7 +34,7 @@ CreateThread(function()
                         type = 'client',
                         event = 'qb-pawnshop:client:openMenu',
                         icon = 'fas fa-ring',
-                        label = 'Pawn Shop',
+                        label = 'Cầm đồ',
                     },
                 },
                 distance = value.distance
