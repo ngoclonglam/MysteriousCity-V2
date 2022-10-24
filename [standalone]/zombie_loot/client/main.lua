@@ -22,9 +22,15 @@ RegisterNetEvent('zombie_loot:client:lootItem', function(data)
         end
         TriggerServerEvent("zombie_loot:server:lootItem", 'pumpkin')
         ClearPedSecondaryTask(PlayerPedId())
-        print('test')
         DeleteObject(data.pumpkin)
-        table.remove(pumpkins, data.pumpkin)
+        for k, v in pairs(pumpkins) do
+            if v == data.pumpkin then
+                DeleteObject(v)
+                table.remove(pumpkins, k)
+                DeleteObject(k)
+                break
+            end
+        end
     end, function() -- Cancel
         QBCore.Functions.Notify("Hủy bỏ", "error")
     end)
