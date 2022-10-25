@@ -20,7 +20,7 @@ RegisterNetEvent('gift4event:server:Opened', function(item)
     if player.Functions.RemoveItem(item.name, 1) then
         if data.type == "money" then
             player.Functions.AddMoney("cash", data.amount, "open-event-gift")
-            TriggerClientEvent("QBCore:Notify", src, Config.Lang.success.cash_received .. ' ' .. data.amount, "success")
+            TriggerClientEvent("QBCore:Notify", src, Config.Lang.success.cash_received .. data.amount, "success")
         elseif data.type == "item" then
             if player.Functions.AddItem(data.name, data.amount) then
                 TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[data.name], "add", data.amount)
