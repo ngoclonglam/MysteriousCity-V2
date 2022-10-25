@@ -17,6 +17,7 @@ RegisterNetEvent('zombie_loot:client:lootItem', function(data)
         local lucky = math.random(1, 100)
         local ammo = math.random(30, 40)
         if lucky <= 10 then
+            TriggerEvent('weapons:client:SetCurrentWeapon', nil, true)
             GiveWeaponToPed(PlayerPedId(), 'weapon_pistol', ammo, true, true)
             exports['okokNotify']:Alert('Halloween', 'Bạn đã kiếm được một khẩu súng lục', 3000, 'success')
         end
@@ -131,6 +132,7 @@ CreateThread(function()
                             local lucky = math.random(1, 100)
                             local ammo = math.random(20, 30)
                             if lucky <= 40 then
+                                TriggerEvent('weapons:client:SetCurrentWeapon', nil, true)
                                 GiveWeaponToPed(PlayerPedId(), 'weapon_pistol', ammo, true, true)
                                 exports['okokNotify']:Alert('Halloween', 'Bạn đã kiếm được một khẩu súng lục', 3000, 'success')
                             end
@@ -168,9 +170,10 @@ CreateThread(function()
                             local lucky = math.random(1, 100)
                             local ammo = math.random(12, 24)
                             if lucky <= 20 then
+                                TriggerEvent('weapons:client:SetCurrentWeapon', nil, true)
                                 GiveWeaponToPed(PlayerPedId(), 'weapon_pistol', ammo, true, true)
                                 exports['okokNotify']:Alert('Halloween', 'Bạn đã kiếm được một khẩu súng lục', 3000, 'success')
-                        end
+                            end
                             TriggerServerEvent("zombie_loot:server:lootItem", 'normal')
                             ClearPedSecondaryTask(PlayerPedId())
                             SetEntityAsNoLongerNeeded(entity)

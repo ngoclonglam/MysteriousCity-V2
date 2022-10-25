@@ -1340,6 +1340,7 @@ RegisterNetEvent('inventory:server:SaveInventory', function(type, id)
 end)
 
 RegisterNetEvent('inventory:server:UseItemSlot', function(slot)
+	print('using')
 	local src = source
 	local itemData = GetItemBySlot(src, slot)
 	if not itemData then return end
