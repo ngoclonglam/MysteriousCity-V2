@@ -51,7 +51,7 @@ QBCore.Functions.CreateUseableItem("rename-card", function(source, item)
     TriggerClientEvent("iC-addon:client:reNameCharacter", src)
 end)
 
-function giveIDCard(src)
+local function giveIDCard(src)
     local Player = QBCore.Functions.GetPlayer(src)
     Player.Functions.RemoveItem('id_card', 1)
     Player.Functions.RemoveItem('driver_license', 1)
