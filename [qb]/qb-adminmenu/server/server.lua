@@ -10,6 +10,15 @@ local permissions = {
 }
 local players = {}
 
+-- Get Perm
+QBCore.Functions.CreateCallback("qb-adminmenu:server:checkPerm", function(source, cb)
+    local src = source
+    if QBCore.Functions.HasPermission(src, "god") then
+        return cb(true)
+    end
+    return cb(false)
+end)
+
 -- Get Dealers
 QBCore.Functions.CreateCallback('test:getdealers', function(_, cb)
     cb(exports['qb-drugs']:GetDealers())

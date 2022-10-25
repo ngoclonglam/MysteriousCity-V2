@@ -878,7 +878,14 @@ local function OpenCarModelsMenu(category)
             value = k,
             description = 'Spawn ' .. v["name"],
             select = function(_)
-                TriggerServerEvent('QBCore:CallCommand', "car", { k })
+                QBCore.Functions.TriggerCallback('qb-adminmenu:server:checkPerm', function(result)
+                    if result then
+                        TriggerServerEvent('QBCore:CallCommand', "car", { k })
+                    else
+
+                    end
+                end)
+                
             end
         })
     end
