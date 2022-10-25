@@ -882,10 +882,9 @@ local function OpenCarModelsMenu(category)
                     if result then
                         TriggerServerEvent('QBCore:CallCommand', "car", { k })
                     else
-
+                        QBCore.Functions.Notify('Mod không được xài lệnh này', 'error')
                     end
                 end)
-                
             end
         })
     end
