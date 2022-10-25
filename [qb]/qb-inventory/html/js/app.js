@@ -2908,7 +2908,7 @@ var requiredItemOpen = false;
     Inventory.UseItem = function(data) {
         $(".itembox-container").hide();
         $(".itembox-container").fadeIn(250);
-        $("#itembox-action").html("<p>Used 1x</p>");
+        $("#itembox-action").html("<p>Dùng 1x</p>");
         $("#itembox-label").html("<p>" + data.item.label + "</p>");
         $("#itembox-image").html(
             '<div class="item-slot-img"><img src="images/' +
@@ -2953,11 +2953,11 @@ var requiredItemOpen = false;
         if (itemBoxtimer !== null) {
             clearTimeout(itemBoxtimer);
         }
-        var type = "Used " + data.itemAmount + "x";
+        var type = "Dùng " + data.itemAmount + "x";
         if (data.type == "add") {
-          type = "Received " + data.itemAmount + "x";
+          type = "Nhận " + data.itemAmount + "x";
         } else if (data.type == "remove") {
-          type = "Removed " + data.itemAmount + "x";
+          type = "Bỏ " + data.itemAmount + "x";
         }
 
         var $itembox = $(".itembox-container.template").clone();

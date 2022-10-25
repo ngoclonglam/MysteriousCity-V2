@@ -17,6 +17,7 @@
         "GetEntityCoords",
         "vector3",
         "GetGroundZFor_3dCoord",
-        "CreateThread"
+        "CreateThread",
+        "IsPedInAnyVehicle"
     ]
 }
