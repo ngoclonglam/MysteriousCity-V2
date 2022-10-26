@@ -78,7 +78,7 @@ end
 RegisterCommand('hoisinh', function()
     local PlayerData = QBCore.Functions.GetPlayerData()
     local fee = 3000
-    local halloween = true
+    local halloween = false
     if not PlayerData.metadata["isdead"] and not PlayerData.metadata["inlaststand"] then return QBCore.Functions.Notify("Bạn chưa có chết", "error") end
     if PlayerData.money.cash < fee and PlayerData.money.bank < fee then return QBCore.Functions.Notify("Bạn không có tiền để hồi sinh", 'error') end
     if halloween == true then
