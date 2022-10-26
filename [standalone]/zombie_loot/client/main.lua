@@ -8,6 +8,7 @@ CreateThread(function()
         for _, v in pairs(pedPool) do
             local entity = GetEntityModel(v)
             local deadPeds = {}
+            print('v', v)
             print('entity', entity)
             -- if IsEntityDead(entity) then
                 deadPeds[#deadPeds+1] = entity
