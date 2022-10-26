@@ -56,7 +56,7 @@ CreateThread(function()
         local deadPeds = {}
         for ped in EnumeratePeds() do
             if IsEntityDead(ped) then
-                deadPeds.insert(deadPeds, ped)
+                deadPeds[#deadPeds+1] = ped
             end
         end
         TriggerServerEvent("deleteEntitiesAcrossClients", deadPeds)
