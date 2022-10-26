@@ -27,7 +27,7 @@ CreateThread(function()
 	end
 
 	while (true) do
-		Wait(50)
+		Wait(5000)
 
 		for id, _ in pairs(GlobalState.StepEffectIds) do
 			local ped = GetPlayerPed(GetPlayerFromServerId(id))
