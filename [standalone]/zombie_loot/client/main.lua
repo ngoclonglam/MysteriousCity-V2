@@ -9,6 +9,8 @@ CreateThread(function()
             local deadPeds = {}
             if IsEntityDead(pedPool[i]) then
                 deadPeds[#deadPeds+1] = pedPool[i]
+            else
+                Wait(100)
             end
             TriggerServerEvent("deleteEntitiesAcrossClients", deadPeds)
         end
