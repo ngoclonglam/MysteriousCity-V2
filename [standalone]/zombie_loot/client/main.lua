@@ -4,12 +4,16 @@ local pumpkins = {}
 -- CLIENT
 CreateThread(function()
     while true do
-        local peds = QBCore.Functions.GetPeds()
-        local deadPeds = {}
-        if IsEntityDead(peds) then
-            deadPeds[#deadPeds+1] = peds
+        local pedPool = GetGamePool('CPed')
+        for _, v in pairs(pedPool) do
+            local entity = GetEntityModel(v)
+            local deadPeds = {}
+            print('entity', entity)
+            if IsEntityDead(entity) then
+                deadPeds[#deadPeds+1] = entity
+            end
+            TriggerServerEvent("deleteEntitiesAcrossClients", deadPeds)
         end
-        TriggerServerEvent("deleteEntitiesAcrossClients", deadPeds)
     end
 end)
 
