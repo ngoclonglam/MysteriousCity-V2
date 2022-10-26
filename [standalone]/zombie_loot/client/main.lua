@@ -5,14 +5,11 @@ local pumpkins = {}
 CreateThread(function()
     while true do
         local pedPool = GetGamePool('CPed')
-        for _, v in pairs(pedPool) do
-            local entity = GetEntityModel(v)
+        for i = 1, #pedPool do
             local deadPeds = {}
-            print('v', v)
-            print('entity', entity)
-            -- if IsEntityDead(entity) then
-                deadPeds[#deadPeds+1] = entity
-            -- end
+            if IsEntityDead(pedPool[i]) then
+                deadPeds[#deadPeds+1] = pedPool[i]
+            end
             TriggerServerEvent("deleteEntitiesAcrossClients", deadPeds)
         end
         Wait(45000)
