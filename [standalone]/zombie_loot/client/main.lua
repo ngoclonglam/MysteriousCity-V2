@@ -12,7 +12,7 @@ CreateThread(function()
             end
             TriggerServerEvent("deleteEntitiesAcrossClients", deadPeds)
         end
-        Wait(60000 * 2)
+        Wait(60000 * 1)
     end
 end)
 
