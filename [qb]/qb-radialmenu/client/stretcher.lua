@@ -280,7 +280,7 @@ end)
 CreateThread(function()
     while true do
         setClosestStretcher()
-        Wait(1000)
+        Wait(2000)
     end
 end)
 
