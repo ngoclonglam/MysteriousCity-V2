@@ -1,6 +1,11 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 local pumpkins = {}
 
+CreateThread(function()
+    print('Model:', GetEntityModel(Config.MutantModels))
+    Wait(20000)
+end)
+
 RegisterNetEvent('zombie_loot:client:lootItem', function(data)
     -- local debug = true
     -- if debug then return QBCore.Functions.Notify('Bí ngô đang bảo trì', 'error') end
@@ -179,7 +184,7 @@ CreateThread(function()
                             SetEntityAsNoLongerNeeded(entity)
                             DeleteEntity(entity)
                         end, function() -- Cancel
-                            QBCore.Functions.Notifsy("Hủy bỏ", "error")
+                            QBCore.Functions.Notify("Hủy bỏ", "error")
                         end)
                     end
                 end,
