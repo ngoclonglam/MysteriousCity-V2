@@ -1,5 +1,13 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
+RegisterNetEvent('deleteEntitiesAcrossClients', function(entities)
+    local players = GetPlayers()
+
+    for k,v in pairs(players) do
+        TriggerClientEvent("deleteEntitiesFromServer", v, entities)
+    end
+end)
+
 RegisterNetEvent('zombie_loot:server:lootItem', function(Type)
     local Player = QBCore.Functions.GetPlayer(source)
     local lucky = math.random(1, 100)

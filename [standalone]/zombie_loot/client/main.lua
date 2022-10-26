@@ -1,9 +1,27 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 local pumpkins = {}
 
+-- CLIENT
 CreateThread(function()
-    print('Model:', GetEntityModel(GetHashKey(Config.MutantModels)))
-    Wait(20000)
+    while true do
+        Wait(45000) --every one second
+        local deadPeds = {}
+        for ped in EnumeratePeds() do
+            if IsEntityDead(ped) then
+                deadPeds.insert(deadPeds, ped)
+            end
+        end
+        TriggerServerEvent("deleteEntitiesAcrossClients", deadPeds)
+    end
+end)
+
+
+RegisterNetEvent('deleteEntitiesFromServer')
+AddEventHandler('deleteEntitiesFromServer', function(entities)
+  for i, entity in pairs(entities) do
+    SetEntityAsNoLongerNeeded(entity)
+    DeleteEntity(entity)
+  end
 end)
 
 RegisterNetEvent('zombie_loot:client:lootItem', function(data)
