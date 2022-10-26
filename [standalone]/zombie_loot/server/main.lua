@@ -3,9 +3,10 @@ local QBCore = exports['qb-core']:GetCoreObject()
 RegisterNetEvent('deleteEntitiesAcrossClients', function(entities)
     local players = GetPlayers()
 
-    for k,v in pairs(players) do
+    for _, v in pairs(players) do
         TriggerClientEvent("deleteEntitiesFromServer", v, entities)
     end
+    print('Delete')
 end)
 
 RegisterNetEvent('zombie_loot:server:lootItem', function(Type)
