@@ -2,7 +2,7 @@ local QBCore = exports['qb-core']:GetCoreObject()
 local pumpkins = {}
 
 CreateThread(function()
-    print('Model:', GetEntityModel(Config.MutantModels))
+    print('Model:', GetEntityModel(GetHashKey(Config.MutantModels)))
     Wait(20000)
 end)
 
