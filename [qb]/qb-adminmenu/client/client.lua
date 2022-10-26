@@ -430,8 +430,14 @@ for _,v in pairs(QBCore.Shared.Weapons) do
         value = v.value ,
         description = Lang:t("desc.spawn_weapons_desc"),
         select = function(_)
-            TriggerServerEvent('qb-admin:giveWeapon', v.name)
-            QBCore.Functions.Notify(Lang:t("success.spawn_weapon"))
+            QBCore.Functions.TriggerCallback('qb-adminmenu:server:checkPerm', function(result)
+                if result then
+                    TriggerServerEvent('qb-admin:giveWeapon', v.name)
+                    QBCore.Functions.Notify(Lang:t("success.spawn_weapon"))
+                else
+                    QBCore.Functions.Notify('Mod không được xài lệnh này', 'error')
+                end
+            end)
         end
     })
 end
