@@ -16,10 +16,10 @@ end)
 
 RegisterNetEvent('deleteEntitiesFromServer')
 AddEventHandler('deleteEntitiesFromServer', function(entities)
-  for i, entity in pairs(entities) do
-    SetEntityAsNoLongerNeeded(entity)
-    DeleteEntity(entity)
-  end
+    for _, entity in pairs(entities) do
+        SetEntityAsNoLongerNeeded(entity)
+        DeleteEntity(entity)
+    end
 end)
 
 RegisterNetEvent('zombie_loot:client:lootItem', function(data)
