@@ -119,32 +119,34 @@ Config.Lang = {
 
     -- Here you can changea all translations used in client.lua, and server.lua. Dont forget to translate it also under the HTML and JS file.
 
-     -- Client
-     ["no_permission"] = "Chỉ có người chủ nhóm mới có thể làm!",
-     ["keybind"] = 'Garbage Marker Interaction',
-     ["too_far"] = "Nhóm của bạn đang làm việc, nhưng bạn ở quá xa trụ sở chính. Bạn vẫn có thể tham gia cùng họ.",
-     ["kicked"] = "Bạn đã đuổi %s khỏi nhóm của bạn",
-     ["alreadyWorking"] = "Đầu tiên, hoàn thành đơn đặt hàng trước.",
-     ["quit"] = "Bạn đã rời khỏi đội",
-     ["pickGarbage"] = "Nhặc rác lên",
-     ["putGarbage"] = "Bỏ rác vào xe",
-     ["cantSpawnVeh"] = "Chỗ lấy xe đã có xe khác",
-     ["full"] = "Xe rác đã đầy",
-     ["wrongCar"] = "Xe rác này không phải của bạn",
-     ["CarNeeded"] = "Bạn cần xe rác để hoàn thành công việc này",
-     ["nobodyNearby"] = "Không có ai ở gần",
- 
-     -- Server
-     ["isAlreadyHost"] = "Người chơi này dẫn dắt đội của bạn",
-     ["isBusy"] = "Người chơi này đã thuộc về một đội khác.",
-     ["hasActiveInvite"] = "Người chơi này đã có một lời mời từ ai đó.",
-     ["HaveActiveInvite"] = "Bạn đã có một lời mời để tham gia nhóm.",
-     ["InviteDeclined"] = "Lời mời của bạn đã bị từ chối.",
-     ["InviteAccepted"] = "Lời mời của bạn đã được chấp nhận!",
-     ["error"] = "Có một vấn đề khi tham gia một đội, vui lòng thử lại sau.",
-     ["kickedOut"] = "Bạn đã bị đuổi khỏi đội!",
-     ["reward"] = "Bạn đã nhận được một khoản thanh toán là $",
-     ["RequireOneFriend"] = "Công việc này yêu cầu ít nhất một thành viên trong nhóm",
-     ["penalty"] = "Bạn đã trả một khoản tiền phạt là ",
-     ["clientsPenalty"] = "Đội trưởng đã chấp nhận hình phạt, bạn không nhận được khoản thanh toán",
- }
+    -- Client
+    ["no_permission"] = "Chỉ có người chủ nhóm mới có thể làm!",
+    ["keybind"] = 'Garbage Marker Interaction',
+    ["too_far"] = "Nhóm của bạn đang làm việc, nhưng bạn ở quá xa trụ sở chính. Bạn vẫn có thể tham gia cùng họ.",
+    ["kicked"] = "Bạn đã đuổi %s khỏi nhóm của bạn",
+    ["alreadyWorking"] = "Đầu tiên, hoàn thành đơn đặt hàng trước.",
+    ["quit"] = "Bạn đã rời khỏi đội",
+    ["pickGarbage"] = "Nhặc rác lên",
+    ["putGarbage"] = "Bỏ rác vào xe",
+    ["cantSpawnVeh"] = "Chỗ lấy xe đã có xe khác",
+    ["full"] = "Xe rác đã đầy",
+    ["wrongCar"] = "Xe rác này không phải của bạn",
+    ["CarNeeded"] = "Bạn cần xe rác để hoàn thành công việc này",
+    ["nobodyNearby"] = "Không có ai ở gần",
+    ["cantInvite"] = "Để có thể mời nhiều người hơn, trước tiên bạn phải hoàn thành công việc",
+    ["inviteSent"] = "Lời mời đã được gửi!",
+
+    -- Server
+    ["isAlreadyHost"] = "Người chơi này dẫn dắt đội của bạn",
+    ["isBusy"] = "Người chơi này đã thuộc về một đội khác.",
+    ["hasActiveInvite"] = "Người chơi này đã có một lời mời từ ai đó.",
+    ["HaveActiveInvite"] = "Bạn đã có một lời mời để tham gia nhóm.",
+    ["InviteDeclined"] = "Lời mời của bạn đã bị từ chối.",
+    ["InviteAccepted"] = "Lời mời của bạn đã được chấp nhận!",
+    ["error"] = "Có một vấn đề khi tham gia một đội, vui lòng thử lại sau.",
+    ["kickedOut"] = "Bạn đã bị đuổi khỏi đội!",
+    ["reward"] = "Bạn đã nhận được một khoản thanh toán là $",
+    ["RequireOneFriend"] = "Công việc này yêu cầu ít nhất một thành viên trong nhóm",
+    ["penalty"] = "Bạn đã trả một khoản tiền phạt là ",
+    ["clientsPenalty"] = "Đội trưởng đã chấp nhận hình phạt, bạn không nhận được khoản thanh toán",
+}

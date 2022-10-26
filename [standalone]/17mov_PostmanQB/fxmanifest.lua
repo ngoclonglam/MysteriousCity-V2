@@ -28,7 +28,6 @@ shared_script "Config.lua"
 escrow_ignore {
     "Config.lua",
     "client/target.lua",
-
     "client/functions.lua",
     "server/functions.lua",
     "stream/*.**",

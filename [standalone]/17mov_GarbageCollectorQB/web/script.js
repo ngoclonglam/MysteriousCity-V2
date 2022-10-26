@@ -104,7 +104,6 @@ function pickPlayers(id) {
     $(".closestPlayers").fadeOut(250)
     $(".WorkMenu").fadeIn(250)
     $.post(`https://${GetParentResourceName()}/sendRequest`, JSON.stringify({ id: id }));
-    $.post(`https://${GetParentResourceName()}/notify`, JSON.stringify({ msg: "Invite Sent!" }));
 }
 
 function Kick(target) {
