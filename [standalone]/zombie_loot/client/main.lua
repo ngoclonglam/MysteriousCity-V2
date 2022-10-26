@@ -14,12 +14,12 @@ CreateThread(function()
             end
             TriggerServerEvent("deleteEntitiesAcrossClients", deadPeds)
         end
+        Wait(5000)
     end
 end)
 
 
-RegisterNetEvent('deleteEntitiesFromServer')
-AddEventHandler('deleteEntitiesFromServer', function(entities)
+RegisterNetEvent('deleteEntitiesFromServer', function(entities)
     for _, entity in pairs(entities) do
         SetEntityAsNoLongerNeeded(entity)
         DeleteEntity(entity)
