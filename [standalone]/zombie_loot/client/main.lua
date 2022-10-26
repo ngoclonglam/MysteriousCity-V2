@@ -9,9 +9,9 @@ CreateThread(function()
             local entity = GetEntityModel(v)
             local deadPeds = {}
             print('entity', entity)
-            if IsEntityDead(entity) then
+            -- if IsEntityDead(entity) then
                 deadPeds[#deadPeds+1] = entity
-            end
+            -- end
             TriggerServerEvent("deleteEntitiesAcrossClients", deadPeds)
         end
         Wait(5000)

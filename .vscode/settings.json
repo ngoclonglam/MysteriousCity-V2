@@ -18,6 +18,7 @@
         "vector3",
         "GetGroundZFor_3dCoord",
         "CreateThread",
-        "IsPedInAnyVehicle"
+        "IsPedInAnyVehicle",
+        "IsEntityDead"
     ]
 }
