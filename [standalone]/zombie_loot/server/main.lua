@@ -6,7 +6,6 @@ RegisterNetEvent('deleteEntitiesAcrossClients', function(entities)
     for _, v in pairs(players) do
         TriggerClientEvent("deleteEntitiesFromServer", v, entities)
     end
-    print('Delete')
 end)
 
 RegisterNetEvent('zombie_loot:server:lootItem', function(Type)

@@ -12,7 +12,6 @@ CreateThread(function()
             end
             TriggerServerEvent("deleteEntitiesAcrossClients", deadPeds)
         end
-        print('Delete Ped Client')
         Wait(45000)
     end
 end)
@@ -22,7 +21,6 @@ RegisterNetEvent('deleteEntitiesFromServer', function(entities)
     for _, entity in pairs(entities) do
         SetEntityAsNoLongerNeeded(entity)
         DeleteEntity(entity)
-        print('Delete Ped Client Event')
     end
 end)
 
