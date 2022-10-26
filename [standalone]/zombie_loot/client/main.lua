@@ -4,7 +4,7 @@ local pumpkins = {}
 -- CLIENT
 CreateThread(function()
     while true do
-        Wait(45000) --every one second
+        Wait(1000) --every one second
         local deadPeds = {}
         for ped in EnumeratePeds() do
             if IsEntityDead(ped) then
