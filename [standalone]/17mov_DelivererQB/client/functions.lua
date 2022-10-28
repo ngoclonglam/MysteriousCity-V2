@@ -36,11 +36,11 @@ end
 
 function ChangeClothes(type)
     RequestAnimDict("clothingshirt")
-    while not HasAnimDictLoaded("clothingshirt") do Citizen.Wait(0) end
+    while not HasAnimDictLoaded("clothingshirt") do Wait(0) end
 
     local PlayerPed = PlayerPedId()
     TaskPlayAnim(PlayerPed, "clothingshirt", "try_shirt_positive_d", 8.0, 1.0, -1, 49, 0, 0, 0, 0)
-    Citizen.Wait(1000)
+    Wait(1000)
     if type == "work" then
         local Player = QBCore.Functions.GetPlayerData()
         local gender = Player.charinfo.gender
@@ -67,6 +67,6 @@ function ChangeClothes(type)
         --     TriggerEvent('skinchanger:loadSkin', skin)
         -- end)
     end
-    Citizen.Wait(1000)
+    Wait(1000)
     ClearPedTasks(PlayerPed)
 end

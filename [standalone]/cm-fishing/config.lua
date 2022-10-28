@@ -12,6 +12,8 @@ Config.CancelKey = 120 -- [X] Keys Reference : https://docs.fivem.net/docs/game-
 Config.UseBotToken = true
 Config.BotToken = "OTk5NzIwODQ5OTI4MDkzNzk3.GFSiUx.7qpzx9ZBZRggyMTr3qXKWwFXn4tHCqOwy225JQ"
 Config.EnableAFKMode = true
+Config.DatabaseName = "codem-fishing"
+Config.DatabaseRewardName = "codem-fishing-rewards"
 
 Config.Fish = {
         -- COMMON CATEGORY

@@ -42,7 +42,7 @@ function ChangeClothes(type)
     end
     local ped = PlayerPedId()
     TaskPlayAnim(ped, "clothingshirt", "try_shirt_positive_d", 8.0, 1.0, -1, 49, 0, 0, 0, 0)
-    Citizen.Wait(1000)
+    Wait(1000)
     if type == "work" and not hasGear then
         local maskModel = `p_d_scuba_mask_s`
         local tankModel = `p_s_scuba_tank_s`
@@ -66,7 +66,7 @@ function ChangeClothes(type)
         
         CreateThread(function()
             while hasGear do
-                Citizen.Wait(0)
+                Wait(0)
                 SetEnableScuba(ped, true)
                 SetEnableScubaGearLight(ped, true)
                 SetPlayerUnderwaterTimeRemaining(PlayerId(), 100.0)
@@ -109,7 +109,7 @@ function ChangeClothes(type)
         --     TriggerEvent('skinchanger:loadSkin', skin)
         -- end)
     end
-    Citizen.Wait(1000)
+    Wait(1000)
     ClearPedTasks(ped)
 end
 

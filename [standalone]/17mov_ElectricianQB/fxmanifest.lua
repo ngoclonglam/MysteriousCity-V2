@@ -15,7 +15,7 @@ server_scripts {
     "@mysql-async/lib/MySQL.lua",
     "server/functions.lua",
     "server/server.lua",
-}
+} 
 
 client_scripts {
     "client/target.lua",
@@ -28,7 +28,6 @@ shared_script "Config.lua"
 escrow_ignore {
     "Config.lua",
     "client/target.lua",
-
     "client/functions.lua",
     "server/functions.lua",
     "stream/*.**",

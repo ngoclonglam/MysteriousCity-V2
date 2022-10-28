@@ -4,15 +4,15 @@ AddEventHandler('esx:playerLoaded', function(src)
     local identifier = GetIdentifier(src)
 
     local name = GetName(src)
-    local data = ExecuteSql("SELECT `identifier` FROM `codem-fishing` WHERE `identifier` = '"..identifier.."'")
+    local data = ExecuteSql("SELECT `identifier` FROM `"..Config.DatabaseName.."` WHERE `identifier` = '"..identifier.."'")
 
     if next(data) then
         return
     else
-        ExecuteSql("INSERT INTO `codem-fishing` (`identifier`,`playername`) VALUES ('"..identifier.."','"..name.."')")
-        ExecuteSql("INSERT INTO `codem-fishing-rewards` (`identifier`) VALUES ('"..identifier.."')")
+        ExecuteSql("INSERT INTO `"..Config.DatabaseName.."` (`identifier`,`playername`) VALUES ('"..identifier.."','"..name.."')")
+        ExecuteSql("INSERT INTO `"..Config.DatabaseRewardName.."` (`identifier`) VALUES ('"..identifier.."')")
         Wait(300)
-        data = ExecuteSql("SELECT * FROM `codem-fishing`")
+        data = ExecuteSql("SELECT * FROM `"..Config.DatabaseName.."`")
         for _,v in pairs(data) do
            fishingData[v.identifier] = v
         end
@@ -27,15 +27,15 @@ AddEventHandler('QBCore:Server:OnPlayerLoaded', function()
     local identifier = GetIdentifier(src)
 
     local name = GetName(src)
-    local data = ExecuteSql("SELECT `identifier` FROM `codem-fishing` WHERE `identifier` = '"..identifier.."'")
+    local data = ExecuteSql("SELECT `identifier` FROM `"..Config.DatabaseName.."` WHERE `identifier` = '"..identifier.."'")
 
     if next(data) then
         return
     else
-        ExecuteSql("INSERT INTO `codem-fishing` (`identifier`,`playername`) VALUES ('"..identifier.."','"..name.."')")
-        ExecuteSql("INSERT INTO `codem-fishing-rewards` (`identifier`) VALUES ('"..identifier.."')")
+        ExecuteSql("INSERT INTO `"..Config.DatabaseName.."` (`identifier`,`playername`) VALUES ('"..identifier.."','"..name.."')")
+        ExecuteSql("INSERT INTO `"..Config.DatabaseRewardName.."` (`identifier`) VALUES ('"..identifier.."')")
         Wait(300)
-        data = ExecuteSql("SELECT * FROM `codem-fishing`")
+        data = ExecuteSql("SELECT * FROM `"..Config.DatabaseName.."`")
         for _,v in pairs(data) do
            fishingData[v.identifier] = v
         end
@@ -57,7 +57,7 @@ AddEventHandler('codem-fishing:sellitem', function(playeritems,totalprice)
    else
       local xPlayer = frameworkObject.Functions.GetPlayer(source)
       if xPlayer then
-         xPlayer.Functions.AddMoney('cash',tonumber(totalprice), 'Bán cá')
+         xPlayer.Functions.AddMoney('cash',tonumber(totalprice))
          for _ ,v in pairs(playeritems) do
             xPlayer.Functions.RemoveItem (v.itemname, v.itemcount)
          end

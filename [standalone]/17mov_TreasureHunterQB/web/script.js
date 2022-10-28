@@ -71,7 +71,7 @@ window.addEventListener('message', function (event) {
     } else if (action == "hideCounter") {
         $(".counter").fadeOut(250);
     } else if (action == "updateCounter") {
-        $(".counter span").text(event.data.value.toString() + "%");
+        $(".counter span").text(event.data.value.toString());
     }
 });
 
