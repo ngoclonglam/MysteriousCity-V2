@@ -884,13 +884,13 @@ const app = new Vue({
         },
         SetDate() {
             const weekday = [
-                "Sunday",
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday"
+                "Chủ Nhật",
+                "Thứ Hai",
+                "Thứ Ba",
+                "Thứ Tư",
+                "Thứ Năm",
+                "Thứ Sáu",
+                "Thứ Bảy"
             ];
             const date = new Date();
             let day = date.getDate();
