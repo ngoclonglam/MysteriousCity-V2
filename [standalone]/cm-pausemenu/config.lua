@@ -69,7 +69,7 @@ Config.Locale = {
     ['STORE'] = 'Cửa Hàng',
     ['WELCOME'] = 'Xin chào,',
     ['ROLEPLAY'] = 'Bạn đã bí ẩn được',
-    ['CLAIMYOURDAILY'] = 'Lấy qùa hằng ngày !',
+    ['CLAIMYOURDAILY'] = 'Lấy quà hằng ngày !',
     ['DAY'] = 'Ngày',
     ['VIEWALLAWARDS'] = 'Xem Phần Thưởng',
     ['BATTLEPASS'] = 'Battlepass',
@@ -116,7 +116,7 @@ Config.Locale = {
     ['MAP'] = 'Bản Đồ',
     ['RESUME'] = 'Tiếp Tục',
     ['KEYBINDS'] = 'Nút',
-    ['EXIT']='Thoái',
+    ['EXIT']='Thoát Game',
     ['DISABLED']='Tắt',
 }
 
@@ -188,7 +188,7 @@ Config.NotificationText = {
 }
 
 Config.PatchNotes = { -- Each text you write here will show up in the update notes in the pausemenu
-    date = '03.08.2022',
+    date = '29.10.2022',
     updates = {
         "Mysterious City.",
         "Mysterious City.",
