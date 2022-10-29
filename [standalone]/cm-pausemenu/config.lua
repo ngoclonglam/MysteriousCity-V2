@@ -39,7 +39,7 @@ Config.UseRegisterKeyMappingSystem = true -- if this option set to true the scri
 Config.MenuOpenKey = 'O'
 Config.MapOpenKey = 'ESCAPE'
 Config.StoreURL = 'https://discord.gg/SCHEwKQxQ8' -- URL of store button
-Config.LogoURL = 'https://imgur.com/a/BXKErgB'
+Config.LogoURL = 'https://i.imgur.com/HvoZTjZ.png'
 
 
 Config.MenuOpen = function() -- This Executed when the menu is opened (useful to hide hud or any other elements on the screen)
