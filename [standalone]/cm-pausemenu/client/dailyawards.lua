@@ -6,10 +6,6 @@ RegisterNUICallback('claimDailyItem', function(data, cb)
     cb('ok')
 end)
 
-
-
-
-
 RegisterNetEvent('codem-pausemenu:GetDailyAwardData')
 AddEventHandler('codem-pausemenu:GetDailyAwardData', function(data)
     SendNUIMessage({

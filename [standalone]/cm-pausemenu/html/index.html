@@ -81,7 +81,7 @@
                                 <p>${{numberWithSpaces(playerData.bank)}}</p>
                             </div>
                         </div>
-                        <div class="nav_general_item">
+                        <!-- <div class="nav_general_item">
                             <div class="nav_general_item_left">
                                 <svg width="25" height="21" viewBox="0 0 25 21" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -97,7 +97,7 @@
                             <div class="nav_general_item_right">
                                 <p>{{playerData.players}}</p>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div v-if="displayPage['OOCCHATPAGE']" class="nav_chat"
                         :style="{'background-image':'url('+GetThemeAsset('chat_container.png')+')'}">
@@ -486,8 +486,10 @@
                                         <p class="battlepass_xp_info_text">
                                             Lv.{{battlepassData.level}}
                                             <br>
-                                            {{(battlepassItems[battlepassData.level - 1].requiredXP -
-                                            battlepassData.xp)}} {{locales["XP_REQUIRED"]}}
+                                            {{locales["XP_REQUIRED"]}}
+                                            {{(battlepassItems[battlepassData.level - 1].requiredXP - battlepassData.xp)}}
+                                            {{localse["XP_EXTRA"]}} 
+                                            
                                         </p>
                                         <div class="battlepass_xp_bottom_info_border">
 
