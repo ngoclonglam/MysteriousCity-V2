@@ -16,7 +16,7 @@ Config.SpamCheck = true -- this option prevents players from constantly opening 
 Config.SpamCount = 2 --  This option determines how many times players can spam to open menu before the cooldown is activated
 Config.BotToken = 'OTk5NzIwODQ5OTI4MDkzNzk3.GFSiUx.7qpzx9ZBZRggyMTr3qXKWwFXn4tHCqOwy225JQ'  -- How to create a bot token https://www.youtube.com/watch?v=-m-Z7Wav-fM
 Config.Theme = 'white' -- purple, red, green, blue, white
-Config.UseRegisterKeyMappingSystem = false -- if this option set to true the script will use the RegisterKeyMapping system or false will use the traditional system
+Config.UseRegisterKeyMappingSystem = true -- if this option set to true the script will use the RegisterKeyMapping system or false will use the traditional system
 --[[
     if you set the option above to true you can reference here if you want to change MenuOpenKey
     https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
