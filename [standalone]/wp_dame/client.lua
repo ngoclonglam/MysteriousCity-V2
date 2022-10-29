@@ -1,4 +1,4 @@
---[[ Citizen.CreateThread(function()
+--[[ CreateThread(function()
     while true do
         N_0x4757f00bc6323cfe(GetHashKey("WEAPON_UNARMED"), 0.3)
         Wait(0)
@@ -29,7 +29,7 @@
     end
 end) ]]
 
---[[ Citizen.CreateThread(function()
+--[[ CreateThread(function()
     while true do
         Wait(0)
         
@@ -44,18 +44,20 @@ end) ]]
     end
 end) ]]
 
-Citizen.CreateThread(function()
+CreateThread(function()
     for _, weaponConf in pairs(Config.Weapons) do
         SetWeaponDamageModifier(weaponConf.model, weaponConf.modifier)
     end
 
-    -- Disable head shot
-    SetPedSuffersCriticalHits(ped, false)
+
+    -- -- Disable head shot ( heve to run every frame ( or don't maybe tested it when you found out))
+    -- local ped = PlayerPedId()
+    -- SetPedSuffersCriticalHits(ped, false)
 end)
 
---[[ Citizen.CreateThread(function()
+--[[ CreateThread(function()
     while true do
-        Citizen.Wait(0)
+        Wait(0)
         local ped = PlayerPedId()
         if IsPedArmed(ped, 6) then
             DisableControlAction(1, 140, true)

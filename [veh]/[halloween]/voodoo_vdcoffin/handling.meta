@@ -3,7 +3,7 @@
   <HandlingData>
 	<Item type="CHandlingData">
       <handlingName>VDCOFFIN</handlingName>
-      <fMass value="505.000000" />
+      <fMass value="1000.000000" />
       <fInitialDragCoeff value="22.760000" />
       <fDownforceModifier value="5.00" />
       <fPercentSubmerged value="85.000000" />
@@ -11,15 +11,15 @@
       <vecInertiaMultiplier x="1.000000" y="1.600000" z="1.700000" />
       <fDriveBiasFront value="0.000000" />
       <nInitialDriveGears value="6" />
-      <fInitialDriveForce value="0.75000" />
+      <fInitialDriveForce value="0.55000" />
       <fDriveInertia value="1.000000" />
       <fClutchChangeRateScaleUpShift value="12.000000" />
       <fClutchChangeRateScaleDownShift value="10.000000" />
-      <fInitialDriveMaxFlatVel value="260.50000" />
+      <fInitialDriveMaxFlatVel value="220.50000" />
       <fBrakeForce value="1.250000" />
       <fBrakeBiasFront value="0.475000" />
       <fHandBrakeForce value="0.750000" />
-      <fSteeringLock value="37.000000" />
+      <fSteeringLock value="41.000000" />
       <fTractionCurveMax value="2.40000" />
       <fTractionCurveMin value="2.4000" />
       <fTractionCurveLateral value="24.500000" />
