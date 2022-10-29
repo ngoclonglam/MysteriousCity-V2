@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="./style/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+</head>
+
+<body>
+    <div id="app" :style="{'background-image' : BgOverlay}">
+
+        <transition name="fade" enter-active-class="animate__animated animate__fadeIn custom_duration_2"
+            leave-active-class="animate__animated animate__fadeOut custom_duration_2">
+            <div class="container" v-if="show">
+                <div class="nav" :style="{'background-image': 'url('+GetThemeAsset('nav.png')+')'}">
+                    <div class="nav_top">
+                        <div class="nav_top_left"
+                            :style="{'border' : '0.1875rem solid '+themes[theme].color+'', filter: 'drop-shadow(0rem 0.25rem 1.375rem #000000) drop-shadow(0rem 0rem 3.1875rem '+themes[theme].color+')'}">
+                            <img :src="avatar">
+                        </div>
+                        <div class="nav_top_right">
+                            <p class="nav_player_name"
+                                :style="{'background' : 'linear-gradient(90deg, '+themes[theme].color+' 0%, rgba(219, 0, 255, 0) 115.85%)', 'text-fill-color':'transparent', '-webkit-background-clip' : 'text'}">
+                                {{playerData.name}}</p>
+                            <p class="nav_player_job">{{playerData.job}} - {{playerData.grade_label}}</p>
+                        </div>
+                    </div>
+                    <img class="border" :src="GetThemeAsset('border.png')">
+                    <div class="nav_general">
+                        <div class="nav_general_item">
+                            <div class="nav_general_item_left">
+                                <svg width="25" height="21" viewBox="0 0 25 21" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M2.20173 14.771C1.72813 14.771 1.27393 14.9093 0.93904 15.1554C0.604153 15.4016 0.416016 15.7354 0.416016 16.0835V20.021C0.416016 20.3691 0.604153 20.7029 0.93904 20.9491C1.27393 21.1952 1.72813 21.3335 2.20173 21.3335C2.67533 21.3335 3.12953 21.1952 3.46442 20.9491C3.79931 20.7029 3.98744 20.3691 3.98744 20.021V16.0835C3.98744 15.7354 3.79931 15.4016 3.46442 15.1554C3.12953 14.9093 2.67533 14.771 2.20173 14.771ZM9.34459 10.8335C8.87099 10.8335 8.41678 10.9718 8.0819 11.2179C7.74701 11.4641 7.55887 11.7979 7.55887 12.146V20.021C7.55887 20.3691 7.74701 20.7029 8.0819 20.9491C8.41678 21.1952 8.87099 21.3335 9.34459 21.3335C9.81819 21.3335 10.2724 21.1952 10.6073 20.9491C10.9422 20.7029 11.1303 20.3691 11.1303 20.021V12.146C11.1303 11.7979 10.9422 11.4641 10.6073 11.2179C10.2724 10.9718 9.81819 10.8335 9.34459 10.8335ZM23.6303 0.333496C23.1567 0.333496 22.7025 0.471777 22.3676 0.717919C22.0327 0.96406 21.8446 1.2979 21.8446 1.646V20.021C21.8446 20.3691 22.0327 20.7029 22.3676 20.9491C22.7025 21.1952 23.1567 21.3335 23.6303 21.3335C24.1039 21.3335 24.5581 21.1952 24.893 20.9491C25.2279 20.7029 25.416 20.3691 25.416 20.021V1.646C25.416 1.2979 25.2279 0.96406 24.893 0.717919C24.5581 0.471777 24.1039 0.333496 23.6303 0.333496V0.333496ZM16.4874 5.5835C16.0138 5.5835 15.5596 5.72178 15.2248 5.96792C14.8899 6.21406 14.7017 6.5479 14.7017 6.896V20.021C14.7017 20.3691 14.8899 20.7029 15.2248 20.9491C15.5596 21.1952 16.0138 21.3335 16.4874 21.3335C16.961 21.3335 17.4152 21.1952 17.7501 20.9491C18.085 20.7029 18.2732 20.3691 18.2732 20.021V6.896C18.2732 6.5479 18.085 6.21406 17.7501 5.96792C17.4152 5.72178 16.961 5.5835 16.4874 5.5835Z"
+                                        fill="white" />
+                                </svg>
+
+                                <p>{{locales['PING']}}</p>
+                            </div>
+                            <div class="nav_general_item_right">
+                                <p>{{playerData.ping}}ms</p>
+                            </div>
+                        </div>
+                        <div class="nav_general_item">
+                            <div class="nav_general_item_left">
+                                <svg width="25" height="21" viewBox="0 0 25 21" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M15.634 6.01703C13.906 5.02011 11.1146 5.02011 9.39679 6.01703C7.67901 7.01396 7.68924 8.6346 9.41724 9.63153C11.1452 10.6285 13.9366 10.6285 15.6544 9.63153C17.3722 8.62949 17.362 7.01396 15.634 6.01703ZM14.8415 7.58655C14.6933 7.63257 14.545 7.68369 14.3968 7.7297C14.3047 7.75526 14.2485 7.76038 14.2076 7.73993C14.1872 7.72459 14.1667 7.70414 14.1463 7.67346C14.0491 7.51498 13.9009 7.37694 13.7015 7.26447C13.6759 7.24913 13.6452 7.23379 13.6146 7.21846C13.5481 7.18267 13.4867 7.15711 13.4049 7.13666C13.1187 7.0702 12.863 7.17756 12.8988 7.35649C12.9142 7.44852 12.9653 7.53032 13.0266 7.61723C13.1289 7.76038 13.2414 7.90352 13.3129 8.0569C13.5532 8.53747 13.0317 9.01292 12.1933 9.05894C11.8917 9.07427 11.6054 9.03849 11.3395 8.95158C11.2219 8.91579 11.135 8.91579 11.0481 8.97714C10.9612 9.03337 10.8641 9.0845 10.772 9.13562C10.6902 9.18163 10.6033 9.18675 10.5215 9.14074C10.4602 9.11006 10.4039 9.07427 10.3426 9.0436C10.3017 9.01804 10.2608 8.99759 10.2199 8.97202C10.133 8.9209 10.1432 8.86978 10.225 8.81865C10.2915 8.77775 10.3579 8.74196 10.4193 8.70107C10.5675 8.61415 10.5675 8.60904 10.4448 8.5119C10.2915 8.38921 10.1534 8.26139 10.0665 8.11825C10.0001 8.00577 10.0154 7.98021 10.1943 7.91886C10.3273 7.87796 10.4551 7.83195 10.588 7.79105C10.6851 7.76038 10.7414 7.75526 10.7823 7.77571C10.8078 7.79105 10.8232 7.8115 10.8436 7.84729C10.9305 8.01089 11.0788 8.15403 11.2577 8.29207C11.2884 8.31763 11.3242 8.33808 11.3549 8.35853C11.452 8.41477 11.5645 8.45567 11.6923 8.48634C12.0246 8.56303 12.3211 8.43011 12.2904 8.2205C12.2802 8.14892 12.2444 8.08757 12.1984 8.02111C12.0859 7.8524 11.9377 7.69391 11.861 7.51498C11.7383 7.22868 11.7945 6.96795 12.1882 6.76345C12.6381 6.53339 13.1391 6.51805 13.6708 6.6612C13.8906 6.72255 13.8855 6.72255 14.0542 6.62541C14.1105 6.58963 14.1667 6.55895 14.2229 6.52828C14.3507 6.4567 14.3968 6.4567 14.5246 6.52828C14.5655 6.54873 14.6013 6.57429 14.6422 6.59474C14.9131 6.74811 14.9131 6.74811 14.6473 6.9066C14.4581 7.01396 14.4581 7.01396 14.6166 7.14177C14.7393 7.23891 14.8364 7.34116 14.908 7.45363C14.9642 7.50987 14.9438 7.55588 14.8415 7.58655ZM17.9397 10.9505C17.4642 11.2266 16.6922 11.2266 16.2117 10.9505C15.7362 10.6745 15.7311 10.2246 16.2066 9.9485C16.682 9.67243 17.454 9.67243 17.9346 9.9485C18.4151 10.2246 18.4203 10.6745 17.9397 10.9505ZM8.83954 5.69495C8.36408 5.97102 7.5921 5.97102 7.11153 5.69495C6.63096 5.41888 6.63096 4.96898 7.10642 4.69291C7.58188 4.41684 8.35386 4.41684 8.83442 4.69291C9.30988 4.96898 9.31499 5.41888 8.83954 5.69495ZM24.4069 8.80843L10.7823 0.940377C9.99495 0.485369 8.71684 0.485369 7.93463 0.940377L0.628954 5.1837C-0.15325 5.63871 -0.148138 6.38002 0.639179 6.83502L14.2638 14.7031C15.0512 15.1581 16.3293 15.1581 17.1115 14.7031L24.412 10.4597C25.1994 10.0047 25.1942 9.26343 24.4069 8.80843ZM17.2597 13.2051C17.1728 13.1233 17.0706 13.0466 16.9479 12.9751C16.1503 12.5149 14.8569 12.5149 14.0645 12.9751C14.0031 13.0109 13.952 13.0466 13.8957 13.0875L3.3181 6.97817C3.42035 6.93727 3.51748 6.89126 3.60951 6.84014C4.40194 6.38002 4.39682 5.6336 3.59928 5.17348C3.51237 5.12235 3.42035 5.07634 3.32321 5.04056L7.68413 2.50478C7.75059 2.56102 7.82727 2.61215 7.91419 2.66327C8.71173 3.12339 10.0052 3.12339 10.7976 2.66327C10.8896 2.61215 10.9663 2.55591 11.0379 2.49456L21.6513 8.61927C21.5082 8.67039 21.3804 8.72663 21.2577 8.7982C20.4652 9.25832 20.4652 10.0099 21.2679 10.47C21.3906 10.5415 21.5286 10.5978 21.6718 10.6489L17.2597 13.2051ZM0.281308 8.40966C0.628954 8.23072 1.16576 8.25628 1.49807 8.45056L15.7413 16.6714L23.4407 12.1929C23.773 11.9986 24.32 11.9986 24.6574 12.1929C24.9949 12.3871 24.9949 12.7041 24.6625 12.8984L16.4775 17.653C16.0788 17.8881 15.4244 17.8881 15.0205 17.653L14.7342 17.4894L14.5348 17.3718L0.255745 9.13051C-0.0919007 8.93113 -0.0867883 8.59882 0.281308 8.40966ZM24.6728 15.4699L16.4878 20.2245C16.089 20.4597 15.4346 20.4597 15.0307 20.2245L14.7495 20.0609L14.545 19.9433L0.26597 11.7021C-0.0816758 11.5027 -0.0714509 11.1704 0.296645 10.9812C0.639179 10.8023 1.1811 10.8278 1.51341 11.0221L15.7516 19.2429L23.4509 14.7695C23.7883 14.5753 24.3302 14.5753 24.6677 14.7695C25.0051 14.9587 25.0102 15.2757 24.6728 15.4699Z"
+                                        fill="white" />
+                                </svg>
+
+                                <p>{{locales['CASHMONEY']}}</p>
+                            </div>
+                            <div class="nav_general_item_right">
+                                <p>${{numberWithSpaces(playerData.cash)}}</p>
+                            </div>
+                        </div>
+                        <div class="nav_general_item">
+                            <div class="nav_general_item_left">
+                                <svg width="25" height="17" viewBox="0 0 25 17" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M25 2.35853C25 1.2444 24.1033 0.347656 22.9891 0.347656H2.01087C0.896739 0.347656 0 1.2444 0 2.35853V14.6683C0 15.7553 0.896739 16.652 2.01087 16.652H23.0163C24.1304 16.652 25.0272 15.7553 25.0272 14.6411V2.35853H25ZM22.8261 2.52157V4.42374H2.17391V2.52157H22.8261ZM2.17391 14.4781V7.68461H22.8261V14.4781H2.17391ZM20.788 10.9455C20.788 11.5433 20.2989 12.0324 19.7011 12.0324H14.538C13.9402 12.0324 13.4511 11.5433 13.4511 10.9455C13.4511 10.3477 13.9402 9.85852 14.538 9.85852H19.7011C20.2989 9.85852 20.788 10.3477 20.788 10.9455Z"
+                                        fill="white" />
+                                </svg>
+
+
+                                <p>{{locales['BANK']}}</p>
+                            </div>
+                            <div class="nav_general_item_right">
+                                <p>${{numberWithSpaces(playerData.bank)}}</p>
+                            </div>
+                        </div>
+                        <div class="nav_general_item">
+                            <div class="nav_general_item_left">
+                                <svg width="25" height="21" viewBox="0 0 25 21" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12.5 9.73913C15.7016 9.73913 18.2971 7.55895 18.2971 4.86957C18.2971 2.18018 15.7016 0 12.5 0C9.29833 0 6.70288 2.18018 6.70288 4.86957C6.70288 7.55895 9.29833 9.73913 12.5 9.73913Z"
+                                        fill="white" />
+                                    <path
+                                        d="M12.5 12.174C6.69699 12.174 1.99274 16.1255 1.99274 21H23.0072C23.0072 16.1255 18.303 12.174 12.5 12.174Z"
+                                        fill="white" />
+                                </svg>
+                                <p>{{locales['ONLINEPLAYER']}}</p>
+                            </div>
+                            <div class="nav_general_item_right">
+                                <p>{{playerData.players}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div v-if="displayPage['OOCCHATPAGE']" class="nav_chat"
+                        :style="{'background-image':'url('+GetThemeAsset('chat_container.png')+')'}">
+                        <p class="nav_chat_title" :style="{color:themes[theme].color}">{{locales['OCCCHAT']}}</p>
+                        <div class="nav_chat_container" id="messages">
+                            <p class="nav_chat_text" v-for="chatMessage in chatMessages">
+                                <span class="nav_chat_owner"
+                                    :style="{color:themes[theme].color}">{{chatMessage.playerName}}
+                                    ({{chatMessage.source}}) :
+                                </span>
+                                {{chatMessage.message}}
+                            </p>
+                        </div>
+                        <img :src="GetThemeAsset('border.png')" class="chat_border">
+                        <input v-model="chatMessage" class="nav_chat_input" :placeholder="locales['TYPE_SOMETHING']"
+                            v-on:keyup.enter="SendChatMessage" />
+                    </div>
+                    <div class="nav_store_button"
+                        :style="{'background-image': 'url('+GetThemeAsset('store_button.png')+')'}" @click="OpenStore">
+                        {{locales['STORE']}}
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="main_page">
+                        <div class="notify-container"></div>
+
+                        <div class="main_top">
+                            <div class="main_top_left"
+                                :style="{'--theme-color': themes[theme].color, visibility: showWelcomeMessage ? 'visible' : 'hidden'  }">
+                                <p>{{locales['WELCOME']}},</p>
+                                <p>{{locales['ROLEPLAY']}} {{formatGameTime}}</p>
+                            </div>
+                            <p class="main_clock">{{getTime}}</p>
+                            <div class="main_date">
+                                <p>{{getDate}}</p>
+                                <p>{{dayLabel}}</p>
+                            </div>
+                            <div class="main_logo" :style="{'background-image': 'url('+logo+')'}">
+                            </div>
+                        </div>
+                        <transition-group name="fade"
+                            enter-active-class="animate__animated animate__fadeIn custom_duration"
+                            leave-active-class="animate__animated animate__fadeOut custom_duration">
+                            <div key="main_page" class="main_center" v-if="currentPage=='main'">
+                                <div class="main_claim_daily">
+                                    <p class="daily_award_title">
+                                        {{locales['CLAIMYOURDAILY']}}
+                                    </p>
+                                    <div class="daily_reward_box"
+                                        v-if="GetCurrentDayDailyItem && displayPage['AWARDSPAGE']"
+                                        @click="ClaimDailyItem(GetCurrentDayDailyItem, dailyAwardsDayCounter-1)">
+                                        <img class="daily_reward_item"
+                                            :src="'./assets/item_images/'+GetCurrentDayDailyItem.image">
+                                        <img v-if="CheckClaimedDailyItem(dailyAwardsDayCounter)"
+                                            class="daily_item_box_claimed_icon" src="./assets/img/check.png">
+                                    </div>
+                                    <p class="daily_reward_item_name"
+                                        v-if="GetCurrentDayDailyItem && displayPage['AWARDSPAGE']">
+                                        {{GetDailyItemLabel(GetCurrentDayDailyItem)}}
+                                    </p>
+                                    <p class="daily_reward_item_help"
+                                        v-if="GetCurrentDayDailyItem && displayPage['AWARDSPAGE']">
+                                        {{GetClaimedText(dailyAwardsDayCounter-1)}}
+                                    </p>
+                                    <div class="main_claim_daily_days_counter" v-if="displayPage['AWARDSPAGE']">
+                                        <img src="./assets/img/daily_left_line.png" class="daily_line">
+                                        <template v-if="n <= 5" v-for="n in dailyAwardItems.length">
+                                            <div class="daily_box " :class="MainDailyClass(n)">
+                                                <p>{{locales['DAY']}} {{n}}</p>
+                                            </div>
+                                            <img v-if="n!=5" src="./assets/img/daily_line.png" class="daily_line">
+                                        </template>
+
+                                        <img src="./assets/img/daily_right_line.png" class="daily_line">
+
+                                    </div>
+                                    <div class="daily_award_view_all" v-if="displayPage['AWARDSPAGE']"
+                                        @click="SetCurrentPage('daily_awards')">
+                                        {{locales['VIEWALLAWARDS']}}
+                                    </div>
+                                    <div class="daily_award_view_all2" v-else>
+                                        {{locales['DISABLED']}}
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="main_battlepass">
+                                        <p class="main_battlepass_title">
+                                            {{locales['BATTLEPASS']}}</p>
+                                        <div class="battlepass_counter" v-if="displayPage['BATTLEPASSPAGE']">
+                                            <img class="battlepass_line" src="./assets/img/battlepass_left_line.png">
+                                            <template v-for="n in 7">
+                                                <div class="battlepass_box"
+                                                    :class="{battlepass_completed_box:CheckClaimedBattlepassItem(n)}">
+                                                </div>
+                                                <img v-if="n!=7" class="battlepass_line"
+                                                    src="./assets/img/battlepass_line.png">
+
+                                            </template>
+                                            <img class="battlepass_line" src="./assets/img/battlepass_line.png">
+                                        </div>
+                                        <div class="battlepass_view_progress" v-if="displayPage['BATTLEPASSPAGE']"
+                                            @click="SetCurrentPage('battlepass')">
+                                            {{locales['VIEWYOURPROGRESS']}}
+                                        </div>
+                                        <div class="battlepass_view_progress2" v-else>
+                                            {{locales['DISABLED']}}
+                                        </div>
+                                    </div>
+                                    <div class="main_live_assistant">
+                                        <p class="main_assistant_title"> {{locales['CONTACTLIVEASSISTAN']}}</p>
+                                        <div v-if="displayPage['LIVECALLPAGE']" class="online_admins">
+                                            <img :src="data.discordpp" v-if="onlineadmin && index < 3 "
+                                                v-for="(data,index) in onlineadmin">
+
+                                        </div>
+                                        <p v-if="displayPage['LIVECALLPAGE'] && onlineadmin.length > 4"
+                                            class="admin_online_text">
+                                            +{{(onlineadmin.length - 4)}} {{locales['ADMINSAREONLINE']}}</p>
+                                        <div v-if="!isAdmin && displayPage['LIVECALLPAGE'] " class="create_call_button"
+                                            @click="SetCurrentPage('createcall')">{{locales['CREATECALL']}}</div>
+                                        <div v-else-if="isAdmin && displayPage['LIVECALLPAGE'] "
+                                            class="create_call_button" @click="SetCurrentPage('admincallpage')">
+                                            {{locales['CALL']}}</div>
+                                        <div v-else class="create_call_button2">
+                                            {{locales['DISABLED']}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="main_patch_notes">
+                                    <p class="patch_notes_main_title">
+                                        {{locales['PATCHNOTES']}}
+                                    </p>
+                                    <div class="patch_notes">
+                                        <div class="patch_notes">
+                                            <p class="patch_title">{{locales['UPDATE']}} {{patchNotes.date}}</p>
+                                            <ol>
+                                                <li v-for="patch in patchNotes.updates"><span
+                                                        style="margin-right: .25rem;">&#8226;</span>
+                                                    <span>{{patch}}</span>
+                                                </li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div key="battlepass_missions_page" class="battlepass_center"
+                                v-if="currentPage=='battlepass_missions'">
+                                <div class="battlepass_container">
+                                    <div class="battlepass-missions-swiper-prev"></div>
+                                    <div class="battlepass-missions-swiper-next"></div>
+                                    <img src="./assets/img/battlepass_overlay_top.png" class="battlepass_overlay_top">
+                                    <img src="./assets/img/battlepass_overlay_left.png" class="battlepass_overlay_left">
+                                    <img src="./assets/img/battlepass_overlay_right.png"
+                                        class="battlepass_overlay_right">
+                                    <img src="./assets/img/battlepass_icon.png" class="battlepass_icon">
+                                    <div class="battlepass_xp_info">
+                                        <div class="battlepass_xp_info_border">
+
+                                        </div>
+                                        <p class="battlepass_xp_info_text">
+                                            {{locales['BATTLEPASSTEXT']}}
+                                            <br>
+                                            {{locales['1000XP']}}
+                                        </p>
+                                    </div>
+                                    <p class="battlepass_title">{{locales['BATTLEPASSMISSION']}}</p>
+                                    <div class="battlepass_go_back" @click="SetCurrentPage('battlepass')">
+                                        {{locales['GOBACK']}}
+                                    </div>
+                                    <div class="swiper battlepass-missions-swiper">
+                                        <!-- Additional required wrapper -->
+                                        <div class="swiper-wrapper">
+                                            <!-- Slides -->
+                                            <div :key="n" class="swiper-slide"
+                                                v-for="(mission, n) in battlepassMissions.missions">
+                                                <div class="battlepass-mission">
+                                                    <div class="battlepass-mission-inner">
+                                                        <img src="./assets/img/battlepass_mission.png"
+                                                            class="battlepass_mission_image">
+                                                        <p class="battlepass_mission_header">
+                                                            {{locales['BATTLEPASSMISSION']}} #{{n+1}}
+                                                        </p>
+                                                        <div class="battlepass_mission_center">
+                                                            <p class="battlepass_mission_title">
+                                                                {{mission.label}}
+                                                            </p>
+                                                            <div class="battlepass_mission_desc">
+                                                                <span>
+                                                                    {{battlepassMissionReadMore[n+1] ? mission.desc :
+                                                                    FormatMissionText(mission.desc, n+1)}}
+                                                                    <span class="read-more" @click="ReadMore(n+1)"
+                                                                        v-if="mission.desc.length > 75">
+                                                                        {{battlepassMissionReadMore[n+1] ?
+                                                                        locales["READ_LESS"] :
+                                                                        locales["READ_MORE"]}}</span>
+                                                                </span>
+
+
+                                                            </div>
+
+                                                            <div class="battlepass_mission_progress"
+                                                                v-show="!battlepassMissionReadMore[n+1]"
+                                                                :class="'battlepass_mission_progress'+n">
+                                                                <p class="battlepass_mission_progress_text">
+                                                                    {{GetBattlepassMissionProgress(mission.id)}}/{{mission.repeatAmount}}
+                                                                </p>
+                                                            </div>
+                                                            <div class="mission_award_title"
+                                                                v-show="!battlepassMissionReadMore[n+1]">
+                                                                <p class="mission_award_desc">
+                                                                    {{locales['MISSIONAWARD']}}
+                                                                </p>
+                                                                <p class="mission_award_reward">{{mission.xpAmount}}xp
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div key="battlepass_verification_page" class="battlepass_center"
+                                v-if="currentPage=='battlepass_verification'">
+                                <div class="battlepass_verify_container">
+                                    <img src="./assets/img/battlepass_icon.png" class="battlepass_icon">
+                                    <img src="./assets/img/battlepass_verify_char_1.png"
+                                        class="battlepass_verify_char_1">
+                                    <img src="./assets/img/battlepass_verify_char_2.png"
+                                        class="battlepass_verify_char_2">
+                                    <img src="./assets/img/battlepass_overlay_top.png" class="battlepass_overlay_top">
+                                    <img src="./assets/img/battlepass_overlay_left.png" class="battlepass_overlay_left">
+                                    <img src="./assets/img/battlepass_overlay_right.png"
+                                        class="battlepass_overlay_right">
+                                    <div class="battlepass_go_back" @click="SetCurrentPage('battlepass')">
+                                        {{locales['GOBACK']}}
+                                    </div>
+                                    <div class="battlepass_verify_center">
+                                        <img src="./assets/img/tebex.png" class="tebex_text">
+                                        <p class="tebex_desc">{{locales['TEBEXLINK']}}</p>
+                                        <div class="battlepass_verify_input_container">
+                                            <img src="./assets/img/battlepass_icon_small.png"
+                                                class="battlepass_icon_small">
+                                            <input type="text" v-model="tbxId" class="battlepass_verify_input"
+                                                :placeholder="locales['ENTER_TBX_ID']">
+                                        </div>
+                                        <div class="check_box_container">
+
+                                            <div class="check_box" @click="checked = !checked; PlayClickSound()">
+                                                <svg v-if="checked" width="12" height="9" viewBox="0 0 12 9" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M4.24264 5.65685L1.41421 2.82843L0 4.24264L4.24264 8.48528L11.3137 1.41421L9.8995 0L4.24264 5.65685Z"
+                                                        fill="white" />
+                                                </svg>
+                                            </div>
+                                            <p class="check_box_label">{{locales['SURETEXT']}}</p>
+                                        </div>
+
+
+
+                                        <div v-if="freeBattlepass" class="unlock_battlepass_button">
+                                            {{locales["ALREADYTEXT"]}}
+                                        </div>
+                                        <div v-else class="unlock_battlepass_button" @click="VerifyTebex">
+                                            {{battlepassData.purchased == 1 ? locales["ALREADYUNLOCKED"] :
+                                            locales["UNLOCK_BATTLEPASS"]}}
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div key="battlepass_page" class="battlepass_center" v-if="currentPage=='battlepass'">
+                                <div class="battlepass_container">
+                                    <div class="battlepass-swiper-prev"></div>
+                                    <div class="battlepass-swiper-next"></div>
+                                    <img src="./assets/img/battlepass_overlay_top.png" class="battlepass_overlay_top">
+                                    <img src="./assets/img/battlepass_overlay_left.png" class="battlepass_overlay_left">
+                                    <img src="./assets/img/battlepass_overlay_right.png"
+                                        class="battlepass_overlay_right">
+                                    <img src="./assets/img/battlepass_icon.png" class="battlepass_icon">
+                                    <div class="battlepass_xp_info">
+                                        <div class="battlepass_xp_info_border">
+
+                                        </div>
+                                        <p class="battlepass_xp_info_text">
+                                            {{locales['BATTLEPASSTEXT']}}
+                                            <br>
+                                            {{locales['1000XP']}}
+                                        </p>
+                                    </div>
+
+                                    <div class="battlepass_title_container">
+                                        <p class="battlepass_title">{{locales['BATTLEPASSPROGRESS']}}</p>
+                                        <p class="battlepass_remain_days">{{battlepassRemainDay}}
+                                            {{locales['DAYSLEFT']}}</p>
+                                    </div>
+                                    <div class="battlepass_go_back" @click="SetCurrentPage('main')">
+                                        {{locales['GOBACK']}}
+                                    </div>
+                                    <div class="swiper battlepass-swiper">
+                                        <!-- Additional required wrapper -->
+                                        <div class="swiper-wrapper">
+                                            <!-- Slides -->
+                                            <div class="swiper-slide" :class="{'daily-award' : item.type == 'box'}"
+                                                v-for="(item, i) in battlepassItems">
+                                                <div @click="ClaimBattlepassItem(item, i+1); OpenModal(item, i+1)"
+                                                    :class="{'battlepass_item_box' : !CheckClaimedBattlepassItem(i+1), battlepass_box_claimed: CheckClaimedBattlepassItem(i+1)}">
+                                                    <div v-if="item.premium && !freeBattlepass" class="premium">
+                                                    </div>
+                                                    <p v-if="item.premium && !freeBattlepass" class="battlepas-text">
+                                                        {{locales["PREMIUM"]}}
+                                                    </p>
+                                                    <p v-else class="battlepas-text">{{locales["FREE"]}}</p>
+                                                    <img class="battlepass_item_image" :src="GetDailyItemImage(item)">
+                                                    <img v-if="CheckClaimedBattlepassItem(i+1)"
+                                                        class="battlepass_item_box_claimed_icon"
+                                                        src="./assets/img/check.png">
+                                                    <img v-if="(i+1) != battlepassItems.length"
+                                                        src="./assets/img/battlepass_border.png"
+                                                        class="battlepass_border">
+                                                </div>
+                                                <transition name="fade"
+                                                    enter-active-class="animate__animated animate__fadeIn custom_duration_2"
+                                                    leave-active-class="animate__animated animate__fadeOut custom_duration_2">
+                                                    <div v-if="visibleModals[i+1] && item.type == 'box'"
+                                                        class="battlepass_modal">
+                                                        <p v-for="boxItem in item.items">
+                                                            {{GetDailyItemLabel(boxItem)}}
+                                                        </p>
+                                                    </div>
+                                                </transition>
+                                                <div class="battlepass_item_desc">
+                                                    <p class="battlepass_item_name">{{GetDailyItemLabel(item)}}</p>
+                                                    <p class="battlepass_item_info">
+                                                        {{CheckClaimedBattlepassItem(i+1) ?
+                                                        locales["UNLOCKED"] :
+                                                        GetBattlepassLevelText(i+1)}}
+                                                    </p>
+                                                </div>
+                                                <div class="battlepass_progress">
+                                                    <div class="battlepass_box_container">
+                                                        <img v-if="i==0" class="battlepass_progress_left_line"
+                                                            src="./assets/img/battlepass_main_left_line.png">
+                                                        <img class="main_box" v-if="battlepassData.level >= (i+1)"
+                                                            src="./assets/img/battlepass_main_completed.png">
+                                                        <img class="main_box" v-else
+                                                            src="./assets/img/battlepass_main_box.png">
+
+                                                        <p class="battlepass_level">{{locales["LEVEL"]}} {{i+1}}</p>
+
+                                                        <div class="battlepass_progress_border">
+                                                            <div class="battlepass_progress_border_inner"
+                                                                :style="{width: GetBattlepassLevelProgress(i+1)+'%'}">
+                                                                <img v-if="GetBattlepassLevelProgress(i+1) != 100 && GetBattlepassLevelProgress(i+1) != 0"
+                                                                    src="./assets/img/battlepass_progres_icon.png">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="battlepass_missions_button"
+                                        @click="SetCurrentPage('battlepass_missions')">
+                                        <div class="battlepass_missions_button_wrapper">
+                                            <span class="battlepass_missions_button_border"></span>
+                                            {{locales['BATTLEPASSMISSION']}}
+
+                                        </div>
+                                    </div>
+
+                                    <div class="battlepass_button" v-if="freeBattlepass"
+                                        @click="SetCurrentPage('battlepass_verification')">
+                                        {{locales["ALREADYTEXT"]}}
+                                    </div>
+                                    <div class="battlepass_button" v-else
+                                        @click="SetCurrentPage('battlepass_verification')">
+                                        {{battlepassData.purchased == 1 ? locales["ALREADYUNLOCKED"] :
+                                        locales["UNLOCK_BATTLEPASS"]}}
+                                    </div>
+                                    <div class="battlepass_xp_info_bottom">
+                                        <p class="battlepass_xp_info_text">
+                                            Lv.{{battlepassData.level}}
+                                            <br>
+                                            {{(battlepassItems[battlepassData.level - 1].requiredXP -
+                                            battlepassData.xp)}} {{locales["XP_REQUIRED"]}}
+                                        </p>
+                                        <div class="battlepass_xp_bottom_info_border">
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div key="daily_page" class="daily_awards_center" v-if="currentPage=='daily_awards'">
+                                <div class="daily_awards_container">
+                                    <img src="./assets/img/daily_awards_overlay.png" class="daily_awards_overlay">
+                                    <img src="./assets/img/daily_awards_icon.png" class="daily_awards_icon">
+                                    <p class="daily_awards_title">{{locales['ALLDAILYAWARDS']}}</p>
+                                    <div class="daily_awards_go_back" @click="SetCurrentPage('main')">
+                                        {{locales['GOBACK']}}
+                                    </div>
+                                    <!-- Slider main container -->
+                                    <div class="swiper daily-swiper">
+                                        <!-- Additional required wrapper -->
+                                        <div class="swiper-wrapper" v-if="dailyAwardsDayCounter">
+                                            <!-- Slides -->
+                                            <div class="swiper-slide" :class="{'daily-award' : item.type == 'box'}"
+                                                v-for="(item, index) in dailyAwardItems"
+                                                @click="ClaimDailyItem(item, index); OpenModal(item, index)">
+                                                <transition name="fade"
+                                                    enter-active-class="animate__animated animate__fadeIn custom_duration_2"
+                                                    leave-active-class="animate__animated animate__fadeOut custom_duration_2">
+
+                                                    <div v-if="visibleModals[index] && item.type == 'box'"
+                                                        class="modal">
+                                                        <p v-for="boxItem in item.items">
+                                                            {{GetDailyItemLabel(boxItem)}}
+                                                        </p>
+                                                    </div>
+                                                </transition>
+                                                <div :class="GetDailyItemBoxClass(index)">
+                                                    <img class="daily_item_image" :src="GetDailyItemImage(item)">
+                                                    <img v-if="CheckClaimedDailyItem(index+1)"
+                                                        class="daily_item_box_claimed_icon"
+                                                        src="./assets/img/check.png">
+                                                </div>
+                                                <div class="daily_item_desc">
+                                                    <p class="daily_item_name">{{GetDailyItemLabel(item)}}</p>
+                                                    <p class="daily_item_info">{{GetClaimedText(index)}}</p>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <!-- If we need pagination -->
+
+                                        <!-- If we need navigation buttons -->
+
+
+                                    </div>
+                                    <div class="daily-swiper-prev"></div>
+                                    <div class="daily-swiper-next"></div>
+                                    <div class="daily_awards_counter">
+                                        <div class="daily_awards_top" v-for="b in GetMaxRow()">
+                                            <div v-if="GetRowLine(n) == b"
+                                                style="display:flex;  align-items:center;justify-content:center; "
+                                                v-for="n in dailyAwardItems.length">
+
+                                                <img src="./assets/img/daily_big_left_line.png" class="daily_big_line"
+                                                    v-if="((b-1) * 20) == (n-1) && GetMaxRow() == b">
+                                                <img src="./assets/img/daily_left_line.png" class="daily_line"
+                                                    v-if="(n == 1 && GetMaxRow() != 1) || ((b-1) * 20 ) == (n-1) && GetMaxRow() != b">
+
+                                                <div class="daily_box"
+                                                    :class="{daily_completed_box:CheckClaimedDailyItem(n),daily_current_day: n == dailyAwardsDayCounter }">
+                                                    <p>{{locales['DAY']}} {{n}}</p>
+                                                </div>
+
+
+                                                <img src="./assets/img/daily_big_right_line.png" class="daily_big_line"
+                                                    v-if="GetMaxRow() == b && n == dailyAwardItems.length">
+                                                <img v-else src="./assets/img/daily_line.png" class="daily_line">
+
+                                            </div>
+                                        </div>
+                                        <!-- <div class="daily_awards_bottom">
+                                            <img src="./assets/img/daily_big_left_line.png">
+                                            <div class="daily_box ">
+                                                <p>Day 21</p>
+                                            </div>
+                                            <img src="./assets/img/daily_line.png">
+                                            <div class="daily_box ">
+                                                <p>Day 22</p>
+                                            </div>
+                                            <img src="./assets/img/daily_line.png">
+
+                                            <div class="daily_box ">
+                                                <p>Day 23</p>
+                                            </div>
+                                            <img src="./assets/img/daily_line.png">
+                                            <div class="daily_box ">
+                                                <p>Day 24</p>
+                                            </div>
+                                            <img src="./assets/img/daily_line.png">
+                                            <div class="daily_box">
+                                                <p>Day 25</p>
+                                            </div>
+                                            <img src="./assets/img/daily_line.png">
+                                            <div class="daily_box">
+                                                <p>Day 26</p>
+                                            </div>
+                                            <img src="./assets/img/daily_line.png">
+                                            <div class="daily_box">
+                                                <p>Day 27</p>
+                                            </div>
+                                            <img src="./assets/img/daily_line.png">
+                                            <div class="daily_box">
+                                                <p>Day 28</p>
+                                            </div>
+                                            <img src="./assets/img/daily_line.png">
+                                            <div class="daily_box">
+                                                <p>Day 29</p>
+                                            </div>
+                                            <img src="./assets/img/daily_line.png">
+                                            <div class="daily_box">
+                                                <p>Day 30</p>
+                                            </div>
+
+                                            <img src="./assets/img/daily_big_right_line.png">
+                                        </div> -->
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div key="createcall" class="daily_awards_center" v-if="currentPage=='createcall'">
+                                <div class="create_call_container">
+                                    <div class="create_call_container_top">
+                                        <div class="create_call_container_top_date">
+                                            <h2 v-if="isAdmin">{{calldatadate}}</h2>
+                                            <h2 v-else>{{playerlivetime}}</h2>
+                                            <!-- <h2>{{calldatatime}}</h2> -->
+                                        </div>
+                                        <div class="create_call_container_top_text">
+                                            <h2>{{locales['WELCOMETOLIVE']}}</h2>
+                                        </div>
+                                        <div class="create_call_container_top_button">
+                                            <h2 @click="liveCallEnd(isAdmin,sendIdentifier)">End Call</h2>
+                                            <div class="gobackbuttonlivecall">
+                                                <img v-if="!isAdmin" @click="SetCurrentPage('main')"
+                                                    src="./assets/img/backbutton.png" alt="">
+                                                <img v-else @click="SetCurrentPage('admincallpage')"
+                                                    src="./assets/img/backbutton.png" alt="">
+                                            </div>
+                                            <!-- <h2 v-if="!isAdmin" @click="SetCurrentPage('main')">
+                                                <img src="./assets/img/backbutton.png" alt=""></h2>
+                                            <h2 v-else @click="SetCurrentPage('admincallpage')">
+                                                {{locales['GOBACK']}}</h2> -->
+                                        </div>
+                                    </div>
+                                    <div class="create_call_container_middle">
+                                        <div class="create_call_container_middle_page">
+                                            <div class="create_call_container_middle_ownermessage"
+                                                v-for="data in livecallmessagedata"
+                                                :style="{'align-self' : data.identifier == playeridentifier ? 'flex-end': 'flex-start' }">
+                                                <div v-if="data.identifier == playeridentifier"
+                                                    class="create_call_container_middle_message">
+                                                    <div class="create_call_container_middle_messagetext">
+                                                        <h2>{{data.message}}</h2>
+                                                    </div>
+                                                    <div class="create_call_container_middle_messageimage">
+                                                        <img :src="avatar">
+                                                    </div>
+                                                </div>
+                                                <div v-else class="create_call_container_middle_message2">
+                                                    <div class="create_call_container_middle_messageimage2">
+                                                        <img src="./assets/img/stafimg.png" alt="">
+                                                    </div>
+                                                    <div class="create_call_container_middle_messagetext2">
+                                                        <h2>{{data.message}}</h2>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="create_call_container_bottom">
+
+                                        <input v-if="!isAdmin" type="text" v-model="livecallmessage"
+                                            v-on:keyup.enter="sendlivecallchat(livecallmessage)"
+                                            placeholder="Type Anything...">
+
+                                        <input v-else type="text" v-model="livecallmessage"
+                                            v-on:keyup.enter="sendlivecallchatadmin(livecallmessage,sendIdentifier)"
+                                            placeholder="Type Anything...">
+
+                                        <h2 v-if="!isAdmin" @click="sendlivecallchat(livecallmessage)">
+                                            <img class="sendiconimg" src="./assets/img/sendicon.png" alt="">
+                                            {{locales['SEND']}}
+                                        </h2>
+
+                                        <h2 v-else @click="sendlivecallchatadmin(livecallmessage,sendIdentifier)">
+                                            <img class="sendiconimg" src="./assets/img/sendicon.png" alt="">
+                                            {{locales['SEND']}}
+                                        </h2>
+
+
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                            <div key="admincallpage" class="daily_awards_center" v-if="currentPage=='admincallpage'">
+                                <div class="create_call_container">
+                                    <div class="create_call_container_top">
+                                        <div class="create_call_container_top_date">
+                                            <h2>{{liveCallData.length}} {{locales['CALLS']}}</h2>
+                                            <!-- <h2>16:43</h2> -->
+                                        </div>
+                                        <div class="create_call_container_top_text">
+                                            <h2>{{locales['WELCOMETOLIVE']}}</h2>
+                                        </div>
+                                        <div class="create_call_container_top_button">
+                                            <h2 @click="SetCurrentPage('main')">{{locales['GOBACK']}}</h2>
+                                        </div>
+                                    </div>
+
+                                    <div class="call_wrapper">
+                                        <div class="call-wrapper-container" v-for="data in liveCallData"
+                                            @click="getMessage(data.callidentifier)">
+                                            <div class="call-wrapper-container-img">
+                                                <img src="./assets/img/pp.png" alt="">
+                                            </div>
+                                            <h2>{{data.callname}}</h2>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </transition-group>
+                    </div>
+                </div>
+                <div class="bottom_bar" :style="{'background-image': 'url('+GetThemeAsset('bottom_bar.png')+')'}">
+                    <div class="bottom_bar_wrapper">
+                        <div class="bottom_bar_items">
+                            <div class="bottom_bar_item" @click="ClickBottomMenu('settings')">
+                                <img src="./assets/img/settings.png">
+                                <p>{{locales['SETTINGS']}}</p>
+                            </div>
+                            <div class="bottom_bar_item" @click="ClickBottomMenu('map')">
+                                <img src="./assets/img/map.png">
+                                <p>{{locales['MAP']}}</p>
+                            </div>
+                            <div class="bottom_bar_item bottom_bar_item_center" @click="ClickBottomMenu('exit_menu')">
+                                <img :src="GetThemeAsset('resume.png')">
+                                <p>{{locales['RESUME']}}</p>
+                            </div>
+                            <div class="bottom_bar_item" @click="ClickBottomMenu('keybinds')">
+                                <img src="./assets/img/keybinds.png">
+                                <p>{{locales['KEYBINDS']}}</p>
+                            </div>
+                            <div class="bottom_bar_item" @click="ClickBottomMenu('exit_game')">
+                                <img src="./assets/img/exit.png">
+                                <p>{{locales['EXIT']}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </transition>
+
+    </div>
+    <audio id="click" src="./assets/sound/codem-click-sfx.mp3" preload></audio>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script src="./lib/progressbar.js"></script>
+<script src="./app/main.js"></script>
+
+</html>
