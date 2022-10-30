@@ -43,6 +43,7 @@ RegisterNetEvent("megaphone:Toggle", function()
         TriggerEvent('animations:client:EmoteCommandStart', {"megaphone"})
         exports["pma-voice"]:overrideProximityRange(50.0, true)
     else
+        print('nah')
         holdingMega = false
         TriggerEvent('animations:client:EmoteCommandStart', {"c"})
         exports["pma-voice"]:clearProximityOverride()
