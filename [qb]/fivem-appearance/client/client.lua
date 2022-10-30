@@ -379,10 +379,10 @@ RegisterNetEvent('fivem-appearance:client:openClothingShop', OpenClothingShop)
 
 RegisterNetEvent('fivem-appearance:client:saveOutfit', function()
     local keyboard = exports['qb-input']:ShowInput({
-        header = "Name your outfit",
-        submitText = "Save Outfit",
+        header = "Đặt Tên Cho Trang Phục",
+        submitText = "Lưu Trang Phục",
         inputs = {{
-            text = "Outfit Name",
+            text = "Tên Trang Phục",
             name = "input",
             type = "text",
             isRequired = true
@@ -422,12 +422,12 @@ RegisterNetEvent("fivem-appearance:client:OutfitManagementMenu", function(args)
     end
     local menuItems = {
         {
-            header = "👔 | Manage " .. args.type .. " Outfits",
+            header = "👔 |  Chỉnh Trang Phục " .. args.type,
             isMenuHeader = true
         },
         {
-            header = "Change Outfit",
-            txt = "Pick from any of your currently saved "  .. args.type .. " outfits",
+            header = "Đổi Trang Phục",
+            txt = "Tùy chọn các trang phục đã được lưu của bạn "  .. args.type,
             params = {
                 event = "fivem-appearance:client:ChangeManagementOutfitMenu",
                 args = {
@@ -437,16 +437,16 @@ RegisterNetEvent("fivem-appearance:client:OutfitManagementMenu", function(args)
             }
         },
         {
-            header = "Save current Outfit",
-            txt = "Save your current outfit as " .. args.type .. " outfit",
+            header = "Lưu trang phục hiện tại",
+            txt = "Lưu trang phục hiện tại của bạn " .. args.type,
             params = {
                 event = "fivem-appearance:client:SaveManagementOutfit",
                 args = args.type
             }
         },
         {
-            header = "Delete Outfit",
-            txt = "Delete a saved " .. args.type .. " outfit",
+            header = "Xóa Trang Phục",
+            txt = "Xóa trang phục " .. args.type,
             params = {
                 event = "fivem-appearance:client:DeleteManagementOutfitMenu",
                 args = {
@@ -456,7 +456,7 @@ RegisterNetEvent("fivem-appearance:client:OutfitManagementMenu", function(args)
             }
         },
         {
-            header = "Return",
+            header = "Quay Về",
             icon = "fa-solid fa-angle-left",
             params = {
                 event = bossMenuEvent,
@@ -500,8 +500,8 @@ RegisterNetEvent("fivem-appearance:client:SaveManagementOutfit", function(mType)
     end
 
     local saveDialog = exports['qb-input']:ShowInput({
-        header = "Management Outfit Details",
-        submitText = "Save Outfit",
+        header = "Quản lý Trang Phục",
+        submitText = "Lưu Trang Phục",
         inputs = {
             {
                 text = "Outfit Name",
@@ -510,21 +510,21 @@ RegisterNetEvent("fivem-appearance:client:SaveManagementOutfit", function(mType)
                 isRequired = true
             },
             {
-                text = "Gender",
+                text = "Giới Tính",
                 name = "gender",
                 type = "radio",
                 options = {
                     {
-                        text = "Male", value = "male"
+                        text = "Nam", value = "male"
                     },
                     {
-                        text = "Female", value = "female"
+                        text = "Nữ", value = "female"
                     }
                 },
                 default = "male"
             },
             {
-                text = "Minimum Rank",
+                text = "Cấp Độ",
                 name = "minRank",
                 type = "select",
                 options = rankValues,
@@ -550,8 +550,8 @@ RegisterNetEvent("fivem-appearance:client:DeleteManagementOutfitMenu", function(
         local outfitMenu = {}
         for i = 1, #result, 1 do
             outfitMenu[#outfitMenu + 1] = {
-                header = 'Delete "' .. result[i].name .. '"',
-                txt = "Model: " .. result[i].model .. " - Gender: " .. result[i].gender,
+                header = 'Xóa "' .. result[i].name .. '"',
+                txt = "Model: " .. result[i].model .. " - Giới Tính: " .. result[i].gender,
                 params = {
                     event = 'fivem-appearance:client:DeleteManagementOutfit',
                     args = result[i].id
@@ -559,7 +559,7 @@ RegisterNetEvent("fivem-appearance:client:DeleteManagementOutfitMenu", function(
             }
         end
         outfitMenu[#outfitMenu + 1] = {
-            header = "Return",
+            header = "Quay Về",
             icon = "fa-solid fa-angle-left",
             params = {
                 event = "fivem-appearance:client:OutfitManagementMenu",
@@ -594,7 +594,7 @@ RegisterNetEvent("fivem-appearance:client:ChangeManagementOutfitMenu", function(
             }
         end
         outfitMenu[#outfitMenu + 1] = {
-            header = "Return",
+            header = "Quay Về",
             icon = "fa-solid fa-angle-left",
             params = {
                 event = "fivem-appearance:client:OutfitManagementMenu",

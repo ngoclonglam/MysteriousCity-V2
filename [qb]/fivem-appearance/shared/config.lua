@@ -466,7 +466,7 @@ Config.Stores = {
     },
     {
         shopType = "barber",
-        coords = vector4(-32.9, -152.3, 56.1, 335.22),
+        coords = vector4(-32.9, -152.3, 57.1, 335.22),
         width = 2,
         length = 2,
         zone = {
@@ -476,8 +476,8 @@ Config.Stores = {
                 vector2(-37.612594604492, -156.62759399414),
                 vector2(-33.30192565918, -147.31649780273)
             },
-            minZ = 56.1 - 1.5,
-            maxZ = 56.1 + 1.5,
+            minZ = 57.1 - 1.5,
+            maxZ = 57.1 + 1.5,
         }
     },
     {

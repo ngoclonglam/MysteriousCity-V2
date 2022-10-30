@@ -499,17 +499,23 @@ Config.DailyAwardsItem = {
         type = 'money',
     },
     {
+        amount = 5000,
+        label = 'Cash',
+        image = 'cash.png',
+        type = 'money',
+    },
+    {
         name = 'water_bottle',
         label = 'Water',
         image = 'water.png',
-        amount = 2,
+        amount = 20,
         type = 'item',
     },
     {
         name = 'advancedrepairkit',
         label = 'Repair Kit',
         image = 'advancedkit.png',
-        amount = 1,
+        amount = 5,
         type = 'item',
     },
     {
