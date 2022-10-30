@@ -405,7 +405,7 @@ Config.BattlepassItem = {
     {
         name = 'advancedrepairkit',
         label = 'Repair Kit',
-        image = 'advancedkit.png',
+        image = 'advancedrepairkit.png',
         amount = 1,
         type = 'item',
         requiredXP = 2000,
@@ -416,7 +416,7 @@ Config.BattlepassItem = {
     {
         name = 'weapon_pistol',
         label = 'Pistol',
-        image = 'advancedkit.png',
+        image = 'advancedrepairkit.png',
         amount = 1,
         type = 'weapon',
         requiredXP = 1000,
