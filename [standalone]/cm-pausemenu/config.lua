@@ -123,64 +123,64 @@ Config.Locale = {
 
 Config.NotificationText = {
     ["CLAIMED_VEHICLE"] = {
-        text = 'Claimed %s',
+        text = 'Nhận %s',
         timeout = 3000,
     },
     ["CLAIMED_ITEM"] = {
-        text = 'Claimed %sx %s',
+        text = 'Nhận %sx %s',
         timeout = 3000,
     },
     ["CLAIMED_CASH"] = {
-        text = 'Claimed $%s cash',
+        text = 'Nhận $%s tiền mặt',
         timeout = 3000,
     },
     ["PREMIUM_ITEM"] = {
-        text = 'This is a premium item',
+        text = 'Đây là một mặt hàng cao cấp',
         timeout = 3000,
     },
     ["PURCHASED_BATTLEPASS"] = {
-        text = 'Successfully purchased battlepass',
+        text = 'Đã mua thành công BattlePass',
         timeout = 3000,
     },
     ["ALREADY_PURCHASED"] = {
-        text = "You already purchased the battlepass or it's already free",
+        text = "Bạn đã mua BattlePass hoặc là nó miễn phí",
         timeout = 3000,
     },
     ["MISSON_COMPLETED"] = {
-        text = 'Battlepass mission completed',
+        text = 'Hoàn thành nhiệm vụ BattlePass',
         type = "success",
         timeout = 3000,
     },
     ["ADMIN_ERROR"] = {
-        text = 'You are not an admin or params are not correct (%s)',
+        text = 'Bạn không phải là admin hoặc tham số đã sai (%s)',
         type = 'error',
         timeout = 3000,
     },
     ["NEW_CALL"] = {
-        text = 'A new call has been opened',
+        text = 'Bạn đã tạo một cuộc gọi',
         type = 'success',
         timeout = 3000
     },
     ["NEW_MESSAGE"] = {
-        text = 'Message has arrived.',
+        text = 'Tin nhắn đã được gửi tới.',
         type = 'success',
         timeout = 3000
     },
     ["LIVE_CALL_TERMINATED"] = {
-        text = 'Livecall terminated',
+        text = 'Cuộc gọi đã bị hủy',
         timeout = 3000,
     },
     ["BLACKLISTED_WORD"] = {
-        text = 'Your message contains blacklisted word',
+        text = 'Thông điệp của bạn chứa từ trong danh sách đen',
         timeout = 3000,
     },
     ["NOT_LOADED"] = {
-        text = 'Pausemenu is not loaded yet',
+        text = 'Bảng dừng đang chưa được tải',
         type = 'error',
         timeout = 3000,
     },
     ["SPAM_CONTROL"] = {
-        text = 'Spam control is enabled please try again few seconds later',
+        text = 'Điều khiển thư rác được bật, vui lòng thử lại vài giây sau',
         type = 'error',
         timeout = 3000,
     },
@@ -389,7 +389,7 @@ Config.BattlepassItem = {
         type = 'money',
         requiredXP = 1000,
         level = 1,
-        premium = false,
+        premium = true,
     },
     {
         name = 'water_bottle',
@@ -421,7 +421,7 @@ Config.BattlepassItem = {
         type = 'weapon',
         requiredXP = 1000,
         level = 4,
-        premium = false,
+        premium = true,
 
     },
     {
@@ -431,7 +431,7 @@ Config.BattlepassItem = {
         type = 'vehicle',
         requiredXP = 5000,
         level = 5,
-        premium = false,
+        premium = true,
         garage = 'motelgarage', -- Set this option only on qb-core
     },
     {
@@ -475,7 +475,7 @@ Config.BattlepassItem = {
         type = 'vehicle',
         requiredXP = 5000,
         level = 7,
-        premium = false,
+        premium = true,
         garage = 'motelgarage', -- Set this option only on qb-core
 
 
@@ -758,6 +758,13 @@ Config.DailyAwardsItem = {
         name = 'renamecard',
         label = 'Thẻ Đổi Tên',
         image = 'renamecard.png',
+        amount = 1,
+        type = 'item',
+    },
+    {
+        name = 'megaphone',
+        label = 'Loa Phát Thanh',
+        image = 'megaphone.png',
         amount = 1,
         type = 'item',
     },
