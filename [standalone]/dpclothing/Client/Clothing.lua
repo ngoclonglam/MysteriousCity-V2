@@ -160,8 +160,8 @@ function ResetClothing(anim)
 	if anim then TaskPlayAnim(Ped, e.Dict, e.Anim, 3.0, 3.0, 3000, e.Move, 0, false, false, false) end
 	for k,v in pairs(LastEquipped) do
 		if v then
-			if v.Drawable then SetPedComponentVariation(Ped, v.Id, v.Drawable, v.Texture, 0)
-			elseif v.Prop then ClearPedProp(Ped, v.Id) SetPedPropIndex(Ped, v.Id, v.Prop, v.Texture, true) end
+			if v.Drawable then print('Line 163: v.Id, v.Drawable, v.Texture', v.Id, v.Drawable, v.Texture) SetPedComponentVariation(Ped, v.Id, v.Drawable, v.Texture, 0)
+			elseif v.Prop then ClearPedProp(Ped, v.Id) print('Line 164: v.Id, v.Prop, v.Texture', v.Id, v.Prop, v.Texture) SetPedPropIndex(Ped, v.Id, v.Prop, v.Texture, true) end
 		end
 	end
 	LastEquipped = {}
@@ -169,9 +169,6 @@ end
 
 function ToggleClothing(which, extra)
 	if Cooldown then return end
-	print('[which]', which)
-	print('Drawables[which]', Drawables[which])
-	print('Extras[which]', Extras[which])
 	local Toggle = Drawables[which] if extra then Toggle = Extras[which] end
 	local Ped = PlayerPedId()
 	local Cur = { -- Lets check what we are currently wearing.
@@ -189,15 +186,18 @@ function ToggleClothing(which, extra)
 		for k,v in pairs(Table) do
 			if not Toggle.Remember then
 				if k == Cur.Drawable then
+					print('Line 189: Toggle.Drawable, v, Cur.Texture', Toggle.Drawable, v, Cur.Texture)
 					PlayToggleEmote(Toggle.Emote, function() SetPedComponentVariation(Ped, Toggle.Drawable, v, Cur.Texture, 0) end) return true
 				end
 			else
 				if not LastEquipped[which] then
 					if k == Cur.Drawable then
+						print('Line 195: Toggle.Drawable, v, Cur.Texture', Toggle.Drawable, v, Cur.Texture)
 						PlayToggleEmote(Toggle.Emote, function() LastEquipped[which] = Cur SetPedComponentVariation(Ped, Toggle.Drawable, v, Cur.Texture, 0) end) return true
 					end
 				else
 					local Last = LastEquipped[which]
+					print('Line 200: Toggle.Drawable, Last.Drawable, Last.Texture', Toggle.Drawable, Last.Drawable, Last.Texture)
 					PlayToggleEmote(Toggle.Emote, function() SetPedComponentVariation(Ped, Toggle.Drawable, Last.Drawable, Last.Texture, 0) LastEquipped[which] = false end) return true
 				end
 			end
@@ -208,11 +208,13 @@ function ToggleClothing(which, extra)
 			if Cur.Drawable ~= Table then
 				PlayToggleEmote(Toggle.Emote, function()
 					LastEquipped[which] = Cur
+					print('Line 211: Toggle.Drawable, Table', Toggle.Drawable, Table)
 					SetPedComponentVariation(Ped, Toggle.Drawable, Table, 0, 0)
 					if Toggle.Table.Extra then
 						local Extras = Toggle.Table.Extra
 						for k,v in pairs(Extras) do
 							local ExtraCur = {Drawable = GetPedDrawableVariation(Ped, v.Drawable),  Texture = GetPedTextureVariation(Ped, v.Drawable), Id = v.Drawable}
+							print('Line 217: v.Drawable, v.Id, v.Tex', v.Drawable, v.Id, v.Tex)
 							SetPedComponentVariation(Ped, v.Drawable, v.Id, v.Tex, 0)
 							LastEquipped[v.Name] = ExtraCur
 						end
@@ -221,8 +223,10 @@ function ToggleClothing(which, extra)
 				return true
 			end
 		else
+			print('225')
 			local Last = LastEquipped[which]
 			PlayToggleEmote(Toggle.Emote, function()
+				print('Line 229: Toggle.Drawable, Last.Drawable, Last.Texture,', Toggle.Drawable, Last.Drawable, Last.Texture,)
 				SetPedComponentVariation(Ped, Toggle.Drawable, Last.Drawable, Last.Texture, 0)
 				LastEquipped[which] = false
 				if Toggle.Table.Extra then
@@ -230,6 +234,7 @@ function ToggleClothing(which, extra)
 					for k,v in pairs(Extras) do
 						if LastEquipped[v.Name] then
 							local Last = LastEquipped[v.Name]
+							print('Line 236: Last.Id, Last.Drawable, Last.Texture', Last.Id, Last.Drawable, Last.Texture)
 							SetPedComponentVariation(Ped, Last.Id, Last.Drawable, Last.Texture, 0)
 							LastEquipped[v.Name] = false
 						end
