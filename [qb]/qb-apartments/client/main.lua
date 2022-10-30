@@ -193,7 +193,7 @@ local function RegisterApartmentEntranceZone(apartmentID, apartmentData)
             exports['qb-core']:HideText()
         end
     end)
-    
+
     boxData.created = true
     boxData.zone = zone
 end
@@ -210,7 +210,7 @@ local function RegisterInApartmentZone(targetKey, coords, heading, text)
     Wait(1500)
 
     local boxName = 'inApartmentTarget_' .. targetKey
-    
+
     local zone = BoxZone:Create(coords, 1.5, 1.5, {
         name = boxName,
         heading = heading,
@@ -271,7 +271,7 @@ local function SetInApartmentTargets()
         -- do nothing
         return
     end
-    
+
     mEntrancePos = vector3(Apartments.Locations[ClosestHouse].coords.enter.x - POIOffsets.exit.x, Apartments.Locations[ClosestHouse].coords.enter.y - POIOffsets.exit.y - 0.5, Apartments.Locations[ClosestHouse].coords.enter.z - CurrentOffset + POIOffsets.exit.z)
     mStashPos = vector3(Apartments.Locations[ClosestHouse].coords.enter.x - POIOffsets.stash.x, Apartments.Locations[ClosestHouse].coords.enter.y - POIOffsets.stash.y, Apartments.Locations[ClosestHouse].coords.enter.z - CurrentOffset + POIOffsets.stash.z)
     mOutfitsPos = vector3(Apartments.Locations[ClosestHouse].coords.enter.x - POIOffsets.clothes.x, Apartments.Locations[ClosestHouse].coords.enter.y - POIOffsets.clothes.y, Apartments.Locations[ClosestHouse].coords.enter.z - CurrentOffset + POIOffsets.clothes.z)

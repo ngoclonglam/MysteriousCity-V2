@@ -1,32 +1,47 @@
 local Translations = {
     error = {
-        to_far_from_door = 'You are to far away from the Doorbell',
-        nobody_home = 'There is nobody home..',
-        nobody_at_door = 'There is nobody at the door...'
+        to_far_from_door = 'Bạn ở quá xa chuông cửa',
+        nobody_home = 'Không thấy ai trả lời? Ủa có ai ở nhà không ta?',
+        nobody_at_door = 'Không có ai trước cửa nhà',
+        insufficient_balance =  'Nghèo vãi bều !!! Không có đủ tiền cũng tới đây...'
     },
     success = {
-        receive_apart = 'You got a apartment',
-        changed_apart = 'You moved apartments',
+        receive_apart = 'Bạn vừa nhận được căn hộ',
+        changed_apart = 'Bạn đã di dời căn hộ',
+        extended_apart = 'Bạn đã gia hạn căn hộ',
     },
     info = {
-        at_the_door = 'Someone is at the door!',
+        at_the_door = 'Có ai đang bấm chuông!',
+        open_menu = 'Bấm [<strong>F1</strong>] để tương tác Căn Hộ',
+        radial_menu = 'Căn Hộ',
     },
     text = {
-        options = '[E] Apartment Options',
-        enter = 'Enter Apartment',
-        ring_doorbell = 'Ring Doorbell',
-        logout = 'Logout Character',
-        change_outfit = 'Change Outfit',
-        open_stash = 'Open Stash',
-        move_here = 'Move Here',
-        open_door = 'Open Door',
-        leave = 'Leave Apartment',
-        close_menu = '⬅ Close Menu',
-        tennants = 'Tennants',
+        options = '[E] Tùy chọn Căn hộ',
+        enter = 'Vào Căn hộ',
+        ring_doorbell = 'Bấm chuông',
+        logout = 'Đăng xuất Nhân vật',
+        change_outfit = 'Đổi quần áo',
+        open_stash = 'Mở kho đồ',
+        move_here = 'Dời tới đây',
+        rent_here = 'Thuê Căn hộ',
+        open_door = 'Kiểm tra cửa',
+        leave = 'Rời Căn hộ',
+        close_menu = '⬅ Đóng Menu',
+        back_menu = '⬅ Quay lại',
+        tennants = 'Ten Ten',
+        extend = 'Gia Hạn Hợp Đồng Thuê',
+        rental_price_txt = 'Giá: $%{price}/%{length} Ngày',
+        stash_menu = {
+            header = 'Nâng Cấp Kho Đồ',
+            upgrade_weight = 'Nâng cấp sức chứa',
+            upgrade_slots = 'Nâng cấp không gian chứa',
+            weight_txt = 'Sức chứa hiện tại: %{value}',
+            slots_txt = 'Số ô chứa hiện tại: %{value}',
+        },
     },
 }
 
-Lang = Lang or Locale:new({
+Lang = Locale:new({
     phrases = Translations,
     warnOnMissing = true
 })
