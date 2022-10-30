@@ -361,7 +361,7 @@ QBShared.Items = {
 	['diamond'] 				     = {['name'] = 'diamond', 			  	    	['label'] = 'Diamond', 		        	['weight'] = 1000, 		['type'] = 'item', 		['image'] = 'diamond.png', 		        ['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A diamond seems like the jackpot to me!'},
 	['goldchain'] 				 	 = {['name'] = 'goldchain', 			  	  	['label'] = 'Golden Chain', 			['weight'] = 1500, 		['type'] = 'item', 		['image'] = 'goldchain.png', 			['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'A golden chain seems like the jackpot to me!'},
 	['10kgoldchain'] 				 = {['name'] = '10kgoldchain', 			  	  	['label'] = '10k Gold Chain', 			['weight'] = 2000, 		['type'] = 'item', 		['image'] = '10kgoldchain.png', 		['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = '10 carat golden chain'},
-	['goldbar'] 			 	 	 = {['name'] = 'goldbar', 			  			['label'] = 'Gold Bar', 				['weight'] = 7000, 	    ['type'] = 'item', 		['image'] = 'goldbar.png', 				['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'Looks pretty expensive to me'},
+	['goldbar'] 			 	 	 = {['name'] = 'goldbar', 			  			['label'] = 'Gold Bar', 				['weight'] = 5000, 	    ['type'] = 'item', 		['image'] = 'goldbar.png', 				['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = 'Looks pretty expensive to me'},
 
 	-- Cops Tools
 	['armor'] 		 				 = {['name'] = 'armor', 						['label'] = 'Armor', 					['weight'] = 5000, 	    ['type'] = 'item', 		['image'] = 'armor.png', 				['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Some protection won\'t hurt... right?'},
@@ -486,7 +486,7 @@ QBShared.Items = {
 	['daily-ticket'] 				 		 = {['name'] = 'daily-ticket', 			  	  			['label'] = 'Vé đổi quà', 					['weight'] = 0, 		['type'] = 'item', 		['image'] = 'daily-ticket.png', 			['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = 'Thẻ đổi quà hằng ngày!', ['isBound'] = true},
 
 	-- Rename card
-	["renamecard"]			= {["name"] = "renamecard",			["label"] = "Thẻ Đổi Tên",		["weight"] = 200,	["type"] = "item",	["image"] = "renamecard.png",		["unique"] = true,	["useable"] = true,		["shouldClose"] = true,		["combinable"] = nil,   ["description"] = "Thay tên đổi họ"},
+	["renamecard"]						= {["name"] = "renamecard",			["label"] = "Thẻ Đổi Tên",		["weight"] = 200,	["type"] = "item",	["image"] = "renamecard.png",		["unique"] = true,	["useable"] = true,		["shouldClose"] = true,		["combinable"] = nil,   ["description"] = "Thay tên đổi họ"},
 
 	-- Micro Phone
 	["megaphone"]						= {["name"] = "megaphone",			["label"] = "Megaphone",		["weight"] = 2000,	["type"] = "item",	["image"] = "megaphone.png",	["unique"] = true,	["useable"] = true,	["shouldClose"] = false,	["combinable"] = nil,	   ["description"] = "Loa dùng để thông báo với người dân."},
@@ -985,7 +985,7 @@ QBShared.Items = {
 		['description'] = 'Nghe nói, ai cầm cần câu này trong tay thì bách phát bách trúng'
 	},
 
-	['swordhlw'] 				     = {['name'] = 'swordhlw',					    ['label'] = 'Kiếm Diệt Qủy', 			    ['weight'] = 100, 		['type'] = 'weapon', 		['image'] = 'swordhlw.png', 			    ['unique'] = true, 	    ['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = "Kiếm trừ ma diệt ác, thanh tẩy mọi cơ thể"},
+	['swordhlw'] 				     = {['name'] = 'swordhlw',					    ['label'] = 'Kiếm Diệt Qủy', 			    ['weight'] = 100, 		['type'] = 'weapon', 	['image'] = 'swordhlw.png', 			    ['unique'] = true, 	    ['useable'] = true, 	['shouldClose'] = true, 	['combinable'] = nil,   	['description'] = "Kiếm trừ ma diệt ác, thanh tẩy mọi cơ thể"},
 	['pumpkin'] 				 	 = {['name'] = 'pumpkin',						['label'] = 'Trái Bí Ngô', 					['weight'] = 100, 		['type'] = 'item', 		['image'] = 'pumpkin.png', 					['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = "Bí ngô event Halloween"},
 	['lucky_coin'] 				 	 = {['name'] = 'lucky_coin',					['label'] = 'Đồng Tiền May Mắn', 			['weight'] = 50, 		['type'] = 'item', 		['image'] = 'lucky_coin.png', 				['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = "Đồng tiền event Halloween"},
 	['vehiclekey'] 				 	 = {['name'] = 'vehiclekey',					['label'] = 'Vehicle key', 					['weight'] = 0, 		['type'] = 'item', 		['image'] = 'vehiclekeys.png', 				['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = "Đây là chìa khóa xe, chăm sóc nó tốt, nếu bạn mất nó, có lẽ bạn sẽ không thể sử dụng xe của mình"},
@@ -993,5 +993,7 @@ QBShared.Items = {
 	['phonecard'] 				 	 = {['name'] = 'phonecard',						['label'] = 'Thẻ Đổi SĐT', 					['weight'] = 0, 		['type'] = 'item', 		['image'] = 'phonecard.png', 				['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = "Thẻ đổi số điện thoại"},
 	['giaygoiqua'] 				 	 = {['name'] = 'giaygoiqua',					['label'] = 'Giấy Gói Qùa', 				['weight'] = 50, 		['type'] = 'item', 		['image'] = 'giaygoiqua.png', 				['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = "Dùng cái này để gói hộp quà Halloween"},
 	['halloween_gift'] 				 = {['name'] = 'halloween_gift',				['label'] = 'Hộp Qùa Halloween', 			['weight'] = 100, 		['type'] = 'item', 		['image'] = 'halloween_gift.png', 			['unique'] = false, 	['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = "Hộp quà Halloween ẩn chứa những điếu bí ẩn bên trong"},
-
+	['voucher_bar'] 				 = {['name'] = 'voucher_bar',					['label'] = 'Voucher Myst Bar', 			['weight'] = 100, 		['type'] = 'item', 		['image'] = 'voucher_bar.png', 			    ['unique'] = true, 	    ['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = "Voucher MystBar Chú Mười"},
+	['voucher_tunner'] 				 = {['name'] = 'voucher_tunner',				['label'] = 'Voucher Độ Xe', 				['weight'] = 100, 		['type'] = 'item', 		['image'] = 'voucher_tunner.png', 			['unique'] = true, 	    ['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = "Voucher giảm giá độ xe"},
+	['voucher_car'] 				 = {['name'] = 'voucher_car',					['label'] = 'Voucher Mua Xe', 				['weight'] = 100, 		['type'] = 'item', 		['image'] = 'voucher_car.png', 			['unique'] = true, 	    ['useable'] = false, 	['shouldClose'] = true,    ['combinable'] = nil,   ['description'] = "Voucher giảm giá mua xe"},
 }

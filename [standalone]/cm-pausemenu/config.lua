@@ -494,279 +494,272 @@ Config.BattlepassItem = {
 Config.DailyAwardsItem = {
     {
         amount = 5000,
-        label = 'Cash',
+        label = 'Tiền Mặt',
         image = 'cash.png',
         type = 'money',
     },
     {
-        amount = 5000,
-        label = 'Cash',
-        image = 'cash.png',
-        type = 'money',
+        label = 'Hộp Bánh Nước',
+        image = 'box.png', -- check html/assets/car_images for more car images
+        type = 'box',
+        items = {
+            {
+                name = 'water_bottle',
+                label = 'Nước',
+                amount = 10,
+                type = 'item',
+            },
+            {
+                name = 'tosti',
+                amount = 10,
+                label = 'Bánh Nướng',
+                type = 'item',
+            },
+        }
     },
     {
-        name = 'water_bottle',
-        label = 'Water',
-        image = 'water.png',
-        amount = 20,
+        name = 'advancedlockpick',
+        label = 'Khóa Nâng Cấp',
+        image = 'advancedlockpick.png',
+        amount = 2,
         type = 'item',
     },
     {
-        name = 'advancedrepairkit',
-        label = 'Repair Kit',
-        image = 'advancedkit.png',
+        name = 'ifaks',
+        label = 'Thuốc',
+        image = 'ifaks.png',
         amount = 5,
         type = 'item',
     },
     {
-        name = 'phone',
-        label = 'Phone',
-        image = 'samsungphone.png',
+        name = 'binoculars',
+        label = 'Ống Nhòm',
+        image = 'binoculars.png',
         amount = 1,
         type = 'item',
     },
     {
-        name = 'water_bottle',
-        label = 'Water',
-        image = 'water.png',
-        amount = 2,
-        type = 'item',
-    },
-    {
-        name = 'phone',
-        label = 'Phone',
-        image = 'samsungphone.png',
+        name = 'parachute',
+        label = 'Dù',
+        image = 'parachute.png',
         amount = 1,
         type = 'item',
     },
     {
-        amount = 5000,
-        label = 'Cash',
+        label = 'Hộp Thợ Lặn',
+        image = 'box.png', -- check html/assets/car_images for more car images
+        type = 'box',
+        items = {
+            {
+                name = 'diving_gear',
+                label = 'Bình Lặn',
+                amount = 1,
+                type = 'item',
+            },
+            {
+                name = 'diving_fill',
+                amount = 2,
+                label = 'Ống Thở',
+                type = 'item',
+            },
+        }
+    },
+    {
+        label = 'Hộp Bánh Nước',
+        image = 'box.png', -- check html/assets/car_images for more car images
+        type = 'box',
+        items = {
+            {
+                name = 'water_bottle',
+                label = 'Nước',
+                amount = 20,
+                type = 'item',
+            },
+            {
+                name = 'tosti',
+                amount = 20,
+                label = 'Bánh Nướng',
+                type = 'item',
+            },
+        }
+    },
+    {
+        name = 'joint',
+        label = 'Điếu Cần',
+        image = 'joint.png',
+        amount = 5,
+        type = 'item',
+    },
+    {
+        amount = 15000,
+        label = 'Tiền Mặt',
         image = 'cash.png',
         type = 'money',
     },
     {
-        name = 'water_bottle',
-        label = 'Water',
-        image = 'water.png',
-        amount = 2,
+        name = 'dice',
+        label = 'Xí Ngầu',
+        image = 'dice.png',
+        amount = 10,
         type = 'item',
     },
     {
-        name = 'advancedrepairkit',
-        label = 'Repair Kit',
-        image = 'advancedkit.png',
-        amount = 1,
-        type = 'item',
-    },
-    {
-        name = 'phone',
-        label = 'Phone',
-        image = 'samsungphone.png',
-        amount = 1,
-        type = 'item',
-    },
-    {
-        name = 'water_bottle',
-        label = 'Water',
-        image = 'water.png',
-        amount = 2,
-        type = 'item',
-    },
-    {
-        name = 'phone',
-        label = 'Phone',
-        image = 'samsungphone.png',
+        name = 'slimmaterialrod',
+        label = 'Cần Câu',
+        image = 'slimmaterialrod.png',
         amount = 1,
         type = 'item',
     },
 
     {
-        name = 'advancedrepairkit',
-        label = 'Repair Kit',
-        image = 'advancedkit.png',
-        amount = 1,
+        name = 'threesidedbait',
+        label = 'Mồi Câu',
+        image = 'threesidedbait.png',
+        amount = 50,
         type = 'item',
     },
     {
-        name = 'phone',
-        label = 'Phone',
-        image = 'samsungphone.png',
-        amount = 1,
+        name = 'screwdriverset',
+        label = 'Bộ Vít',
+        image = 'screwdriverset.png',
+        amount = 6,
         type = 'item',
     },
     {
-        name = 'water_bottle',
+        name = 'vouhcher_bar',
         label = 'Water',
         image = 'water.png',
         amount = 2,
         type = 'item',
     },
     {
-        name = 'phone',
-        label = 'Phone',
-        image = 'samsungphone.png',
-        amount = 1,
-        type = 'item',
-    },
-
-    {
-        name = 'advancedrepairkit',
-        label = 'Repair Kit',
-        image = 'advancedkit.png',
-        amount = 1,
-        type = 'item',
-    },
-    {
-        name = 'phone',
-        label = 'Phone',
-        image = 'samsungphone.png',
-        amount = 1,
-        type = 'item',
-    },
-    {
-        name = 'water_bottle',
-        label = 'Water',
-        image = 'water.png',
-        amount = 2,
-        type = 'item',
-    },
-    {
-        name = 'phone',
-        label = 'Phone',
-        image = 'samsungphone.png',
-        amount = 1,
-        type = 'item',
-    },
-
-    {
-        name = 'advancedrepairkit',
-        label = 'Repair Kit',
-        image = 'advancedkit.png',
-        amount = 1,
-        type = 'item',
-    },
-    {
-        name = 'phone',
-        label = 'Phone',
-        image = 'samsungphone.png',
-        amount = 1,
-        type = 'item',
-    },
-    {
-        name = 'water_bottle',
-        label = 'Water',
-        image = 'water.png',
-        amount = 2,
-        type = 'item',
-    },
-    {
-        name = 'phone',
-        label = 'Phone',
-        image = 'samsungphone.png',
-        amount = 1,
-        type = 'item',
-    },
-    {
-        name = 'adder',
-        label = 'Adder',
-        image = 'Adder.png', -- check html/assets/car_images for more car images
-        type = 'vehicle',
-        garage = 'motelgarage', -- Set this option only on qb-core
-
-    },
-    {
-        label = 'Items Box',
+        label = 'Hộp Hạt Giống',
         image = 'box.png', -- check html/assets/car_images for more car images
         type = 'box',
         items = {
             {
-                name = 'adder',
-                label = 'Adder',
-                type = 'vehicle',
-                garage = 'motelgarage', -- Set this option only on qb-core
-
-            },
-            {
-                name = 'phone',
-                label = 'Phone',
-                amount = 1,
+                name = 'wheat_seed',
+                label = 'Hạt Lúa',
+                amount = 15,
                 type = 'item',
             },
             {
-                name = 'water_bottle',
-                label = 'Water',
-                amount = 2,
+                name = 'orange_seed',
+                amount = 15,
+                label = 'Hạt Cam',
                 type = 'item',
             },
             {
-                amount = 5000,
-                label = 'Cash',
-                type = 'money',
+                name = 'bean_seed',
+                amount = 15,
+                label = 'Hạt Đậu',
+                type = 'item',
+            },
+            {
+                name = 'coffee_seed',
+                amount = 15,
+                label = 'Hạt Caffe',
+                type = 'item',
             },
         }
     },
+
     {
-        label = 'Items Box',
+        name = 'weed_seed',
+        label = 'Hạt Cần',
+        image = 'weed_seed.png',
+        amount = 30,
+        type = 'item',
+    },
+    {
+        name = 'plastic_bags',
+        label = 'Túi Nhựa',
+        image = 'plastic_bags.png',
+        amount = 100,
+        type = 'item',
+    },
+    {
+        name = 'giesskanne_voll',
+        label = 'Nước Tưới Cây',
+        image = 'giesskanne_voll.png',
+        amount = 60,
+        type = 'item',
+    },
+    {
+        name = 'voucher_tunner',
+        label = 'Voucher Độ Xe',
+        image = 'voucher_tunner.png',
+        amount = 1,
+        type = 'item',
+    },
+
+    {
+        name = 'ifaks',
+        label = 'Thuốc',
+        image = 'ifaks.png',
+        amount = 15,
+        type = 'item',
+    },
+    {
+        amount = 20000,
+        label = 'Tiền Mặt',
+        image = 'cash.png',
+        type = 'money',
+    },
+    {
+        name = 'leather',
+        label = 'Da Thuộc',
+        image = 'leather.png',
+        amount = 10,
+        type = 'item',
+    },
+    {
+        name = 'advancedrepairkit',
+        label = 'Hộp Sửa Xe',
+        image = 'advancedrepairkit.png',
+        amount = 2,
+        type = 'item',
+    },
+    {
+        name = 'voucher_car',
+        label = 'Voucher Xe',
+        image = 'voucher_car.png', -- check html/assets/car_images for more car images
+        type = 'item',
+        amount = 1,
+        -- garage = 'motelgarage', -- Set this option only on qb-core
+    },
+    {
+        label = 'Hộp Ngọc Qúy',
         image = 'box.png', -- check html/assets/car_images for more car images
         type = 'box',
         items = {
             {
-                name = 'adder',
-                label = 'Adder',
-                type = 'vehicle',
-                garage = 'motelgarage', -- Set this option only on qb-core
-
-            },
-            {
-                name = 'phone',
-                label = 'Phone',
-                amount = 1,
+                name = 'diamond',
+                label = 'Kim Cương',
+                amount = 5,
                 type = 'item',
             },
             {
-                name = 'water_bottle',
-                label = 'Water',
-                amount = 2,
+                name = 'emerald',
+                label = 'Lục Bảo',
+                amount = 5,
                 type = 'item',
-            },
-            {
-                amount = 5000,
-                label = 'Cash',
-                type = 'money',
             },
         }
     },
     {
-        label = 'Items Box',
-        image = 'box.png', -- check html/assets/car_images for more car images
-        type = 'box',
-        items = {
-            {
-                name = 'adder',
-                label = 'Adder',
-                type = 'vehicle',
-                garage = 'motelgarage', -- Set this option only on qb-core
-
-            },
-            {
-                name = 'phone',
-                label = 'Phone',
-                amount = 1,
-                type = 'item',
-            },
-            {
-                name = 'water_bottle',
-                label = 'Water',
-                amount = 2,
-                type = 'item',
-            },
-            {
-                amount = 5000,
-                label = 'Cash',
-                type = 'money',
-            },
-        }
+        name = 'goldbar',
+        label = 'Thỏi Vàng',
+        image = 'goldbar.png',
+        amount = 1,
+        type = 'item',
+    },
+    {
+        name = 'renamecard',
+        label = 'Thẻ Đổi Tên',
+        image = 'renamecard.png',
+        amount = 1,
+        type = 'item',
     },
 }
 

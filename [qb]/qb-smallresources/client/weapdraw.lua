@@ -70,6 +70,7 @@ local weapons = {
 	'WEAPON_COMPACTLAUNCHER',
 	'WEAPON_PIPEBOMB',
 	'WEAPON_DOUBLEACTION',
+	'SWORDHLW',
 }
 
 -- Wheapons that require the Police holster animation

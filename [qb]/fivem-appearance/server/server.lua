@@ -79,7 +79,7 @@ QBCore.Functions.CreateCallback("fivem-appearance:server:getManagementOutfits", 
         jobName = Player.PlayerData.gang.name
         grade = Player.PlayerData.gang.grade.level
     end
-    
+
     grade = tonumber(grade)
 
     local query = "SELECT * FROM management_outfits WHERE type = ? AND job_name = ?"
