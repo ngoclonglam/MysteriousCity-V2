@@ -1,9 +1,9 @@
 local Translations = {
     error = {
         to_far_from_door = 'Bạn ở quá xa chuông cửa',
-        nobody_home = 'Không thấy ai trả lời? Ủa có ai ở nhà không tak?',
+        nobody_home = 'Không thấy ai trả lời? Ủa có ai ở nhà không ta?',
         nobody_at_door = 'Không có ai trước cửa nhà',
-        insufficient_balance =  'Nghèo vãi bều !!! Không đủ tiền mặt/bank...'
+        insufficient_balance =  'Nghèo vãi bều !!! Không có đủ tiền cũng tới đây...'
     },
     success = {
         receive_apart = 'Bạn vừa nhận được căn hộ',
