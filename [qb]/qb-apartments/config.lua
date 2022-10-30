@@ -2,7 +2,26 @@ Apartments = {}
 Apartments.Starting = false
 Apartments.SpawnOffset = 30
 Apartments.Locations = {
-    ["apartment1"] = {
+    ["apartment382"] = {
+        name = "apartment382",
+        label = "Chung Cư Alta",
+        rentalprice = "10000",
+        rentallength = 7, -- Rental period
+        coords = {
+            enter = vector4(-267.28, -959.0, 31.22, 107.84),
+        },
+        polyzoneBoxData = {
+            heading = 107.84,
+            minZ = 29.22,
+            maxZ = 33.22,
+            debug = false,
+            length = 15,
+            width = 15,
+            distance = 2.0,
+            created = false
+        }
+    },
+--[[     ["apartment1"] = {
         name = "apartment1",
         label = "South Rockford Drive",
         coords = {
@@ -86,5 +105,5 @@ Apartments.Locations = {
             distance = 2.0,
             created = false
         }
-    },
+    }, ]]
 }

@@ -58,23 +58,6 @@ RegisterNetEvent('qb-apartments:returnBucket', function()
     SetPlayerRoutingBucket(src, 0)
 end)
 
-RegisterNetEvent('apartments:server:CreateApartment', function(type, label)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
-    local num = CreateApartmentId(type)
-    local apartmentId = tostring(type .. num)
-    label = tostring(label .. " " .. num)
-    MySQL.insert('INSERT INTO apartments (name, type, label, citizenid) VALUES (?, ?, ?, ?)', {
-        apartmentId,
-        type,
-        label,
-        Player.PlayerData.citizenid
-    })
-    TriggerClientEvent('QBCore:Notify', src, Lang:t('success.receive_apart').." ("..label..")")
-    TriggerClientEvent("apartments:client:SpawnInApartment", src, apartmentId, type)
-    TriggerClientEvent("apartments:client:SetHomeBlip", src, type)
-end)
-
 RegisterNetEvent('apartments:server:UpdateApartment', function(type, label)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
@@ -199,31 +182,92 @@ end)
 QBCore.Functions.CreateCallback('apartments:IsOwner', function(source, cb, apartment)
 	local src = source
     local Player = QBCore.Functions.GetPlayer(src)
+    local info =  { isRented = false, isExpired = false }
     if Player ~= nil then
         local result = MySQL.query.await('SELECT * FROM apartments WHERE citizenid = ?', { Player.PlayerData.citizenid })
         if result[1] ~= nil then
             if result[1].type == apartment then
-                cb(true)
-            else
-                cb(false)
+                info.isRented = true
+                if result[1].expireddate < os.date("%Y-%m-%d") then
+                    info.isExpired = true
+                else
+                    info.isExpired = false
+                end
             end
-        else
-            cb(false)
         end
     end
+    cb(info)
 end)
 
 
 QBCore.Functions.CreateCallback('apartments:GetOutfits', function(source, cb)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
 
-    if Player then
+	if Player then
         local result = MySQL.query.await('SELECT * FROM player_outfits WHERE citizenid = ?', { Player.PlayerData.citizenid })
         if result[1] ~= nil then
             cb(result)
         else
             cb(nil)
         end
+	end
+end)
+
+QBCore.Functions.CreateCallback('apartments:server:CreateApartment', function(source, cb, type, label)
+    local src = source
+    local player = QBCore.Functions.GetPlayer(src)
+    local rentalPrice = tonumber(Apartments.Locations[type].rentalprice)
+    local apartmentNum = CreateApartmentId(type)
+    local apartmentId = tostring(type .. apartmentNum)
+    local rentalLength = Apartments.Locations[type].rentallength * 24 * 60 * 60 -- in seconds
+    local expiredDate = os.date("%Y-%m-%d", os.time() + rentalLength)
+
+    if player.PlayerData.money["bank"] >= rentalPrice then
+        player.Functions.RemoveMoney('bank', rentalPrice, "rented_apartment")
+    elseif player.PlayerData.money["cash"] >= rentalPrice then
+        player.Functions.RemoveMoney('cash', rentalPrice, "rented_apartment")
+    else
+        TriggerClientEvent('QBCore:Notify', src, Lang:t('error.insufficient_balance'), 'error')
+        cb(false)
+        return
     end
+
+    label = tostring(label .. " " .. apartmentNum)
+    MySQL.insert('INSERT INTO apartments (name, type, label, citizenid, expireddate) VALUES (?, ?, ?, ?, ?)', {
+        apartmentId,
+        type,
+        label,
+        player.PlayerData.citizenid,
+        expiredDate
+    })
+    TriggerClientEvent('QBCore:Notify', src, Lang:t('success.receive_apart').." ("..label..")")
+    TriggerClientEvent("apartments:client:SetHomeBlip", src, type)
+    cb(true)
+end)
+
+QBCore.Functions.CreateCallback('apartments:server:ExtendRental', function(source, cb, type, label)
+    local src = source
+    local player = QBCore.Functions.GetPlayer(src)
+    local rentalPrice = tonumber(Apartments.Locations[type].rentalprice)
+    local rentalLength = Apartments.Locations[type].rentallength * 24 * 60 * 60 -- in seconds
+    local expiredDate = os.date("%Y-%m-%d", os.time() + rentalLength)
+
+    if player.PlayerData.money["bank"] >= rentalPrice then
+        player.Functions.RemoveMoney('bank', rentalPrice, "extended_apartment")
+    elseif player.PlayerData.money["cash"] >= rentalPrice then
+        player.Functions.RemoveMoney('cash', rentalPrice, "extended_apartment")
+    else
+        TriggerClientEvent('QBCore:Notify', src, Lang:t('error.insufficient_balance'), 'error')
+        cb(false)
+        return
+    end
+
+    MySQL.update('UPDATE apartments SET expireddate = ? WHERE citizenid = ?', {
+        expiredDate,
+        player.PlayerData.citizenid,
+    })
+    TriggerClientEvent('QBCore:Notify', src, Lang:t('success.extended_apart'))
+    TriggerClientEvent("apartments:client:SetHomeBlip", src, type)
+    cb(true)
 end)
