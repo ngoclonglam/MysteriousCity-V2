@@ -20,7 +20,7 @@ end
 local function GetApartmentInfo(apartmentId)
     local retval = nil
     local result = MySQL.query.await('SELECT * FROM apartments WHERE name = ?', { apartmentId })
-    if result[1] ~= nil then
+    if result[1] then
         retval = result[1]
     end
     return retval
@@ -68,7 +68,7 @@ end)
 
 RegisterNetEvent('apartments:server:RingDoor', function(apartmentId, apartment)
     local src = source
-    if ApartmentObjects[apartment].apartments[apartmentId] ~= nil and next(ApartmentObjects[apartment].apartments[apartmentId].players) ~= nil then
+    if ApartmentObjects[apartment].apartments[apartmentId] and next(ApartmentObjects[apartment].apartments[apartmentId].players) then
         for k, _ in pairs(ApartmentObjects[apartment].apartments[apartmentId].players) do
             TriggerClientEvent('apartments:client:RingDoor', k, src)
         end
@@ -77,7 +77,7 @@ end)
 
 RegisterNetEvent('apartments:server:OpenDoor', function(target, apartmentId, apartment)
     local OtherPlayer = QBCore.Functions.GetPlayer(target)
-    if OtherPlayer ~= nil then
+    if OtherPlayer then
         TriggerClientEvent('apartments:client:SpawnInApartment', OtherPlayer.PlayerData.source, apartmentId, apartment)
     end
 end)
@@ -85,10 +85,10 @@ end)
 RegisterNetEvent('apartments:server:AddObject', function(apartmentId, apartment, offset)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
-    if ApartmentObjects[apartment] ~= nil and ApartmentObjects[apartment].apartments ~= nil and ApartmentObjects[apartment].apartments[apartmentId] ~= nil then
+    if ApartmentObjects[apartment] and ApartmentObjects[apartment].apartments and ApartmentObjects[apartment].apartments[apartmentId] then
         ApartmentObjects[apartment].apartments[apartmentId].players[src] = Player.PlayerData.citizenid
     else
-        if ApartmentObjects[apartment] ~= nil and ApartmentObjects[apartment].apartments ~= nil then
+        if ApartmentObjects[apartment] and ApartmentObjects[apartment].apartments then
             ApartmentObjects[apartment].apartments[apartmentId] = {}
             ApartmentObjects[apartment].apartments[apartmentId].offset = offset
             ApartmentObjects[apartment].apartments[apartmentId].players = {}
@@ -106,7 +106,7 @@ end)
 
 RegisterNetEvent('apartments:server:RemoveObject', function(apartmentId, apartment)
     local src = source
-    if ApartmentObjects[apartment].apartments[apartmentId].players ~= nil then
+    if ApartmentObjects[apartment].apartments[apartmentId].players then
         ApartmentObjects[apartment].apartments[apartmentId].players[src] = nil
         if next(ApartmentObjects[apartment].apartments[apartmentId].players) == nil then
             ApartmentObjects[apartment].apartments[apartmentId] = nil
@@ -126,9 +126,9 @@ end)
 
 QBCore.Functions.CreateCallback('apartments:GetAvailableApartments', function(_, cb, apartment)
     local apartments = {}
-    if ApartmentObjects ~= nil and ApartmentObjects[apartment] ~= nil and ApartmentObjects[apartment].apartments ~= nil then
+    if ApartmentObjects and ApartmentObjects[apartment] and ApartmentObjects[apartment].apartments then
         for k, _ in pairs(ApartmentObjects[apartment].apartments) do
-            if (ApartmentObjects[apartment].apartments[k] ~= nil and next(ApartmentObjects[apartment].apartments[k].players) ~= nil) then
+            if (ApartmentObjects[apartment].apartments[k] and next(ApartmentObjects[apartment].apartments[k].players) ~= nil) then
                 local apartmentInfo = GetApartmentInfo(k)
                 apartments[k] = apartmentInfo.label
             end
@@ -139,9 +139,9 @@ end)
 
 QBCore.Functions.CreateCallback('apartments:GetApartmentOffset', function(_, cb, apartmentId)
     local retval = 0
-    if ApartmentObjects ~= nil then
+    if ApartmentObjects then
         for k, _ in pairs(ApartmentObjects) do
-            if (ApartmentObjects[k].apartments[apartmentId] ~= nil and tonumber(ApartmentObjects[k].apartments[apartmentId].offset) ~= 0) then
+            if (ApartmentObjects[k].apartments[apartmentId] and tonumber(ApartmentObjects[k].apartments[apartmentId].offset) ~= 0) then
                 retval = tonumber(ApartmentObjects[k].apartments[apartmentId].offset)
             end
         end
@@ -151,7 +151,7 @@ end)
 
 QBCore.Functions.CreateCallback('apartments:GetApartmentOffsetNewOffset', function(_, cb, apartment)
     local retval = Apartments.SpawnOffset
-    if ApartmentObjects ~= nil and ApartmentObjects[apartment] ~= nil and ApartmentObjects[apartment].apartments ~= nil then
+    if ApartmentObjects and ApartmentObjects[apartment] and ApartmentObjects[apartment].apartments then
         for k, _ in pairs(ApartmentObjects[apartment].apartments) do
             if (ApartmentObjects[apartment].apartments[k] ~= nil) then
                 retval = ApartmentObjects[apartment].apartments[k].offset + Apartments.SpawnOffset
@@ -162,9 +162,9 @@ QBCore.Functions.CreateCallback('apartments:GetApartmentOffsetNewOffset', functi
 end)
 
 QBCore.Functions.CreateCallback('apartments:GetOwnedApartment', function(source, cb, cid)
-    if cid ~= nil then
+    if cid then
         local result = MySQL.query.await('SELECT * FROM apartments WHERE citizenid = ?', { cid })
-        if result[1] ~= nil then
+        if result[1] then
             return cb(result[1])
         end
         return cb(nil)
@@ -172,7 +172,7 @@ QBCore.Functions.CreateCallback('apartments:GetOwnedApartment', function(source,
         local src = source
         local Player = QBCore.Functions.GetPlayer(src)
         local result = MySQL.query.await('SELECT * FROM apartments WHERE citizenid = ?', { Player.PlayerData.citizenid })
-        if result[1] ~= nil then
+        if result[1] then
             return cb(result[1])
         end
         return cb(nil)
@@ -183,9 +183,9 @@ QBCore.Functions.CreateCallback('apartments:IsOwner', function(source, cb, apart
 	local src = source
     local Player = QBCore.Functions.GetPlayer(src)
     local info =  { isRented = false, isExpired = false }
-    if Player ~= nil then
+    if Player then
         local result = MySQL.query.await('SELECT * FROM apartments WHERE citizenid = ?', { Player.PlayerData.citizenid })
-        if result[1] ~= nil then
+        if result[1] then
             if result[1].type == apartment then
                 info.isRented = true
                 if result[1].expireddate < os.date("%Y-%m-%d") then
@@ -206,7 +206,7 @@ QBCore.Functions.CreateCallback('apartments:GetOutfits', function(source, cb)
 
 	if Player then
         local result = MySQL.query.await('SELECT * FROM player_outfits WHERE citizenid = ?', { Player.PlayerData.citizenid })
-        if result[1] ~= nil then
+        if result[1] then
             cb(result)
         else
             cb(nil)
