@@ -24,6 +24,8 @@ Apartments.Locations = {
     ["apartment2509"] = {
         name = "apartment2509",
         label = "Chung Cư Intergity",
+        rentalprice = "35000",
+        rentallength = 7,
         coords = {
             enter = vector4(269.73, -640.75, 42.02, 249.07),
         },
