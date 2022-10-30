@@ -27,19 +27,19 @@ end)
 RegisterNetEvent("megaphone:Toggle", function()
     if not holdingMega then
         holdingMega = true
-        CreateThread(function()
-            while true do
-                Wait(1000)
-                if not IsEntityPlayingAnim(PlayerPedId(),"amb@world_human_mobile_film_shocking@female@base", "base", 3) and holdingMega then
-                    print('this shit')
-                    holdingMega = false
-                    TriggerEvent('animations:client:EmoteCommandStart', {"c"})
-                    exports["pma-voice"]:clearProximityOverride()
-                    TerminateThisThread()
-                    break
-                end
-            end
-        end)
+        -- CreateThread(function()
+        --     while true do
+        --         Wait(1000)
+        --         if not IsEntityPlayingAnim(PlayerPedId(),"amb@world_human_mobile_film_shocking@female@base", "base", 3) and holdingMega then
+        --             print('this shit')
+        --             holdingMega = false
+        --             TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        --             exports["pma-voice"]:clearProximityOverride()
+        --             TerminateThisThread()
+        --             break
+        --         end
+        --     end
+        -- end)
         TriggerEvent('animations:client:EmoteCommandStart', {"megaphone"})
         exports["pma-voice"]:overrideProximityRange(50.0, true)
     else
