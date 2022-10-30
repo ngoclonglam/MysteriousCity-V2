@@ -169,6 +169,7 @@ end
 
 function ToggleClothing(which, extra)
 	if Cooldown then return end
+	print('[which]', which)
 	print('Drawables[which]', Drawables[which])
 	print('Extras[which]', Extras[which])
 	local Toggle = Drawables[which] if extra then Toggle = Extras[which] end
