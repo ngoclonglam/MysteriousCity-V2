@@ -378,7 +378,7 @@ local function EnterApartment(house, apartmentId, new)
             TriggerServerEvent("apartments:server:setCurrentApartment", CurrentApartment)
         end
 
-        if new ~= nil then
+        if new then
             if new then
                 TriggerEvent('qb-interior:client:SetNewState', true)
             else
@@ -533,7 +533,7 @@ end
 
 AddEventHandler('onResourceStop', function(resource)
     if resource == GetCurrentResourceName() then
-        if HouseObj ~= nil then
+        if HouseObj then
             exports['qb-interior']:DespawnInterior(HouseObj, function()
                 CurrentApartment = nil
                 TriggerEvent('qb-weathersync:client:EnableSync')
@@ -586,7 +586,7 @@ end)
 
 RegisterNetEvent('apartments:client:SpawnInApartment', function(apartmentId, apartment)
     local pos = GetEntityCoords(PlayerPedId())
-    if RangDoorbell ~= nil then
+    if RangDoorbell then
         local doorbelldist = #(pos - vector3(Apartments.Locations[RangDoorbell].coords.enter.x, Apartments.Locations[RangDoorbell].coords.enter.y,Apartments.Locations[RangDoorbell].coords.enter.z))
         if doorbelldist > 5 then
             QBCore.Functions.Notify(Lang:t('error.to_far_from_door'))
@@ -628,7 +628,7 @@ end)
 
 RegisterNetEvent('apartments:client:EnterApartment', function()
     QBCore.Functions.TriggerCallback('apartments:GetOwnedApartment', function(result)
-        if result ~= nil then
+        if result then
             EnterApartment(ClosestHouse, result.name)
         end
     end)
