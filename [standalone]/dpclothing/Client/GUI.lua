@@ -120,7 +120,7 @@ local function GenerateTheButtons() -- We generate the buttons here to save on a
 end
 
 local function PushedButton(button, extra, rotate, info) -- https://www.youtube.com/watch?v=v57i1Ze0jB8
-	Citizen.CreateThread(function()	
+	Citizen.CreateThread(function()
 		SoundPlay("Select")
 		local Button = nil
 		if extra then Button = ExtraButtons[button] elseif info then Button = InfoButton else Button = Buttons[button] end
@@ -190,7 +190,7 @@ local function DrawGUI()
 		local Colour local Alpha
 		if LastEquipped[FirstUpper(v.Sprite)] then
 			Alpha = 180 Colour = {r=0,g=100,b=210,a=220}
-		else 
+		else
 			Alpha = 255 Colour = {r=0,g=0,b=0,a=255}
 		end
 		DrawSprite("dp_wheel", k.."", x, y, 0.4285, 0.7714, 0.0, Colour.r, Colour.g, Colour.b, Colour.a)
@@ -207,14 +207,14 @@ local function DrawGUI()
 		if Button and not Cooldown then	-- If the button is clicked we execute the command, just like if the player typed it in chat.
 			if v.Sprite == "gloves" then
 				if not LastEquipped["Shirt"] then
-					PushedButton(k)  ExecuteCommand(v.Command)  
+					PushedButton(k)  ExecuteCommand(v.Command)
 				else
 					Notify(Lang("NoShirtOn"))
 				end
 			else
-				PushedButton(k)  ExecuteCommand(v.Command)  
+				PushedButton(k)  ExecuteCommand(v.Command)
 			end
-			
+
 		end
 	end
 	for k,v in pairs(ExtraButtons) do
@@ -222,7 +222,7 @@ local function DrawGUI()
 			local Colour local Alpha
 			if LastEquipped[FirstUpper(v.Sprite)] then
 				Alpha = 180 Colour = {r=0,g=100,b=210,a=220}
-			else 
+			else
 				Alpha = 255 Colour = {r=0,g=0,b=0,a=255}
 			end
 			local sprite = v.Sprite
@@ -247,7 +247,7 @@ local function DrawGUI()
 					Rotation = v.Rotation,
 				})
 				if Button and not Cooldown then
-					PushedButton(k, true, v.Rotate) ExecuteCommand(v.Command)  
+					PushedButton(k, true, v.Rotate) ExecuteCommand(v.Command)
 				end
 			end
 		end
@@ -263,8 +263,8 @@ local function DrawGUI()
 		x = x, y = y,
 		Rotation = InfoButtonRot,
 	})
-	if InfoButton then 			
-		PushedButton(k, true, true, true)										
+	if InfoButton then
+		PushedButton(k, true, true, true)
 		Notify(Lang("Information"))
 		for k,v in pairs(LastEquipped) do log(k.." : "..json.encode(v)) end		-- If the info button is pressed we log all "LastEquipped" items, for debugging purposes.
 	end
@@ -277,18 +277,18 @@ Citizen.CreateThread(function()
 	while true do Wait(0)
 		if not Config.GUI.Toggle then
 			if IsControlPressed(1, Config.GUI.Key) then
-				local Ped = PlayerPedId() 
+				local Ped = PlayerPedId()
 				if Check(Ped) then MenuOpened = true end
 			else MenuOpened = false end
 			if IsControlJustPressed(1, Config.GUI.Key) then
-				local Ped = PlayerPedId() 
+				local Ped = PlayerPedId()
 				if Check(Ped) then SoundPlay("Open") SetCursorLocation(Config.GUI.Position.x, Config.GUI.Position.y) end
 			elseif IsControlJustReleased(1, Config.GUI.Key) then
 				if Check(Ped) then MenuOpened = false SoundPlay("Close") end
 			end
 		else
 			if IsControlJustPressed(1, Config.GUI.Key) then
-				local Ped = PlayerPedId() 
+				local Ped = PlayerPedId()
 				if Check(Ped) then SoundPlay("Open") SetCursorLocation(Config.GUI.Position.x, Config.GUI.Position.y) MenuOpened = not MenuOpened end
 			end
 		end

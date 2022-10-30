@@ -611,8 +611,8 @@ end)
 function OpenMenu(isPedMenu, backEvent, menuType, menuData)
     local menuItems = {}
     local outfitMenuItems = {{
-        header = "Change Outfit",
-        txt = "Pick from any of your currently saved outfits",
+        header = "Đổi Trang Phục",
+        txt = "Chọn các trang phục mà bạn đã lưu",
         params = {
             event = "fivem-appearance:client:changeOutfitMenu",
             args = {
@@ -621,14 +621,14 @@ function OpenMenu(isPedMenu, backEvent, menuType, menuData)
             }
         }
     }, {
-        header = "Save New Outfit",
-        txt = "Save a new outfit you can use later on",
+        header = "Đổi Trang Phục",
+        txt = "Lưu lại trang phục để sau này sử dụng",
         params = {
             event = "fivem-appearance:client:saveOutfit"
         }
     }, {
-        header = "Delete Outfit",
-        txt = "Yeah... We didnt like that one either",
+        header = "Xóa Trang Phục",
+        txt = "Xóa là mất lun đó nhe",
         params = {
             event = "fivem-appearance:client:deleteOutfitMenu",
             args = {
@@ -638,18 +638,18 @@ function OpenMenu(isPedMenu, backEvent, menuType, menuData)
         }
     }}
     if menuType == "default" then
-        local header = "Buy Clothing - $" .. Config.ClothingCost
+        local header = "Mua Quần Áo - $" .. Config.ClothingCost
         if isPedMenu then
-            header = "Change Clothing"
+            header = "Đổ Quần Áo"
         end
         menuItems[#menuItems + 1] = {
-            header = "Clothing Store Options",
+            header = "Tùy Chọn Quần Áo",
             icon = "fas fa-shirt",
             isMenuHeader = true -- Set to true to make a nonclickable title
         }
         menuItems[#menuItems + 1] = {
             header = header,
-            txt = "Pick from a wide range of items to wear",
+            txt = "Chọn các trang phục mà bạn thích",
             params = {
                 event = "fivem-appearance:client:openClothingShop",
                 args = isPedMenu
@@ -660,7 +660,7 @@ function OpenMenu(isPedMenu, backEvent, menuType, menuData)
         end
     elseif menuType == "outfit" then
         menuItems[#menuItems + 1] = {
-            header = "👔 | Outfit Options",
+            header = "👔 | Tùy Chọn Trang Phục",
             isMenuHeader = true -- Set to true to make a nonclickable title
         }
         for i = 0, #outfitMenuItems, 1 do
@@ -668,19 +668,19 @@ function OpenMenu(isPedMenu, backEvent, menuType, menuData)
         end
     elseif menuType == "job-outfit" then
         menuItems[#menuItems + 1] = {
-            header = "👔 | Outfit Options",
+            header = "👔 | Tùy Chọn Trang Phục",
             isMenuHeader = true -- Set to true to make a nonclickable title
         }
         menuItems[#menuItems + 1] = {
-            header = "Civilian Outfit",
-            txt = "Put on your clothes",
+            header = "Đồ Thường Dân",
+            txt = "Mặc lại đồ thường dân",
             params = {
                 event = "fivem-appearance:client:reloadSkin"
             }
         }
         menuItems[#menuItems + 1] = {
-            header = "Work Clothes",
-            txt = "Pick from any of your work outfits",
+            header = "Đồ Làm Việc",
+            txt = "Hãy chọn các trang phục làm việc của bạn",
             params = {
                 event = "fivem-appearance:client:openJobOutfitsListMenu",
                 args = {

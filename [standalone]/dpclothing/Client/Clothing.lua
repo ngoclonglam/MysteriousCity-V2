@@ -74,7 +74,7 @@ local Extras = {
 		Drawable = 11,
 		Table = {
 			Standalone = true, Male = 252, Female = 74,
-			Extra = { 
+			Extra = {
 						{Drawable = 8, Id = 15, Tex = 0, Name = "Extra Undershirt"},
 			 			{Drawable = 3, Id = 15, Tex = 0, Name = "Extra Gloves"},
 			 			{Drawable = 10, Id = 0, Tex = 0, Name = "Extra Decals"},
@@ -169,10 +169,12 @@ end
 
 function ToggleClothing(which, extra)
 	if Cooldown then return end
+	print('Drawables[which]', Drawables[which])
+	print('Extras[which]', Extras[which])
 	local Toggle = Drawables[which] if extra then Toggle = Extras[which] end
 	local Ped = PlayerPedId()
 	local Cur = { -- Lets check what we are currently wearing.
-		Drawable = GetPedDrawableVariation(Ped, Toggle.Drawable), 
+		Drawable = GetPedDrawableVariation(Ped, Toggle.Drawable),
 		Id = Toggle.Drawable,
 		Ped = Ped,
 		Texture = GetPedTextureVariation(Ped, Toggle.Drawable),
@@ -202,7 +204,7 @@ function ToggleClothing(which, extra)
 		Notify(Lang("NoVariants")) return
 	else
 		if not LastEquipped[which] then
-			if Cur.Drawable ~= Table then 
+			if Cur.Drawable ~= Table then
 				PlayToggleEmote(Toggle.Emote, function()
 					LastEquipped[which] = Cur
 					SetPedComponentVariation(Ped, Toggle.Drawable, Table, 0, 0)
@@ -247,7 +249,7 @@ function ToggleProps(which)
 	local Cur = { -- Lets get out currently equipped prop.
 		Id = Prop.Prop,
 		Ped = Ped,
-		Prop = GetPedPropIndex(Ped, Prop.Prop), 
+		Prop = GetPedPropIndex(Ped, Prop.Prop),
 		Texture = GetPedPropTextureIndex(Ped, Prop.Prop),
 	}
 	if not Prop.Variants then
