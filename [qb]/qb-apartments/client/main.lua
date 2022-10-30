@@ -689,7 +689,7 @@ end)
 
 RegisterNetEvent('apartments:client:OpenStash', function()
     if CurrentApartment then
-        local stashInfo = { maxweight = 500000, slots = 25}
+        local stashInfo = { maxweight = 1000000, slots = 40}
         TriggerServerEvent("inventory:server:OpenInventory", "stash", CurrentApartment, stashInfo)
         TriggerServerEvent("InteractSound_SV:PlayOnSource", "StashOpen", 0.4)
         TriggerEvent("inventory:client:SetCurrentStash", CurrentApartment)
