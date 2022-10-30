@@ -17,7 +17,6 @@ RegisterNetEvent('QBCore:Player:SetPlayerData', function(val)
             end
         end
         if not _HasMegaphone then
-            print('test not have megaphone')
             holdingMega = false
             TriggerEvent('animations:client:EmoteCommandStart', {"c"})
             exports["pma-voice"]:clearProximityOverride()
@@ -32,6 +31,7 @@ RegisterNetEvent("megaphone:Toggle", function()
             while true do
                 Wait(1000)
                 if not IsEntityPlayingAnim(PlayerPedId(),"amb@world_human_mobile_film_shocking@female@base", "base", 3) and holdingMega then
+                    print('this shit')
                     holdingMega = false
                     TriggerEvent('animations:client:EmoteCommandStart', {"c"})
                     exports["pma-voice"]:clearProximityOverride()
