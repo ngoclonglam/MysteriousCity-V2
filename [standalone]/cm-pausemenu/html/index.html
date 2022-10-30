@@ -632,7 +632,7 @@
                                             <h2>{{locales['WELCOMETOLIVE']}}</h2>
                                         </div>
                                         <div class="create_call_container_top_button">
-                                            <h2 @click="liveCallEnd(isAdmin,sendIdentifier)">End Call</h2>
+                                            <h2 @click="liveCallEnd(isAdmin,sendIdentifier)">Kết Thúc</h2>
                                             <div class="gobackbuttonlivecall">
                                                 <img v-if="!isAdmin" @click="SetCurrentPage('main')"
                                                     src="./assets/img/backbutton.png" alt="">
@@ -676,11 +676,11 @@
 
                                         <input v-if="!isAdmin" type="text" v-model="livecallmessage"
                                             v-on:keyup.enter="sendlivecallchat(livecallmessage)"
-                                            placeholder="Type Anything...">
+                                            placeholder="Nhập Tin Nhắn...">
 
                                         <input v-else type="text" v-model="livecallmessage"
                                             v-on:keyup.enter="sendlivecallchatadmin(livecallmessage,sendIdentifier)"
-                                            placeholder="Type Anything...">
+                                            placeholder="Nhập Tin Nhắn...">
 
                                         <h2 v-if="!isAdmin" @click="sendlivecallchat(livecallmessage)">
                                             <img class="sendiconimg" src="./assets/img/sendicon.png" alt="">

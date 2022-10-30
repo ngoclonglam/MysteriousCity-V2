@@ -985,7 +985,7 @@ QBShared.Items = {
 		['description'] = 'Nghe nói, ai cầm cần câu này trong tay thì bách phát bách trúng'
 	},
 
-	['swordhlw'] 				     = {['name'] = 'swordhlw',					    ['label'] = 'Kiếm Diệt Qủy', 			    ['weight'] = 100, 		['type'] = 'weapon', 	['image'] = 'swordhlw.png', 			    ['unique'] = true, 	    ['useable'] = true, 	['shouldClose'] = true, 	['combinable'] = nil,   	['description'] = "Kiếm trừ ma diệt ác, thanh tẩy mọi cơ thể"},
+	['weapon_swordhlw'] 		     = {['name'] = 'weapon_swordhlw',					    ['label'] = 'Kiếm Diệt Qủy', 			    ['weight'] = 100, 		['type'] = 'weapon', 	['image'] = 'weapon_swordhlw.png', 			    ['unique'] = true, 	    ['useable'] = true, 	['shouldClose'] = true, 	['combinable'] = nil,   	['description'] = "Kiếm trừ ma diệt ác, thanh tẩy mọi cơ thể"},
 	['pumpkin'] 				 	 = {['name'] = 'pumpkin',						['label'] = 'Trái Bí Ngô', 					['weight'] = 100, 		['type'] = 'item', 		['image'] = 'pumpkin.png', 					['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = "Bí ngô event Halloween"},
 	['lucky_coin'] 				 	 = {['name'] = 'lucky_coin',					['label'] = 'Đồng Tiền May Mắn', 			['weight'] = 50, 		['type'] = 'item', 		['image'] = 'lucky_coin.png', 				['unique'] = false, 	['useable'] = false, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = "Đồng tiền event Halloween"},
 	['vehiclekey'] 				 	 = {['name'] = 'vehiclekey',					['label'] = 'Vehicle key', 					['weight'] = 0, 		['type'] = 'item', 		['image'] = 'vehiclekeys.png', 				['unique'] = true, 		['useable'] = true, 	['shouldClose'] = true,	   ['combinable'] = nil,   ['description'] = "Đây là chìa khóa xe, chăm sóc nó tốt, nếu bạn mất nó, có lẽ bạn sẽ không thể sử dụng xe của mình"},

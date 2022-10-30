@@ -530,6 +530,8 @@ RegisterNetEvent('inventory:client:UseWeapon', function(weaponData, shootbool)
     local ped = PlayerPedId()
     local weaponName = tostring(weaponData.name)
     local weaponHash = joaat(weaponData.name)
+    print('weaponHash', weaponHash)
+    print('weapponData.name', weaponData.name)
     local weaponinhand = GetCurrentPedWeapon(PlayerPedId())
     if currentWeapon == weaponName and weaponinhand then
         SetCurrentPedWeapon(ped, `WEAPON_UNARMED`, true)

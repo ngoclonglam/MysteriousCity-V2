@@ -202,7 +202,7 @@ end)
 
 RegisterServerEvent('qb-admin:giveWeapon', function(weapon)
     local src = source
-    if QBCore.Functions.HasPermission(src, 'admin') or IsPlayerAceAllowed(src, 'command') then
+    if QBCore.Functions.HasPermission(src, 'god') or IsPlayerAceAllowed(src, 'command') then
         local Player = QBCore.Functions.GetPlayer(src)
         Player.Functions.AddItem(weapon, 1)
     end

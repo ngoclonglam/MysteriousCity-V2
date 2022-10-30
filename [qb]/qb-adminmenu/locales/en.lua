@@ -166,7 +166,7 @@ local Translations = {
         ["entity_view_objects"] = "Hiển thị Objects",
         ["entity_view_freeaim_copy"] = "Sao chép thông tin Entity Freeaim",
         ["spawn_weapons"] = "Spawn Vũ khí",
-        ["max_mods"] = "Max car mods",
+        ["max_mods"] = "Nâng cấp xe",
     },
     desc = {
         ["admin_options_desc"] = "Khác. Tùy chọn Admin",
