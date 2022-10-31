@@ -627,8 +627,8 @@ Config.DailyAwardsItem = {
     },
     {
         name = 'vouhcher_bar',
-        label = 'Water',
-        image = 'water.png',
+        label = 'Voucher MystBar',
+        image = 'voucher_bar.png',
         amount = 2,
         type = 'item',
     },
