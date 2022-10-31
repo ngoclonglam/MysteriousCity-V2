@@ -5572,7 +5572,15 @@ QBShared.Vehicles = {
 		['hash'] = `pd20cts`,
 		['shop'] = 'pdm',
 	},
-	
+    ['pumpkinator'] = {
+		['name'] = 'Pumpkinator',
+		['brand'] = 'HLW',
+		['model'] = 'pumpkinator',
+		['price'] = 45000000000,
+		['category'] = 'mod',
+		['hash'] = `pumpkinator`,
+		['shop'] = 'pdm',
+	},
 }
 
 for _, v in pairs(QBShared.Vehicles) do
