@@ -226,7 +226,7 @@ function ToggleClothing(which, extra)
 			print('225')
 			local Last = LastEquipped[which]
 			PlayToggleEmote(Toggle.Emote, function()
-				print('Line 229: Toggle.Drawable, Last.Drawable, Last.Texture,', Toggle.Drawable, Last.Drawable, Last.Texture,)
+				print('Line 229: Toggle.Drawable, Last.Drawable, Last.Texture,', Toggle.Drawable, Last.Drawable, Last.Texture)
 				SetPedComponentVariation(Ped, Toggle.Drawable, Last.Drawable, Last.Texture, 0)
 				LastEquipped[which] = false
 				if Toggle.Table.Extra then
