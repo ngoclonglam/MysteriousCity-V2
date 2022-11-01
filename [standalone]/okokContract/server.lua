@@ -21,7 +21,7 @@ AddEventHandler('okokContract:changeVehicleOwner', function(data)
 		source_name = source_name,
 		vehicle_price = vehicle_price
 	}
-	
+
 	MySQL.Async.fetchAll('SELECT * FROM player_vehicles WHERE citizenid = @identifier AND plate = @plate', {
 		['@identifier'] = xPlayer.PlayerData.citizenid,
 		['@plate'] = plate
@@ -29,14 +29,14 @@ AddEventHandler('okokContract:changeVehicleOwner', function(data)
 		if Config.RemoveMoneyOnSign then
 			local bankMoney = tPlayer.PlayerData.money.bank
 
-			if result[1] ~= nil  then
+			if result[1] then
 				if bankMoney >= vehicle_price then
 					MySQL.Async.fetchAll('UPDATE player_vehicles SET citizenid = @target WHERE citizenid = @owner AND plate = @plate', {
 						['@owner'] = xPlayer.PlayerData.citizenid,
 						['@target'] = tPlayer.PlayerData.citizenid,
 						['@plate'] = plate
 					}, function (result2)
-						if result2 ~= 0 then	
+						if result2 ~= 0 then
 							tPlayer.Functions.RemoveMoney('bank', vehicle_price)
 							xPlayer.Functions.AddMoney('bank', vehicle_price)
 
@@ -57,7 +57,7 @@ AddEventHandler('okokContract:changeVehicleOwner', function(data)
 				TriggerClientEvent('okokNotify:Alert', target, "VEHICLE", source_name.." đã cố gắng bán cho bạn một chiếc xe mà anh ấy không sở hữu", 10000, 'error')
 			end
 		else
-			if result[1] ~= nil then
+			if result[1] then
 				MySQL.Async.fetchAll('UPDATE player_vehicles SET citizenid = @target WHERE citizenid = @owner AND plate = @plate', {
 					['@owner'] = xPlayer.PlayerData.citizenid,
 					['@target'] = tPlayer.PlayerData.citizenid,
