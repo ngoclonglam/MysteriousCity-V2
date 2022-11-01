@@ -38,7 +38,7 @@ local Drawables = {
 	},
 	["Shoes"] = {
 		Drawable = 6,
-		Table = {Standalone = true, Male = 34, Female = 35},
+		Table = {Standalone = true, Male = 97, Female = 35},
 		Emote = {Dict = "random@domestic", Anim = "pickup_low", Move = 0, Dur = 1200}
 	},
 	["Neck"] = {
@@ -73,7 +73,7 @@ local Extras = {
 	["Shirt"] = {
 		Drawable = 11,
 		Table = {
-			Standalone = true, Male = 252, Female = 74,
+			Standalone = true, Male = 15, Female = 15,
 			Extra = {
 						{Drawable = 8, Id = 15, Tex = 0, Name = "Extra Undershirt"},
 			 			{Drawable = 3, Id = 15, Tex = 0, Name = "Extra Gloves"},
@@ -84,7 +84,7 @@ local Extras = {
 	},
 	["Pants"] = {
 		Drawable = 4,
-		Table = {Standalone = true, Male = 61, Female = 14},
+		Table = {Standalone = true, Male = 137, Female = 15},
 		Emote = {Dict = "re@construction", Anim = "out_of_breath", Move = 51, Dur = 1300}
 	},
 	["Bagoff"] = {
@@ -210,7 +210,7 @@ function ToggleClothing(which, extra)
 				PlayToggleEmote(Toggle.Emote, function()
 					LastEquipped[which] = Cur
 					print('Line 212: Cur.Drawable', Cur.Drawable)
-					print('Line 211: Toggle.Drawable, Table', Toggle.Drawable, Table)
+					print('Line 213: Toggle.Drawable, Table', Toggle.Drawable, Table)
 					SetPedComponentVariation(Ped, Toggle.Drawable, Table, 0, 0)
 					if Toggle.Table.Extra then
 						local Extras = Toggle.Table.Extra
