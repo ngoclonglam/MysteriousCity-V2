@@ -182,6 +182,7 @@ function ToggleClothing(which, extra)
 		if not Gender then Notify(Lang("NotAllowedPed")) return false end -- We cancel the command here if the person is not using a multiplayer model.
 	end
 	local Table = Toggle.Table[Gender]
+	print('Line 185: Table', Table)
 	if not Toggle.Table.Standalone then -- "Standalone" is for things that dont require a variant, like the shoes just need to be switched to a specific drawable. Looking back at this i should have planned ahead, but it all works so, meh!
 		for k,v in pairs(Table) do
 			if not Toggle.Remember then
@@ -208,6 +209,7 @@ function ToggleClothing(which, extra)
 			if Cur.Drawable ~= Table then
 				PlayToggleEmote(Toggle.Emote, function()
 					LastEquipped[which] = Cur
+					print('Line 212: Cur.Drawable', Cur.Drawable)
 					print('Line 211: Toggle.Drawable, Table', Toggle.Drawable, Table)
 					SetPedComponentVariation(Ped, Toggle.Drawable, Table, 0, 0)
 					if Toggle.Table.Extra then
@@ -223,7 +225,6 @@ function ToggleClothing(which, extra)
 				return true
 			end
 		else
-			print('225')
 			local Last = LastEquipped[which]
 			PlayToggleEmote(Toggle.Emote, function()
 				print('Line 229: Toggle.Drawable, Last.Drawable, Last.Texture,', Toggle.Drawable, Last.Drawable, Last.Texture)
