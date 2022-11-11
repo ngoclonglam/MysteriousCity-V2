@@ -12,7 +12,6 @@ local CurrentGlovebox = nil
 local CurrentStash = nil
 local isCrafting = false
 local isHotbar = false
-local WeaponAttachments = {}
 local showBlur = true
 
 local function HasItem(items, amount)

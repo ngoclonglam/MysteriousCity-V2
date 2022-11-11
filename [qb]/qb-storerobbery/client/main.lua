@@ -9,7 +9,7 @@ local usingAdvanced = false
 
 CreateThread(function()
     Wait(1000)
-    if QBCore.Functions.GetPlayerData().job ~= nil and next(QBCore.Functions.GetPlayerData().job) then
+    if QBCore.Functions.GetPlayerData().job and next(QBCore.Functions.GetPlayerData().job) then
         PlayerJob = QBCore.Functions.GetPlayerData().job
     end
 end)
@@ -49,7 +49,7 @@ CreateThread(function()
     while true do
         Wait(1)
         local inRange = false
-        if QBCore ~= nil then
+        if QBCore then
             local pos = GetEntityCoords(PlayerPedId())
             for safe,_ in pairs(Config.Safes) do
                 local dist = #(pos - Config.Safes[safe][1].xyz)
@@ -84,7 +84,7 @@ CreateThread(function()
                                         local street1 = GetStreetNameFromHashKey(s1)
                                         local street2 = GetStreetNameFromHashKey(s2)
                                         local streetLabel = street1
-                                        if street2 ~= nil then
+                                        if street2 then
                                             streetLabel = streetLabel .. " " .. street2
                                         end
                                         TriggerServerEvent("qb-storerobbery:server:callCops", "safe", currentSafe, streetLabel, pos)
@@ -145,7 +145,7 @@ RegisterNetEvent('lockpicks:UseLockpick', function(isAdvanced)
                         local street1 = GetStreetNameFromHashKey(s1)
                         local street2 = GetStreetNameFromHashKey(s2)
                         local streetLabel = street1
-                        if street2 ~= nil then
+                        if street2 then
                             streetLabel = streetLabel .. " " .. street2
                         end
                         TriggerServerEvent("qb-storerobbery:server:callCops", "cashier", currentRegister, streetLabel, pos)
@@ -162,7 +162,7 @@ RegisterNetEvent('lockpicks:UseLockpick', function(isAdvanced)
                         local street1 = GetStreetNameFromHashKey(s1)
                         local street2 = GetStreetNameFromHashKey(s2)
                         local streetLabel = street1
-                        if street2 ~= nil then
+                        if street2 then
                             streetLabel = streetLabel .. " " .. street2
                         end
                         TriggerServerEvent("qb-storerobbery:server:callCops", "cashier", currentRegister, streetLabel, pos)
@@ -184,11 +184,11 @@ function IsWearingHandshoes()
     local retval = true
 
     if model == `mp_m_freemode_01` then
-        if Config.MaleNoHandshoes[armIndex] ~= nil and Config.MaleNoHandshoes[armIndex] then
+        if Config.MaleNoHandshoes[armIndex] and Config.MaleNoHandshoes[armIndex] then
             retval = false
         end
     else
-        if Config.FemaleNoHandshoes[armIndex] ~= nil and Config.FemaleNoHandshoes[armIndex] then
+        if Config.FemaleNoHandshoes[armIndex] and Config.FemaleNoHandshoes[armIndex] then
             retval = false
         end
     end
@@ -394,7 +394,7 @@ end)
 
 RegisterNUICallback('TryCombination', function(data, cb)
     QBCore.Functions.TriggerCallback('qb-storerobbery:server:isCombinationRight', function(combination)
-        if tonumber(data.combination) ~= nil then
+        if tonumber(data.combination) then
             if tonumber(data.combination) == combination then
                 TriggerServerEvent("qb-storerobbery:server:SafeReward", currentSafe)
                 TriggerServerEvent("qb-storerobbery:server:setSafeStatus", currentSafe)

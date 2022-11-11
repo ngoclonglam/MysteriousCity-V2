@@ -5,6 +5,7 @@ Config.PedCoords = vector4(-8.55, 508.84, 174.63, 19.81) -- Create preview ped a
 Config.HiddenCoords = vector4(3.3, 523.88, 170.62, 70.87) -- Hides your actual ped Ma-cro guapo while you are in selection
 Config.CamCoords = vector4(-8.88, 512.91, 174.63, 185.5) -- Camera coordinates for character preview screen 
 Config.EnableDeleteButton = false -- Define if the player can delete the character or not
+Config.customNationality = false -- Defines if Nationality input is custom of blocked to the list of Countries
 
 Config.DefaultNumberOfCharacters = 1 -- Define maximum amount of default characters (maximum 5 characters defined by default)
 Config.PlayersNumberOfCharacters = { -- Define maximum amount of player characters by rockstar license (you can find this license in your server's database in the player table)

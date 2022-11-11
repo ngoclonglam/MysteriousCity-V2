@@ -70,11 +70,15 @@ CreateThread(function()
                     end
                 -- Parked car logic
                 elseif driver == 0 and entering ~= lastPickedVehicle and not HasKeys(plate) and not isTakingKeys then
-                    if Config.LockNPCParkedCars then
-                        TriggerServerEvent('qb-vehiclekeys:server:setVehLockState', NetworkGetNetworkIdFromEntity(entering), 2)
-                    else
-                        TriggerServerEvent('qb-vehiclekeys:server:setVehLockState', NetworkGetNetworkIdFromEntity(entering), 1)
-                    end
+                    QBCore.Functions.TriggerCallback('qb-vehiclekeys:server:checkPlayerOwned', function(playerOwned)
+                        if not playerOwned then
+                            if Config.LockNPCParkedCars then
+                                TriggerServerEvent('qb-vehiclekeys:server:setVehLockState', NetworkGetNetworkIdFromEntity(entering), 2)
+                            else
+                                TriggerServerEvent('qb-vehiclekeys:server:setVehLockState', NetworkGetNetworkIdFromEntity(entering), 1)
+                            end
+                        end
+                    end, plate)
                 end
             end
 
@@ -325,7 +329,11 @@ function ToggleVehicleLocks(veh)
 
                 TriggerServerEvent("InteractSound_SV:PlayWithinDistance", 5, "lock", 0.3)
 
-                NetworkRequestControlOfEntity(veh)
+                while NetworkGetEntityOwner(veh) ~= 128 do
+                    NetworkRequestControlOfEntity(veh)
+                    Wait(0)
+                end
+                
                 if vehLockStatus == 1 then
                     TriggerServerEvent('qb-vehiclekeys:server:setVehLockState', NetworkGetNetworkIdFromEntity(veh), 2)
                     QBCore.Functions.Notify(Lang:t("notify.vlock"), "primary")

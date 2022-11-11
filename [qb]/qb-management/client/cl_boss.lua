@@ -285,7 +285,7 @@ RegisterNetEvent('qb-bossmenu:client:SocetyDeposit', function(money)
             {
                 type = 'number',
                 isRequired = true,
-                name = Lang:t("body.amount"),
+                name = 'amount',
                 text = Lang:t("body.amount")
             }
         }
@@ -304,7 +304,7 @@ RegisterNetEvent('qb-bossmenu:client:SocetyWithDraw', function(money)
             {
                 type = 'number',
                 isRequired = true,
-                name = Lang:t("body.amount"),
+                name = 'amount',
                 text = Lang:t("body.amount")
             }
         }
